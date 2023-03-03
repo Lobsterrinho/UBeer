@@ -32,14 +32,20 @@ final class LoginCoordinator: Coordinator {
     
 }
 
-extension LoginCoordinator: LoginCoordinatorProtocol {
+extension LoginCoordinator: LoginCoordinatorProtocol, RegisterRootCoordinatorProtocol {
     
     func openRegisterScene() {
-        
+        let registerCoordinator = RegisterCoordinator(navigationController: rootNavigationController, rootCoordinator: self)
+        childCoordinators.append(registerCoordinator)
+        registerCoordinator.start()
     }
     
     func openForgotPasswordScene() {
         
+    }
+    
+    func registerFinished(_ coordinator: Coordinator) {
+        childCoordinators.removeAll(where: { $0 === coordinator })
     }
     
 }

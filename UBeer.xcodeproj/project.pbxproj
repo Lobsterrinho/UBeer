@@ -20,6 +20,15 @@
 		BA6E05EE29AE1E2F00549E60 /* LoginCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05ED29AE1E2F00549E60 /* LoginCoordinatorProtocol.swift */; };
 		BA6E05F029AE279700549E60 /* AuthorizationService+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05EF29AE279700549E60 /* AuthorizationService+Login.swift */; };
 		BA6E05F329AF3BC000549E60 /* ExtensionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05F229AF3BC000549E60 /* ExtensionColor.swift */; };
+		BA6E05FF29AFD8AD00549E60 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05FE29AFD8AD00549E60 /* RegisterVC.swift */; };
+		BA6E060129AFD8BC00549E60 /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E060029AFD8BC00549E60 /* RegisterVM.swift */; };
+		BA6E060329AFD8C700549E60 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E060229AFD8C700549E60 /* RegisterCoordinator.swift */; };
+		BA6E060529AFD92600549E60 /* RegisterAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E060429AFD92600549E60 /* RegisterAssembler.swift */; };
+		BA6E060729AFDAC600549E60 /* RegisterVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E060629AFDAC600549E60 /* RegisterVMProtocol.swift */; };
+		BA6E060D29AFE1C900549E60 /* AuthorizationService+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E060C29AFE1C900549E60 /* AuthorizationService+Register.swift */; };
+		BA6E061029AFE1F400549E60 /* RegisterAuthorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E060F29AFE1F400549E60 /* RegisterAuthorizationServiceProtocol.swift */; };
+		BA6E061229AFE35F00549E60 /* RegisterCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E061129AFE35F00549E60 /* RegisterCoordinatorProtocol.swift */; };
+		BA6E061429AFE38200549E60 /* RegisterRootCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E061329AFE38200549E60 /* RegisterRootCoordinatorProtocol.swift */; };
 		BA8F4BDC29ABF66C00C68B78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F4BDB29ABF66C00C68B78 /* AppDelegate.swift */; };
 		BA8F4BDE29ABF66C00C68B78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F4BDD29ABF66C00C68B78 /* SceneDelegate.swift */; };
 		BA8F4BE529ABF67300C68B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8F4BE429ABF67300C68B78 /* Assets.xcassets */; };
@@ -40,6 +49,15 @@
 		BA6E05ED29AE1E2F00549E60 /* LoginCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		BA6E05EF29AE279700549E60 /* AuthorizationService+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorizationService+Login.swift"; sourceTree = "<group>"; };
 		BA6E05F229AF3BC000549E60 /* ExtensionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionColor.swift; sourceTree = "<group>"; };
+		BA6E05FE29AFD8AD00549E60 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		BA6E060029AFD8BC00549E60 /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
+		BA6E060229AFD8C700549E60 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
+		BA6E060429AFD92600549E60 /* RegisterAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAssembler.swift; sourceTree = "<group>"; };
+		BA6E060629AFDAC600549E60 /* RegisterVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVMProtocol.swift; sourceTree = "<group>"; };
+		BA6E060C29AFE1C900549E60 /* AuthorizationService+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorizationService+Register.swift"; sourceTree = "<group>"; };
+		BA6E060F29AFE1F400549E60 /* RegisterAuthorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAuthorizationServiceProtocol.swift; sourceTree = "<group>"; };
+		BA6E061129AFE35F00549E60 /* RegisterCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		BA6E061329AFE38200549E60 /* RegisterRootCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRootCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		BA8F4BD829ABF66C00C68B78 /* UBeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UBeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8F4BDB29ABF66C00C68B78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8F4BDD29ABF66C00C68B78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,10 +80,10 @@
 		BA6E05CA29ADE05200549E60 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				BA6E05D829ADEE3300549E60 /* Coordinator.swift */,
 				BA8F4BDD29ABF66C00C68B78 /* SceneDelegate.swift */,
 				BA8F4BDB29ABF66C00C68B78 /* AppDelegate.swift */,
 				BA6E05D529ADED9800549E60 /* AppCoordinator.swift */,
-				BA6E05D829ADEE3300549E60 /* Coordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -117,12 +135,12 @@
 		BA6E05D429ADE50700549E60 /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
+				BA6E060929AFE18C00549E60 /* Extensions */,
 				BA6E05E229ADF61500549E60 /* Protocols */,
 				BA6E05DA29ADF1EF00549E60 /* LoginVC.swift */,
 				BA6E05DC29ADF1F900549E60 /* LoginVM.swift */,
 				BA6E05DE29ADF20200549E60 /* LoginCoordinator.swift */,
 				BA6E05E029ADF20C00549E60 /* LoginAssembler.swift */,
-				BA6E05EF29AE279700549E60 /* AuthorizationService+Login.swift */,
 			);
 			path = LoginScene;
 			sourceTree = "<group>";
@@ -141,6 +159,12 @@
 		BA6E05E529AE17A100549E60 /* RegisterScene */ = {
 			isa = PBXGroup;
 			children = (
+				BA6E060A29AFE19D00549E60 /* Extensions */,
+				BA6E060829AFE14A00549E60 /* Protocols */,
+				BA6E05FE29AFD8AD00549E60 /* RegisterVC.swift */,
+				BA6E060029AFD8BC00549E60 /* RegisterVM.swift */,
+				BA6E060229AFD8C700549E60 /* RegisterCoordinator.swift */,
+				BA6E060429AFD92600549E60 /* RegisterAssembler.swift */,
 			);
 			path = RegisterScene;
 			sourceTree = "<group>";
@@ -158,6 +182,33 @@
 				BA6E05F229AF3BC000549E60 /* ExtensionColor.swift */,
 			);
 			path = GlobalExtensions;
+			sourceTree = "<group>";
+		};
+		BA6E060829AFE14A00549E60 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BA6E060629AFDAC600549E60 /* RegisterVMProtocol.swift */,
+				BA6E060F29AFE1F400549E60 /* RegisterAuthorizationServiceProtocol.swift */,
+				BA6E061129AFE35F00549E60 /* RegisterCoordinatorProtocol.swift */,
+				BA6E061329AFE38200549E60 /* RegisterRootCoordinatorProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BA6E060929AFE18C00549E60 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA6E05EF29AE279700549E60 /* AuthorizationService+Login.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BA6E060A29AFE19D00549E60 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA6E060C29AFE1C900549E60 /* AuthorizationService+Register.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		BA8F4BCF29ABF66C00C68B78 = {
@@ -180,10 +231,10 @@
 			isa = PBXGroup;
 			children = (
 				BA6E05CA29ADE05200549E60 /* Application */,
-				BA6E05CB29ADE0AD00549E60 /* Resources */,
 				BA6E05CC29ADE0DE00549E60 /* Modules */,
 				BA6E05D029ADE11C00549E60 /* Services */,
 				BA6E05F129AF3B9100549E60 /* GlobalExtensions */,
+				BA6E05CB29ADE0AD00549E60 /* Resources */,
 			);
 			path = UBeer;
 			sourceTree = "<group>";
@@ -259,17 +310,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8F4BDC29ABF66C00C68B78 /* AppDelegate.swift in Sources */,
+				BA6E060729AFDAC600549E60 /* RegisterVMProtocol.swift in Sources */,
+				BA6E061029AFE1F400549E60 /* RegisterAuthorizationServiceProtocol.swift in Sources */,
 				BA6E05D629ADED9800549E60 /* AppCoordinator.swift in Sources */,
 				BA6E05E829AE196400549E60 /* LoginVMProtocol.swift in Sources */,
 				BA6E05DF29ADF20200549E60 /* LoginCoordinator.swift in Sources */,
 				BA6E05EA29AE1CB000549E60 /* AuthorizationService.swift in Sources */,
 				BA6E05E429ADF62C00549E60 /* LoginRootCoordinatorProtocol.swift in Sources */,
+				BA6E060D29AFE1C900549E60 /* AuthorizationService+Register.swift in Sources */,
 				BA6E05DD29ADF1F900549E60 /* LoginVM.swift in Sources */,
 				BA6E05D929ADEE3300549E60 /* Coordinator.swift in Sources */,
 				BA6E05F029AE279700549E60 /* AuthorizationService+Login.swift in Sources */,
+				BA6E060529AFD92600549E60 /* RegisterAssembler.swift in Sources */,
+				BA6E061229AFE35F00549E60 /* RegisterCoordinatorProtocol.swift in Sources */,
+				BA6E05FF29AFD8AD00549E60 /* RegisterVC.swift in Sources */,
+				BA6E061429AFE38200549E60 /* RegisterRootCoordinatorProtocol.swift in Sources */,
 				BA8F4BDE29ABF66C00C68B78 /* SceneDelegate.swift in Sources */,
+				BA6E060329AFD8C700549E60 /* RegisterCoordinator.swift in Sources */,
 				BA6E05E129ADF20C00549E60 /* LoginAssembler.swift in Sources */,
 				BA6E05EC29AE1D5600549E60 /* LoginAuthorizationProtocol.swift in Sources */,
+				BA6E060129AFD8BC00549E60 /* RegisterVM.swift in Sources */,
 				BA6E05DB29ADF1EF00549E60 /* LoginVC.swift in Sources */,
 				BA6E05EE29AE1E2F00549E60 /* LoginCoordinatorProtocol.swift in Sources */,
 				BA6E05F329AF3BC000549E60 /* ExtensionColor.swift in Sources */,
