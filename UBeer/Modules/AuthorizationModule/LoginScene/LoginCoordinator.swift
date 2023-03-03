@@ -9,15 +9,15 @@ import UIKit
 
 final class LoginCoordinator: Coordinator {
     
-    var childCoordinators = [Coordinator]()
+    var childCoordinators: [Coordinator] = []
     
     private var rootNavigationController: UINavigationController
     private var rootCoordinator: LoginRootCoordinatorProtocol
     
-    init(rootCoordinator: LoginRootCoordinatorProtocol,
-         rootNavigationController: UINavigationController) {
-        self.rootCoordinator = rootCoordinator
+    init(rootNavigationController: UINavigationController,
+         rootCoordinator: LoginRootCoordinatorProtocol) {
         self.rootNavigationController = rootNavigationController
+        self.rootCoordinator = rootCoordinator
     }
     
     func start() {
@@ -32,7 +32,7 @@ final class LoginCoordinator: Coordinator {
     
 }
 
-extension LoginCoordinator: LoginCoordinatorProtocol, RegisterRootCoordinatorProtocol {
+extension LoginCoordinator: LoginCoordinatorProtocol{
     
     func openRegisterScene() {
         let registerCoordinator = RegisterCoordinator(navigationController: rootNavigationController, rootCoordinator: self)
@@ -41,11 +41,28 @@ extension LoginCoordinator: LoginCoordinatorProtocol, RegisterRootCoordinatorPro
     }
     
     func openForgotPasswordScene() {
-        
+        let forgotPasswordCoordinator = ForgotPasswordCoordinator(navigationController: rootNavigationController, rootCoordinator: self)
+        childCoordinators.append(forgotPasswordCoordinator)
+        forgotPasswordCoordinator.start()
     }
+    
+    
+    
+}
+
+extension LoginCoordinator: RegisterRootCoordinatorProtocol {
     
     func registerFinished(_ coordinator: Coordinator) {
         childCoordinators.removeAll(where: { $0 === coordinator })
     }
+}
+
+
+extension LoginCoordinator: ForgotPasswordRootCoordinatorProtocol {
+    
+    func forgotPasswordFinished(_ coordinator: Coordinator) {
+        childCoordinators.removeAll(where: { $0 === coordinator })
+    }
+    
     
 }

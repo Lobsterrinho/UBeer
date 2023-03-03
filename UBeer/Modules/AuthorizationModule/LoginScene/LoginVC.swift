@@ -45,10 +45,10 @@ extension LoginVC {
         loginButton.addTarget(self, action: #selector(login),
                               for: .touchUpInside)
         
-        registerButton.addTarget(self, action: #selector(openRegisterVC),
+        registerButton.addTarget(self, action: #selector(openRegisterScene),
                                  for: .touchUpInside)
         
-        forgotPasswordButton.addTarget(self, action: #selector(openForgotPasswordVC),
+        forgotPasswordButton.addTarget(self, action: #selector(openForgotPasswordScene),
                               for: .touchUpInside)
     }
     
@@ -58,12 +58,12 @@ extension LoginVC {
         print("\(#function) \(Self.self)")
     }
     
-    @objc private func openRegisterVC() {
+    @objc private func openRegisterScene() {
         viewModel.openRegisterScene()
         print("\(#function) \(Self.self)")
     }
     
-    @objc private func openForgotPasswordVC() {
+    @objc private func openForgotPasswordScene() {
         viewModel.openForgotPasswordScene()
         print("\(#function) \(Self.self)")
     }

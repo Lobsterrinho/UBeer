@@ -34,7 +34,7 @@ final class AppCoordinator: Coordinator {
     
     
     private func openLoginScene() {
-        let coordinator = LoginCoordinator(rootCoordinator: self, rootNavigationController: rootNavigationController)
+        let coordinator = LoginCoordinator(rootNavigationController: rootNavigationController, rootCoordinator: self)
         
         childCoordinators.append(coordinator)
         coordinator.start()
@@ -43,6 +43,7 @@ final class AppCoordinator: Coordinator {
 }
 
 extension AppCoordinator: LoginRootCoordinatorProtocol {
+    
     func loginFinished(_ coordinator: Coordinator) {
         childCoordinators.removeAll(where: { $0 === coordinator })
         start()

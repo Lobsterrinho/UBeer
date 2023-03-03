@@ -9,6 +9,8 @@ import UIKit
 
 final class RegisterAssembler {
     
+    private init() { }
+    
     static func makeRegisterVC(coordinator: RegisterCoordinatorProtocol) -> UIViewController {
         let viewModel = makeViewModel(coordinator)
         let viewController = RegisterVC(viewModel: viewModel)

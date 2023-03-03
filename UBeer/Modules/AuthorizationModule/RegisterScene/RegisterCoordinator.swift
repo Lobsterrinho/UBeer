@@ -7,14 +7,15 @@
 
 import UIKit
 
-final class RegisterCoordinator: Coordinator, RegisterCoordinatorProtocol {
+final class RegisterCoordinator: Coordinator {
     
     private var navigationController: UINavigationController
     private var rootCoordinator: RegisterRootCoordinatorProtocol
     
     var childCoordinators = [Coordinator]()
     
-    init(navigationController: UINavigationController, rootCoordinator: RegisterRootCoordinatorProtocol, childCoordinators: [Coordinator] = [Coordinator]()) {
+    init(navigationController: UINavigationController,
+         rootCoordinator: RegisterRootCoordinatorProtocol) {
         self.navigationController = navigationController
         self.rootCoordinator = rootCoordinator
     }
@@ -32,10 +33,6 @@ final class RegisterCoordinator: Coordinator, RegisterCoordinatorProtocol {
     
 }
 
-extension RegisterAssembler: RegisterCoordinatorProtocol {
-    
-    func finish() {
-        print("asdf")
-    }
+extension RegisterCoordinator: RegisterCoordinatorProtocol {
     
 }
