@@ -16,8 +16,7 @@ final class LoginVC: UIViewController {
     private let passwordTextField = UITextField()
     private let forgotPasswordButton = UIButton()
     private let loginButton = UIButton()
-    
-    
+    private let registerButton = UIButton()
     
     private var viewModel: LoginVMProtocol
     
@@ -32,28 +31,46 @@ final class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupViews()
+        setupActions()
     }
-    
-    //MARK: - Actions
-    
-    private func login() {
-        viewModel.login()
-    }
-    
-    private func openRegisterVC() {
-        viewModel.openRegisterScene()
-    }
-    
-    private func openForgotPasswordVC() {
-        viewModel.openForgotPasswordScene()
-    }
-    
 }
 
 extension LoginVC {
     
+//MARK: - Actions
+    
+    //Setup selectors for buttons
+    private func setupActions() {
+        loginButton.addTarget(self, action: #selector(login),
+                              for: .touchUpInside)
+        
+        registerButton.addTarget(self, action: #selector(openRegisterVC),
+                                 for: .touchUpInside)
+        
+        forgotPasswordButton.addTarget(self, action: #selector(openForgotPasswordVC),
+                              for: .touchUpInside)
+    }
+    
+    //Setup selectors
+    @objc private func login() {
+        viewModel.login()
+        print("\(#function) \(Self.self)")
+    }
+    
+    @objc private func openRegisterVC() {
+        viewModel.openRegisterScene()
+        print("\(#function) \(Self.self)")
+    }
+    
+    @objc private func openForgotPasswordVC() {
+        viewModel.openForgotPasswordScene()
+        print("\(#function) \(Self.self)")
+    }
+    
+//MARK: - UI setup and constraints
+    
+    //Setup whole UI elements
     private func setupViews() {
         view.backgroundColor = .white
         
@@ -85,7 +102,6 @@ extension LoginVC {
         passwordTextField.backgroundColor = .white
         passwordTextField.layer.cornerRadius = 8.0
         passwordTextField.layer.borderWidth = 1.0
-//        passwordTextField.leftView = leftView
         passwordTextField.layer.borderColor = UIColor.systemGray3.cgColor
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
     
@@ -94,12 +110,17 @@ extension LoginVC {
         forgotPasswordButton.titleLabel?.font = .systemFont(ofSize: 14.0)
         forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         
-        
         loginButton.setTitle("Login", for: .normal)
         loginButton.setTitleColor(.black, for: .normal)
         loginButton.layer.cornerRadius = 8.0
         loginButton.backgroundColor = .mainOrange
         loginButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        registerButton.setTitle("Register", for: .normal)
+        registerButton.setTitleColor(.black, for: .normal)
+        registerButton.layer.cornerRadius = 8.0
+        registerButton.backgroundColor = .mainOrange
+        registerButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(imageView)
         view.addSubview(welcomeLabel)
@@ -108,13 +129,16 @@ extension LoginVC {
         view.addSubview(passwordTextField)
         view.addSubview(forgotPasswordButton)
         view.addSubview(loginButton)
+        view.addSubview(registerButton)
         setupConstraints()
     }
     
+    //Setup constraints
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
             
+            //Image
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
                                        constant: 30.0),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -123,10 +147,12 @@ extension LoginVC {
                                        constant: 10.0),
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
+            //Login label
             loginLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor,
                                        constant: 5.0),
             loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
+            //Login textField
             loginTextField.topAnchor.constraint(equalTo: loginLabel.bottomAnchor,
                                                 constant: 40.0),
             loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
@@ -135,6 +161,7 @@ extension LoginVC {
                                                      constant: -20.0),
             loginTextField.heightAnchor.constraint(equalToConstant: 44.0),
             
+            //Password textField
             passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor,
                                                    constant: 20.0),
             passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
@@ -143,6 +170,7 @@ extension LoginVC {
                                                         constant: -20.0),
             passwordTextField.heightAnchor.constraint(equalToConstant: 44.0),
             
+            //Forgot password button
             forgotPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,
                                                       constant: 5.0),
             forgotPasswordButton.widthAnchor.constraint(equalToConstant: view.bounds.width / 3),
@@ -150,13 +178,23 @@ extension LoginVC {
                                                            constant: -20.0),
             forgotPasswordButton.heightAnchor.constraint(equalToConstant: 20.0),
             
+            //Login button
             loginButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor,
                                              constant: 50.0),
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
                                                  constant: 20.0),
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                   constant: -20.0),
-            loginButton.heightAnchor.constraint(equalToConstant: 44.0)
+            loginButton.heightAnchor.constraint(equalToConstant: 44.0),
+            
+            //Register button
+            registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor,
+                                                constant: 20.0),
+            registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                    constant: 20.0),
+            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                     constant: -20.0),
+            registerButton.heightAnchor.constraint(equalToConstant: 44.0)
             
         ])
         
