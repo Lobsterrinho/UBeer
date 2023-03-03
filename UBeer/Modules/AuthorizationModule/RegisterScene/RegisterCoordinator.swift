@@ -25,7 +25,9 @@ final class RegisterCoordinator: Coordinator, RegisterCoordinatorProtocol {
     }
     
     func finish() {
-        
+        rootCoordinator.registerFinished(self)
+        print("Registration finished")
+        navigationController.popViewController(animated: true)
     }
     
 }

@@ -176,7 +176,7 @@ extension LoginVC {
             forgotPasswordButton.widthAnchor.constraint(equalToConstant: view.bounds.width / 3),
             forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                            constant: -20.0),
-            forgotPasswordButton.heightAnchor.constraint(equalToConstant: 20.0),
+            forgotPasswordButton.heightAnchor.constraint(equalToConstant: 21.0),
             
             //Login button
             loginButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor,

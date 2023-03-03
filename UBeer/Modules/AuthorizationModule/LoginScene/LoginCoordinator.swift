@@ -46,7 +46,6 @@ extension LoginCoordinator: LoginCoordinatorProtocol, RegisterRootCoordinatorPro
     
     func registerFinished(_ coordinator: Coordinator) {
         childCoordinators.removeAll(where: { $0 === coordinator })
-        start()
     }
     
 }

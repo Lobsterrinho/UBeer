@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol RegisterCoordinatorProtocol {
+protocol RegisterCoordinatorProtocol: AnyObject {
     
     func finish()
     

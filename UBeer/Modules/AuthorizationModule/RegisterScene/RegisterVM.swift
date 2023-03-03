@@ -10,7 +10,7 @@ import UIKit
 final class RegisterVM: RegisterVMProtocol {
     
     private var authorizationService: RegisterAuthorizationServiceProtocol
-    private var coordinator: RegisterCoordinatorProtocol?
+    private weak var coordinator: RegisterCoordinatorProtocol?
     
     init(authorizationService: RegisterAuthorizationServiceProtocol,
          coordinator: RegisterCoordinatorProtocol) {
