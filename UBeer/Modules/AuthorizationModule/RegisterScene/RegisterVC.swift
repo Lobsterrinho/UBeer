@@ -12,11 +12,11 @@ final class RegisterVC: UIViewController {
     private let imageView = UIImageView()
     private let upperTextLabel = UILabel()
     private let lowerTextLabel = UILabel()
-    private let usernameTextField = UITextField()
-    private let emailTextField = UITextField()
-    private let passwordTextField = UITextField()
+    private let usernameTextField = RegularTextField("Username")
+    private let emailTextField = RegularTextField("Email")
+    private let passwordTextField = RegularTextField("Password")
     private let agreementButton = UIButton()
-    private let registerButton = UIButton()
+    private let registerButton = RegularButton("Register")
     
     private var viewModel: RegisterVMProtocol
     
@@ -34,6 +34,13 @@ final class RegisterVC: UIViewController {
         
         setupViews()
         setupActions()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isMovingFromParent {
+            viewModel.finish(shouldMovetoParentVC: false)
+        }
     }
     
 }
@@ -56,47 +63,18 @@ extension RegisterVC {
         imageView.image = UIImage(named: "loginImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
-        upperTextLabel.text = "Create an account"
-        upperTextLabel.textColor = .blackText
-        upperTextLabel.font = .systemFont(ofSize: 34.0, weight: .bold)
-        upperTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        upperTextLabel.setupLabel(text: "Create an account",
+                                  color: .black80,
+                                  fontName: .headline)
         
-        lowerTextLabel.text = "Create your new account"
-        lowerTextLabel.textColor = .grayText
-        lowerTextLabel.font = .systemFont(ofSize: 16.0, weight: .regular)
-        lowerTextLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        usernameTextField.placeholder = "Username"
-        usernameTextField.backgroundColor = .white
-        usernameTextField.layer.cornerRadius = 8.0
-        usernameTextField.layer.borderWidth = 1.0
-        usernameTextField.layer.borderColor = UIColor.systemGray3.cgColor
-        usernameTextField.translatesAutoresizingMaskIntoConstraints = false
-        
-        emailTextField.placeholder = "Email"
-        emailTextField.backgroundColor = .white
-        emailTextField.layer.cornerRadius = 8.0
-        emailTextField.layer.borderWidth = 1.0
-        emailTextField.layer.borderColor = UIColor.systemGray3.cgColor
-        emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        
-        passwordTextField.placeholder = "Password"
-        passwordTextField.backgroundColor = .white
-        passwordTextField.layer.cornerRadius = 8.0
-        passwordTextField.layer.borderWidth = 1.0
-        passwordTextField.layer.borderColor = UIColor.systemGray3.cgColor
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        lowerTextLabel.setupLabel(text: "Create your new account",
+                                  color: .black60,
+                                  fontName: .text)
     
         agreementButton.setTitle("I agree to Terms & Conditions and Privacy Policy", for: .normal)
         agreementButton.setTitleColor(.gray, for: .normal)
         agreementButton.titleLabel?.font = .systemFont(ofSize: 14.0)
         agreementButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        registerButton.setTitle("Register", for: .normal)
-        registerButton.setTitleColor(.black, for: .normal)
-        registerButton.layer.cornerRadius = 8.0
-        registerButton.backgroundColor = .mainOrange
-        registerButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(imageView)
         view.addSubview(upperTextLabel)

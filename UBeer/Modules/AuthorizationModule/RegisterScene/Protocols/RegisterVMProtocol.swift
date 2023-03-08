@@ -10,5 +10,5 @@ import Foundation
 protocol RegisterVMProtocol {
     
     func register()
-    
+    func finish(shouldMovetoParentVC: Bool)
 }

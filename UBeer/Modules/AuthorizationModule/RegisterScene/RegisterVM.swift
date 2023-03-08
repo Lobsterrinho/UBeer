@@ -20,7 +20,11 @@ final class RegisterVM: RegisterVMProtocol {
     
     func register() {
         authorizationService.register()
-        coordinator?.finish()
+        
+    }
+    
+    func finish(shouldMovetoParentVC: Bool) {
+        coordinator?.finish(shouldMovetoParentVC: shouldMovetoParentVC)
     }
     
 }

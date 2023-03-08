@@ -12,11 +12,13 @@ final class LoginVC: UIViewController {
     private let imageView = UIImageView()
     private let welcomeLabel = UILabel()
     private let loginLabel = UILabel()
-    private let loginTextField = UITextField()
-    private let passwordTextField = UITextField()
+    private let loginTextField = RegularTextField("Email or username")
+    private let passwordTextField = RegularTextField("Password")
     private let forgotPasswordButton = UIButton()
-    private let loginButton = UIButton()
-    private let registerButton = UIButton()
+    private let loginButton = RegularButton("Login")
+    private let registerButton = RegularButton("Register")
+    
+    
     
     private var viewModel: LoginVMProtocol
     
@@ -60,6 +62,7 @@ extension LoginVC {
     
     @objc private func openRegisterScene() {
         viewModel.openRegisterScene()
+//        registerButton.backgroundColor = .black
         print("\(#function) \(Self.self)")
     }
     
@@ -74,53 +77,24 @@ extension LoginVC {
     private func setupViews() {
         view.backgroundColor = .white
         
-        let leftView = UIView.init(frame: CGRect.init(x: 0.0, y: 0.0, width: 15, height: loginTextField.frame.size.height))
-        
         imageView.image = UIImage(named: "loginImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
-        welcomeLabel.text = "Welcome back"
-        welcomeLabel.textColor = .blackText
-        welcomeLabel.font = .systemFont(ofSize: 34.0, weight: .bold)
-        welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
+        welcomeLabel.setupLabel(text: "Welcome back",
+                                color: .black80,
+                                fontName: .headline)
         
-        loginLabel.text = "Login to your account"
-        loginLabel.textColor = .grayText
-        loginLabel.font = .systemFont(ofSize: 16.0, weight: .regular)
-        loginLabel.translatesAutoresizingMaskIntoConstraints = false
+        loginLabel.setupLabel(text: "Login to your account",
+                              color: .black60,
+                              fontName: .text)
         
-        loginTextField.placeholder = "E-mail or username"
-        loginTextField.backgroundColor = .white
-        loginTextField.layer.cornerRadius = 8.0
-        loginTextField.layer.borderWidth = 1.0
-        loginTextField.leftView = leftView
-        loginTextField.leftViewMode = .always
-        loginTextField.layer.borderColor = UIColor.systemGray3.cgColor
-        loginTextField.translatesAutoresizingMaskIntoConstraints = false
         
-        passwordTextField.placeholder = "Password"
-        passwordTextField.backgroundColor = .white
-        passwordTextField.layer.cornerRadius = 8.0
-        passwordTextField.layer.borderWidth = 1.0
-        passwordTextField.layer.borderColor = UIColor.systemGray3.cgColor
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-    
+        
+        
         forgotPasswordButton.setTitle("Forgot password?", for: .normal)
         forgotPasswordButton.setTitleColor(.gray, for: .normal)
         forgotPasswordButton.titleLabel?.font = .systemFont(ofSize: 14.0)
         forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        loginButton.setTitle("Login", for: .normal)
-        loginButton.setTitleColor(.black, for: .normal)
-        loginButton.layer.cornerRadius = 8.0
-        loginButton.backgroundColor = .mainOrange
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        registerButton.setTitle("Register", for: .normal)
-        registerButton.setTitleColor(.black, for: .normal)
-        registerButton.layer.cornerRadius = 8.0
-        registerButton.backgroundColor = .mainOrange
-        registerButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(imageView)
         view.addSubview(welcomeLabel)
@@ -194,7 +168,7 @@ extension LoginVC {
                                                     constant: 20.0),
             registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                      constant: -20.0),
-            registerButton.heightAnchor.constraint(equalToConstant: 44.0)
+            registerButton.heightAnchor.constraint(equalToConstant: 44.0),
             
         ])
         

@@ -10,7 +10,9 @@ import Foundation
 final class AuthorizationService {
     
     func login() {
-        print("\(#function)")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            print("You are logged in")
+        }
     }
     
     func register() {

@@ -9,6 +9,6 @@ import UIKit
 
 protocol RegisterCoordinatorProtocol: AnyObject {
     
-    func finish()
+    func finish(shouldMovetoParentVC: Bool)
     
 }

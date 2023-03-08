@@ -26,7 +26,6 @@ final class ForgotPasswordCoordinator: Coordinator {
     }
     
     func finish() {
-        navigationController.popViewController(animated: true)
         rootCoordinator.forgotPasswordFinished(self)
     }
     
@@ -34,6 +33,13 @@ final class ForgotPasswordCoordinator: Coordinator {
 }
 
 extension ForgotPasswordCoordinator: ForgotPasswordCoordinatorProtocol {
+    
+    func finish(shouldMoveToParent: Bool) {
+        if shouldMoveToParent {
+            navigationController.popViewController(animated: true)
+        }
+        finish()
+    }
     
 }
 

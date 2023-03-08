@@ -10,5 +10,5 @@ import UIKit
 protocol ForgotPasswordVMProtocol {
     
     func forgotPassword()
-    
+    func finish(shouldMoveToParent: Bool)
 }

@@ -20,7 +20,10 @@ final class ForgotPasswordVM: ForgotPasswordVMProtocol {
     
     func forgotPassword() {
         authorizationService.forgotPassword()
-        coordinator?.finish()
+    }
+    
+    func finish(shouldMoveToParent: Bool) {
+        coordinator?.finish(shouldMoveToParent: shouldMoveToParent)
     }
     
 }

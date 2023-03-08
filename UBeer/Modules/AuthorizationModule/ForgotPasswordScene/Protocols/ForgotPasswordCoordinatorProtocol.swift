@@ -9,6 +9,6 @@ import UIKit
 
 protocol ForgotPasswordCoordinatorProtocol: AnyObject {
     
-    func finish()
+    func finish(shouldMoveToParent: Bool)
     
 }

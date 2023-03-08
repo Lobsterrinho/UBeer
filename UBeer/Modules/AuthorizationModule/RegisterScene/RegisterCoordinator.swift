@@ -27,8 +27,8 @@ final class RegisterCoordinator: Coordinator {
     
     func finish() {
         rootCoordinator.registerFinished(self)
-        print("Registration finished")
-        navigationController.popViewController(animated: true)
+//        print("Registration finished")
+//        navigationController.popViewController(animated: true)
     }
     
     
@@ -36,5 +36,12 @@ final class RegisterCoordinator: Coordinator {
 }
 
 extension RegisterCoordinator: RegisterCoordinatorProtocol {
+    
+    func finish(shouldMovetoParentVC: Bool) {
+        if shouldMovetoParentVC {
+            navigationController.popViewController(animated: true)
+        }
+        finish()
+    }
     
 }

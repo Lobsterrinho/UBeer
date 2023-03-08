@@ -12,10 +12,8 @@ final class ForgotPasswordVC: UIViewController {
     private let imageView = UIImageView()
     private let upperTextLabel = UILabel()
     private let lowerTextLabel = UILabel()
-    private let usernameTextField = UITextField()
-    private let passwordTextField = UITextField()
-    private let confirmPasswordTextField = UITextField()
-    private let changePasswordButton = UIButton()
+    private let usernameTextField = RegularTextField("Username or email")
+    private let changePasswordButton = RegularButton("Change password")
     
     private var viewModel: ForgotPasswordVMProtocol
     
@@ -33,6 +31,13 @@ final class ForgotPasswordVC: UIViewController {
         
         setupViews()
         setupSelectors()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isMovingFromParent {
+            viewModel.finish(shouldMoveToParent: false)
+        }
     }
     
 }
@@ -55,49 +60,18 @@ extension ForgotPasswordVC {
         imageView.image = UIImage(named: "loginImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
-        upperTextLabel.text = "Forgot password?"
-        upperTextLabel.textColor = .blackText
-        upperTextLabel.font = .systemFont(ofSize: 34.0, weight: .bold)
-        upperTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        upperTextLabel.setupLabel(text: "Forgot password?",
+                                  color: .black80,
+                                  fontName: .headline)
         
-        lowerTextLabel.text = "Enter your new password"
-        lowerTextLabel.textColor = .grayText
-        lowerTextLabel.font = .systemFont(ofSize: 16.0, weight: .regular)
-        lowerTextLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        usernameTextField.placeholder = "Username"
-        usernameTextField.backgroundColor = .white
-        usernameTextField.layer.cornerRadius = 8.0
-        usernameTextField.layer.borderWidth = 1.0
-        usernameTextField.layer.borderColor = UIColor.systemGray3.cgColor
-        usernameTextField.translatesAutoresizingMaskIntoConstraints = false
-        
-        passwordTextField.placeholder = "Password"
-        passwordTextField.backgroundColor = .white
-        passwordTextField.layer.cornerRadius = 8.0
-        passwordTextField.layer.borderWidth = 1.0
-        passwordTextField.layer.borderColor = UIColor.systemGray3.cgColor
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        
-        confirmPasswordTextField.placeholder = "Confirm password"
-        confirmPasswordTextField.backgroundColor = .white
-        confirmPasswordTextField.layer.cornerRadius = 8.0
-        confirmPasswordTextField.layer.borderWidth = 1.0
-        confirmPasswordTextField.layer.borderColor = UIColor.systemGray3.cgColor
-        confirmPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
-        
-        changePasswordButton.setTitle("Change password", for: .normal)
-        changePasswordButton.setTitleColor(.black, for: .normal)
-        changePasswordButton.layer.cornerRadius = 8.0
-        changePasswordButton.backgroundColor = .mainOrange
-        changePasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        lowerTextLabel.setupLabel(text: "Enter your username or email",
+                                  color: .black60,
+                                  fontName: .text)
         
         view.addSubview(imageView)
         view.addSubview(upperTextLabel)
         view.addSubview(lowerTextLabel)
         view.addSubview(usernameTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(confirmPasswordTextField)
         view.addSubview(changePasswordButton)
         setupConstraints()
     }
@@ -131,26 +105,8 @@ extension ForgotPasswordVC {
                                                      constant: -20.0),
             usernameTextField.heightAnchor.constraint(equalToConstant: 44.0),
             
-            //Email textField
-            passwordTextField.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor,
-                                                   constant: 20.0),
-            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
-                                                       constant: 20.0),
-            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
-                                                        constant: -20.0),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 44.0),
-            
-            //Password texField
-            confirmPasswordTextField.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,
-                                                   constant: 20.0),
-            confirmPasswordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
-                                                       constant: 20.0),
-            confirmPasswordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
-                                                        constant: -20.0),
-            confirmPasswordTextField.heightAnchor.constraint(equalToConstant: 44.0),
-            
-            //Register button
-            changePasswordButton.topAnchor.constraint(equalTo: confirmPasswordTextField.bottomAnchor,
+            //Change password button
+            changePasswordButton.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor,
                                                 constant: 20.0),
             changePasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
                                                     constant: 20.0),
