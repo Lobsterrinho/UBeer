@@ -11,16 +11,20 @@ final class LoginVM: LoginVMProtocol {
     
     private var authorizationService: LoginAuthorizationServiceProtocol
     private weak var coordinator: LoginCoordinatorProtocol?
+    private var alertFactory: AlertControllerFactoryProtocol
     
     init(authorizationService: LoginAuthorizationServiceProtocol,
-         coordinator: LoginCoordinatorProtocol) {
+         coordinator: LoginCoordinatorProtocol,
+         alertFactory: AlertControllerFactoryProtocol) {
         self.authorizationService = authorizationService
         self.coordinator = coordinator
+        self.alertFactory = alertFactory
     }
     
     func login() {
         authorizationService.login()
-        coordinator?.finish()
+//        coordinator?.finish()
+        openAlert()
     }
     
     func openRegisterScene() {
@@ -29,6 +33,13 @@ final class LoginVM: LoginVMProtocol {
     
     func openForgotPasswordScene() {
         coordinator?.openForgotPasswordScene()
+    }
+    
+    private func openAlert() {
+        let alert = alertFactory.makeAlert(title: "Succes", message: "You are logged in", actions: [.cancel({
+            //place for handler
+        })])
+        coordinator?.presentAlert(alert)
     }
     
 }

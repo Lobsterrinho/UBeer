@@ -21,11 +21,16 @@ final class LoginAssembler {
     
     private static func makeViewModel(coordinator: LoginCoordinatorProtocol) -> LoginVMProtocol {
         return LoginVM(authorizationService: makeAuthorizationService(),
-                       coordinator: coordinator)
+                       coordinator: coordinator,
+                       alertFactory: makeAlertFactory())
     }
     
     private static func makeAuthorizationService() -> LoginAuthorizationServiceProtocol {
         return AuthorizationService()
+    }
+    
+    private static func makeAlertFactory() -> AlertControllerFactoryProtocol {
+        return AlertControllerFactory()
     }
     
 }

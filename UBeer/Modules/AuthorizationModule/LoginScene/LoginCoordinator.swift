@@ -32,7 +32,11 @@ final class LoginCoordinator: Coordinator {
     
 }
 
-extension LoginCoordinator: LoginCoordinatorProtocol{
+extension LoginCoordinator: LoginCoordinatorProtocol {
+    
+    func presentAlert(_ alert: UIViewController) {
+        rootNavigationController.present(alert, animated: true)
+    }
     
     func openRegisterScene() {
         let registerCoordinator = RegisterCoordinator(navigationController: rootNavigationController, rootCoordinator: self)
