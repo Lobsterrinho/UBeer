@@ -12,10 +12,14 @@ final class ForgotPasswordVM: ForgotPasswordVMProtocol {
     private var authorizationService: ForgotPasswordAuthorizationServiceProtocol
     private weak var coordinator: ForgotPasswordCoordinatorProtocol?
     
-    init(authorizationService: ForgotPasswordAuthorizationServiceProtocol,
+    private var email: String?
+    
+    init(email: String?,
+         authorizationService: ForgotPasswordAuthorizationServiceProtocol,
          coordinator: ForgotPasswordCoordinatorProtocol) {
         self.authorizationService = authorizationService
         self.coordinator = coordinator
+        self.email = email
     }
     
     func forgotPassword() {
@@ -24,6 +28,10 @@ final class ForgotPasswordVM: ForgotPasswordVMProtocol {
     
     func finish(shouldMoveToParent: Bool) {
         coordinator?.finish(shouldMoveToParent: shouldMoveToParent)
+    }
+    
+    func setupLoginTextField(completion: (String?) -> Void) {
+        completion(email)
     }
     
 }

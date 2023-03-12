@@ -23,18 +23,30 @@ final class LoginVM: LoginVMProtocol {
     
     func login() {
         authorizationService.login()
-//        coordinator?.finish()
         openAlert()
     }
     
-    func openRegisterScene() {
-        coordinator?.openRegisterScene()
+    func openRegisterScene(email: String?) {
+        coordinator?.openRegisterScene(delegate: self, email: email)
     }
     
-    func openForgotPasswordScene() {
-        coordinator?.openForgotPasswordScene()
+    func openForgotPasswordScene(email: String?) {
+        coordinator?.openForgotPasswordScene(email: email)
     }
     
+}
+
+
+
+extension LoginVM: RegisterViewModelDelegate {
+    
+    func RegisterFinished(with login: String) {
+        print(login)
+    }
+}
+
+extension LoginVM {
+
     private func openAlert() {
         let alert = alertFactory.makeAlert(title: "Succes", message: "You are logged in", actions: [.cancel({
             //place for handler

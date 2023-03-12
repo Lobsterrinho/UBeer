@@ -11,4 +11,5 @@ protocol ForgotPasswordVMProtocol {
     
     func forgotPassword()
     func finish(shouldMoveToParent: Bool)
+    func setupLoginTextField(completion: (String?) -> Void)
 }

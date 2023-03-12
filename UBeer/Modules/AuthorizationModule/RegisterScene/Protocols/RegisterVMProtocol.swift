@@ -11,4 +11,5 @@ protocol RegisterVMProtocol {
     
     func register()
     func finish(shouldMovetoParentVC: Bool)
+    func setupEmail(completion: (String?) -> Void)
 }

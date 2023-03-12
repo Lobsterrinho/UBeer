@@ -31,12 +31,24 @@ final class ForgotPasswordVC: UIViewController {
         
         setupViews()
         setupSelectors()
+        
+        bind()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if isMovingFromParent {
             viewModel.finish(shouldMoveToParent: false)
+        }
+    }
+    
+}
+
+extension ForgotPasswordVC {
+    
+    private func bind() {
+        viewModel.setupLoginTextField { email in
+            usernameTextField.text = email
         }
     }
     

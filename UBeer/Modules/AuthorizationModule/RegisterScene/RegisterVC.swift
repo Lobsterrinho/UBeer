@@ -18,9 +18,12 @@ final class RegisterVC: UIViewController {
     private let agreementButton = UIButton()
     private let registerButton = RegularButton("Register")
     
+//    private var email: String?
+    
     private var viewModel: RegisterVMProtocol
     
-    init(viewModel: RegisterVMProtocol) {
+    init(viewModel: RegisterVMProtocol,
+         email: String?) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -34,6 +37,8 @@ final class RegisterVC: UIViewController {
         
         setupViews()
         setupActions()
+        
+        bind()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -46,6 +51,12 @@ final class RegisterVC: UIViewController {
 }
 
 extension RegisterVC {
+    
+    private func bind() {
+        viewModel.setupEmail { email in
+            emailTextField.text = email
+        }
+    }
     
     private func setupActions() {
         registerButton.addTarget(self,

@@ -61,13 +61,12 @@ extension LoginVC {
     }
     
     @objc private func openRegisterScene() {
-        viewModel.openRegisterScene()
-//        registerButton.backgroundColor = .black
+        viewModel.openRegisterScene(email: loginTextField.text)
         print("\(#function) \(Self.self)")
     }
     
     @objc private func openForgotPasswordScene() {
-        viewModel.openForgotPasswordScene()
+        viewModel.openForgotPasswordScene(email: loginTextField.text)
         print("\(#function) \(Self.self)")
     }
     

@@ -21,14 +21,18 @@ final class RegisterCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = RegisterAssembler.makeRegisterVC(coordinator: self)
+        assert(false, "Should be open with login, please use start(delegate:)")
+    }
+    
+    func start(delegate: RegisterViewModelDelegate?, email: String?) {
+        let viewController = RegisterAssembler.makeRegisterVC(delegate: delegate,
+                                                              coordinator: self,
+                                                              email: email)
         navigationController.pushViewController(viewController, animated: true)
     }
     
     func finish() {
         rootCoordinator.registerFinished(self)
-//        print("Registration finished")
-//        navigationController.popViewController(animated: true)
     }
     
     

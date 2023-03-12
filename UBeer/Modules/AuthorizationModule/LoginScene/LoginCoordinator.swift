@@ -38,18 +38,29 @@ extension LoginCoordinator: LoginCoordinatorProtocol {
         rootNavigationController.present(alert, animated: true)
     }
     
-    func openRegisterScene() {
-        let registerCoordinator = RegisterCoordinator(navigationController: rootNavigationController, rootCoordinator: self)
+    func openRegisterScene(delegate: RegisterViewModelDelegate, email: String?) {
+        let registerCoordinator = RegisterCoordinator(
+            navigationController: rootNavigationController,
+            rootCoordinator: self)
         childCoordinators.append(registerCoordinator)
-        registerCoordinator.start()
+        registerCoordinator.start(delegate: delegate, email: email)
     }
     
-    func openForgotPasswordScene() {
+    func openForgotPasswordScene(email: String?) {
         let forgotPasswordCoordinator = ForgotPasswordCoordinator(navigationController: rootNavigationController, rootCoordinator: self)
         childCoordinators.append(forgotPasswordCoordinator)
-        forgotPasswordCoordinator.start()
+        forgotPasswordCoordinator.start(email: email)
     }
     
+    
+    
+}
+
+extension LoginCoordinator: RegisterViewModelDelegate {
+    
+    func RegisterFinished(with login: String) {
+        print(login)
+    }
     
     
 }

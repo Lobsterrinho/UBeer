@@ -9,8 +9,8 @@ import UIKit
 
 protocol LoginCoordinatorProtocol: AnyObject {
     
-    func openRegisterScene()
-    func openForgotPasswordScene()
+    func openRegisterScene(delegate: RegisterViewModelDelegate, email: String?)
+    func openForgotPasswordScene(email: String?)
     func presentAlert(_ alert: UIViewController)
     func finish()
     
