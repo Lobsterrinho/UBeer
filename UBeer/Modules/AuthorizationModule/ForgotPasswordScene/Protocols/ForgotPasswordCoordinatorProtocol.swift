@@ -10,5 +10,6 @@ import UIKit
 protocol ForgotPasswordCoordinatorProtocol: AnyObject {
     
     func finish(shouldMoveToParent: Bool)
+    func presentAlert(_ alert: UIAlertController)
     
 }

@@ -18,7 +18,6 @@
 		BA1BBBF129B88F8800E8936C /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBF029B88F8800E8936C /* UIFont+Extension.swift */; };
 		BA1BBBF429B8DC4700E8936C /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBF329B8DC4700E8936C /* AlertControllerFactory.swift */; };
 		BA1BBBF629B8DC5C00E8936C /* AlertControllerFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBF529B8DC5C00E8936C /* AlertControllerFactoryProtocol.swift */; };
-		BA1BBBF829BE37B100E8936C /* LoginVMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBF729BE37B000E8936C /* LoginVMDelegate.swift */; };
 		BA1BBBFA29BE4BA000E8936C /* RegisterVMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBF929BE4BA000E8936C /* RegisterVMDelegate.swift */; };
 		BA6E05D629ADED9800549E60 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05D529ADED9800549E60 /* AppCoordinator.swift */; };
 		BA6E05D929ADEE3300549E60 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05D829ADEE3300549E60 /* Coordinator.swift */; };
@@ -46,6 +45,7 @@
 		BA8F4BDE29ABF66C00C68B78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F4BDD29ABF66C00C68B78 /* SceneDelegate.swift */; };
 		BA8F4BE529ABF67300C68B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8F4BE429ABF67300C68B78 /* Assets.xcassets */; };
 		BA8F4BE829ABF67300C68B78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8F4BE629ABF67300C68B78 /* LaunchScreen.storyboard */; };
+		BA94BDF929C25BB40001A07B /* ForgotPasswordVMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */; };
 		BAA795BA29B297FC007BCD03 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */; };
 		BAA795BC29B29802007BCD03 /* ForgotPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795BB29B29802007BCD03 /* ForgotPasswordVM.swift */; };
 		BAA795BE29B2980B007BCD03 /* ForgotPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795BD29B2980B007BCD03 /* ForgotPasswordCoordinator.swift */; };
@@ -64,7 +64,6 @@
 		BA1BBBF029B88F8800E8936C /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		BA1BBBF329B8DC4700E8936C /* AlertControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactory.swift; sourceTree = "<group>"; };
 		BA1BBBF529B8DC5C00E8936C /* AlertControllerFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactoryProtocol.swift; sourceTree = "<group>"; };
-		BA1BBBF729BE37B000E8936C /* LoginVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVMDelegate.swift; sourceTree = "<group>"; };
 		BA1BBBF929BE4BA000E8936C /* RegisterVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVMDelegate.swift; sourceTree = "<group>"; };
 		BA6E05D529ADED9800549E60 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BA6E05D829ADEE3300549E60 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		BA8F4BE429ABF67300C68B78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA8F4BE729ABF67300C68B78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA8F4BE929ABF67300C68B78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVMDelegate.swift; sourceTree = "<group>"; };
 		BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		BAA795BB29B29802007BCD03 /* ForgotPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVM.swift; sourceTree = "<group>"; };
 		BAA795BD29B2980B007BCD03 /* ForgotPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCoordinator.swift; sourceTree = "<group>"; };
@@ -204,7 +204,6 @@
 				BA6E05EB29AE1D5600549E60 /* LoginAuthorizationProtocol.swift */,
 				BA6E05ED29AE1E2F00549E60 /* LoginCoordinatorProtocol.swift */,
 				BA6E05E329ADF62C00549E60 /* LoginRootCoordinatorProtocol.swift */,
-				BA1BBBF729BE37B000E8936C /* LoginVMDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -310,6 +309,7 @@
 				BA1BBBE329B2A23500E8936C /* ForgotPasswordCoordinatorProtocol.swift */,
 				BA1BBBDD29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift */,
 				BA1BBBE529B2A55500E8936C /* ForgotPasswordRootCoordinatorProtocol.swift */,
+				BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -407,6 +407,7 @@
 				BA6E05DD29ADF1F900549E60 /* LoginVM.swift in Sources */,
 				BA6E05D929ADEE3300549E60 /* Coordinator.swift in Sources */,
 				BA6E05F029AE279700549E60 /* AuthorizationService+Login.swift in Sources */,
+				BA94BDF929C25BB40001A07B /* ForgotPasswordVMDelegate.swift in Sources */,
 				BA1BBBEC29B3C9B600E8936C /* UILabel+Extension.swift in Sources */,
 				BA1BBBF629B8DC5C00E8936C /* AlertControllerFactoryProtocol.swift in Sources */,
 				BA1BBBEA29B3C05C00E8936C /* RegularTextField.swift in Sources */,
@@ -430,7 +431,6 @@
 				BA1BBBF429B8DC4700E8936C /* AlertControllerFactory.swift in Sources */,
 				BA1BBBE429B2A23500E8936C /* ForgotPasswordCoordinatorProtocol.swift in Sources */,
 				BA6E05EE29AE1E2F00549E60 /* LoginCoordinatorProtocol.swift in Sources */,
-				BA1BBBF829BE37B100E8936C /* LoginVMDelegate.swift in Sources */,
 				BA1BBBDE29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift in Sources */,
 				BA6E05F329AF3BC000549E60 /* UIColor+Extension.swift in Sources */,
 			);

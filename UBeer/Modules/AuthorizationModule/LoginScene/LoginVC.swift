@@ -35,10 +35,22 @@ final class LoginVC: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupActions()
+        
+//        bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loginTextField.text = viewModel.email
     }
 }
 
 extension LoginVC {
+    
+    func bind() {
+        loginTextField.text = viewModel.email
+
+    }
     
 //MARK: - Actions
     

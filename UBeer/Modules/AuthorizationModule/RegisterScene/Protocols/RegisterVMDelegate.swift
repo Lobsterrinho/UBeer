@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol RegisterViewModelDelegate: AnyObject {
+protocol RegisterVMDelegate: AnyObject {
     func RegisterFinished(with login: String)
 }

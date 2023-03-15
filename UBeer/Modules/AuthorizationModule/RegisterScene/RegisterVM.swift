@@ -9,26 +9,29 @@ import UIKit
 
 final class RegisterVM: RegisterVMProtocol {
     
-    
     private var authorizationService: RegisterAuthorizationServiceProtocol
     private weak var coordinator: RegisterCoordinatorProtocol?
-    private weak var delegate: RegisterViewModelDelegate?
+    private weak var delegate: RegisterVMDelegate?
+    private var alertFactory: AlertControllerFactoryProtocol
     
-    private var email: String?
+    var email: String?
     
-    init(email: String?,
+    init(alertFactory: AlertControllerFactoryProtocol,
+         email: String?,
          authorizationService: RegisterAuthorizationServiceProtocol,
          coordinator: RegisterCoordinatorProtocol,
-         delegate: RegisterViewModelDelegate?) {
+         delegate: RegisterVMDelegate?) {
         self.authorizationService = authorizationService
         self.coordinator = coordinator
         self.delegate = delegate
         self.email = email
+        self.alertFactory = alertFactory
     }
     
-    func register() {
+    func register(email: String) {
         authorizationService.register()
-        delegate?.RegisterFinished(with: "")
+        delegate?.RegisterFinished(with: email)
+        openAlert()
         
     }
     
@@ -36,8 +39,16 @@ final class RegisterVM: RegisterVMProtocol {
         coordinator?.finish(shouldMovetoParentVC: shouldMovetoParentVC)
     }
     
-    func setupEmail(completion: (String?) -> Void) {
-        completion(email)
+    
+    
+    private func openAlert() {
+        let successAlert = alertFactory.makeAlert(title: "Success",
+                                                  message: nil,
+                                                  actions: [.default(
+                                                    "Okay", {
+                                                        self.finish(shouldMovetoParentVC: true)
+                                                    })])
+        coordinator?.presentAlert(successAlert)
     }
     
 }

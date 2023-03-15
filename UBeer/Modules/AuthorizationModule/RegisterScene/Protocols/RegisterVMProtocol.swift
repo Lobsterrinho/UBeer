@@ -9,7 +9,8 @@ import Foundation
 
 protocol RegisterVMProtocol {
     
-    func register()
+    func register(email: String)
     func finish(shouldMovetoParentVC: Bool)
-    func setupEmail(completion: (String?) -> Void)
+
+    var email: String? { get }
 }

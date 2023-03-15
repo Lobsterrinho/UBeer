@@ -11,16 +11,16 @@ final class LoginAssembler {
     
     private init() { }
     
-    static func makeLoginVC(coordinator: LoginCoordinatorProtocol) -> UIViewController {
-        let viewModel = makeViewModel(coordinator: coordinator)
+    static func makeLoginVC(coordinator: LoginCoordinatorProtocol, email: String) -> UIViewController {
+        let viewModel = makeViewModel(coordinator: coordinator, email: email)
         let viewController = LoginVC(viewModel: viewModel)
         return viewController
     }
     
     //MARK: - Helper
     
-    private static func makeViewModel(coordinator: LoginCoordinatorProtocol) -> LoginVMProtocol {
-        return LoginVM(authorizationService: makeAuthorizationService(),
+    private static func makeViewModel(coordinator: LoginCoordinatorProtocol, email: String) -> LoginVMProtocol {
+        return LoginVM(email: email, authorizationService: makeAuthorizationService(),
                        coordinator: coordinator,
                        alertFactory: makeAlertFactory())
     }

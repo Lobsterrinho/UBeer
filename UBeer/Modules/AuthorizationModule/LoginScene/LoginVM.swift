@@ -13,12 +13,15 @@ final class LoginVM: LoginVMProtocol {
     private weak var coordinator: LoginCoordinatorProtocol?
     private var alertFactory: AlertControllerFactoryProtocol
     
-    init(authorizationService: LoginAuthorizationServiceProtocol,
+    var email: String
+    
+    init(email: String, authorizationService: LoginAuthorizationServiceProtocol,
          coordinator: LoginCoordinatorProtocol,
          alertFactory: AlertControllerFactoryProtocol) {
         self.authorizationService = authorizationService
         self.coordinator = coordinator
         self.alertFactory = alertFactory
+        self.email = email
     }
     
     func login() {
@@ -31,22 +34,27 @@ final class LoginVM: LoginVMProtocol {
     }
     
     func openForgotPasswordScene(email: String?) {
-        coordinator?.openForgotPasswordScene(email: email)
+        coordinator?.openForgotPasswordScene(delegate: self, email: email)
     }
     
 }
 
-
-
-extension LoginVM: RegisterViewModelDelegate {
+extension LoginVM: RegisterVMDelegate {
     
     func RegisterFinished(with login: String) {
-        print(login)
+        email = login
+    }
+}
+
+extension LoginVM: ForgotPasswordVMDelegate {
+    
+    func passwordChanged(with email: String) {
+        self.email = email
     }
 }
 
 extension LoginVM {
-
+    
     private func openAlert() {
         let alert = alertFactory.makeAlert(title: "Succes", message: "You are logged in", actions: [.cancel({
             //place for handler

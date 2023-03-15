@@ -24,7 +24,7 @@ final class RegisterCoordinator: Coordinator {
         assert(false, "Should be open with login, please use start(delegate:)")
     }
     
-    func start(delegate: RegisterViewModelDelegate?, email: String?) {
+    func start(delegate: RegisterVMDelegate?, email: String?) {
         let viewController = RegisterAssembler.makeRegisterVC(delegate: delegate,
                                                               coordinator: self,
                                                               email: email)
@@ -40,6 +40,11 @@ final class RegisterCoordinator: Coordinator {
 }
 
 extension RegisterCoordinator: RegisterCoordinatorProtocol {
+    
+    func presentAlert(_ alert: UIAlertController) {
+        navigationController.present(alert, animated: true)
+    }
+    
     
     func finish(shouldMovetoParentVC: Bool) {
         if shouldMovetoParentVC {

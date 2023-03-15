@@ -9,7 +9,8 @@ import UIKit
 
 protocol ForgotPasswordVMProtocol {
     
-    func forgotPassword()
+    func forgotPassword(email: String)
     func finish(shouldMoveToParent: Bool)
-    func setupLoginTextField(completion: (String?) -> Void)
+    
+    var email: String? { get }
 }

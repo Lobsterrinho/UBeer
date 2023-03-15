@@ -21,7 +21,7 @@ final class LoginCoordinator: Coordinator {
     }
     
     func start() {
-        let rootViewController = LoginAssembler.makeLoginVC(coordinator: self)
+        let rootViewController = LoginAssembler.makeLoginVC(coordinator: self, email: "")
         rootNavigationController.pushViewController(rootViewController, animated: false)
     }
     
@@ -38,7 +38,7 @@ extension LoginCoordinator: LoginCoordinatorProtocol {
         rootNavigationController.present(alert, animated: true)
     }
     
-    func openRegisterScene(delegate: RegisterViewModelDelegate, email: String?) {
+    func openRegisterScene(delegate: RegisterVMDelegate?, email: String?) {
         let registerCoordinator = RegisterCoordinator(
             navigationController: rootNavigationController,
             rootCoordinator: self)
@@ -46,21 +46,12 @@ extension LoginCoordinator: LoginCoordinatorProtocol {
         registerCoordinator.start(delegate: delegate, email: email)
     }
     
-    func openForgotPasswordScene(email: String?) {
+    func openForgotPasswordScene(delegate: ForgotPasswordVMDelegate?, email: String?) {
         let forgotPasswordCoordinator = ForgotPasswordCoordinator(navigationController: rootNavigationController, rootCoordinator: self)
         childCoordinators.append(forgotPasswordCoordinator)
-        forgotPasswordCoordinator.start(email: email)
+        forgotPasswordCoordinator.start(delegate: delegate, email: email)
     }
     
-    
-    
-}
-
-extension LoginCoordinator: RegisterViewModelDelegate {
-    
-    func RegisterFinished(with login: String) {
-        print(login)
-    }
     
     
 }
