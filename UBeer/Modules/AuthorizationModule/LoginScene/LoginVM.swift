@@ -24,9 +24,21 @@ final class LoginVM: LoginVMProtocol {
         self.email = email
     }
     
-    func login() {
-        authorizationService.login()
-        openAlert()
+    func login(email: String?, password: String?) {
+        guard let email = email, !email.isEmpty && email != "",
+              let password = password, !password.isEmpty && password != ""
+        else {
+            openAlert(title: "Сheck the entered data",
+                      message: "Login and/or password can't be empty")
+            return }
+        authorizationService.login(email: email, password: password) { error in
+            if error != nil {
+                self.openAlert(title: "Something went wrong", message: error?.localizedDescription)
+            } else {
+                self.openAlert(title: "Success", message: "You've succesfully signed in")
+            }
+        }
+        
     }
     
     func openRegisterScene(email: String?) {
@@ -55,10 +67,8 @@ extension LoginVM: ForgotPasswordVMDelegate {
 
 extension LoginVM {
     
-    private func openAlert() {
-        let alert = alertFactory.makeAlert(title: "Succes", message: "You are logged in", actions: [.cancel({
-            //place for handler
-        })])
+    private func openAlert(title: String?, message: String?) {
+        let alert = alertFactory.makeAlert(title: title, message: message, actions: [.default("Okay", {  })])
         coordinator?.presentAlert(alert)
     }
     

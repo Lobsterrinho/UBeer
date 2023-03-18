@@ -35,6 +35,8 @@ final class RegisterVC: UIViewController {
         setupViews()
         setupActions()
         
+        createRightViewSecureButton(textField: passwordTextField)
+        
         bind()
     }
     
@@ -53,6 +55,21 @@ extension RegisterVC {
         emailTextField.text = viewModel.email
     }
     
+    private func createRightViewSecureButton(textField: UITextField) {
+        textField.isSecureTextEntry = true
+        let secureButton = UIButton(type: .custom)
+        secureButton.setupEyeButton()
+        secureButton.addTarget(self, action: #selector (securePasswordButtonDidTap),
+                         for: .touchUpInside)
+        textField.rightView = secureButton
+        textField.rightViewMode = .always
+    }
+    
+    @objc private func securePasswordButtonDidTap(_ sender: UIButton) {
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+        sender.secureButtonToggle(isSecured: !passwordTextField.isSecureTextEntry)
+    }
+    
     private func setupActions() {
         registerButton.addTarget(self,
                                  action: #selector(registerDidTap),
@@ -60,7 +77,8 @@ extension RegisterVC {
     }
     
     @objc private func registerDidTap() {
-        viewModel.register(email: emailTextField.text ?? "**No email")
+        viewModel.register(email: emailTextField.text,
+                           password: passwordTextField.text)
     }
     
     private func setupViews() {
@@ -129,7 +147,7 @@ extension RegisterVC {
                                                        constant: 20.0),
             emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                         constant: -20.0),
-            emailTextField.heightAnchor.constraint(equalToConstant: 44.0),
+            emailTextField.heightAnchor.constraint(equalToConstant: 48.0),
             
             //Password texField
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor,
@@ -138,7 +156,7 @@ extension RegisterVC {
                                                        constant: 20.0),
             passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                         constant: -20.0),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 44.0),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 48.0),
             
             //
             agreementButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,
@@ -156,7 +174,7 @@ extension RegisterVC {
                                                     constant: 20.0),
             registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                      constant: -20.0),
-            registerButton.heightAnchor.constraint(equalToConstant: 44.0)
+            registerButton.heightAnchor.constraint(equalToConstant: 48.0)
             
         ])
         

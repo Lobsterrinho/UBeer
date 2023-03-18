@@ -10,13 +10,15 @@ import UIKit
 final class RegularTextField: UITextField {
     
     private let padding = UIEdgeInsets(top: 0.0,
-                                       left: 20.0,
+                                       left: 15.0,
                                        bottom: 0.0,
-                                       right: 0.0)
+                                       right: 15.0)
     
     init(_ placeholder: String) {
         super.init(frame: .zero)
         setupTextField(placeholder)
+        autocapitalizationType = .none
+        autocorrectionType = .no
     }
     
     required init?(coder: NSCoder) {
@@ -34,7 +36,7 @@ final class RegularTextField: UITextField {
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
-    
+     
     private func setupTextField(_ placeholder: String) {
         attributedPlaceholder = NSAttributedString(
             string: placeholder,

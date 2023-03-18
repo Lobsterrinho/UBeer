@@ -61,7 +61,7 @@ extension ForgotPasswordVC {
     }
     
     @objc private func changePasswordDidTap() {
-        viewModel.forgotPassword(email: usernameOrEmailTextField.text ?? "**No Email")
+        viewModel.forgotPassword(email: usernameOrEmailTextField.text)
     }
     
     private func setupViews() {

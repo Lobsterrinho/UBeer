@@ -9,6 +9,6 @@ import Foundation
 
 protocol RegisterAuthorizationServiceProtocol {
     
-    func register()
+    func register(email: String, password: String, completion: @escaping (Error?) -> Void)
     
 }

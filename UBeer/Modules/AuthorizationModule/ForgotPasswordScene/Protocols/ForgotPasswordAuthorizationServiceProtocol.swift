@@ -9,6 +9,6 @@ import UIKit
 
 protocol ForgotPasswordAuthorizationServiceProtocol {
     
-    func forgotPassword()
+    func forgotPassword(email: String, completion: @escaping (Error?) -> Void)
     
 }

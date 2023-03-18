@@ -28,10 +28,20 @@ final class ForgotPasswordVM: ForgotPasswordVMProtocol {
         self.delegate = delegate
     }
     
-    func forgotPassword(email: String) {
-        authorizationService.forgotPassword()
-        delegate?.passwordChanged(with: email)
-        openAlert()
+    func forgotPassword(email: String?) {
+        guard let email = email, !email.isEmpty && email != ""
+        else {
+            openAlert(title: "Сheck the entered data",
+                      message: "Login and/or password can't be empty", shouldMoveToParent: false)
+            return }
+        authorizationService.forgotPassword(email: email) { error in
+            if error != nil {
+                self.openAlert(title: "Something went wrong", message: error?.localizedDescription, shouldMoveToParent: false)
+            } else {
+                self.delegate?.passwordChanged(with: email)
+                self.openAlert(title: "Success", message: "You've succesfully signed up", shouldMoveToParent: true)
+            }
+        }
     }
     
     func finish(shouldMoveToParent: Bool) {
@@ -42,9 +52,11 @@ final class ForgotPasswordVM: ForgotPasswordVMProtocol {
 
 extension ForgotPasswordVM {
     
-    func openAlert() {
-        let alertVC = alertFactory.makeAlert(title: "Success", message: nil, actions: [.default("Okay", {
-            self.coordinator?.finish(shouldMoveToParent: true)
+    func openAlert(title: String?, message: String?, shouldMoveToParent: Bool) {
+        let alertVC = alertFactory.makeAlert(title: title, message: message, actions: [.default("Okay", {
+            if shouldMoveToParent {
+                self.coordinator?.finish(shouldMoveToParent: true)
+            }
         })])
         coordinator?.presentAlert(alertVC)
     }

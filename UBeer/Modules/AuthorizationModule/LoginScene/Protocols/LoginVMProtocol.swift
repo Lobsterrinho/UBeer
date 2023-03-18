@@ -9,7 +9,7 @@ import Foundation
 
 protocol LoginVMProtocol {
     
-    func login()
+    func login(email: String?, password: String?)
     func openRegisterScene(email: String?)
     func openForgotPasswordScene(email: String?)
     var email: String { get }

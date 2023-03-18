@@ -6,25 +6,29 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 final class AuthorizationService {
     
-    func login() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            print("You are logged in")
+    private var firebaseAuthService = Auth.auth()
+    
+    func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
+        firebaseAuthService.signIn(withEmail: email,
+                                   password: password) { authDataResult, error in
+            completion(error)
         }
     }
     
-    func register() {
-        print("\(#function)")
+    func register(email: String, password: String, completion: @escaping (Error?) -> Void) {
+        firebaseAuthService.createUser(withEmail: email,
+                                       password: password) { authDataResult, error in
+            completion(error)
+        }
     }
     
-    func forgotPassword() {
-        print("\(#function)")
+    func forgotPassword(email: String, completion: @escaping (Error?) -> Void) {
+        firebaseAuthService.sendPasswordReset(withEmail: email) { error in
+            completion(error)
+        }
     }
-    
-    func checkOTP() {
-        print("\(#function)")
-    }
-    
 }
