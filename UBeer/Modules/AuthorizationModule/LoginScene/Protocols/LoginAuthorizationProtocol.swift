@@ -7,8 +7,9 @@
 
 import Foundation
 
+
 protocol LoginAuthorizationServiceProtocol {
     
-    func login()
+    func login(email: String, password: String, completion: @escaping (Error?) -> Void)
     
 }

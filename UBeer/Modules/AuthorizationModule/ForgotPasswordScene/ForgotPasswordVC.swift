@@ -12,7 +12,7 @@ final class ForgotPasswordVC: UIViewController {
     private let imageView = UIImageView()
     private let upperTextLabel = UILabel()
     private let lowerTextLabel = UILabel()
-    private let usernameTextField = RegularTextField("Username or email")
+    private let usernameOrEmailTextField = RegularTextField("Username or email")
     private let changePasswordButton = RegularButton("Change password")
     
     private var viewModel: ForgotPasswordVMProtocol
@@ -31,6 +31,8 @@ final class ForgotPasswordVC: UIViewController {
         
         setupViews()
         setupSelectors()
+        
+        bind()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -43,15 +45,23 @@ final class ForgotPasswordVC: UIViewController {
 }
 
 extension ForgotPasswordVC {
+    
+    private func bind() {
+        usernameOrEmailTextField.text = viewModel.email
+    }
+    
+}
 
+extension ForgotPasswordVC {
+    
     private func setupSelectors() {
         changePasswordButton.addTarget(self,
-                                 action: #selector(changePasswordDidTap),
-                                 for: .touchUpInside)
+                                       action: #selector(changePasswordDidTap),
+                                       for: .touchUpInside)
     }
     
     @objc private func changePasswordDidTap() {
-        viewModel.forgotPassword()
+        viewModel.forgotPassword(email: usernameOrEmailTextField.text)
     }
     
     private func setupViews() {
@@ -71,7 +81,7 @@ extension ForgotPasswordVC {
         view.addSubview(imageView)
         view.addSubview(upperTextLabel)
         view.addSubview(lowerTextLabel)
-        view.addSubview(usernameTextField)
+        view.addSubview(usernameOrEmailTextField)
         view.addSubview(changePasswordButton)
         setupConstraints()
     }
@@ -83,39 +93,39 @@ extension ForgotPasswordVC {
             
             //Image
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                       constant: 30.0),
+                                           constant: 30.0),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             //Upper label
             upperTextLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor,
-                                       constant: 10.0),
+                                                constant: 10.0),
             upperTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             //Lower label
             lowerTextLabel.topAnchor.constraint(equalTo: upperTextLabel.bottomAnchor,
-                                       constant: 5.0),
+                                                constant: 5.0),
             lowerTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             //Username textField
-            usernameTextField.topAnchor.constraint(equalTo: lowerTextLabel.bottomAnchor,
-                                                constant: 40.0),
-            usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
-                                                    constant: 20.0),
-            usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
-                                                     constant: -20.0),
-            usernameTextField.heightAnchor.constraint(equalToConstant: 44.0),
+            usernameOrEmailTextField.topAnchor.constraint(equalTo: lowerTextLabel.bottomAnchor,
+                                                          constant: 40.0),
+            usernameOrEmailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                              constant: 20.0),
+            usernameOrEmailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                               constant: -20.0),
+            usernameOrEmailTextField.heightAnchor.constraint(equalToConstant: 44.0),
             
             //Change password button
-            changePasswordButton.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor,
-                                                constant: 20.0),
+            changePasswordButton.topAnchor.constraint(equalTo: usernameOrEmailTextField.bottomAnchor,
+                                                      constant: 20.0),
             changePasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
-                                                    constant: 20.0),
+                                                          constant: 20.0),
             changePasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
-                                                     constant: -20.0),
+                                                           constant: -20.0),
             changePasswordButton.heightAnchor.constraint(equalToConstant: 44.0)
             
         ])
         
     }
-
+    
 }

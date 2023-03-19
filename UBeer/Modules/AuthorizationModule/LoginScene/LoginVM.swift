@@ -11,24 +11,69 @@ final class LoginVM: LoginVMProtocol {
     
     private var authorizationService: LoginAuthorizationServiceProtocol
     private weak var coordinator: LoginCoordinatorProtocol?
+    private var alertFactory: AlertControllerFactoryProtocol
     
-    init(authorizationService: LoginAuthorizationServiceProtocol,
-         coordinator: LoginCoordinatorProtocol) {
+    var email: String
+    
+    init(email: String, authorizationService: LoginAuthorizationServiceProtocol,
+         coordinator: LoginCoordinatorProtocol,
+         alertFactory: AlertControllerFactoryProtocol) {
         self.authorizationService = authorizationService
         self.coordinator = coordinator
+        self.alertFactory = alertFactory
+        self.email = email
     }
     
-    func login() {
-        authorizationService.login()
-        coordinator?.finish()
+    func login(email: String?, password: String?) {
+        guard let email = email, !email.isEmpty && email != "",
+              let password = password, !password.isEmpty && password != ""
+        else {
+            openAlert(title: "Сheck the entered data",
+                      message: "Login and/or password can't be empty")
+            return }
+        authorizationService.login(email: email, password: password) { error in
+            if error != nil {
+                self.openAlert(title: "Something went wrong", message: error?.localizedDescription)
+            } else {
+                self.openAlert(title: "Success", message: "You've succesfully signed in")
+                let userDefaults = UserDefaults.standard
+                userDefaults.set(true, forKey: "isRegistered")
+                userDefaults.set(true, forKey: "shouldShowOnboarding")
+                self.coordinator?.finish()
+            }
+        }
+        
     }
     
-    func openRegisterScene() {
-        coordinator?.openRegisterScene()
+    func openRegisterScene(email: String?) {
+        coordinator?.openRegisterScene(delegate: self, email: email)
     }
     
-    func openForgotPasswordScene() {
-        coordinator?.openForgotPasswordScene()
+    func openForgotPasswordScene(email: String?) {
+        coordinator?.openForgotPasswordScene(delegate: self, email: email)
+    }
+    
+}
+
+extension LoginVM: RegisterVMDelegate {
+    
+    func RegisterFinished(with login: String) {
+        email = login
+    }
+}
+
+extension LoginVM: ForgotPasswordVMDelegate {
+    
+    func passwordChanged(with email: String) {
+        self.email = email
+    }
+}
+
+extension LoginVM {
+    
+    private func openAlert(title: String?, message: String?) {
+        let alert = alertFactory.makeAlert(title: title, message: message, actions: [.default("Okay", {  })])
+        coordinator?.presentAlert(alert)
     }
     
 }

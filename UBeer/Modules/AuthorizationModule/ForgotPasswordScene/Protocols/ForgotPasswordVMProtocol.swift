@@ -9,6 +9,8 @@ import UIKit
 
 protocol ForgotPasswordVMProtocol {
     
-    func forgotPassword()
+    func forgotPassword(email: String?)
     func finish(shouldMoveToParent: Bool)
+    
+    var email: String? { get }
 }

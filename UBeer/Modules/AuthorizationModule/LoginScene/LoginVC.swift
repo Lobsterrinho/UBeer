@@ -35,10 +35,18 @@ final class LoginVC: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupActions()
+        
+        createRightViewSecureButton(textField: passwordTextField)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loginTextField.text = viewModel.email
     }
 }
 
 extension LoginVC {
+    
     
 //MARK: - Actions
     
@@ -56,19 +64,33 @@ extension LoginVC {
     
     //Setup selectors
     @objc private func login() {
-        viewModel.login()
-        print("\(#function) \(Self.self)")
+        viewModel.login(email: loginTextField.text,
+                        password: passwordTextField.text)
     }
     
     @objc private func openRegisterScene() {
-        viewModel.openRegisterScene()
-//        registerButton.backgroundColor = .black
+        viewModel.openRegisterScene(email: loginTextField.text)
         print("\(#function) \(Self.self)")
     }
     
     @objc private func openForgotPasswordScene() {
-        viewModel.openForgotPasswordScene()
+        viewModel.openForgotPasswordScene(email: loginTextField.text)
         print("\(#function) \(Self.self)")
+    }
+    
+    private func createRightViewSecureButton(textField: UITextField) {
+        textField.isSecureTextEntry = true
+        let secureButton = UIButton(type: .custom)
+        secureButton.setupEyeButton()
+        secureButton.addTarget(self, action: #selector (securePasswordButtonDidTap),
+                         for: .touchUpInside)
+        textField.rightView = secureButton
+        textField.rightViewMode = .always
+    }
+    
+    @objc private func securePasswordButtonDidTap(_ sender: UIButton) {
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+        sender.secureButtonToggle(isSecured: !passwordTextField.isSecureTextEntry)
     }
     
 //MARK: - UI setup and constraints
@@ -87,9 +109,6 @@ extension LoginVC {
         loginLabel.setupLabel(text: "Login to your account",
                               color: .black60,
                               fontName: .text)
-        
-        
-        
         
         forgotPasswordButton.setTitle("Forgot password?", for: .normal)
         forgotPasswordButton.setTitleColor(.gray, for: .normal)
@@ -163,7 +182,7 @@ extension LoginVC {
             
             //Register button
             registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor,
-                                                constant: 20.0),
+                                                constant: 12.0),
             registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
                                                     constant: 20.0),
             registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,

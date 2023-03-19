@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A22660EE01118B700FC8766 /* Pods_UBeer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35649073D38F1248F137788F /* Pods_UBeer.framework */; };
 		BA1BBBDE29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBDD29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift */; };
 		BA1BBBE029B2A0FD00E8936C /* AuthorizationService+ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBDF29B2A0FD00E8936C /* AuthorizationService+ForgotPassword.swift */; };
 		BA1BBBE229B2A14B00E8936C /* ForgotPasswordVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBE129B2A14B00E8936C /* ForgotPasswordVMProtocol.swift */; };
@@ -16,6 +17,9 @@
 		BA1BBBEC29B3C9B600E8936C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBEB29B3C9B600E8936C /* UILabel+Extension.swift */; };
 		BA1BBBEF29B7D71E00E8936C /* RegularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBEE29B7D71E00E8936C /* RegularButton.swift */; };
 		BA1BBBF129B88F8800E8936C /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBF029B88F8800E8936C /* UIFont+Extension.swift */; };
+		BA1BBBF429B8DC4700E8936C /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBF329B8DC4700E8936C /* AlertControllerFactory.swift */; };
+		BA1BBBF629B8DC5C00E8936C /* AlertControllerFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBF529B8DC5C00E8936C /* AlertControllerFactoryProtocol.swift */; };
+		BA1BBBFA29BE4BA000E8936C /* RegisterVMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBF929BE4BA000E8936C /* RegisterVMDelegate.swift */; };
 		BA6E05D629ADED9800549E60 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05D529ADED9800549E60 /* AppCoordinator.swift */; };
 		BA6E05D929ADEE3300549E60 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05D829ADEE3300549E60 /* Coordinator.swift */; };
 		BA6E05DB29ADF1EF00549E60 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05DA29ADF1EF00549E60 /* LoginVC.swift */; };
@@ -42,6 +46,16 @@
 		BA8F4BDE29ABF66C00C68B78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F4BDD29ABF66C00C68B78 /* SceneDelegate.swift */; };
 		BA8F4BE529ABF67300C68B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8F4BE429ABF67300C68B78 /* Assets.xcassets */; };
 		BA8F4BE829ABF67300C68B78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8F4BE629ABF67300C68B78 /* LaunchScreen.storyboard */; };
+		BA94BDF929C25BB40001A07B /* ForgotPasswordVMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */; };
+		BA94BDFB29C269630001A07B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA94BDFA29C269630001A07B /* GoogleService-Info.plist */; };
+		BA94BDFF29C380690001A07B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94BDFE29C380690001A07B /* UIButton+Extension.swift */; };
+		BA9DE7E429C5F3D0001A266B /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E329C5F3D0001A266B /* OnboardingVC.swift */; };
+		BA9DE7E629C5F3D8001A266B /* OnboardingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E529C5F3D8001A266B /* OnboardingVM.swift */; };
+		BA9DE7E829C5F3E2001A266B /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E729C5F3E2001A266B /* OnboardingCoordinator.swift */; };
+		BA9DE7EA29C5F3F2001A266B /* OnboardingAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E929C5F3F2001A266B /* OnboardingAssembler.swift */; };
+		BA9DE7ED29C5F476001A266B /* OnboardingCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7EC29C5F476001A266B /* OnboardingCoordinatorProtocol.swift */; };
+		BA9DE7F129C5F4CD001A266B /* OnbordingVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7F029C5F4CD001A266B /* OnbordingVMProtocol.swift */; };
+		BA9DE7F329C5F4F9001A266B /* OnbordingRootCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7F229C5F4F9001A266B /* OnbordingRootCoordinatorProtocol.swift */; };
 		BAA795BA29B297FC007BCD03 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */; };
 		BAA795BC29B29802007BCD03 /* ForgotPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795BB29B29802007BCD03 /* ForgotPasswordVM.swift */; };
 		BAA795BE29B2980B007BCD03 /* ForgotPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795BD29B2980B007BCD03 /* ForgotPasswordCoordinator.swift */; };
@@ -49,6 +63,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F92BF9D6199D02B3B07F4CF /* Pods-UBeer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UBeer.debug.xcconfig"; path = "Target Support Files/Pods-UBeer/Pods-UBeer.debug.xcconfig"; sourceTree = "<group>"; };
+		35649073D38F1248F137788F /* Pods_UBeer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UBeer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1BBBDD29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordAuthorizationServiceProtocol.swift; sourceTree = "<group>"; };
 		BA1BBBDF29B2A0FD00E8936C /* AuthorizationService+ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorizationService+ForgotPassword.swift"; sourceTree = "<group>"; };
 		BA1BBBE129B2A14B00E8936C /* ForgotPasswordVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVMProtocol.swift; sourceTree = "<group>"; };
@@ -58,6 +74,9 @@
 		BA1BBBEB29B3C9B600E8936C /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		BA1BBBEE29B7D71E00E8936C /* RegularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularButton.swift; sourceTree = "<group>"; };
 		BA1BBBF029B88F8800E8936C /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		BA1BBBF329B8DC4700E8936C /* AlertControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactory.swift; sourceTree = "<group>"; };
+		BA1BBBF529B8DC5C00E8936C /* AlertControllerFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactoryProtocol.swift; sourceTree = "<group>"; };
+		BA1BBBF929BE4BA000E8936C /* RegisterVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVMDelegate.swift; sourceTree = "<group>"; };
 		BA6E05D529ADED9800549E60 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BA6E05D829ADEE3300549E60 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BA6E05DA29ADF1EF00549E60 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -86,10 +105,21 @@
 		BA8F4BE429ABF67300C68B78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA8F4BE729ABF67300C68B78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA8F4BE929ABF67300C68B78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVMDelegate.swift; sourceTree = "<group>"; };
+		BA94BDFA29C269630001A07B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BA94BDFE29C380690001A07B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		BA9DE7E329C5F3D0001A266B /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		BA9DE7E529C5F3D8001A266B /* OnboardingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVM.swift; sourceTree = "<group>"; };
+		BA9DE7E729C5F3E2001A266B /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		BA9DE7E929C5F3F2001A266B /* OnboardingAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAssembler.swift; sourceTree = "<group>"; };
+		BA9DE7EC29C5F476001A266B /* OnboardingCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		BA9DE7F029C5F4CD001A266B /* OnbordingVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingVMProtocol.swift; sourceTree = "<group>"; };
+		BA9DE7F229C5F4F9001A266B /* OnbordingRootCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingRootCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		BAA795BB29B29802007BCD03 /* ForgotPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVM.swift; sourceTree = "<group>"; };
 		BAA795BD29B2980B007BCD03 /* ForgotPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCoordinator.swift; sourceTree = "<group>"; };
 		BAA795BF29B29812007BCD03 /* ForgotPasswordAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordAssembler.swift; sourceTree = "<group>"; };
+		D4946B0234161AD833F215E1 /* Pods-UBeer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UBeer.release.xcconfig"; path = "Target Support Files/Pods-UBeer/Pods-UBeer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +127,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A22660EE01118B700FC8766 /* Pods_UBeer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12714C3CB39F492AF39F9FC3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35649073D38F1248F137788F /* Pods_UBeer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BA1BBBED29B7D44700E8936C /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +149,15 @@
 				BA1BBBEE29B7D71E00E8936C /* RegularButton.swift */,
 			);
 			path = "UI Elements";
+			sourceTree = "<group>";
+		};
+		BA1BBBF229B8DC0B00E8936C /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				BA1BBBF329B8DC4700E8936C /* AlertControllerFactory.swift */,
+				BA1BBBF529B8DC5C00E8936C /* AlertControllerFactoryProtocol.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		BA6E05CA29ADE05200549E60 /* Application */ = {
@@ -136,6 +184,7 @@
 		BA6E05CC29ADE0DE00549E60 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BA9DE7E229C5F3B1001A266B /* OnboardingModule */,
 				BA6E05D229ADE38600549E60 /* AuthorizationModule */,
 			);
 			path = Modules;
@@ -172,10 +221,10 @@
 			children = (
 				BA6E060929AFE18C00549E60 /* Extensions */,
 				BA6E05E229ADF61500549E60 /* Protocols */,
-				BA6E05DA29ADF1EF00549E60 /* LoginVC.swift */,
-				BA6E05DC29ADF1F900549E60 /* LoginVM.swift */,
 				BA6E05DE29ADF20200549E60 /* LoginCoordinator.swift */,
 				BA6E05E029ADF20C00549E60 /* LoginAssembler.swift */,
+				BA6E05DC29ADF1F900549E60 /* LoginVM.swift */,
+				BA6E05DA29ADF1EF00549E60 /* LoginVC.swift */,
 			);
 			path = LoginScene;
 			sourceTree = "<group>";
@@ -196,10 +245,10 @@
 			children = (
 				BA6E060A29AFE19D00549E60 /* Extensions */,
 				BA6E060829AFE14A00549E60 /* Protocols */,
-				BA6E05FE29AFD8AD00549E60 /* RegisterVC.swift */,
-				BA6E060029AFD8BC00549E60 /* RegisterVM.swift */,
 				BA6E060229AFD8C700549E60 /* RegisterCoordinator.swift */,
 				BA6E060429AFD92600549E60 /* RegisterAssembler.swift */,
+				BA6E060029AFD8BC00549E60 /* RegisterVM.swift */,
+				BA6E05FE29AFD8AD00549E60 /* RegisterVC.swift */,
 			);
 			path = RegisterScene;
 			sourceTree = "<group>";
@@ -209,22 +258,23 @@
 			children = (
 				BAA795C129B29912007BCD03 /* Extensions */,
 				BAA795B829B297DD007BCD03 /* Protocols */,
-				BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */,
-				BAA795BB29B29802007BCD03 /* ForgotPasswordVM.swift */,
 				BAA795BD29B2980B007BCD03 /* ForgotPasswordCoordinator.swift */,
 				BAA795BF29B29812007BCD03 /* ForgotPasswordAssembler.swift */,
+				BAA795BB29B29802007BCD03 /* ForgotPasswordVM.swift */,
+				BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */,
 			);
 			path = ForgotPasswordScene;
 			sourceTree = "<group>";
 		};
-		BA6E05F129AF3B9100549E60 /* GlobalExtensions */ = {
+		BA6E05F129AF3B9100549E60 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				BA6E05F229AF3BC000549E60 /* UIColor+Extension.swift */,
 				BA1BBBEB29B3C9B600E8936C /* UILabel+Extension.swift */,
 				BA1BBBF029B88F8800E8936C /* UIFont+Extension.swift */,
+				BA94BDFE29C380690001A07B /* UIButton+Extension.swift */,
 			);
-			path = GlobalExtensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		BA6E060829AFE14A00549E60 /* Protocols */ = {
@@ -234,6 +284,7 @@
 				BA6E061129AFE35F00549E60 /* RegisterCoordinatorProtocol.swift */,
 				BA6E060F29AFE1F400549E60 /* RegisterAuthorizationServiceProtocol.swift */,
 				BA6E061329AFE38200549E60 /* RegisterRootCoordinatorProtocol.swift */,
+				BA1BBBF929BE4BA000E8936C /* RegisterVMDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -259,6 +310,8 @@
 			children = (
 				BA8F4BDA29ABF66C00C68B78 /* UBeer */,
 				BA8F4BD929ABF66C00C68B78 /* Products */,
+				E608F4F0992CEDC628EBE4F9 /* Pods */,
+				12714C3CB39F492AF39F9FC3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -273,14 +326,38 @@
 		BA8F4BDA29ABF66C00C68B78 /* UBeer */ = {
 			isa = PBXGroup;
 			children = (
+				BA94BDFA29C269630001A07B /* GoogleService-Info.plist */,
 				BA6E05CA29ADE05200549E60 /* Application */,
 				BA6E05CC29ADE0DE00549E60 /* Modules */,
 				BA6E05D029ADE11C00549E60 /* Services */,
-				BA6E05F129AF3B9100549E60 /* GlobalExtensions */,
+				BA1BBBF229B8DC0B00E8936C /* Factories */,
+				BA6E05F129AF3B9100549E60 /* Extensions */,
 				BA1BBBED29B7D44700E8936C /* UI Elements */,
 				BA6E05CB29ADE0AD00549E60 /* Resources */,
 			);
 			path = UBeer;
+			sourceTree = "<group>";
+		};
+		BA9DE7E229C5F3B1001A266B /* OnboardingModule */ = {
+			isa = PBXGroup;
+			children = (
+				BA9DE7EB29C5F42B001A266B /* Protocols */,
+				BA9DE7E729C5F3E2001A266B /* OnboardingCoordinator.swift */,
+				BA9DE7E929C5F3F2001A266B /* OnboardingAssembler.swift */,
+				BA9DE7E529C5F3D8001A266B /* OnboardingVM.swift */,
+				BA9DE7E329C5F3D0001A266B /* OnboardingVC.swift */,
+			);
+			path = OnboardingModule;
+			sourceTree = "<group>";
+		};
+		BA9DE7EB29C5F42B001A266B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BA9DE7EC29C5F476001A266B /* OnboardingCoordinatorProtocol.swift */,
+				BA9DE7F029C5F4CD001A266B /* OnbordingVMProtocol.swift */,
+				BA9DE7F229C5F4F9001A266B /* OnbordingRootCoordinatorProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		BAA795B829B297DD007BCD03 /* Protocols */ = {
@@ -290,6 +367,7 @@
 				BA1BBBE329B2A23500E8936C /* ForgotPasswordCoordinatorProtocol.swift */,
 				BA1BBBDD29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift */,
 				BA1BBBE529B2A55500E8936C /* ForgotPasswordRootCoordinatorProtocol.swift */,
+				BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -302,6 +380,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		E608F4F0992CEDC628EBE4F9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2F92BF9D6199D02B3B07F4CF /* Pods-UBeer.debug.xcconfig */,
+				D4946B0234161AD833F215E1 /* Pods-UBeer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -309,9 +396,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA8F4BEC29ABF67300C68B78 /* Build configuration list for PBXNativeTarget "UBeer" */;
 			buildPhases = (
+				9B154A5C9580A2C90AF1F139 /* [CP] Check Pods Manifest.lock */,
 				BA8F4BD429ABF66C00C68B78 /* Sources */,
 				BA8F4BD529ABF66C00C68B78 /* Frameworks */,
 				BA8F4BD629ABF66C00C68B78 /* Resources */,
+				11B6DEC68E893383B0576BBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -362,10 +451,53 @@
 			files = (
 				BA8F4BE829ABF67300C68B78 /* LaunchScreen.storyboard in Resources */,
 				BA8F4BE529ABF67300C68B78 /* Assets.xcassets in Resources */,
+				BA94BDFB29C269630001A07B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11B6DEC68E893383B0576BBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UBeer/Pods-UBeer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UBeer/Pods-UBeer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UBeer/Pods-UBeer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B154A5C9580A2C90AF1F139 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UBeer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BA8F4BD429ABF66C00C68B78 /* Sources */ = {
@@ -373,26 +505,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8F4BDC29ABF66C00C68B78 /* AppDelegate.swift in Sources */,
+				BA9DE7F329C5F4F9001A266B /* OnbordingRootCoordinatorProtocol.swift in Sources */,
+				BA9DE7ED29C5F476001A266B /* OnboardingCoordinatorProtocol.swift in Sources */,
 				BA6E060729AFDAC600549E60 /* RegisterVMProtocol.swift in Sources */,
 				BA6E061029AFE1F400549E60 /* RegisterAuthorizationServiceProtocol.swift in Sources */,
+				BA94BDFF29C380690001A07B /* UIButton+Extension.swift in Sources */,
 				BA6E05D629ADED9800549E60 /* AppCoordinator.swift in Sources */,
 				BA1BBBE629B2A55500E8936C /* ForgotPasswordRootCoordinatorProtocol.swift in Sources */,
 				BA6E05E829AE196400549E60 /* LoginVMProtocol.swift in Sources */,
 				BA6E05DF29ADF20200549E60 /* LoginCoordinator.swift in Sources */,
 				BA6E05EA29AE1CB000549E60 /* AuthorizationService.swift in Sources */,
+				BA9DE7E629C5F3D8001A266B /* OnboardingVM.swift in Sources */,
 				BA6E05E429ADF62C00549E60 /* LoginRootCoordinatorProtocol.swift in Sources */,
 				BA6E060D29AFE1C900549E60 /* AuthorizationService+Register.swift in Sources */,
 				BA1BBBE029B2A0FD00E8936C /* AuthorizationService+ForgotPassword.swift in Sources */,
 				BA1BBBF129B88F8800E8936C /* UIFont+Extension.swift in Sources */,
 				BA6E05DD29ADF1F900549E60 /* LoginVM.swift in Sources */,
 				BA6E05D929ADEE3300549E60 /* Coordinator.swift in Sources */,
+				BA9DE7E829C5F3E2001A266B /* OnboardingCoordinator.swift in Sources */,
 				BA6E05F029AE279700549E60 /* AuthorizationService+Login.swift in Sources */,
+				BA94BDF929C25BB40001A07B /* ForgotPasswordVMDelegate.swift in Sources */,
 				BA1BBBEC29B3C9B600E8936C /* UILabel+Extension.swift in Sources */,
+				BA1BBBF629B8DC5C00E8936C /* AlertControllerFactoryProtocol.swift in Sources */,
 				BA1BBBEA29B3C05C00E8936C /* RegularTextField.swift in Sources */,
 				BA1BBBEF29B7D71E00E8936C /* RegularButton.swift in Sources */,
 				BA6E060529AFD92600549E60 /* RegisterAssembler.swift in Sources */,
 				BA6E061229AFE35F00549E60 /* RegisterCoordinatorProtocol.swift in Sources */,
 				BA6E05FF29AFD8AD00549E60 /* RegisterVC.swift in Sources */,
+				BA1BBBFA29BE4BA000E8936C /* RegisterVMDelegate.swift in Sources */,
 				BA6E061429AFE38200549E60 /* RegisterRootCoordinatorProtocol.swift in Sources */,
 				BAA795C029B29812007BCD03 /* ForgotPasswordAssembler.swift in Sources */,
 				BA8F4BDE29ABF66C00C68B78 /* SceneDelegate.swift in Sources */,
@@ -405,10 +545,14 @@
 				BA6E060129AFD8BC00549E60 /* RegisterVM.swift in Sources */,
 				BAA795BE29B2980B007BCD03 /* ForgotPasswordCoordinator.swift in Sources */,
 				BA6E05DB29ADF1EF00549E60 /* LoginVC.swift in Sources */,
+				BA1BBBF429B8DC4700E8936C /* AlertControllerFactory.swift in Sources */,
+				BA9DE7E429C5F3D0001A266B /* OnboardingVC.swift in Sources */,
 				BA1BBBE429B2A23500E8936C /* ForgotPasswordCoordinatorProtocol.swift in Sources */,
 				BA6E05EE29AE1E2F00549E60 /* LoginCoordinatorProtocol.swift in Sources */,
 				BA1BBBDE29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift in Sources */,
+				BA9DE7F129C5F4CD001A266B /* OnbordingVMProtocol.swift in Sources */,
 				BA6E05F329AF3BC000549E60 /* UIColor+Extension.swift in Sources */,
+				BA9DE7EA29C5F3F2001A266B /* OnboardingAssembler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +686,7 @@
 		};
 		BA8F4BED29ABF67300C68B78 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F92BF9D6199D02B3B07F4CF /* Pods-UBeer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -554,6 +699,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -569,6 +715,7 @@
 		};
 		BA8F4BEE29ABF67300C68B78 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4946B0234161AD833F215E1 /* Pods-UBeer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -581,6 +728,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
