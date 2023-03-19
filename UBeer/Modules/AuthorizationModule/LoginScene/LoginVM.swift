@@ -29,17 +29,21 @@ final class LoginVM: LoginVMProtocol {
               let password = password, !password.isEmpty && password != ""
         else {
             openAlert(title: "Сheck the entered data",
-                      message: "Login and/or password can't be empty")
+                      message: "Login and/or password can't be empty",
+                      shouldCloseScene: false)
             return }
         authorizationService.login(email: email, password: password) { error in
             if error != nil {
-                self.openAlert(title: "Something went wrong", message: error?.localizedDescription)
+                self.openAlert(title: "Something went wrong",
+                               message: error?.localizedDescription,
+                               shouldCloseScene: false)
             } else {
-                self.openAlert(title: "Success", message: "You've succesfully signed in")
+                self.openAlert(title: "Success",
+                               message: "You've succesfully signed in",
+                               shouldCloseScene: true)
                 let userDefaults = UserDefaults.standard
                 userDefaults.set(true, forKey: "isRegistered")
                 userDefaults.set(true, forKey: "shouldShowOnboarding")
-                self.coordinator?.finish()
             }
         }
         
@@ -71,8 +75,12 @@ extension LoginVM: ForgotPasswordVMDelegate {
 
 extension LoginVM {
     
-    private func openAlert(title: String?, message: String?) {
-        let alert = alertFactory.makeAlert(title: title, message: message, actions: [.default("Okay", {  })])
+    private func openAlert(title: String?, message: String?, shouldCloseScene: Bool) {
+        let alert = alertFactory.makeAlert(title: title, message: message, actions: [.default("Okay", {
+            if shouldCloseScene {
+                self.coordinator?.finish()
+            }
+        })])
         coordinator?.presentAlert(alert)
     }
     

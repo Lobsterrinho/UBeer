@@ -62,10 +62,9 @@ final class AppCoordinator: Coordinator {
     }
     
     private func openMainScene() {
-        //            let coordinator = LoginCoordinator(rootNavigationController: rootNavigationController, rootCoordinator: self)
-        //
-        //            childCoordinators.append(coordinator)
-        //            coordinator.start()
+       
+        
+        
     }
 }
 

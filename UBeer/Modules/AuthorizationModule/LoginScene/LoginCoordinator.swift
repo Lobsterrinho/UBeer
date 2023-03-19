@@ -26,7 +26,7 @@ final class LoginCoordinator: Coordinator {
     }
     
     func finish() {
-        rootNavigationController.popViewController(animated: false)
+        rootNavigationController.popViewController(animated: true)
         rootCoordinator.loginFinished(self)
     }
     
