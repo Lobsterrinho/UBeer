@@ -36,6 +36,10 @@ final class LoginVM: LoginVMProtocol {
                 self.openAlert(title: "Something went wrong", message: error?.localizedDescription)
             } else {
                 self.openAlert(title: "Success", message: "You've succesfully signed in")
+                let userDefaults = UserDefaults.standard
+                userDefaults.set(true, forKey: "isRegistered")
+                userDefaults.set(true, forKey: "shouldShowOnboarding")
+                self.coordinator?.finish()
             }
         }
         
