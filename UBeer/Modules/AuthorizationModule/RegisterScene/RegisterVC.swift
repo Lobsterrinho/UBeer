@@ -49,6 +49,14 @@ final class RegisterVC: UIViewController {
     
 }
 
+//MARK: - UITextFieldDelegate
+extension RegisterVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+}
+
 extension RegisterVC {
     
     private func bind() {
@@ -84,6 +92,11 @@ extension RegisterVC {
     private func setupViews() {
         view.backgroundColor = .white
         
+        //Sign delegates for textFields
+        usernameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
         imageView.image = UIImage(named: "loginImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -115,7 +128,6 @@ extension RegisterVC {
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            
             //Image
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
                                        constant: 30.0),
@@ -158,7 +170,7 @@ extension RegisterVC {
                                                         constant: -20.0),
             passwordTextField.heightAnchor.constraint(equalToConstant: 48.0),
             
-            //
+            //Terms agreement button
             agreementButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,
                                              constant: 5.0),
             agreementButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,

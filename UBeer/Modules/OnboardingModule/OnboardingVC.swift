@@ -7,13 +7,13 @@
 
 import UIKit
 
-final class OnboardingVC: UIViewController {
+final class OnboardingVC: UIPageViewController {
     
     private var viewModel: OnbordingVMProtocol
     
     init(viewModel: OnbordingVMProtocol) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal)
     }
     
     required init?(coder: NSCoder) {
@@ -29,3 +29,4 @@ final class OnboardingVC: UIViewController {
 
     
 }
+

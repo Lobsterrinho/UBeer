@@ -45,9 +45,16 @@ final class LoginVC: UIViewController {
     }
 }
 
+//MARK: - UITextFieldDelegate
+extension LoginVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
+}
+
 extension LoginVC {
-    
-    
 //MARK: - Actions
     
     //Setup selectors for buttons
@@ -98,6 +105,10 @@ extension LoginVC {
     //Setup whole UI elements
     private func setupViews() {
         view.backgroundColor = .white
+        
+        //Sign delegates for textFields
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
         
         imageView.image = UIImage(named: "loginImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false

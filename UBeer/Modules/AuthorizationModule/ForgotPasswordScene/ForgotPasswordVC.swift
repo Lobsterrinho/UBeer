@@ -44,15 +44,19 @@ final class ForgotPasswordVC: UIViewController {
     
 }
 
+//MARK: - UITextFieldDelegate
+extension ForgotPasswordVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+}
+
 extension ForgotPasswordVC {
     
     private func bind() {
         usernameOrEmailTextField.text = viewModel.email
     }
-    
-}
-
-extension ForgotPasswordVC {
     
     private func setupSelectors() {
         changePasswordButton.addTarget(self,
@@ -66,6 +70,9 @@ extension ForgotPasswordVC {
     
     private func setupViews() {
         view.backgroundColor = .white
+        
+        //Sign delegate for textField
+        usernameOrEmailTextField.delegate = self
         
         imageView.image = UIImage(named: "loginImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false
