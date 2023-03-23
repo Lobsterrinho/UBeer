@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol OnbordingRootCoordinatorProtocol: AnyObject {
+protocol OnboardingRootCoordinatorProtocol: AnyObject {
  
     func onboardingFinished(_ coordinator: Coordinator)
     

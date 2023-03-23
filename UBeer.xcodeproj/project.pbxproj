@@ -49,14 +49,14 @@
 		BA94BDF929C25BB40001A07B /* ForgotPasswordVMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */; };
 		BA94BDFB29C269630001A07B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA94BDFA29C269630001A07B /* GoogleService-Info.plist */; };
 		BA94BDFF29C380690001A07B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94BDFE29C380690001A07B /* UIButton+Extension.swift */; };
-		BA9DE7E429C5F3D0001A266B /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E329C5F3D0001A266B /* OnboardingVC.swift */; };
+		BA9DE7E429C5F3D0001A266B /* OnboardingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E329C5F3D0001A266B /* OnboardingPageVC.swift */; };
 		BA9DE7E629C5F3D8001A266B /* OnboardingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E529C5F3D8001A266B /* OnboardingVM.swift */; };
 		BA9DE7E829C5F3E2001A266B /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E729C5F3E2001A266B /* OnboardingCoordinator.swift */; };
 		BA9DE7EA29C5F3F2001A266B /* OnboardingAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E929C5F3F2001A266B /* OnboardingAssembler.swift */; };
 		BA9DE7ED29C5F476001A266B /* OnboardingCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7EC29C5F476001A266B /* OnboardingCoordinatorProtocol.swift */; };
-		BA9DE7F129C5F4CD001A266B /* OnbordingVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7F029C5F4CD001A266B /* OnbordingVMProtocol.swift */; };
-		BA9DE7F329C5F4F9001A266B /* OnbordingRootCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7F229C5F4F9001A266B /* OnbordingRootCoordinatorProtocol.swift */; };
-		BA9DE7F529C832BA001A266B /* OnboardingPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7F429C832BA001A266B /* OnboardingPages.swift */; };
+		BA9DE7F129C5F4CD001A266B /* OnboardingVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7F029C5F4CD001A266B /* OnboardingVMProtocol.swift */; };
+		BA9DE7F329C5F4F9001A266B /* OnboardingRootCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7F229C5F4F9001A266B /* OnboardingRootCoordinatorProtocol.swift */; };
+		BA9DE7F529C832BA001A266B /* OnboardingPageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7F429C832BA001A266B /* OnboardingPageList.swift */; };
 		BA9DE7F829C872D8001A266B /* OnboardingAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7F729C872D8001A266B /* OnboardingAdapter.swift */; };
 		BA9DE7FB29C8731B001A266B /* OnboardingAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7FA29C8731B001A266B /* OnboardingAdapterProtocol.swift */; };
 		BAA795BA29B297FC007BCD03 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */; };
@@ -111,14 +111,14 @@
 		BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVMDelegate.swift; sourceTree = "<group>"; };
 		BA94BDFA29C269630001A07B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA94BDFE29C380690001A07B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
-		BA9DE7E329C5F3D0001A266B /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		BA9DE7E329C5F3D0001A266B /* OnboardingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageVC.swift; sourceTree = "<group>"; };
 		BA9DE7E529C5F3D8001A266B /* OnboardingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVM.swift; sourceTree = "<group>"; };
 		BA9DE7E729C5F3E2001A266B /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		BA9DE7E929C5F3F2001A266B /* OnboardingAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAssembler.swift; sourceTree = "<group>"; };
 		BA9DE7EC29C5F476001A266B /* OnboardingCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinatorProtocol.swift; sourceTree = "<group>"; };
-		BA9DE7F029C5F4CD001A266B /* OnbordingVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingVMProtocol.swift; sourceTree = "<group>"; };
-		BA9DE7F229C5F4F9001A266B /* OnbordingRootCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingRootCoordinatorProtocol.swift; sourceTree = "<group>"; };
-		BA9DE7F429C832BA001A266B /* OnboardingPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPages.swift; sourceTree = "<group>"; };
+		BA9DE7F029C5F4CD001A266B /* OnboardingVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVMProtocol.swift; sourceTree = "<group>"; };
+		BA9DE7F229C5F4F9001A266B /* OnboardingRootCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRootCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		BA9DE7F429C832BA001A266B /* OnboardingPageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageList.swift; sourceTree = "<group>"; };
 		BA9DE7F729C872D8001A266B /* OnboardingAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAdapter.swift; sourceTree = "<group>"; };
 		BA9DE7FA29C8731B001A266B /* OnboardingAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAdapterProtocol.swift; sourceTree = "<group>"; };
 		BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
@@ -348,12 +348,12 @@
 		BA9DE7E229C5F3B1001A266B /* OnboardingModule */ = {
 			isa = PBXGroup;
 			children = (
-				BA9DE7F629C8330A001A266B /* OnboardingPage */,
 				BA9DE7EB29C5F42B001A266B /* Protocols */,
 				BA9DE7E729C5F3E2001A266B /* OnboardingCoordinator.swift */,
 				BA9DE7E929C5F3F2001A266B /* OnboardingAssembler.swift */,
 				BA9DE7E529C5F3D8001A266B /* OnboardingVM.swift */,
-				BA9DE7E329C5F3D0001A266B /* OnboardingVC.swift */,
+				BA9DE7E329C5F3D0001A266B /* OnboardingPageVC.swift */,
+				BA9DE7F429C832BA001A266B /* OnboardingPageList.swift */,
 			);
 			path = OnboardingModule;
 			sourceTree = "<group>";
@@ -362,18 +362,10 @@
 			isa = PBXGroup;
 			children = (
 				BA9DE7EC29C5F476001A266B /* OnboardingCoordinatorProtocol.swift */,
-				BA9DE7F029C5F4CD001A266B /* OnbordingVMProtocol.swift */,
-				BA9DE7F229C5F4F9001A266B /* OnbordingRootCoordinatorProtocol.swift */,
+				BA9DE7F029C5F4CD001A266B /* OnboardingVMProtocol.swift */,
+				BA9DE7F229C5F4F9001A266B /* OnboardingRootCoordinatorProtocol.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		BA9DE7F629C8330A001A266B /* OnboardingPage */ = {
-			isa = PBXGroup;
-			children = (
-				BA9DE7F429C832BA001A266B /* OnboardingPages.swift */,
-			);
-			path = OnboardingPage;
 			sourceTree = "<group>";
 		};
 		BA9DE7F929C872EE001A266B /* Adapters */ = {
@@ -530,7 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8F4BDC29ABF66C00C68B78 /* AppDelegate.swift in Sources */,
-				BA9DE7F329C5F4F9001A266B /* OnbordingRootCoordinatorProtocol.swift in Sources */,
+				BA9DE7F329C5F4F9001A266B /* OnboardingRootCoordinatorProtocol.swift in Sources */,
 				BA9DE7ED29C5F476001A266B /* OnboardingCoordinatorProtocol.swift in Sources */,
 				BA6E060729AFDAC600549E60 /* RegisterVMProtocol.swift in Sources */,
 				BA6E061029AFE1F400549E60 /* RegisterAuthorizationServiceProtocol.swift in Sources */,
@@ -540,7 +532,7 @@
 				BA6E05E829AE196400549E60 /* LoginVMProtocol.swift in Sources */,
 				BA6E05DF29ADF20200549E60 /* LoginCoordinator.swift in Sources */,
 				BA6E05EA29AE1CB000549E60 /* AuthorizationService.swift in Sources */,
-				BA9DE7F529C832BA001A266B /* OnboardingPages.swift in Sources */,
+				BA9DE7F529C832BA001A266B /* OnboardingPageList.swift in Sources */,
 				BA9DE7E629C5F3D8001A266B /* OnboardingVM.swift in Sources */,
 				BA6E05E429ADF62C00549E60 /* LoginRootCoordinatorProtocol.swift in Sources */,
 				BA6E060D29AFE1C900549E60 /* AuthorizationService+Register.swift in Sources */,
@@ -574,11 +566,11 @@
 				BA6E05DB29ADF1EF00549E60 /* LoginVC.swift in Sources */,
 				BA1BBBF429B8DC4700E8936C /* AlertControllerFactory.swift in Sources */,
 				BA9DE7FB29C8731B001A266B /* OnboardingAdapterProtocol.swift in Sources */,
-				BA9DE7E429C5F3D0001A266B /* OnboardingVC.swift in Sources */,
+				BA9DE7E429C5F3D0001A266B /* OnboardingPageVC.swift in Sources */,
 				BA1BBBE429B2A23500E8936C /* ForgotPasswordCoordinatorProtocol.swift in Sources */,
 				BA6E05EE29AE1E2F00549E60 /* LoginCoordinatorProtocol.swift in Sources */,
 				BA1BBBDE29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift in Sources */,
-				BA9DE7F129C5F4CD001A266B /* OnbordingVMProtocol.swift in Sources */,
+				BA9DE7F129C5F4CD001A266B /* OnboardingVMProtocol.swift in Sources */,
 				BA6E05F329AF3BC000549E60 /* UIColor+Extension.swift in Sources */,
 				BA9DE7EA29C5F3F2001A266B /* OnboardingAssembler.swift in Sources */,
 			);

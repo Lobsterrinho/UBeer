@@ -11,12 +11,12 @@ import UIKit
 final class OnboardingCoordinator: Coordinator {
     
     private var rootNavigationController: UINavigationController
-    private var rootCoordinator: OnbordingRootCoordinatorProtocol
+    private var rootCoordinator: OnboardingRootCoordinatorProtocol
     
     var childCoordinators: [Coordinator] = []
     
     init(rootNavigationController: UINavigationController,
-         rootCoordinator: OnbordingRootCoordinatorProtocol) {
+         rootCoordinator: OnboardingRootCoordinatorProtocol) {
         self.rootNavigationController = rootNavigationController
         self.rootCoordinator = rootCoordinator
     }

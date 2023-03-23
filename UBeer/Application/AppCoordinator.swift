@@ -76,7 +76,7 @@ extension AppCoordinator: LoginRootCoordinatorProtocol {
     }
 }
 
-extension AppCoordinator: OnbordingRootCoordinatorProtocol {
+extension AppCoordinator: OnboardingRootCoordinatorProtocol {
     
     func onboardingFinished(_ coordinator: Coordinator) {
         childCoordinators.removeAll(where: { $0 === coordinator })

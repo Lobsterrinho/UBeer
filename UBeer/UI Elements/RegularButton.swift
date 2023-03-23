@@ -19,6 +19,7 @@ final class RegularButton: UIButton {
     }
     
     private func setupButton(_ title: String) {
+        
         configuration = Configuration.filled()
         configuration?.attributedTitle = AttributedString(title)
         configuration?.attributedTitle?.font = .buttonText
