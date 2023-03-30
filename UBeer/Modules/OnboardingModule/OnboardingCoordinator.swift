@@ -27,7 +27,8 @@ final class OnboardingCoordinator: Coordinator {
     }
     
     func finish() {
-        
+        rootNavigationController.popViewController(animated: true)
+        rootCoordinator.onboardingFinished(self)
     }
 }
 

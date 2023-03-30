@@ -12,5 +12,5 @@ protocol LoginVMProtocol {
     func login(email: String?, password: String?)
     func openRegisterScene(email: String?)
     func openForgotPasswordScene(email: String?)
-    var email: String { get }
+    func setupViewDelegate(_ delegate: LoginVMDelegate)
 }

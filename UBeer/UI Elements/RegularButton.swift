@@ -9,6 +9,12 @@ import UIKit
 
 final class RegularButton: UIButton {
     
+    override var isHighlighted: Bool {
+        didSet {
+            backgroundColor = isHighlighted ? .highlitedButton : .acc
+        }
+    }
+    
     init(_ title: String) {
         super.init(frame: .zero)
         setupButton(title)
@@ -19,15 +25,13 @@ final class RegularButton: UIButton {
     }
     
     private func setupButton(_ title: String) {
-        
-        configuration = Configuration.filled()
-        configuration?.attributedTitle = AttributedString(title)
-        configuration?.attributedTitle?.font = .buttonText
-        configuration?.attributedTitle?.foregroundColor = .black100
-        layer.cornerRadius = 8.0
+
         translatesAutoresizingMaskIntoConstraints = false
-        setTitleColor(.black, for: .normal)
-        tintColor = .acc
+        setTitle(title, for: .normal)
+        setTitleColor(.black100, for: .normal)
+        backgroundColor = .acc
+        layer.cornerRadius = 8.0
+        titleLabel?.font = .buttonText
     }
     
     

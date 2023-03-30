@@ -10,8 +10,9 @@ import UIKit
 protocol OnboardingVMProtocol {
     
     func setupViewDelegate(_ delegate: OnboardingVMDelegate)
-    func setupPageView(pageView: UIPageViewController, pageControl: UIPageControl)
-    func skipUnboarding()
-    func continueToNextPage()
-    
+    func setupPageView(pageView: UIPageViewController)
+    func getPageCount() -> Int
+    func pageControllerDidTap(_ pageControl: UIPageControl)
+    func listToNextPage()
+    func openMainApp()
 }

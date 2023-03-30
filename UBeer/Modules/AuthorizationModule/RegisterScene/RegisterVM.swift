@@ -31,16 +31,20 @@ final class RegisterVM: RegisterVMProtocol {
     func register(email: String?, password: String?) {
         guard let email = email, !email.isEmpty && email != "",
               let password = password, !password.isEmpty && password != ""
-        else {
-            openAlert(title: "Сheck the entered data",
-                      message: "Login and/or password can't be empty", shouldMovetoParentVC: false)
+        else { openAlert(title: "Сheck the entered data",
+                      message: "Login and/or password can't be empty",
+                      shouldMovetoParentVC: false)
             return }
         authorizationService.register(email: email, password: password) { error in
             if error != nil {
-                self.openAlert(title: "Something went wrong", message: error?.localizedDescription, shouldMovetoParentVC: false)
+                self.openAlert(title: "Something went wrong",
+                               message: error?.localizedDescription,
+                               shouldMovetoParentVC: false)
             } else {
                 self.delegate?.RegisterFinished(with: email)
-                self.openAlert(title: "Success", message: "You've succesfully signed up", shouldMovetoParentVC: true)
+                self.openAlert(title: "Success",
+                               message: "You've succesfully signed up",
+                               shouldMovetoParentVC: true)
             }
         }
     }
@@ -49,15 +53,16 @@ final class RegisterVM: RegisterVMProtocol {
         coordinator?.finish(shouldMovetoParentVC: shouldMovetoParentVC)
     }
     
-    
-    
-    private func openAlert(title: String?, message: String?, shouldMovetoParentVC: Bool) {
-        let alert = alertFactory.makeAlert(title: title, message: message, actions: [.default("Okay", {
+    private func openAlert(title: String?,
+                           message: String?,
+                           shouldMovetoParentVC: Bool) {
+        let alert = alertFactory.makeAlert(title: title,
+                                           message: message,
+                                           actions: [.default("Okay", {
             if shouldMovetoParentVC {
                 self.finish(shouldMovetoParentVC: true)
             }
         })])
         coordinator?.presentAlert(alert)
     }
-    
 }

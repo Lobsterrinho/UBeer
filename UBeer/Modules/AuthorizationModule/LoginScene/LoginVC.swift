@@ -9,22 +9,21 @@ import UIKit
 
 final class LoginVC: UIViewController {
     
-    private let imageView = UIImageView()
-    private let welcomeLabel = UILabel()
-    private let loginLabel = UILabel()
-    private let loginTextField = RegularTextField("Email or username")
-    private let passwordTextField = RegularTextField("Password")
-    private let forgotPasswordButton = UIButton()
-    private let loginButton = RegularButton("Login")
-    private let registerButton = RegularButton("Register")
-    
-    
+    private weak var imageView: UIImageView!
+    private weak var titleLabel: UILabel!
+    private weak var subtitleLabel: UILabel!
+    private weak var loginTextField: UITextField!
+    private weak var passwordTextField: UITextField!
+    private weak var forgotPasswordButton: UIButton!
+    private weak var loginButton: UIButton!
+    private weak var registerButton: UIButton!
     
     private var viewModel: LoginVMProtocol
     
     init(viewModel: LoginVMProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        viewModel.setupViewDelegate(self)
     }
     
     required init?(coder: NSCoder) {
@@ -33,15 +32,17 @@ final class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
+        setupViewsAndConstraints()
         setupActions()
         
         createRightViewSecureButton(textField: passwordTextField)
     }
+}
+
+extension LoginVC: LoginVMDelegate {
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        loginTextField.text = viewModel.email
+    func getEmail(_ email: String) {
+        loginTextField.text = email
     }
 }
 
@@ -51,25 +52,27 @@ extension LoginVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
     }
-    
 }
 
 extension LoginVC {
-//MARK: - Actions
+    //MARK: - Actions
     
     //Setup selectors for buttons
     private func setupActions() {
-        loginButton.addTarget(self, action: #selector(login),
+        loginButton.addTarget(self,
+                              action: #selector(login),
                               for: .touchUpInside)
         
-        registerButton.addTarget(self, action: #selector(openRegisterScene),
+        registerButton.addTarget(self,
+                                 action: #selector(openRegisterScene),
                                  for: .touchUpInside)
         
-        forgotPasswordButton.addTarget(self, action: #selector(openForgotPasswordScene),
-                              for: .touchUpInside)
+        forgotPasswordButton.addTarget(self,
+                                       action: #selector(openForgotPasswordScene),
+                                       for: .touchUpInside)
     }
     
-    //Setup selectors
+    //Setup methods
     @objc private func login() {
         viewModel.login(email: loginTextField.text,
                         password: passwordTextField.text)
@@ -77,20 +80,21 @@ extension LoginVC {
     
     @objc private func openRegisterScene() {
         viewModel.openRegisterScene(email: loginTextField.text)
-        print("\(#function) \(Self.self)")
     }
     
     @objc private func openForgotPasswordScene() {
         viewModel.openForgotPasswordScene(email: loginTextField.text)
-        print("\(#function) \(Self.self)")
     }
+    
+    //Create rightView with eye button for en/disable sequre antry
     
     private func createRightViewSecureButton(textField: UITextField) {
         textField.isSecureTextEntry = true
         let secureButton = UIButton(type: .custom)
         secureButton.setupEyeButton()
-        secureButton.addTarget(self, action: #selector (securePasswordButtonDidTap),
-                         for: .touchUpInside)
+        secureButton.addTarget(self,
+                               action: #selector (securePasswordButtonDidTap),
+                               for: .touchUpInside)
         textField.rightView = secureButton
         textField.rightViewMode = .always
     }
@@ -100,72 +104,140 @@ extension LoginVC {
         sender.secureButtonToggle(isSecured: !passwordTextField.isSecureTextEntry)
     }
     
-//MARK: - UI setup and constraints
+    //MARK: - setupViewsAndConstraints
     
-    //Setup whole UI elements
-    private func setupViews() {
+    private func setupViewsAndConstraints() {
+        
         view.backgroundColor = .white
         
-        //Sign delegates for textFields
-        loginTextField.delegate = self
-        passwordTextField.delegate = self
+        setupImageView()
+        setupImageViewConstraints()
         
-        imageView.image = UIImage(named: "loginImage")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        setupTitleLabel()
+        setupTitleLabelConstraints()
         
-        welcomeLabel.setupLabel(text: "Welcome back",
-                                color: .black80,
-                                fontName: .headline)
+        setupSubtitleLabel()
+        setupSubtitleLabelConstraints()
         
-        loginLabel.setupLabel(text: "Login to your account",
-                              color: .black60,
-                              fontName: .text)
+        setupLoginTextField()
+        setupLoginTextFieldConstraints()
         
-        forgotPasswordButton.setTitle("Forgot password?", for: .normal)
-        forgotPasswordButton.setTitleColor(.gray, for: .normal)
-        forgotPasswordButton.titleLabel?.font = .systemFont(ofSize: 14.0)
-        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        setupPasswordTextField()
+        setupPasswordTextFieldConstraints()
         
-        view.addSubview(imageView)
-        view.addSubview(welcomeLabel)
-        view.addSubview(loginLabel)
-        view.addSubview(loginTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(forgotPasswordButton)
-        view.addSubview(loginButton)
-        view.addSubview(registerButton)
-        setupConstraints()
+        setupForgotPasswordButton()
+        setupForgotPasswordButtonConstraints()
+        
+        setupLoginButton()
+        setupLoginButtonConstraints()
+        
+        setupRegisterButton()
+        setupRegisterButtonConstraints()
     }
     
-    //Setup constraints
-    private func setupConstraints() {
-        
+    //MARK: - Setup UI elements
+    
+    private func setupImageView() {
+        let image = UIImageView()
+        image.image = UIImage(named: "loginImage")
+        view.addSubview(image)
+        self.imageView = image
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setupTitleLabel() {
+        let label = UILabel()
+        label.setupLabel(text: "Welcome back",
+                         color: .black80,
+                         fontName: .headline)
+        view.addSubview(label)
+        self.titleLabel = label
+    }
+    
+    private func setupSubtitleLabel() {
+        let label = UILabel()
+        label.setupLabel(text: "Login to your account",
+                         color: .black60,
+                         fontName: .text)
+        view.addSubview(label)
+        self.subtitleLabel = label
+    }
+    
+    private func setupLoginTextField() {
+        let textField = RegularTextField("Email or username")
+        view.addSubview(textField)
+        textField.delegate = self
+        self.loginTextField = textField
+    }
+    
+    private func setupPasswordTextField() {
+        let textField = RegularTextField("Password")
+        view.addSubview(textField)
+        textField.delegate = self
+        self.passwordTextField = textField
+    }
+    
+    private func setupForgotPasswordButton() {
+        let button = UIButton()
+        button.setTitle("Forgot password?", for: .normal)
+        button.setTitleColor(.gray, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 14.0)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(button)
+        self.forgotPasswordButton = button
+    }
+    
+    private func setupLoginButton() {
+        let button = RegularButton("Login")
+        view.addSubview(button)
+        self.loginButton = button
+    }
+    
+    private func setupRegisterButton() {
+        let button = RegularButton("Register")
+        view.addSubview(button)
+        self.registerButton = button
+    }
+    
+    //MARK: - Setup constraints
+    private func setupImageViewConstraints() {
         NSLayoutConstraint.activate([
-            
-            //Image
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                       constant: 30.0),
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            welcomeLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor,
-                                       constant: 10.0),
-            welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            //Login label
-            loginLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor,
-                                       constant: 5.0),
-            loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            //Login textField
-            loginTextField.topAnchor.constraint(equalTo: loginLabel.bottomAnchor,
+                                           constant: 30.0),
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
+    private func setupTitleLabelConstraints() {
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor,
+                                            constant: 10.0),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+    }
+    
+    private func setupSubtitleLabelConstraints() {
+        NSLayoutConstraint.activate([
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,
+                                               constant: 5.0),
+            subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+    }
+    
+    private func setupLoginTextFieldConstraints() {
+        NSLayoutConstraint.activate([
+            loginTextField.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor,
                                                 constant: 40.0),
             loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
                                                     constant: 20.0),
             loginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                      constant: -20.0),
             loginTextField.heightAnchor.constraint(equalToConstant: 44.0),
-            
-            //Password textField
+        ])
+    }
+    
+    private func setupPasswordTextFieldConstraints() {
+        NSLayoutConstraint.activate([
             passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor,
                                                    constant: 20.0),
             passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
@@ -173,16 +245,22 @@ extension LoginVC {
             passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                         constant: -20.0),
             passwordTextField.heightAnchor.constraint(equalToConstant: 44.0),
-            
-            //Forgot password button
+        ])
+    }
+    
+    private func setupForgotPasswordButtonConstraints() {
+        NSLayoutConstraint.activate([
             forgotPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,
                                                       constant: 5.0),
             forgotPasswordButton.widthAnchor.constraint(equalToConstant: view.bounds.width / 3),
             forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                            constant: -20.0),
             forgotPasswordButton.heightAnchor.constraint(equalToConstant: 21.0),
-            
-            //Login button
+        ])
+    }
+    
+    private func setupLoginButtonConstraints() {
+        NSLayoutConstraint.activate([
             loginButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor,
                                              constant: 50.0),
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
@@ -190,8 +268,11 @@ extension LoginVC {
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                   constant: -20.0),
             loginButton.heightAnchor.constraint(equalToConstant: 44.0),
-            
-            //Register button
+        ])
+    }
+    
+    private func setupRegisterButtonConstraints() {
+        NSLayoutConstraint.activate([
             registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor,
                                                 constant: 12.0),
             registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
@@ -199,10 +280,6 @@ extension LoginVC {
             registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                      constant: -20.0),
             registerButton.heightAnchor.constraint(equalToConstant: 44.0),
-            
         ])
-        
     }
-    
-    
 }

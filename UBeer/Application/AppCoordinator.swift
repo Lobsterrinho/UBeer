@@ -62,7 +62,17 @@ final class AppCoordinator: Coordinator {
     }
     
     private func openMainScene() {
-       
+        let mainAppWindow = UIWindow(windowScene: windowScene)
+        let navigationController = UINavigationController()
+        mainAppWindow.rootViewController = navigationController
+        
+        let coordinator = HomeCoordinator(rootNavigationController: navigationController,
+                                          rootCoordinator: self)
+        
+        childCoordinators.append(coordinator)
+        coordinator.start()
+        
+        window = mainAppWindow
         
         
     }
@@ -79,6 +89,14 @@ extension AppCoordinator: LoginRootCoordinatorProtocol {
 extension AppCoordinator: OnboardingRootCoordinatorProtocol {
     
     func onboardingFinished(_ coordinator: Coordinator) {
+        childCoordinators.removeAll(where: { $0 === coordinator })
+        start()
+    }
+}
+
+extension AppCoordinator: HomeRootCoordinatorProtocol {
+    
+    func mainSceneFinished(_ coordinator: Coordinator) {
         childCoordinators.removeAll(where: { $0 === coordinator })
         start()
     }

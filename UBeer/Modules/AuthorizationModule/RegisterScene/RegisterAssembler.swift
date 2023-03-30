@@ -14,7 +14,9 @@ final class RegisterAssembler {
     static func makeRegisterVC(delegate: RegisterVMDelegate?,
                                coordinator: RegisterCoordinatorProtocol,
                                email: String?) -> UIViewController {
-        let viewModel = makeViewModel(email: email, delegate: delegate, coordinator: coordinator)
+        let viewModel = makeViewModel(email: email,
+                                      delegate: delegate,
+                                      coordinator: coordinator)
         let viewController = RegisterVC(viewModel: viewModel)
         return viewController
     }

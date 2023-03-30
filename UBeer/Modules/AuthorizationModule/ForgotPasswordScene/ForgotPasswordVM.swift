@@ -29,17 +29,22 @@ final class ForgotPasswordVM: ForgotPasswordVMProtocol {
     }
     
     func forgotPassword(email: String?) {
-        guard let email = email, !email.isEmpty && email != ""
+        guard let email = email, !email.isEmpty
         else {
             openAlert(title: "Сheck the entered data",
-                      message: "Login and/or password can't be empty", shouldMoveToParent: false)
+                      message: "Login and/or password can't be empty",
+                      shouldMoveToParent: false)
             return }
         authorizationService.forgotPassword(email: email) { error in
             if error != nil {
-                self.openAlert(title: "Something went wrong", message: error?.localizedDescription, shouldMoveToParent: false)
+                self.openAlert(title: "Something went wrong",
+                               message: error?.localizedDescription,
+                               shouldMoveToParent: false)
             } else {
                 self.delegate?.passwordChanged(with: email)
-                self.openAlert(title: "Success", message: "You've succesfully signed up", shouldMoveToParent: true)
+                self.openAlert(title: "Success",
+                               message: "You've succesfully signed up",
+                               shouldMoveToParent: true)
             }
         }
     }
@@ -52,8 +57,12 @@ final class ForgotPasswordVM: ForgotPasswordVMProtocol {
 
 extension ForgotPasswordVM {
     
-    func openAlert(title: String?, message: String?, shouldMoveToParent: Bool) {
-        let alertVC = alertFactory.makeAlert(title: title, message: message, actions: [.default("Okay", {
+    func openAlert(title: String?,
+                   message: String?,
+                   shouldMoveToParent: Bool) {
+        let alertVC = alertFactory.makeAlert(title: title,
+                                             message: message,
+                                             actions: [.default("Okay", {
             if shouldMoveToParent {
                 self.coordinator?.finish(shouldMoveToParent: true)
             }

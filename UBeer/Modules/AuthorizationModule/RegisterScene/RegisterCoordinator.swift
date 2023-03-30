@@ -34,9 +34,7 @@ final class RegisterCoordinator: Coordinator {
     func finish() {
         rootCoordinator.registerFinished(self)
     }
-    
-    
-    
+
 }
 
 extension RegisterCoordinator: RegisterCoordinatorProtocol {
@@ -44,7 +42,6 @@ extension RegisterCoordinator: RegisterCoordinatorProtocol {
     func presentAlert(_ alert: UIAlertController) {
         navigationController.present(alert, animated: true)
     }
-    
     
     func finish(shouldMovetoParentVC: Bool) {
         if shouldMovetoParentVC {

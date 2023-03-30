@@ -42,6 +42,7 @@ extension UIColor {
         }
     //MARK: - Orange
     static let acc = UIColor(hex: "#FFBD3E")!
+    static let highlitedButton = UIColor(hex: "#FFD380")
     static let orange100 = UIColor(hex: "#FBC83C")!
     static let orange80 = UIColor(hex: "#FCD363")!
     static let orange60 = UIColor(hex: "#FDDE8A")!

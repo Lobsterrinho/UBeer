@@ -9,9 +9,9 @@ import UIKit
 
 protocol OnboardingAdapterProtocol {
     
-    func setupPageView(pageView: UIPageViewController, pages: [UIViewController], pageControl: UIPageControl)
-    
+    func setupPageView(pageView: UIPageViewController,
+                       pages: [Pages])
     func setupOnboardingAdapterPageDelegate(_ currentPageDelegate: OnboardingAdapterPageDelegate)
-    
-    func nextPage()
+    func pageControllerDidTap(_ currentPage: Int)
+    func listToNextPage()
 }

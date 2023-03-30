@@ -32,8 +32,6 @@ final class OnboardingPageList: UIViewController {
         super.viewDidLoad()
         setupViews()
     }
-    
-    
 }
 
 extension OnboardingPageList {
@@ -82,9 +80,6 @@ extension OnboardingPageList {
                                                       constant: 40.0),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                        constant: -40.0)
-        ])
-        
+        ])   
     }
-    
-    
 }

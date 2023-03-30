@@ -12,20 +12,18 @@ final class LoginVM: LoginVMProtocol {
     private var authorizationService: LoginAuthorizationServiceProtocol
     private weak var coordinator: LoginCoordinatorProtocol?
     private var alertFactory: AlertControllerFactoryProtocol
+    private weak var delegate: LoginVMDelegate?
     
-    var email: String
-    
-    init(email: String, authorizationService: LoginAuthorizationServiceProtocol,
+    init(authorizationService: LoginAuthorizationServiceProtocol,
          coordinator: LoginCoordinatorProtocol,
          alertFactory: AlertControllerFactoryProtocol) {
         self.authorizationService = authorizationService
         self.coordinator = coordinator
         self.alertFactory = alertFactory
-        self.email = email
     }
     
     func login(email: String?, password: String?) {
-        guard let email = email, !email.isEmpty && email != "",
+        guard let email = email, !email.isEmpty,
               let password = password, !password.isEmpty && password != ""
         else {
             openAlert(title: "Сheck the entered data",
@@ -46,37 +44,45 @@ final class LoginVM: LoginVMProtocol {
                 userDefaults.set(true, forKey: "shouldShowOnboarding")
             }
         }
-        
     }
     
     func openRegisterScene(email: String?) {
-        coordinator?.openRegisterScene(delegate: self, email: email)
+        coordinator?.openRegisterScene(delegate: self,
+                                       email: email)
     }
     
     func openForgotPasswordScene(email: String?) {
-        coordinator?.openForgotPasswordScene(delegate: self, email: email)
+        coordinator?.openForgotPasswordScene(delegate: self,
+                                             email: email)
     }
     
+    func setupViewDelegate(_ delegate: LoginVMDelegate) {
+        self.delegate = delegate
+    }
 }
 
 extension LoginVM: RegisterVMDelegate {
     
     func RegisterFinished(with login: String) {
-        email = login
+        delegate?.getEmail(login)
     }
 }
 
 extension LoginVM: ForgotPasswordVMDelegate {
     
     func passwordChanged(with email: String) {
-        self.email = email
+        delegate?.getEmail(email)
     }
 }
 
 extension LoginVM {
     
-    private func openAlert(title: String?, message: String?, shouldCloseScene: Bool) {
-        let alert = alertFactory.makeAlert(title: title, message: message, actions: [.default("Okay", {
+    private func openAlert(title: String?,
+                           message: String?,
+                           shouldCloseScene: Bool) {
+        let alert = alertFactory.makeAlert(title: title,
+                                           message: message,
+                                           actions: [.default("Okay", {
             if shouldCloseScene {
                 self.coordinator?.finish()
             }
