@@ -115,9 +115,12 @@ extension OnboardingPageVC {
     
     //MARK: Setup views
     private func setupSkipButton() {
-        let button = RegularButton("Skip")
+        let button = UIButton()
+        button.setTitle("Skip", for: .normal)
         button.backgroundColor = .white
         button.setTitleColor(.acc, for: .normal)
+        button.titleLabel?.font = .headline3
+        button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
         self.skipButton = button
     }
