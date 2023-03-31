@@ -7,6 +7,6 @@
 
 import UIKit
 
-protocol HomeVMProtocol {
+protocol ProfileVMProtocol {
     
 }

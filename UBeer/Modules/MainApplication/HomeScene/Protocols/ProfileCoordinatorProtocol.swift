@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol HomeCoordinatorProtocol: AnyObject {
+protocol ProfileCoordinatorProtocol: AnyObject {
     
     func finish()
     

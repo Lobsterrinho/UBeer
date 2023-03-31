@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeVC: UIViewController {
+final class ProfileVC: UIViewController {
     
     private let avatarImage = UIImageView()
     private let checkInView = UIView()
@@ -15,11 +15,25 @@ final class HomeVC: UIViewController {
     private let nameLabel = UILabel()
     private let locationLabel = UILabel()
     
-    private var viewModel: HomeVMProtocol
+    private var viewModel: ProfileVMProtocol
     
-    init(viewModel: HomeVMProtocol) {
+    init(viewModel: ProfileVMProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        requiredInit()
+    }
+    
+    private func requiredInit() {
+        tabBarItem = UITabBarItem(title: "Profile",
+                                  image: UIImage(named: "personIcon"),
+                                  selectedImage: UIImage(named: "personIconFill"))
+        tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0.0,
+                                                      vertical: 5.0)
+        tabBarItem.imageInsets = UIEdgeInsets(top: 5.0,
+                                              left: 0.0,
+                                              bottom: -5.0,
+                                              right: 0.0)
+        navigationController?.tabBarItem = tabBarItem
     }
     
     required init?(coder: NSCoder) {
@@ -40,14 +54,14 @@ final class HomeVC: UIViewController {
     
 }
 
-extension HomeVC {
+extension ProfileVC {
     
     private func setupSelectors() {
         
     }
     
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = .mainWhite
         
         avatarImage.layer.borderWidth = 3
         avatarImage.layer.borderColor = UIColor.acc.cgColor

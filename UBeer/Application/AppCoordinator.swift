@@ -40,8 +40,9 @@ final class AppCoordinator: Coordinator {
         let navigationController = UINavigationController()
         loginWindow.rootViewController = navigationController
         
-        let coordinator = LoginCoordinator(rootNavigationController: navigationController,
-                                           rootCoordinator: self)
+        let coordinator = LoginCoordinator(
+            rootNavigationController: navigationController,
+            rootCoordinator: self)
         childCoordinators.append(coordinator)
         coordinator.start()
         
@@ -53,8 +54,9 @@ final class AppCoordinator: Coordinator {
         let navigationController = UINavigationController()
         onboardingWindow.rootViewController = navigationController
         
-        let coordinator = OnboardingCoordinator(rootNavigationController: navigationController,
-                                                rootCoordinator: self)
+        let coordinator = OnboardingCoordinator(
+            rootNavigationController: navigationController,
+            rootCoordinator: self)
         childCoordinators.append(coordinator)
         coordinator.start()
         
@@ -66,11 +68,12 @@ final class AppCoordinator: Coordinator {
         let navigationController = UINavigationController()
         mainAppWindow.rootViewController = navigationController
         
-        let coordinator = HomeCoordinator(rootNavigationController: navigationController,
-                                          rootCoordinator: self)
+        let tabBarCoordinator = TabBarCoordinator(
+            rootNavigationController: navigationController,
+            rootCoordinator: self)
         
-        childCoordinators.append(coordinator)
-        coordinator.start()
+        childCoordinators.append(tabBarCoordinator)
+        tabBarCoordinator.start()
         
         window = mainAppWindow
         
@@ -94,7 +97,7 @@ extension AppCoordinator: OnboardingRootCoordinatorProtocol {
     }
 }
 
-extension AppCoordinator: HomeRootCoordinatorProtocol {
+extension AppCoordinator: TabBarRootCoordinatorProtocol {
     
     func mainSceneFinished(_ coordinator: Coordinator) {
         childCoordinators.removeAll(where: { $0 === coordinator })
