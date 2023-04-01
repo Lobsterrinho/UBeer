@@ -11,9 +11,10 @@ final class ProfileAssembler {
     
     private init() {}
     
-    static func makeHomeVC(coordinator: ProfileCoordinatorProtocol) -> UIViewController {
+    static func makeHomeVC(coordinator: ProfileCoordinatorProtocol) -> UINavigationController {
         let viewModel = makeViewModel(coordinator: coordinator)
-        return ProfileVC(viewModel: viewModel)
+        let viewController = ProfileVC(viewModel: viewModel)
+        return UINavigationController(rootViewController: viewController)
     }
     
     static private func makeViewModel(coordinator: ProfileCoordinatorProtocol) -> ProfileVMProtocol {

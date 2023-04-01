@@ -11,13 +11,13 @@ final class MapAssembler {
     
     private init() { }
     
-    static func makeMapVC(_ coordinator: MapCoordinatorProtocol) -> UIViewController {
+    static func makeMapVC(_ coordinator: MapCoordinatorProtocol) -> UINavigationController {
         let viewModel = MapVM(coordinator: coordinator)
-        return MapVC(viewModel: viewModel)
+        let viewController = MapVC(viewModel: viewModel)
+        return UINavigationController(rootViewController: viewController)
     }
     
     private static func makeViewModel(_ coordinator: MapCoordinatorProtocol) -> MapVMProtocol {
         return MapVM(coordinator: coordinator)
     }
-    
 }

@@ -22,6 +22,7 @@ final class TabBarCoordinator: Coordinator {
     
     func start() {
         let tabBar = TabBarAssembler.makeTabBarController(coordinator: self)
+        rootNavigationController.navigationBar.isHidden = true
         generateMapItem(tabBar)
         
         generateProfileItem(tabBar)
@@ -38,7 +39,7 @@ extension TabBarCoordinator {
     
     private func generateProfileItem(_ tabBar: UITabBarController) {
         let coordinator = ProfileCoordinator(tabBarController: tabBar,
-                                          rootCoordinator: self)
+                                             rootCoordinator: self)
         coordinator.start()
     }
     

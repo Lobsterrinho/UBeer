@@ -65,7 +65,7 @@
 		BA9DE7F829C872D8001A266B /* OnboardingAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7F729C872D8001A266B /* OnboardingAdapter.swift */; };
 		BA9DE7FB29C8731B001A266B /* OnboardingAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7FA29C8731B001A266B /* OnboardingAdapterProtocol.swift */; };
 		BA9DE80029CCE96C001A266B /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7FF29CCE96B001A266B /* ProfileVC.swift */; };
-		BA9DE80229CCE982001A266B /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE80129CCE982001A266B /* HomeCoordinator.swift */; };
+		BA9DE80229CCE982001A266B /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE80129CCE982001A266B /* ProfileCoordinator.swift */; };
 		BA9DE80429CCE994001A266B /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE80329CCE994001A266B /* ProfileVM.swift */; };
 		BA9DE80629CCE9A7001A266B /* ProfileAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE80529CCE9A7001A266B /* ProfileAssembler.swift */; };
 		BAA795BA29B297FC007BCD03 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */; };
@@ -150,7 +150,7 @@
 		BA9DE7F729C872D8001A266B /* OnboardingAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAdapter.swift; sourceTree = "<group>"; };
 		BA9DE7FA29C8731B001A266B /* OnboardingAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAdapterProtocol.swift; sourceTree = "<group>"; };
 		BA9DE7FF29CCE96B001A266B /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
-		BA9DE80129CCE982001A266B /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		BA9DE80129CCE982001A266B /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		BA9DE80329CCE994001A266B /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		BA9DE80529CCE9A7001A266B /* ProfileAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembler.swift; sourceTree = "<group>"; };
 		BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
@@ -443,7 +443,7 @@
 			children = (
 				BAADCD6629D6CE9B003B8821 /* TabBarController */,
 				BAADCD7229D6F955003B8821 /* MapScene */,
-				BAADCD6529D6CE7E003B8821 /* HomeScene */,
+				BAADCD6529D6CE7E003B8821 /* ProfileScene */,
 			);
 			path = MainApplication;
 			sourceTree = "<group>";
@@ -468,16 +468,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		BAADCD6529D6CE7E003B8821 /* HomeScene */ = {
+		BAADCD6529D6CE7E003B8821 /* ProfileScene */ = {
 			isa = PBXGroup;
 			children = (
 				BA89B80229CDBFCB00CD7C76 /* Protocols */,
-				BA9DE80129CCE982001A266B /* HomeCoordinator.swift */,
+				BA9DE80129CCE982001A266B /* ProfileCoordinator.swift */,
 				BA9DE80529CCE9A7001A266B /* ProfileAssembler.swift */,
 				BA9DE80329CCE994001A266B /* ProfileVM.swift */,
 				BA9DE7FF29CCE96B001A266B /* ProfileVC.swift */,
 			);
-			path = HomeScene;
+			path = ProfileScene;
 			sourceTree = "<group>";
 		};
 		BAADCD6629D6CE9B003B8821 /* TabBarController */ = {
@@ -712,7 +712,7 @@
 				BAADCD7029D6EAEB003B8821 /* TabBarRootCoordinatorProtocol.swift in Sources */,
 				BA9DE7E429C5F3D0001A266B /* OnboardingPageVC.swift in Sources */,
 				BA1BBBE429B2A23500E8936C /* ForgotPasswordCoordinatorProtocol.swift in Sources */,
-				BA9DE80229CCE982001A266B /* HomeCoordinator.swift in Sources */,
+				BA9DE80229CCE982001A266B /* ProfileCoordinator.swift in Sources */,
 				BA6E05EE29AE1E2F00549E60 /* LoginCoordinatorProtocol.swift in Sources */,
 				BA1BBBDE29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift in Sources */,
 				BA9DE7F129C5F4CD001A266B /* OnboardingVMProtocol.swift in Sources */,

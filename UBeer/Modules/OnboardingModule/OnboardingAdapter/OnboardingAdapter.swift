@@ -16,7 +16,7 @@ final class OnboardingAdapter: NSObject, OnboardingAdapterProtocol {
     func setupPageView(pageView: UIPageViewController,
                        pages: [Pages]) {
         self.pageView = pageView
-        self.pages = pages.compactMap { page -> UIViewController in
+        self.pages = pages.map { page -> UIViewController in
             return page.viewController
         }
         
