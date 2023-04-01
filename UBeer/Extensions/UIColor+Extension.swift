@@ -40,25 +40,30 @@ extension UIColor {
             
             self.init(red: r, green: g, blue: b, alpha: a)
         }
-    //MARK: - Orange
+    
+    //MARK: White
+    static let mainWhite = UIColor(hex: "#F6F6F6")
+    
+    //MARK: Orange
     static let acc = UIColor(hex: "#FFBD3E")!
+    static let highlitedButton = UIColor(hex: "#FFD380")
     static let orange100 = UIColor(hex: "#FBC83C")!
     static let orange80 = UIColor(hex: "#FCD363")!
     static let orange60 = UIColor(hex: "#FDDE8A")!
     
-    //MARK: - Yellow
+    //MARK:Yellow
     static let yellow100 = UIColor(hex: "#F4EC1B")!
     static let yellow80 = UIColor(hex: "#F7F048")!
     static let yellow60 = UIColor(hex: "#F9F376")!
     
-    //MARK: - Black
+    //MARK: Black
     static let black100 = UIColor(hex: "#171518")!
     static let black80 = UIColor(hex: "#38373A")!
     static let black60 = UIColor(hex: "#5A595B")!
     static let black40 = UIColor(hex: "#9D9C9D")!
     static let black5 = UIColor(hex: "#B6B6B6")!
     
-    //MARK: - Gray
+    //MARK: Gray
     static let gray20 = UIColor(hex: "#DFDFDF")!
     static let gray10 = UIColor(hex: "#F6F6F6")!
     

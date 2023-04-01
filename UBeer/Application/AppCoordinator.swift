@@ -40,8 +40,9 @@ final class AppCoordinator: Coordinator {
         let navigationController = UINavigationController()
         loginWindow.rootViewController = navigationController
         
-        let coordinator = LoginCoordinator(rootNavigationController: navigationController,
-                                           rootCoordinator: self)
+        let coordinator = LoginCoordinator(
+            rootNavigationController: navigationController,
+            rootCoordinator: self)
         childCoordinators.append(coordinator)
         coordinator.start()
         
@@ -53,8 +54,9 @@ final class AppCoordinator: Coordinator {
         let navigationController = UINavigationController()
         onboardingWindow.rootViewController = navigationController
         
-        let coordinator = OnboardingCoordinator(rootNavigationController: navigationController,
-                                                rootCoordinator: self)
+        let coordinator = OnboardingCoordinator(
+            rootNavigationController: navigationController,
+            rootCoordinator: self)
         childCoordinators.append(coordinator)
         coordinator.start()
         
@@ -62,7 +64,18 @@ final class AppCoordinator: Coordinator {
     }
     
     private func openMainScene() {
-       
+        let mainAppWindow = UIWindow(windowScene: windowScene)
+        let navigationController = UINavigationController()
+        mainAppWindow.rootViewController = navigationController
+        
+        let tabBarCoordinator = TabBarCoordinator(
+            rootNavigationController: navigationController,
+            rootCoordinator: self)
+        
+        childCoordinators.append(tabBarCoordinator)
+        tabBarCoordinator.start()
+        
+        window = mainAppWindow
         
         
     }
@@ -76,9 +89,17 @@ extension AppCoordinator: LoginRootCoordinatorProtocol {
     }
 }
 
-extension AppCoordinator: OnbordingRootCoordinatorProtocol {
+extension AppCoordinator: OnboardingRootCoordinatorProtocol {
     
     func onboardingFinished(_ coordinator: Coordinator) {
+        childCoordinators.removeAll(where: { $0 === coordinator })
+        start()
+    }
+}
+
+extension AppCoordinator: TabBarRootCoordinatorProtocol {
+    
+    func mainSceneFinished(_ coordinator: Coordinator) {
         childCoordinators.removeAll(where: { $0 === coordinator })
         start()
     }

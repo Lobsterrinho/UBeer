@@ -9,11 +9,11 @@ import UIKit
 
 final class ForgotPasswordVC: UIViewController {
     
-    private let imageView = UIImageView()
-    private let upperTextLabel = UILabel()
-    private let lowerTextLabel = UILabel()
-    private let usernameOrEmailTextField = RegularTextField("Username or email")
-    private let changePasswordButton = RegularButton("Change password")
+    private weak var imageView: UIImageView!
+    private weak var titleLabel: UILabel!
+    private weak var subtitleLabel: UILabel!
+    private weak var usernameOrEmailTextField: UITextField!
+    private weak var changePasswordButton: UIButton!
     
     private var viewModel: ForgotPasswordVMProtocol
     
@@ -29,7 +29,7 @@ final class ForgotPasswordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupViews()
+        setupViewsAndConstraints()
         setupSelectors()
         
         bind()
@@ -44,15 +44,19 @@ final class ForgotPasswordVC: UIViewController {
     
 }
 
+//MARK: - UITextFieldDelegate
+extension ForgotPasswordVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+}
+
 extension ForgotPasswordVC {
     
     private func bind() {
         usernameOrEmailTextField.text = viewModel.email
     }
-    
-}
-
-extension ForgotPasswordVC {
     
     private func setupSelectors() {
         changePasswordButton.addTarget(self,
@@ -64,58 +68,107 @@ extension ForgotPasswordVC {
         viewModel.forgotPassword(email: usernameOrEmailTextField.text)
     }
     
-    private func setupViews() {
+    private func setupViewsAndConstraints() {
         view.backgroundColor = .white
         
-        imageView.image = UIImage(named: "loginImage")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        setupImageView()
+        setupImageViewConstraints()
         
-        upperTextLabel.setupLabel(text: "Forgot password?",
-                                  color: .black80,
-                                  fontName: .headline)
+        setupTitleLabel()
+        setupTitleLabelConstraints()
         
-        lowerTextLabel.setupLabel(text: "Enter your username or email",
-                                  color: .black60,
-                                  fontName: .text)
+        setupSubtitleLabel()
+        setupSubtitleLabelConstraints()
         
-        view.addSubview(imageView)
-        view.addSubview(upperTextLabel)
-        view.addSubview(lowerTextLabel)
-        view.addSubview(usernameOrEmailTextField)
-        view.addSubview(changePasswordButton)
-        setupConstraints()
+        setupUsernameOrEmailTextField()
+        setupUsernameOrEmailTextFieldConstraints()
+        
+        setupChangeButton()
+        setupChangeButtonConstraints()
     }
     
-    //Setup constraints
-    private func setupConstraints() {
+    private func setupImageView() {
+        let image = UIImageView()
+        image.image = UIImage(named: "loginImage")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(image)
+        self.imageView = image
+    }
+    
+    private func setupTitleLabel() {
+        let label = UILabel()
+        label.setupLabel(text: "Forgot password?",
+                         color: .black80,
+                         fontName: .headline)
+        view.addSubview(label)
+        self.titleLabel = label
+    }
+    
+    private func setupSubtitleLabel() {
+        let label = UILabel()
+        label.setupLabel(text: "Enter your username or email",
+                         color: .black60,
+                         fontName: .text)
+        view.addSubview(label)
+        self.subtitleLabel = label
+    }
+    
+    private func setupUsernameOrEmailTextField() {
+        let textField = RegularTextField("Username or email")
+        view.addSubview(textField)
+        textField.delegate = self
+        self.usernameOrEmailTextField = textField
+    }
+    
+    private func setupChangeButton() {
+        let button = RegularButton("Change")
+        view.addSubview(button)
+        self.changePasswordButton = button
+    }
+    
+    private func setupImageViewConstraints() {
         
         NSLayoutConstraint.activate([
-            
-            //Image
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
                                            constant: 30.0),
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            //Upper label
-            upperTextLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor,
-                                                constant: 10.0),
-            upperTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            //Lower label
-            lowerTextLabel.topAnchor.constraint(equalTo: upperTextLabel.bottomAnchor,
-                                                constant: 5.0),
-            lowerTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            //Username textField
-            usernameOrEmailTextField.topAnchor.constraint(equalTo: lowerTextLabel.bottomAnchor,
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
+    private func setupTitleLabelConstraints() {
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor,
+                                       constant: 10.0),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+    }
+    
+    private func setupSubtitleLabelConstraints() {
+        
+        NSLayoutConstraint.activate([
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,
+                                               constant: 5.0),
+            subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
+    private func setupUsernameOrEmailTextFieldConstraints() {
+        
+        NSLayoutConstraint.activate([
+            usernameOrEmailTextField.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor,
                                                           constant: 40.0),
             usernameOrEmailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
                                                               constant: 20.0),
             usernameOrEmailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                                constant: -20.0),
             usernameOrEmailTextField.heightAnchor.constraint(equalToConstant: 44.0),
-            
-            //Change password button
+        ])
+    }
+    
+    private func setupChangeButtonConstraints() {
+        
+        NSLayoutConstraint.activate([
             changePasswordButton.topAnchor.constraint(equalTo: usernameOrEmailTextField.bottomAnchor,
                                                       constant: 20.0),
             changePasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
@@ -123,9 +176,6 @@ extension ForgotPasswordVC {
             changePasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                            constant: -20.0),
             changePasswordButton.heightAnchor.constraint(equalToConstant: 44.0)
-            
         ])
-        
     }
-    
 }

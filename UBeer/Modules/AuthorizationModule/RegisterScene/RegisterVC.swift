@@ -9,14 +9,14 @@ import UIKit
 
 final class RegisterVC: UIViewController {
     
-    private let imageView = UIImageView()
-    private let upperTextLabel = UILabel()
-    private let lowerTextLabel = UILabel()
-    private let usernameTextField = RegularTextField("Username")
-    private let emailTextField = RegularTextField("Email")
-    private let passwordTextField = RegularTextField("Password")
-    private let agreementButton = UIButton()
-    private let registerButton = RegularButton("Register")
+    private weak var imageView: UIImageView!
+    private weak var titleLabel: UILabel!
+    private weak var subtitleLabel: UILabel!
+    private weak var usernameTextField: UITextField!
+    private weak var emailTextField: UITextField!
+    private weak var passwordTextField: UITextField!
+    private weak var agreementButton: UIButton!
+    private weak var registerButton: UIButton!
     
     private var viewModel: RegisterVMProtocol
     
@@ -32,7 +32,7 @@ final class RegisterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupViews()
+        setupViewsAndConstraints()
         setupActions()
         
         createRightViewSecureButton(textField: passwordTextField)
@@ -42,11 +42,19 @@ final class RegisterVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         if isMovingFromParent {
             viewModel.finish(shouldMovetoParentVC: false)
         }
     }
+}
+
+//MARK: - UITextFieldDelegate
+extension RegisterVC: UITextFieldDelegate {
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
 }
 
 extension RegisterVC {
@@ -81,66 +89,139 @@ extension RegisterVC {
                            password: passwordTextField.text)
     }
     
-    private func setupViews() {
+    private func setupViewsAndConstraints() {
+        
         view.backgroundColor = .white
         
-        imageView.image = UIImage(named: "loginImage")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        setupImageView()
+        setupImageViewConstraints()
         
-        upperTextLabel.setupLabel(text: "Create an account",
-                                  color: .black80,
-                                  fontName: .headline)
+        setupTitleLabel()
+        setupTitleLabelConstraints()
         
-        lowerTextLabel.setupLabel(text: "Create your new account",
-                                  color: .black60,
-                                  fontName: .text)
-    
-        agreementButton.setTitle("I agree to Terms & Conditions and Privacy Policy", for: .normal)
-        agreementButton.setTitleColor(.gray, for: .normal)
-        agreementButton.titleLabel?.font = .systemFont(ofSize: 14.0)
-        agreementButton.translatesAutoresizingMaskIntoConstraints = false
+        setupSubtitleLabel()
+        setupSubtitleLabelConstraints()
         
-        view.addSubview(imageView)
-        view.addSubview(upperTextLabel)
-        view.addSubview(lowerTextLabel)
-        view.addSubview(usernameTextField)
-        view.addSubview(emailTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(agreementButton)
-        view.addSubview(registerButton)
-        setupConstraints()
+        setupUsernameTextField()
+        setupUsernameTextFieldConstraints()
+        
+        setupEmailTextField()
+        setupEmailTextFieldConstraints()
+        
+        setupPasswordTextField()
+        setupPasswordTextFieldConstraints()
+        
+        setupAgreementButton()
+        setupAgreementButtonConstraints()
+        
+        setupRegisterButton()
+        setupRegisterButtonConstraints()
     }
     
-    //Setup constraints
-    private func setupConstraints() {
-        
+    //MARK: - Setup UI elements
+    
+    private func setupImageView() {
+        let image = UIImageView()
+        image.image = UIImage(named: "loginImage")
+        view.addSubview(image)
+        self.imageView = image
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setupTitleLabel() {
+        let label = UILabel()
+        label.setupLabel(text: "Create an account",
+                         color: .black80,
+                         fontName: .headline)
+        view.addSubview(label)
+        self.titleLabel = label
+    }
+    
+    private func setupSubtitleLabel() {
+        let label = UILabel()
+        label.setupLabel(text: "Create your new account",
+                         color: .black60,
+                         fontName: .text)
+        view.addSubview(label)
+        self.subtitleLabel = label
+    }
+    
+    private func setupUsernameTextField() {
+        let textField = RegularTextField("Username")
+        view.addSubview(textField)
+        textField.delegate = self
+        self.usernameTextField = textField
+    }
+    
+    private func setupEmailTextField() {
+        let textField = RegularTextField("Email")
+        view.addSubview(textField)
+        textField.delegate = self
+        self.emailTextField = textField
+    }
+    
+    private func setupPasswordTextField() {
+        let textField = RegularTextField("Password")
+        view.addSubview(textField)
+        textField.delegate = self
+        self.passwordTextField = textField
+    }
+    
+    private func setupAgreementButton() {
+        let button = UIButton()
+        button.setTitle("I agree to Terms & Conditions and Privacy Policy", for: .normal)
+        button.setTitleColor(.gray, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 14.0)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(button)
+        self.agreementButton = button
+    }
+    
+    private func setupRegisterButton() {
+        let button = RegularButton("Register")
+        view.addSubview(button)
+        self.registerButton = button
+    }
+    
+    
+    private func setupImageViewConstraints() {
         NSLayoutConstraint.activate([
-            
-            //Image
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
                                        constant: 30.0),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            //Upper label
-            upperTextLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor,
+        ])
+    }
+    
+    private func setupTitleLabelConstraints() {
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor,
                                        constant: 10.0),
-            upperTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            //Lower label
-            lowerTextLabel.topAnchor.constraint(equalTo: upperTextLabel.bottomAnchor,
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+    }
+    
+    private func setupSubtitleLabelConstraints() {
+        NSLayoutConstraint.activate([
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,
                                        constant: 5.0),
-            lowerTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            //Username textField
-            usernameTextField.topAnchor.constraint(equalTo: lowerTextLabel.bottomAnchor,
+            subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+    }
+    
+    private func setupUsernameTextFieldConstraints() {
+        NSLayoutConstraint.activate([
+            usernameTextField.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor,
                                                 constant: 40.0),
             usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
                                                     constant: 20.0),
             usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                      constant: -20.0),
             usernameTextField.heightAnchor.constraint(equalToConstant: 44.0),
-            
-            //Email textField
+        ])
+    }
+    
+    private func setupEmailTextFieldConstraints() {
+        NSLayoutConstraint.activate([
             emailTextField.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor,
                                                    constant: 20.0),
             emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
@@ -148,8 +229,11 @@ extension RegisterVC {
             emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                         constant: -20.0),
             emailTextField.heightAnchor.constraint(equalToConstant: 48.0),
-            
-            //Password texField
+        ])
+    }
+    
+    private func setupPasswordTextFieldConstraints() {
+        NSLayoutConstraint.activate([
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor,
                                                    constant: 20.0),
             passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
@@ -157,8 +241,11 @@ extension RegisterVC {
             passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                         constant: -20.0),
             passwordTextField.heightAnchor.constraint(equalToConstant: 48.0),
-            
-            //
+        ])
+    }
+    
+    private func setupAgreementButtonConstraints() {
+        NSLayoutConstraint.activate([
             agreementButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,
                                              constant: 5.0),
             agreementButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
@@ -166,8 +253,11 @@ extension RegisterVC {
             agreementButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                   constant: -20.0),
             agreementButton.heightAnchor.constraint(equalToConstant: 21.0),
-            
-            //Register button
+        ])
+    }
+    
+    private func setupRegisterButtonConstraints() {
+        NSLayoutConstraint.activate([
             registerButton.topAnchor.constraint(equalTo: agreementButton.bottomAnchor,
                                                 constant: 20.0),
             registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
@@ -175,9 +265,6 @@ extension RegisterVC {
             registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                      constant: -20.0),
             registerButton.heightAnchor.constraint(equalToConstant: 48.0)
-            
         ])
-        
     }
-    
 }

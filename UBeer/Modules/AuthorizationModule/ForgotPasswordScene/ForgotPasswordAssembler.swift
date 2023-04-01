@@ -11,13 +11,21 @@ final class ForgotPasswordAssembler {
     
     private init() { }
     
-    static func makeViewController(delegate: ForgotPasswordVMDelegate?, coordinator: ForgotPasswordCoordinatorProtocol, email: String?) -> UIViewController {
-        let viewModel = makeViewModel(coordinator: coordinator, email: email, delegate: delegate)
+    static func makeViewController(delegate: ForgotPasswordVMDelegate?,
+                                   coordinator: ForgotPasswordCoordinatorProtocol,
+                                   email: String?) -> UIViewController {
+        
+        let viewModel = makeViewModel(coordinator: coordinator,
+                                      email: email,
+                                      delegate: delegate)
         let viewController = ForgotPasswordVC(viewModel: viewModel)
         return viewController
     }
     
-    private static func makeViewModel(coordinator: ForgotPasswordCoordinatorProtocol, email: String?, delegate: ForgotPasswordVMDelegate?) -> ForgotPasswordVMProtocol {
+    private static func makeViewModel(coordinator: ForgotPasswordCoordinatorProtocol,
+                                      email: String?,
+                                      delegate: ForgotPasswordVMDelegate?) -> ForgotPasswordVMProtocol {
+        
         let viewModel = ForgotPasswordVM(delegate: delegate,
                                          alertFactory: makeAlertFactory(),
                                          email: email,

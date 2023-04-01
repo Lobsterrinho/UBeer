@@ -21,7 +21,7 @@ final class LoginCoordinator: Coordinator {
     }
     
     func start() {
-        let rootViewController = LoginAssembler.makeLoginVC(coordinator: self, email: "")
+        let rootViewController = LoginAssembler.makeLoginVC(coordinator: self)
         rootNavigationController.pushViewController(rootViewController, animated: false)
     }
     
@@ -38,22 +38,25 @@ extension LoginCoordinator: LoginCoordinatorProtocol {
         rootNavigationController.present(alert, animated: true)
     }
     
-    func openRegisterScene(delegate: RegisterVMDelegate?, email: String?) {
+    func openRegisterScene(delegate: RegisterVMDelegate?,
+                           email: String?) {
         let registerCoordinator = RegisterCoordinator(
             navigationController: rootNavigationController,
             rootCoordinator: self)
         childCoordinators.append(registerCoordinator)
-        registerCoordinator.start(delegate: delegate, email: email)
+        registerCoordinator.start(delegate: delegate,
+                                  email: email)
     }
     
-    func openForgotPasswordScene(delegate: ForgotPasswordVMDelegate?, email: String?) {
-        let forgotPasswordCoordinator = ForgotPasswordCoordinator(navigationController: rootNavigationController, rootCoordinator: self)
+    func openForgotPasswordScene(delegate: ForgotPasswordVMDelegate?,
+                                 email: String?) {
+        let forgotPasswordCoordinator = ForgotPasswordCoordinator(
+            navigationController: rootNavigationController,
+            rootCoordinator: self)
         childCoordinators.append(forgotPasswordCoordinator)
-        forgotPasswordCoordinator.start(delegate: delegate, email: email)
+        forgotPasswordCoordinator.start(delegate: delegate,
+                                        email: email)
     }
-    
-    
-    
 }
 
 extension LoginCoordinator: RegisterRootCoordinatorProtocol {
@@ -63,12 +66,9 @@ extension LoginCoordinator: RegisterRootCoordinatorProtocol {
     }
 }
 
-
 extension LoginCoordinator: ForgotPasswordRootCoordinatorProtocol {
     
     func forgotPasswordFinished(_ coordinator: Coordinator) {
         childCoordinators.removeAll(where: { $0 === coordinator })
-    }
-    
-    
+    }   
 }
