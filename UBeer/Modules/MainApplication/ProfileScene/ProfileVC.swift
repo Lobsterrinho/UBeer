@@ -85,11 +85,14 @@ extension ProfileVC {
     
     private func setupNavigationBar() {
         title = "Profile"
-        let settingsButton = UIBarButtonItem()
-        settingsButton.image = UIImage(systemName: "gearshape")
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(gearDidTap))
         navigationItem.rightBarButtonItem = settingsButton
         navigationItem.rightBarButtonItem?.tintColor = .black100
+    }
+    
+    @objc private func gearDidTap() {
         
+        viewModel.openSettings()
     }
     
     private func setConstraints() {

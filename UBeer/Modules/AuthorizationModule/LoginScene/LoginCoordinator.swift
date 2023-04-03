@@ -9,10 +9,10 @@ import UIKit
 
 final class LoginCoordinator: Coordinator {
     
-    var childCoordinators: [Coordinator] = []
-    
     private var rootNavigationController: UINavigationController
     private var rootCoordinator: LoginRootCoordinatorProtocol
+    
+    var childCoordinators: [Coordinator] = []
     
     init(rootNavigationController: UINavigationController,
          rootCoordinator: LoginRootCoordinatorProtocol) {

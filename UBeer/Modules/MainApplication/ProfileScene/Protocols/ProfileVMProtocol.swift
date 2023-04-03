@@ -9,4 +9,5 @@ import UIKit
 
 protocol ProfileVMProtocol {
     
+    func openSettings()
 }

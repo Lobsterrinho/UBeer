@@ -15,4 +15,8 @@ final class ProfileVM: ProfileVMProtocol {
         self.coordinator = coordinator
     }
     
+    func openSettings() {
+        coordinator?.openSettingsScene()
+    }
+    
 }
