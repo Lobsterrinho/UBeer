@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ProfileRootCoordinatorProtocol {
-    func homeSceneFinished(_ coordinator: Coordinator)
+protocol ProfileRootCoordinatorProtocol: AnyObject {
+    func profileSceneFinished(_ coordinator: Coordinator)
 }

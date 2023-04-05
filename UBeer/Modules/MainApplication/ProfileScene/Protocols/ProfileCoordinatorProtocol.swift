@@ -11,6 +11,4 @@ protocol ProfileCoordinatorProtocol: AnyObject {
     
     func finish()
     func openSettingsScene()
-    
-    
 }

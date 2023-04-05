@@ -20,11 +20,21 @@ final class SettingsAssembler {
     
     private static func makeViewModel(coordinator: SettingsCoordinatorProtocol) -> SettingsVMProtocol {
         return SettingsVM(coordinator: coordinator,
-                          adapter: makeAdapter())
+                          adapter: makeAdapter(),
+                          authorizationService: makeAuthorizationService(),
+                          alertFactory: makeAlertFactory())
     }
     
     private static func makeAdapter() -> SettingsAdapterProtocol {
         return SettingsAdapter()
+    }
+    
+    private static func makeAuthorizationService() -> SettingsAuthorizationServiceProtocol {
+        return AuthorizationService()
+    }
+    
+    private static func makeAlertFactory() -> AlertControllerFactoryProtocol {
+        return AlertControllerFactory()
     }
     
 }

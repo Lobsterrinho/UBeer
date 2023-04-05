@@ -23,7 +23,6 @@ final class SettingsCoordinator: Coordinator {
     
     func start() {
         let rootViewController = SettingsAssembler.makeSettingsVC(self)
-        rootViewController.navigationController?.tabBarController?.hidesBottomBarWhenPushed = true
         navigationController.pushViewController(rootViewController, animated: true)
     }
     
@@ -39,5 +38,9 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
             navigationController.popViewController(animated: true)
         }
         finish()
+    }
+    
+    func presentAlert(_ alert: UIAlertController) {
+        navigationController.present(alert, animated: true)
     }
 }

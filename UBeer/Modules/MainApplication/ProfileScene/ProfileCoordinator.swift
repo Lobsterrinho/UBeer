@@ -23,14 +23,14 @@ final class ProfileCoordinator: Coordinator {
     }
     
     func start() {
-        let homeVC = ProfileAssembler.makeHomeVC(coordinator: self)
-        navigationController.addChild(homeVC)
+        let profileVC = ProfileAssembler.makeProfileVC(coordinator: self)
+        navigationController.addChild(profileVC)
         tabBarController.addChild(navigationController)
     }
     
     func finish() {
         tabBarController.removeFromParent()
-        rootCoordinator.homeSceneFinished(self)
+        rootCoordinator.profileSceneFinished(self)
     }
 }
 

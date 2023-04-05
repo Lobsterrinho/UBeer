@@ -10,5 +10,6 @@ import UIKit
 protocol SettingsAdapterProtocol {
     
     func setupTableView(tableView: UITableView)
+    func setupSettingsAdapterActionDelegate(_ delegate: SettingsAdapterActionDelegate)
     func setupSections(_ sections: [Sections])
 }

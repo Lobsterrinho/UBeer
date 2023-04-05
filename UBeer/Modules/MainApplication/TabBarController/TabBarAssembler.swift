@@ -11,7 +11,7 @@ final class TabBarAssembler {
     
     private init() { }
     
-    static func makeTabBarController(coordinator: TabBarCoordinator) -> UITabBarController {
+    static func makeTabBarController() -> UITabBarController {
         return TabBarController()
     }
     

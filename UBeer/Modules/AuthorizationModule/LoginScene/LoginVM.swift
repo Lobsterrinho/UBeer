@@ -41,7 +41,6 @@ final class LoginVM: LoginVMProtocol {
                                shouldCloseScene: true)
                 let userDefaults = UserDefaults.standard
                 userDefaults.set(true, forKey: "isRegistered")
-                userDefaults.set(true, forKey: "shouldShowOnboarding")
             }
         }
     }

@@ -5,6 +5,6 @@
 //  Created by Lobster on 31.03.23.
 //
 
-protocol TabBarCoordinatorProtocol {
+protocol TabBarCoordinatorProtocol: AnyObject {
     func finish()
 }

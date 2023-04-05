@@ -24,6 +24,14 @@ final class ProfileVC: UIViewController {
     }
     
     private func requiredInit() {
+        setupTabBarItem()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupTabBarItem() {
         tabBarItem = UITabBarItem(title: "Profile",
                                   image: UIImage(named: "personIcon"),
                                   selectedImage: UIImage(named: "personIconFill"))
@@ -34,10 +42,6 @@ final class ProfileVC: UIViewController {
                                               bottom: -5.0,
                                               right: 0.0)
         navigationController?.tabBarItem = tabBarItem
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {

@@ -11,6 +11,7 @@ final class SettingsAdapter: NSObject, SettingsAdapterProtocol {
     
     private weak var tableView: UITableView?
     private var sections: [Sections] = []
+    private weak var actionDelegate: SettingsAdapterActionDelegate?
     
     func setupTableView(tableView: UITableView) {
         self.tableView = tableView
@@ -33,6 +34,10 @@ final class SettingsAdapter: NSObject, SettingsAdapterProtocol {
         tableView?.register(SettingsTableViewCell.self,
                             forCellReuseIdentifier: "\(SettingsTableViewCell.self)")
         tableView?.rowHeight = 48.0
+    }
+    
+    func setupSettingsAdapterActionDelegate(_ delegate: SettingsAdapterActionDelegate) {
+        self.actionDelegate = delegate
     }
     
 }
@@ -73,5 +78,9 @@ extension SettingsAdapter: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let sections = sections[indexPath.section]
+        let items = sections.settingsItems
+        let item = items[indexPath.row]
+        actionDelegate?.didSelectItem(settingsItem: item, indexPath: indexPath)
     }
 }
