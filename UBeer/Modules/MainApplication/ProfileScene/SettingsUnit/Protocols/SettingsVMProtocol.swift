@@ -10,6 +10,5 @@ import UIKit
 protocol SettingsVMProtocol {
     
     func setupAdapter(with tableView: UITableView)
-    func setupSections()
     func shouldMoveToParent(_ shouldMove: Bool)
 }

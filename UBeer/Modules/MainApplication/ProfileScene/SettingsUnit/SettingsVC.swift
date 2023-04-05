@@ -25,10 +25,9 @@ final class SettingsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Settings"
+        setupNavigationItem()
         setupViewsAndConstraints()
         viewModel.setupAdapter(with: tableView)
-        viewModel.setupSections()
         
     }
     
@@ -37,6 +36,10 @@ final class SettingsVC: UIViewController {
         if isMovingFromParent {
             viewModel.shouldMoveToParent(false)
         }
+    }
+    
+    private func setupNavigationItem() {
+        title = "Settings"
     }
     
     private func setupViewsAndConstraints() {

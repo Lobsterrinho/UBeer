@@ -12,6 +12,8 @@ final class MapCoordinator: Coordinator {
     private var tabBarController: UITabBarController
     private var rootCoordinator: MapRootCoordinatorProtocol
     
+    private var navigationController = UINavigationController()
+    
     var childCoordinators: [Coordinator] = []
     
     init(tabBarController: UITabBarController,
@@ -22,7 +24,8 @@ final class MapCoordinator: Coordinator {
     
     func start() {
         let mapVC = MapAssembler.makeMapVC(self)
-        tabBarController.addChild(mapVC)
+        navigationController.addChild(mapVC)
+        tabBarController.addChild(navigationController)
     }
     
     func finish() {

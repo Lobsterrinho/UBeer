@@ -10,7 +10,7 @@ import UIKit
 final class SettingsAdapter: NSObject, SettingsAdapterProtocol {
     
     private weak var tableView: UITableView?
-    private var sections: [Sections] = []
+    private var sections: [SettingsSections] = []
     private weak var actionDelegate: SettingsAdapterActionDelegate?
     
     func setupTableView(tableView: UITableView) {
@@ -19,7 +19,7 @@ final class SettingsAdapter: NSObject, SettingsAdapterProtocol {
         setupTableView()
     }
     
-    func setupSections(_ sections: [Sections]) {
+    func setupSections(_ sections: [SettingsSections]) {
         self.sections = sections
         reloadData()
     }

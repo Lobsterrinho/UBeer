@@ -9,6 +9,8 @@ import UIKit
 
 final class MapVC: UIViewController {
     
+    private weak var tableView: UITableView!
+    
     private var viewModel: MapVMProtocol
     
     init(viewModel: MapVMProtocol) {
@@ -36,12 +38,38 @@ final class MapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .mainWhite
         setupNavigationBar()
+        view.backgroundColor = .white
+        setupViewsAndConstraints()
+        viewModel.setupAdapter(with: tableView)
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = "Map"
+       title = "Map"
+    }
+    
+    private func setupViewsAndConstraints() {
+        setupTableView()
+        setupTableViewConstraints()
+        
+    }
+    
+    private func setupTableView() {
+        let table = UITableView(frame: .zero,
+                                style: .insetGrouped)
+        table.backgroundColor = .mainWhite
+        table.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(table)
+        self.tableView = table
+    }
+    
+    private func setupTableViewConstraints() {
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
 }

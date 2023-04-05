@@ -11,5 +11,5 @@ protocol SettingsAdapterProtocol {
     
     func setupTableView(tableView: UITableView)
     func setupSettingsAdapterActionDelegate(_ delegate: SettingsAdapterActionDelegate)
-    func setupSections(_ sections: [Sections])
+    func setupSections(_ sections: [SettingsSections])
 }

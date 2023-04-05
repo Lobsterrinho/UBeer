@@ -11,13 +11,19 @@ final class MapAssembler {
     
     private init() { }
     
-    static func makeMapVC(_ coordinator: MapCoordinatorProtocol) -> UINavigationController {
-        let viewModel = MapVM(coordinator: coordinator)
+    static func makeMapVC(_ coordinator: MapCoordinatorProtocol) -> UIViewController {
+        let viewModel = makeViewModel(coordinator)
         let viewController = MapVC(viewModel: viewModel)
-        return UINavigationController(rootViewController: viewController)
+//        viewController.hidesBottomBarWhenPushed = true
+        return viewController
     }
     
     private static func makeViewModel(_ coordinator: MapCoordinatorProtocol) -> MapVMProtocol {
-        return MapVM(coordinator: coordinator)
+        return MapVM(coordinator: coordinator,
+                     adapter: makeMapAdapter())
+    }
+    
+    private static func makeMapAdapter() -> MapAdapterProtocol {
+        return MapAdapter()
     }
 }

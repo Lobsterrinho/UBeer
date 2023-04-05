@@ -15,7 +15,7 @@ final class SettingsVM: SettingsVMProtocol {
     private var alertFactory: AlertControllerFactoryProtocol
     
     
-    private let sections: [Sections] = [
+    private let sections: [SettingsSections] = [
         .account([
             SettingsItem(title: "Main info",
                          image: UIImage(named: "settingsMainInfoIcon") ?? UIImage()),
@@ -47,16 +47,17 @@ final class SettingsVM: SettingsVMProtocol {
         self.adapter.setupSettingsAdapterActionDelegate(self)
     }
     
-    func setupSections() {
-        adapter.setupSections(sections)
-    }
-    
     func shouldMoveToParent(_ shouldMove: Bool) {
         coordinator?.finish(shouldMove)
     }
     
     func setupAdapter(with tableView: UITableView) {
         adapter.setupTableView(tableView: tableView)
+        setupSections()
+    }
+    
+    private func setupSections() {
+        adapter.setupSections(sections)
     }
     
     private func signOut() {

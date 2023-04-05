@@ -9,10 +9,25 @@ import UIKit
 
 final class MapVM: MapVMProtocol {
     
-    private var coordinator: MapCoordinatorProtocol?
+    private let sections: [MapSections] = [.map, .checkIn]
     
-    init(coordinator: MapCoordinatorProtocol) {
+    private weak var coordinator: MapCoordinatorProtocol?
+    private var adapter: MapAdapterProtocol
+    
+    init(coordinator: MapCoordinatorProtocol,
+         adapter: MapAdapterProtocol) {
         self.coordinator = coordinator
+        self.adapter = adapter
     }
+    
+    func setupAdapter(with tableView: UITableView) {
+        adapter.setupTableView(tableView)
+        setupSections()
+    }
+    
+    func setupSections() {
+        adapter.setupSections(sections)
+    }
+    
     
 }

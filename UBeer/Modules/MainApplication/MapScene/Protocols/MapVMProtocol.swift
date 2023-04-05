@@ -9,5 +9,6 @@ import UIKit
 
 protocol MapVMProtocol {
     
+    func setupAdapter(with tableView: UITableView)
     
 }

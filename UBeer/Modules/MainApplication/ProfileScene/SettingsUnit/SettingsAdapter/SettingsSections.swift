@@ -1,5 +1,5 @@
 //
-//  Sections.swift
+//  SettingsSections.swift
 //  UBeer
 //
 //  Created by Lobster on 2.04.23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Sections {
+enum SettingsSections {
     
     case account([SettingsItem])
     case preferences([SettingsItem])
