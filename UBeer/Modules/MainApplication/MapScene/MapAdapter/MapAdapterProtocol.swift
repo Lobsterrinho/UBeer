@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import MapKit
 
 protocol MapAdapterProtocol {
     
-    func setupTableView(_ tableView: UITableView)
-    func setupSections(_ sections: [MapSections])
+    func setupMapView(_ mapView: MKMapView)
+    func setupLocationManager(_ locationManager: CLLocationManager)
+    func checkIfAvailable() -> CLAuthorizationStatus
 }

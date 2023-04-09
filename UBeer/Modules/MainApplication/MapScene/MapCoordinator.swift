@@ -34,4 +34,9 @@ final class MapCoordinator: Coordinator {
     }
 }
 
-extension MapCoordinator: MapCoordinatorProtocol { }
+extension MapCoordinator: MapCoordinatorProtocol {
+    
+    func presentAlert(_ alertController: UIAlertController) {
+        navigationController.present(alertController, animated: true)
+    }
+}

@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import MapKit
 
 protocol MapVMProtocol {
     
-    func setupAdapter(with tableView: UITableView)
-    
+    func setupMapView(_ mapView: MKMapView)
+    func getCurrentPosition()
 }

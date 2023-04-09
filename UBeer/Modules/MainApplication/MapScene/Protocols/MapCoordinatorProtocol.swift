@@ -8,6 +8,7 @@
 import UIKit
 
 protocol MapCoordinatorProtocol: AnyObject {
-
-   func finish()
+    
+    func presentAlert(_ alertController: UIAlertController)
+    func finish()
 }

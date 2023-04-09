@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import MapKit
 
 final class MapVC: UIViewController {
     
     private weak var tableView: UITableView!
+    private weak var mapView: MKMapView!
     
     private var viewModel: MapVMProtocol
     
@@ -38,10 +40,15 @@ final class MapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
         view.backgroundColor = .white
+        setupNavigationBar()
         setupViewsAndConstraints()
-        viewModel.setupAdapter(with: tableView)
+        viewModel.setupMapView(mapView)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.getCurrentPosition()
     }
     
     private func setupNavigationBar() {
@@ -49,26 +56,24 @@ final class MapVC: UIViewController {
     }
     
     private func setupViewsAndConstraints() {
-        setupTableView()
-        setupTableViewConstraints()
+        setupMapView()
+        setupMapViewConstraints()
         
     }
     
-    private func setupTableView() {
-        let table = UITableView(frame: .zero,
-                                style: .insetGrouped)
-        table.backgroundColor = .mainWhite
-        table.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(table)
-        self.tableView = table
+    private func setupMapView() {
+        let map = MKMapView()
+        map.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(map)
+        self.mapView = map
     }
     
-    private func setupTableViewConstraints() {
+    private func setupMapViewConstraints() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     

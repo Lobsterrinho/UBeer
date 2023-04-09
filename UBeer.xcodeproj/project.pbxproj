@@ -10,7 +10,6 @@
 		3A22660EE01118B700FC8766 /* Pods_UBeer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35649073D38F1248F137788F /* Pods_UBeer.framework */; };
 		BA00454D29DE048100E1B1BB /* MapAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00454C29DE048100E1B1BB /* MapAdapter.swift */; };
 		BA00454F29DE04C700E1B1BB /* MapAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00454E29DE04C700E1B1BB /* MapAdapterProtocol.swift */; };
-		BA00455129DE065600E1B1BB /* MapSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00455029DE065600E1B1BB /* MapSections.swift */; };
 		BA1BBBDE29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBDD29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift */; };
 		BA1BBBE029B2A0FD00E8936C /* AuthorizationService+ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBDF29B2A0FD00E8936C /* AuthorizationService+ForgotPassword.swift */; };
 		BA1BBBE229B2A14B00E8936C /* ForgotPasswordVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBE129B2A14B00E8936C /* ForgotPasswordVMProtocol.swift */; };
@@ -111,7 +110,6 @@
 		35649073D38F1248F137788F /* Pods_UBeer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UBeer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA00454C29DE048100E1B1BB /* MapAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAdapter.swift; sourceTree = "<group>"; };
 		BA00454E29DE04C700E1B1BB /* MapAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAdapterProtocol.swift; sourceTree = "<group>"; };
-		BA00455029DE065600E1B1BB /* MapSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSections.swift; sourceTree = "<group>"; };
 		BA1BBBDD29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordAuthorizationServiceProtocol.swift; sourceTree = "<group>"; };
 		BA1BBBDF29B2A0FD00E8936C /* AuthorizationService+ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorizationService+ForgotPassword.swift"; sourceTree = "<group>"; };
 		BA1BBBE129B2A14B00E8936C /* ForgotPasswordVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVMProtocol.swift; sourceTree = "<group>"; };
@@ -235,9 +233,15 @@
 			children = (
 				BA00454C29DE048100E1B1BB /* MapAdapter.swift */,
 				BA00454E29DE04C700E1B1BB /* MapAdapterProtocol.swift */,
-				BA00455029DE065600E1B1BB /* MapSections.swift */,
 			);
 			path = MapAdapter;
+			sourceTree = "<group>";
+		};
+		BA00455229E04A4600E1B1BB /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		BA1BBBED29B7D44700E8936C /* UI Elements */ = {
@@ -576,6 +580,7 @@
 				BAADCD7729D6F98C003B8821 /* MapAssembler.swift */,
 				BAADCD7929D6F996003B8821 /* MapVM.swift */,
 				BAADCD7329D6F975003B8821 /* MapVC.swift */,
+				BA00455229E04A4600E1B1BB /* New Group */,
 			);
 			path = MapScene;
 			sourceTree = "<group>";
@@ -830,7 +835,6 @@
 				BA1BBBE429B2A23500E8936C /* ForgotPasswordCoordinatorProtocol.swift in Sources */,
 				BA9DE80229CCE982001A266B /* ProfileCoordinator.swift in Sources */,
 				BA6E05EE29AE1E2F00549E60 /* LoginCoordinatorProtocol.swift in Sources */,
-				BA00455129DE065600E1B1BB /* MapSections.swift in Sources */,
 				BA1BBBDE29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift in Sources */,
 				BAADCD8529D83B37003B8821 /* SettingsCoordinator.swift in Sources */,
 				BA9DE7F129C5F4CD001A266B /* OnboardingVMProtocol.swift in Sources */,

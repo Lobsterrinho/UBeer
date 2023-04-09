@@ -74,16 +74,13 @@ extension SettingsVM {
         let alert = alertFactory.makeAlert(
             title: title,
             message: message,
-            actions: [.default("Yes", {
+            actions: [.default("Sure", {
                                    self.authorizationService.signOut { error in
                                        self.showUnsucessfullAlert(
                                         title: "Something went wrong",
                                         message: error?.localizedDescription)
                                    }
-//                self.coordinator?.finish(true)
-                /*let ud = UserDefaults.standard
-                ud.set(false, forKey: "isRegistered")
-                               */}),
+                               }),
                       .cancel({ })
             ]
         )

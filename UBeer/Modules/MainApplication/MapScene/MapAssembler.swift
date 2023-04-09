@@ -20,10 +20,15 @@ final class MapAssembler {
     
     private static func makeViewModel(_ coordinator: MapCoordinatorProtocol) -> MapVMProtocol {
         return MapVM(coordinator: coordinator,
-                     adapter: makeMapAdapter())
+                     adapter: makeMapAdapter(),
+                     alertFactory: makeAlertFactory())
     }
     
     private static func makeMapAdapter() -> MapAdapterProtocol {
         return MapAdapter()
+    }
+    
+    private static func makeAlertFactory() -> AlertControllerFactoryProtocol {
+        return AlertControllerFactory()
     }
 }
