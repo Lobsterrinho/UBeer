@@ -79,10 +79,8 @@ extension SettingsVM {
                                         title: "Something went wrong",
                                         message: error?.localizedDescription)
                                    }
-//                self.coordinator?.finish(true)
-                /*let ud = UserDefaults.standard
-                ud.set(false, forKey: "isRegistered")
-                               */}),
+                self.coordinator?.finishWithSighOut()
+            }),
                       .cancel({ })
             ]
         )
@@ -111,7 +109,7 @@ extension SettingsVM: SettingsAdapterActionDelegate {
         case [1, 1]: print("\(settingsItem.title) \(indexPath)")
         case [2, 0]: print("\(settingsItem.title) \(indexPath)")
         case [2, 1]: signOut()
-        default: print("**Error")
+        default: break
         }
     }
 }

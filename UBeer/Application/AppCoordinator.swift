@@ -103,4 +103,11 @@ extension AppCoordinator: TabBarRootCoordinatorProtocol {
         childCoordinators.removeAll(where: { $0 === coordinator })
         start()
     }
+    
+    func mainSceneFinishedWithSignOut(_ coordinator: Coordinator) {
+        childCoordinators.removeAll(where: { $0 === coordinator })
+        let ud = UserDefaults.standard
+        ud.set(false, forKey: "isRegistered")
+        start()
+    }
 }

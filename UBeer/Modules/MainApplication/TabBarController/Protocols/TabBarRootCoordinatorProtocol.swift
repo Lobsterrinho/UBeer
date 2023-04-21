@@ -10,4 +10,5 @@ import Foundation
 protocol TabBarRootCoordinatorProtocol: AnyObject {
     
     func mainSceneFinished(_ coordinator: Coordinator)
+    func mainSceneFinishedWithSignOut(_ coordinator: Coordinator)
 }

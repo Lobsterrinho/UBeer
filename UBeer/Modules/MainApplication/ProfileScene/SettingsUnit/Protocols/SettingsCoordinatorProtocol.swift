@@ -10,5 +10,6 @@ import UIKit
 protocol SettingsCoordinatorProtocol: AnyObject {
     
     func finish(_ shouldMovetoParentVC: Bool)
+    func finishWithSighOut()
     func presentAlert(_ alert: UIAlertController)
 }

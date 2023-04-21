@@ -45,8 +45,15 @@ extension ProfileCoordinator: ProfileCoordinatorProtocol {
 }
 
 extension ProfileCoordinator: SettingsRootCoordinatorProtocol {
+    
     func settingsDidFinished(_ coordinator: Coordinator) {
         childCoordinators.removeAll(where: { $0 === coordinator })
+    }
+    
+    func settingsDidFinishedWithSignOut(_ coordinator: Coordinator) {
+        childCoordinators.removeAll(where: { $0 === coordinator })
+        navigationController.popViewController(animated: false)
+        rootCoordinator.profileSceneFinishedWithSignOut(self)
     }
 }
 

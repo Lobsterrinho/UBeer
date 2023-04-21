@@ -40,6 +40,11 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         finish()
     }
     
+    func finishWithSighOut() {
+        navigationController.popViewController(animated: false)
+        rootCoordinator.settingsDidFinishedWithSignOut(self)
+    }
+    
     func presentAlert(_ alert: UIAlertController) {
         navigationController.present(alert, animated: true)
     }

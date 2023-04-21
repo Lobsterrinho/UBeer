@@ -9,4 +9,5 @@ import Foundation
 
 protocol ProfileRootCoordinatorProtocol: AnyObject {
     func profileSceneFinished(_ coordinator: Coordinator)
+    func profileSceneFinishedWithSignOut(_ coordinator: Coordinator)
 }

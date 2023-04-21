@@ -22,7 +22,7 @@ final class LoginCoordinator: Coordinator {
     
     func start() {
         let rootViewController = LoginAssembler.makeLoginVC(coordinator: self)
-        rootNavigationController.pushViewController(rootViewController, animated: false)
+        rootNavigationController.pushViewController(rootViewController, animated: true)
     }
     
     func finish() {

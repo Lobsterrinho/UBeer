@@ -25,6 +25,7 @@
 		BA32834429D9DDC30051C994 /* Sections.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32834329D9DDC30051C994 /* Sections.swift */; };
 		BA32834729D9DF1F0051C994 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32834629D9DF1F0051C994 /* SettingsTableViewCell.swift */; };
 		BA32834929DA00940051C994 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32834829DA00940051C994 /* SettingsItem.swift */; };
+		BA641B5B29F2A63D003DA239 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA641B5A29F2A63D003DA239 /* GoogleService-Info.plist */; };
 		BA6E05D629ADED9800549E60 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05D529ADED9800549E60 /* AppCoordinator.swift */; };
 		BA6E05D929ADEE3300549E60 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05D829ADEE3300549E60 /* Coordinator.swift */; };
 		BA6E05DB29ADF1EF00549E60 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05DA29ADF1EF00549E60 /* LoginVC.swift */; };
@@ -57,7 +58,6 @@
 		BA8F4BE529ABF67300C68B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8F4BE429ABF67300C68B78 /* Assets.xcassets */; };
 		BA8F4BE829ABF67300C68B78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8F4BE629ABF67300C68B78 /* LaunchScreen.storyboard */; };
 		BA94BDF929C25BB40001A07B /* ForgotPasswordVMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */; };
-		BA94BDFB29C269630001A07B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA94BDFA29C269630001A07B /* GoogleService-Info.plist */; };
 		BA94BDFF29C380690001A07B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94BDFE29C380690001A07B /* UIButton+Extension.swift */; };
 		BA9DE7E429C5F3D0001A266B /* OnboardingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E329C5F3D0001A266B /* OnboardingPageVC.swift */; };
 		BA9DE7E629C5F3D8001A266B /* OnboardingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E529C5F3D8001A266B /* OnboardingVM.swift */; };
@@ -123,6 +123,7 @@
 		BA32834329D9DDC30051C994 /* Sections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sections.swift; sourceTree = "<group>"; };
 		BA32834629D9DF1F0051C994 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		BA32834829DA00940051C994 /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
+		BA641B5A29F2A63D003DA239 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA6E05D529ADED9800549E60 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BA6E05D829ADEE3300549E60 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BA6E05DA29ADF1EF00549E60 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -157,7 +158,6 @@
 		BA8F4BE729ABF67300C68B78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA8F4BE929ABF67300C68B78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVMDelegate.swift; sourceTree = "<group>"; };
-		BA94BDFA29C269630001A07B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA94BDFE29C380690001A07B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		BA9DE7E329C5F3D0001A266B /* OnboardingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageVC.swift; sourceTree = "<group>"; };
 		BA9DE7E529C5F3D8001A266B /* OnboardingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVM.swift; sourceTree = "<group>"; };
@@ -450,7 +450,7 @@
 		BA8F4BDA29ABF66C00C68B78 /* UBeer */ = {
 			isa = PBXGroup;
 			children = (
-				BA94BDFA29C269630001A07B /* GoogleService-Info.plist */,
+				BA641B5A29F2A63D003DA239 /* GoogleService-Info.plist */,
 				BA6E05CA29ADE05200549E60 /* Application */,
 				BA6E05CC29ADE0DE00549E60 /* Modules */,
 				BA88241429D027D100E2EDBD /* AlertControllerFactory */,
@@ -678,7 +678,7 @@
 			files = (
 				BA8F4BE829ABF67300C68B78 /* LaunchScreen.storyboard in Resources */,
 				BA8F4BE529ABF67300C68B78 /* Assets.xcassets in Resources */,
-				BA94BDFB29C269630001A07B /* GoogleService-Info.plist in Resources */,
+				BA641B5B29F2A63D003DA239 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

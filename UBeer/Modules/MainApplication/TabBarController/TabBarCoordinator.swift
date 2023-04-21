@@ -42,14 +42,14 @@ extension TabBarCoordinator {
     private func generateProfileItem(_ tabBar: UITabBarController) {
         let coordinator = ProfileCoordinator(tabBarController: tabBar,
                                              rootCoordinator: self)
-        
+        childCoordinators.append(coordinator)
         coordinator.start()
     }
     
     private func generateMapItem(_ tabBar: UITabBarController) {
         let coordinator = MapCoordinator(tabBarController: tabBar,
                                          rootCoordinator: self)
-        
+        childCoordinators.append(coordinator)
         coordinator.start()
     }
     
@@ -58,6 +58,12 @@ extension TabBarCoordinator {
 extension TabBarCoordinator: ProfileRootCoordinatorProtocol {
     
     func profileSceneFinished(_ coordinator: Coordinator) { }
+    
+    func profileSceneFinishedWithSignOut(_ coordinator: Coordinator) {
+        childCoordinators.removeAll(where: { $0 === coordinator })
+        rootNavigationController.popViewController(animated: false)
+        rootCoordinator.mainSceneFinishedWithSignOut(self)
+    }
 }
 
 extension TabBarCoordinator: MapRootCoordinatorProtocol {
