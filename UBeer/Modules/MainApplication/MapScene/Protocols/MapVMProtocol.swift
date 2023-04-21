@@ -11,5 +11,7 @@ import MapKit
 protocol MapVMProtocol {
     
     func setupMapView(_ mapView: MKMapView)
+    func loadUsers()
+    func addUser()
     func getCurrentPosition()
 }

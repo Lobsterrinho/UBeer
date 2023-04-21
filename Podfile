@@ -6,6 +6,8 @@ target 'UBeer' do
   use_frameworks!
 
 pod 'FirebaseAuth'
+pod 'FirebaseFirestore'
+pod 'FirebaseDatabase'
 
   # Pods for UBeer
 

@@ -16,7 +16,6 @@ final class SettingsVC: UIViewController {
     init(viewModel: SettingsVMProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-       
     }
     
     required init?(coder: NSCoder) {

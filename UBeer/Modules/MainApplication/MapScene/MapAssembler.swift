@@ -21,7 +21,8 @@ final class MapAssembler {
     private static func makeViewModel(_ coordinator: MapCoordinatorProtocol) -> MapVMProtocol {
         return MapVM(coordinator: coordinator,
                      adapter: makeMapAdapter(),
-                     alertFactory: makeAlertFactory())
+                     alertFactory: makeAlertFactory(),
+                     realtimeDatabaseService: makeRealtimeDatabaseService())
     }
     
     private static func makeMapAdapter() -> MapAdapterProtocol {
@@ -30,5 +31,9 @@ final class MapAssembler {
     
     private static func makeAlertFactory() -> AlertControllerFactoryProtocol {
         return AlertControllerFactory()
+    }
+    
+    private static func makeRealtimeDatabaseService() -> RealtimeDatabaseServiceProtocol {
+        return RealtimeDatabaseService()
     }
 }

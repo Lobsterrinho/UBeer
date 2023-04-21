@@ -14,15 +14,28 @@ final class MapVM: MapVMProtocol {
     private var coordinator: MapCoordinatorProtocol
     private var adapter: MapAdapterProtocol
     private var alertFactory: AlertControllerFactoryProtocol
+    private var realtimeDatabaseService: RealtimeDatabaseServiceProtocol
     
     private var locationManager = CLLocationManager()
     
     init(coordinator: MapCoordinatorProtocol,
          adapter: MapAdapterProtocol,
-         alertFactory: AlertControllerFactoryProtocol) {
+         alertFactory: AlertControllerFactoryProtocol,
+         realtimeDatabaseService: RealtimeDatabaseServiceProtocol) {
         self.coordinator = coordinator
         self.adapter = adapter
         self.alertFactory = alertFactory
+        self.realtimeDatabaseService = realtimeDatabaseService
+    }
+    
+    func loadUsers() {
+        realtimeDatabaseService.loadUsers { user, error in
+            print("\n\n\n\n")
+        }
+    }
+    
+    func addUser() {
+        realtimeDatabaseService.addUser()
     }
     
     func setupMapView(_ mapView: MKMapView) {

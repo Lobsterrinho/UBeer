@@ -10,8 +10,10 @@ import MapKit
 
 final class MapVC: UIViewController {
     
-    private weak var tableView: UITableView!
     private weak var mapView: MKMapView!
+    
+    //Button to open form with fields where user can indicate some info about his current rest and pin the place for whole users in real time
+    private weak var beerButton: UIButton!
     
     private var viewModel: MapVMProtocol
     
@@ -44,6 +46,13 @@ final class MapVC: UIViewController {
         setupNavigationBar()
         setupViewsAndConstraints()
         viewModel.setupMapView(mapView)
+        setupSelectors()
+        viewModel.loadUsers()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        beerButton.layer.cornerRadius = beerButton.frame.size.width / 2
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,10 +64,22 @@ final class MapVC: UIViewController {
        title = "Map"
     }
     
+    private func setupSelectors() {
+        beerButton.addTarget(self,
+                             action: #selector(addUser),
+                             for: .touchUpInside)
+    }
+    
+    @objc private func addUser() {
+        viewModel.addUser()
+    }
+    
     private func setupViewsAndConstraints() {
         setupMapView()
         setupMapViewConstraints()
         
+        setupBeerButton()
+        setupBeerButtonConstraints()
     }
     
     private func setupMapView() {
@@ -68,12 +89,37 @@ final class MapVC: UIViewController {
         self.mapView = map
     }
     
+    private func setupBeerButton() {
+        let button = UIButton()
+        button.backgroundColor = .white.withAlphaComponent(0.7)
+        let image = UIImage(named: "beerMapIcon")
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: image!.size.width * 1.2, height: image!.size.height * 1.2))
+        let scaledImage = renderer.image { _ in
+            image?.draw(in: CGRect(origin: .zero, size: CGSize(width: image!.size.width * 1.2, height: image!.size.height * 1.2)))
+        }
+        button.setImage(scaledImage, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(button)
+        self.beerButton = button
+    }
+    
     private func setupMapViewConstraints() {
         NSLayoutConstraint.activate([
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    private func setupBeerButtonConstraints() {
+        NSLayoutConstraint.activate([
+            beerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                 constant: -20.0),
+            beerButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                               constant: -30.0),
+            beerButton.widthAnchor.constraint(equalToConstant: 60.0),
+            beerButton.heightAnchor.constraint(equalToConstant: 60.0)
         ])
     }
     
