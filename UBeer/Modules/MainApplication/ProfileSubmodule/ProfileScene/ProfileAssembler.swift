@@ -17,7 +17,9 @@ final class ProfileAssembler {
         return viewController
     }
     
-    static private func makeViewModel(coordinator: ProfileCoordinatorProtocol) -> ProfileVMProtocol {
+    static private func makeViewModel(
+        coordinator: ProfileCoordinatorProtocol
+    ) -> ProfileVMProtocol {
         return ProfileVM(coordinator: coordinator)
     }
     

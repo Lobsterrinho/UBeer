@@ -12,16 +12,16 @@ import MapKit
 
 final class MapAdapter: NSObject, MapAdapterProtocol {
     
-    private var mapView: MKMapView?
-    private var locationManager: CLLocationManager?
+    private weak var mapView: MKMapView?
+    private weak var locationManager: CLLocationManager?
     
-    private lazy var meLocation: MKPointAnnotation = {
+    private weak var actionDelegate: MapAdapterActionDelegate?
+    
+    private lazy var myLocation: MKPointAnnotation = {
         let pin = MKPointAnnotation()
         mapView?.addAnnotation(pin)
         return pin
     }()
-    
-    private var lastPin = MKPointAnnotation()
     
     func setupMapView(_ mapView: MKMapView) {
         self.mapView = mapView
@@ -43,6 +43,10 @@ final class MapAdapter: NSObject, MapAdapterProtocol {
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.startUpdatingLocation()
+    }
+    
+    func setupAdapterActionDelegate(_ delegate: MapAdapterActionDelegate) {
+        self.actionDelegate = delegate
     }
     
     func checkIfAvailable() -> CLAuthorizationStatus {
@@ -68,7 +72,7 @@ final class MapAdapter: NSObject, MapAdapterProtocol {
     }
     
     private func setupMapPin(_ coordinate: CLLocationCoordinate2D) {
-        meLocation.coordinate = coordinate
+        myLocation.coordinate = coordinate
     }
     
 }
@@ -79,7 +83,6 @@ extension MapAdapter: CLLocationManagerDelegate {
                          didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             locationManager?.stopUpdatingLocation()
-            mapView?.removeAnnotation(lastPin)
             render(location)
         }
     }
@@ -99,6 +102,12 @@ extension MapAdapter: MKMapViewDelegate {
         }
         annotationView?.image = UIImage(named: "selfLocationPin")
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+        let coordinate = annotation.coordinate
+        actionDelegate?.didSelect(coordinate: coordinate,
+                                  myLocation: myLocation.coordinate)
     }
     
     

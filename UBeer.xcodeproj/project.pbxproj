@@ -10,6 +10,12 @@
 		3A22660EE01118B700FC8766 /* Pods_UBeer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35649073D38F1248F137788F /* Pods_UBeer.framework */; };
 		BA00454D29DE048100E1B1BB /* MapAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00454C29DE048100E1B1BB /* MapAdapter.swift */; };
 		BA00454F29DE04C700E1B1BB /* MapAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00454E29DE04C700E1B1BB /* MapAdapterProtocol.swift */; };
+		BA0E02DC29F3EF4E00E64764 /* MapAdapterActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02DB29F3EF4E00E64764 /* MapAdapterActionDelegate.swift */; };
+		BA0E02DF29F3F4AC00E64764 /* BottomSheetAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02DE29F3F4AC00E64764 /* BottomSheetAdapter.swift */; };
+		BA0E02E129F3F4F700E64764 /* BottomSheetAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02E029F3F4F700E64764 /* BottomSheetAdapterProtocol.swift */; };
+		BA0E02E729F53D9C00E64764 /* DistanceTableCellPrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02E629F53D9C00E64764 /* DistanceTableCellPrototype.swift */; };
+		BA0E02EB29F53EBC00E64764 /* MapPinInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02EA29F53EBC00E64764 /* MapPinInfo.swift */; };
+		BA0E02ED29F5415E00E64764 /* BottomSheetSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02EC29F5415E00E64764 /* BottomSheetSections.swift */; };
 		BA1BBBDE29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBDD29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift */; };
 		BA1BBBE029B2A0FD00E8936C /* AuthorizationService+ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBDF29B2A0FD00E8936C /* AuthorizationService+ForgotPassword.swift */; };
 		BA1BBBE229B2A14B00E8936C /* ForgotPasswordVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBE129B2A14B00E8936C /* ForgotPasswordVMProtocol.swift */; };
@@ -31,6 +37,13 @@
 		BA54850729E4593F0052B9C9 /* RealtimeDatabaseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54850629E4593F0052B9C9 /* RealtimeDatabaseServiceProtocol.swift */; };
 		BA54850929E459D50052B9C9 /* RealtimeDatabaseService+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54850829E459D50052B9C9 /* RealtimeDatabaseService+Map.swift */; };
 		BA54850B29E5F0EF0052B9C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA54850A29E5F0EF0052B9C9 /* GoogleService-Info.plist */; };
+		BA641B5E29F33191003DA239 /* BottomSheetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA641B5D29F33191003DA239 /* BottomSheetCoordinator.swift */; };
+		BA641B6029F331A3003DA239 /* BottomSheetAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA641B5F29F331A3003DA239 /* BottomSheetAssembler.swift */; };
+		BA641B6229F331AC003DA239 /* BottomSheetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA641B6129F331AC003DA239 /* BottomSheetVM.swift */; };
+		BA641B6429F331B7003DA239 /* BottomSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA641B6329F331B7003DA239 /* BottomSheetVC.swift */; };
+		BA641B6729F331DD003DA239 /* BottomSheetCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA641B6629F331DD003DA239 /* BottomSheetCoordinatorProtocol.swift */; };
+		BA641B6929F331EB003DA239 /* BottomSheetRootCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA641B6829F331EB003DA239 /* BottomSheetRootCoordinatorProtocol.swift */; };
+		BA641B6B29F331FB003DA239 /* BottomSheetVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA641B6A29F331FB003DA239 /* BottomSheetVMProtocol.swift */; };
 		BA6E05D629ADED9800549E60 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05D529ADED9800549E60 /* AppCoordinator.swift */; };
 		BA6E05D929ADEE3300549E60 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05D829ADEE3300549E60 /* Coordinator.swift */; };
 		BA6E05DB29ADF1EF00549E60 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E05DA29ADF1EF00549E60 /* LoginVC.swift */; };
@@ -113,6 +126,12 @@
 		35649073D38F1248F137788F /* Pods_UBeer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UBeer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA00454C29DE048100E1B1BB /* MapAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAdapter.swift; sourceTree = "<group>"; };
 		BA00454E29DE04C700E1B1BB /* MapAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAdapterProtocol.swift; sourceTree = "<group>"; };
+		BA0E02DB29F3EF4E00E64764 /* MapAdapterActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAdapterActionDelegate.swift; sourceTree = "<group>"; };
+		BA0E02DE29F3F4AC00E64764 /* BottomSheetAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetAdapter.swift; sourceTree = "<group>"; };
+		BA0E02E029F3F4F700E64764 /* BottomSheetAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetAdapterProtocol.swift; sourceTree = "<group>"; };
+		BA0E02E629F53D9C00E64764 /* DistanceTableCellPrototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceTableCellPrototype.swift; sourceTree = "<group>"; };
+		BA0E02EA29F53EBC00E64764 /* MapPinInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinInfo.swift; sourceTree = "<group>"; };
+		BA0E02EC29F5415E00E64764 /* BottomSheetSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetSections.swift; sourceTree = "<group>"; };
 		BA1BBBDD29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordAuthorizationServiceProtocol.swift; sourceTree = "<group>"; };
 		BA1BBBDF29B2A0FD00E8936C /* AuthorizationService+ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorizationService+ForgotPassword.swift"; sourceTree = "<group>"; };
 		BA1BBBE129B2A14B00E8936C /* ForgotPasswordVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVMProtocol.swift; sourceTree = "<group>"; };
@@ -134,6 +153,13 @@
 		BA54850629E4593F0052B9C9 /* RealtimeDatabaseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDatabaseServiceProtocol.swift; sourceTree = "<group>"; };
 		BA54850829E459D50052B9C9 /* RealtimeDatabaseService+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealtimeDatabaseService+Map.swift"; sourceTree = "<group>"; };
 		BA54850A29E5F0EF0052B9C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BA641B5D29F33191003DA239 /* BottomSheetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCoordinator.swift; sourceTree = "<group>"; };
+		BA641B5F29F331A3003DA239 /* BottomSheetAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetAssembler.swift; sourceTree = "<group>"; };
+		BA641B6129F331AC003DA239 /* BottomSheetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetVM.swift; sourceTree = "<group>"; };
+		BA641B6329F331B7003DA239 /* BottomSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetVC.swift; sourceTree = "<group>"; };
+		BA641B6629F331DD003DA239 /* BottomSheetCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		BA641B6829F331EB003DA239 /* BottomSheetRootCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetRootCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		BA641B6A29F331FB003DA239 /* BottomSheetVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetVMProtocol.swift; sourceTree = "<group>"; };
 		BA6E05D529ADED9800549E60 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BA6E05D829ADEE3300549E60 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BA6E05DA29ADF1EF00549E60 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -237,18 +263,66 @@
 		BA00454B29DE046400E1B1BB /* MapAdapter */ = {
 			isa = PBXGroup;
 			children = (
+				BA0E02E429F535AB00E64764 /* Delegates */,
 				BA00454C29DE048100E1B1BB /* MapAdapter.swift */,
 				BA00454E29DE04C700E1B1BB /* MapAdapterProtocol.swift */,
 			);
 			path = MapAdapter;
 			sourceTree = "<group>";
 		};
-		BA00455229E04A4600E1B1BB /* RealtimeDatabaseService+Map */ = {
+		BA00455229E04A4600E1B1BB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				BA54850829E459D50052B9C9 /* RealtimeDatabaseService+Map.swift */,
 			);
-			path = "RealtimeDatabaseService+Map";
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BA0E02DD29F3F49A00E64764 /* BottomSheetAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				BA0E02DE29F3F4AC00E64764 /* BottomSheetAdapter.swift */,
+				BA0E02E029F3F4F700E64764 /* BottomSheetAdapterProtocol.swift */,
+			);
+			path = BottomSheetAdapter;
+			sourceTree = "<group>";
+		};
+		BA0E02E429F535AB00E64764 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				BA0E02DB29F3EF4E00E64764 /* MapAdapterActionDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		BA0E02E529F5373800E64764 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BA0E02E629F53D9C00E64764 /* DistanceTableCellPrototype.swift */,
+				BA0E02EA29F53EBC00E64764 /* MapPinInfo.swift */,
+				BA0E02EC29F5415E00E64764 /* BottomSheetSections.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BA0E02E829F53E4200E64764 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				BA88241729D0299700E2EDBD /* OnboardingAdapterPageDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		BA0E02EE29F57A1300E64764 /* ProfileScene */ = {
+			isa = PBXGroup;
+			children = (
+				BA89B80229CDBFCB00CD7C76 /* Protocols */,
+				BA9DE80129CCE982001A266B /* ProfileCoordinator.swift */,
+				BA9DE80529CCE9A7001A266B /* ProfileAssembler.swift */,
+				BA9DE80329CCE994001A266B /* ProfileVM.swift */,
+				BA9DE7FF29CCE96B001A266B /* ProfileVC.swift */,
+			);
+			path = ProfileScene;
 			sourceTree = "<group>";
 		};
 		BA1BBBED29B7D44700E8936C /* UI Elements */ = {
@@ -278,6 +352,30 @@
 				BA32834629D9DF1F0051C994 /* SettingsTableViewCell.swift */,
 			);
 			path = SettingsTableViewCell;
+			sourceTree = "<group>";
+		};
+		BA641B5C29F33169003DA239 /* BottomSheetScene */ = {
+			isa = PBXGroup;
+			children = (
+				BA0E02E529F5373800E64764 /* Cell */,
+				BA0E02DD29F3F49A00E64764 /* BottomSheetAdapter */,
+				BA641B6529F331BA003DA239 /* Protocols */,
+				BA641B5D29F33191003DA239 /* BottomSheetCoordinator.swift */,
+				BA641B5F29F331A3003DA239 /* BottomSheetAssembler.swift */,
+				BA641B6129F331AC003DA239 /* BottomSheetVM.swift */,
+				BA641B6329F331B7003DA239 /* BottomSheetVC.swift */,
+			);
+			path = BottomSheetScene;
+			sourceTree = "<group>";
+		};
+		BA641B6529F331BA003DA239 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BA641B6629F331DD003DA239 /* BottomSheetCoordinatorProtocol.swift */,
+				BA641B6A29F331FB003DA239 /* BottomSheetVMProtocol.swift */,
+				BA641B6829F331EB003DA239 /* BottomSheetRootCoordinatorProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		BA6E05CA29ADE05200549E60 /* Application */ = {
@@ -429,11 +527,25 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		BA7D582429F57B040061DEB8 /* MapScene */ = {
+			isa = PBXGroup;
+			children = (
+				BA00454B29DE046400E1B1BB /* MapAdapter */,
+				BA00455229E04A4600E1B1BB /* Extensions */,
+				BAADCD7B29D6F9E8003B8821 /* Protocols */,
+				BAADCD7529D6F97F003B8821 /* MapCoordinator.swift */,
+				BAADCD7729D6F98C003B8821 /* MapAssembler.swift */,
+				BAADCD7929D6F996003B8821 /* MapVM.swift */,
+				BAADCD7329D6F975003B8821 /* MapVC.swift */,
+			);
+			path = MapScene;
+			sourceTree = "<group>";
+		};
 		BA88241329D027A800E2EDBD /* OnboardingAdapter */ = {
 			isa = PBXGroup;
 			children = (
+				BA0E02E829F53E4200E64764 /* Delegates */,
 				BA9DE7FA29C8731B001A266B /* OnboardingAdapterProtocol.swift */,
-				BA88241729D0299700E2EDBD /* OnboardingAdapterPageDelegate.swift */,
 				BA9DE7F729C872D8001A266B /* OnboardingAdapter.swift */,
 			);
 			path = OnboardingAdapter;
@@ -520,8 +632,8 @@
 			isa = PBXGroup;
 			children = (
 				BAADCD6629D6CE9B003B8821 /* TabBarController */,
-				BAADCD7229D6F955003B8821 /* MapScene */,
-				BAADCD6529D6CE7E003B8821 /* ProfileScene */,
+				BAADCD7229D6F955003B8821 /* MapSubmodule */,
+				BAADCD6529D6CE7E003B8821 /* ProfileSubmodule */,
 			);
 			path = MainApplication;
 			sourceTree = "<group>";
@@ -546,17 +658,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		BAADCD6529D6CE7E003B8821 /* ProfileScene */ = {
+		BAADCD6529D6CE7E003B8821 /* ProfileSubmodule */ = {
 			isa = PBXGroup;
 			children = (
-				BA89B80229CDBFCB00CD7C76 /* Protocols */,
-				BA9DE80129CCE982001A266B /* ProfileCoordinator.swift */,
-				BA9DE80529CCE9A7001A266B /* ProfileAssembler.swift */,
-				BA9DE80329CCE994001A266B /* ProfileVM.swift */,
-				BA9DE7FF29CCE96B001A266B /* ProfileVC.swift */,
-				BAADCD8329D83AC5003B8821 /* SettingsUnit */,
+				BA0E02EE29F57A1300E64764 /* ProfileScene */,
+				BAADCD8329D83AC5003B8821 /* SettingsScene */,
 			);
-			path = ProfileScene;
+			path = ProfileSubmodule;
 			sourceTree = "<group>";
 		};
 		BAADCD6629D6CE9B003B8821 /* TabBarController */ = {
@@ -579,18 +687,13 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		BAADCD7229D6F955003B8821 /* MapScene */ = {
+		BAADCD7229D6F955003B8821 /* MapSubmodule */ = {
 			isa = PBXGroup;
 			children = (
-				BA00454B29DE046400E1B1BB /* MapAdapter */,
-				BAADCD7B29D6F9E8003B8821 /* Protocols */,
-				BAADCD7529D6F97F003B8821 /* MapCoordinator.swift */,
-				BAADCD7729D6F98C003B8821 /* MapAssembler.swift */,
-				BAADCD7929D6F996003B8821 /* MapVM.swift */,
-				BAADCD7329D6F975003B8821 /* MapVC.swift */,
-				BA00455229E04A4600E1B1BB /* RealtimeDatabaseService+Map */,
+				BA7D582429F57B040061DEB8 /* MapScene */,
+				BA641B5C29F33169003DA239 /* BottomSheetScene */,
 			);
-			path = MapScene;
+			path = MapSubmodule;
 			sourceTree = "<group>";
 		};
 		BAADCD7B29D6F9E8003B8821 /* Protocols */ = {
@@ -604,7 +707,7 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		BAADCD8329D83AC5003B8821 /* SettingsUnit */ = {
+		BAADCD8329D83AC5003B8821 /* SettingsScene */ = {
 			isa = PBXGroup;
 			children = (
 				BAD99EEA29DC387C00959B1B /* Extensions */,
@@ -616,7 +719,7 @@
 				BAADCD8829D83B49003B8821 /* SettingsVM.swift */,
 				BAADCD8A29D83B52003B8821 /* SettingsVC.swift */,
 			);
-			path = SettingsUnit;
+			path = SettingsScene;
 			sourceTree = "<group>";
 		};
 		BAADCD8C29D83F6A003B8821 /* Protocols */ = {
@@ -762,6 +865,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA641B6929F331EB003DA239 /* BottomSheetRootCoordinatorProtocol.swift in Sources */,
 				BAADCD6E29D6E9D9003B8821 /* TabBarController.swift in Sources */,
 				BAADCD7F29D718EE003B8821 /* MapCoordinatorProtocol.swift in Sources */,
 				BA8F4BDC29ABF66C00C68B78 /* AppDelegate.swift in Sources */,
@@ -771,6 +875,7 @@
 				BA9DE7F329C5F4F9001A266B /* OnboardingRootCoordinatorProtocol.swift in Sources */,
 				BA9DE7ED29C5F476001A266B /* OnboardingCoordinatorProtocol.swift in Sources */,
 				BA6E060729AFDAC600549E60 /* RegisterVMProtocol.swift in Sources */,
+				BA641B5E29F33191003DA239 /* BottomSheetCoordinator.swift in Sources */,
 				BA6E061029AFE1F400549E60 /* RegisterAuthorizationServiceProtocol.swift in Sources */,
 				BA94BDFF29C380690001A07B /* UIButton+Extension.swift in Sources */,
 				BA6E05D629ADED9800549E60 /* AppCoordinator.swift in Sources */,
@@ -778,10 +883,14 @@
 				BAADCD8929D83B49003B8821 /* SettingsVM.swift in Sources */,
 				BAADCD7829D6F98C003B8821 /* MapAssembler.swift in Sources */,
 				BA1BBBE629B2A55500E8936C /* ForgotPasswordRootCoordinatorProtocol.swift in Sources */,
+				BA641B6229F331AC003DA239 /* BottomSheetVM.swift in Sources */,
 				BA6E05E829AE196400549E60 /* LoginVMProtocol.swift in Sources */,
+				BA641B6729F331DD003DA239 /* BottomSheetCoordinatorProtocol.swift in Sources */,
 				BA6E05DF29ADF20200549E60 /* LoginCoordinator.swift in Sources */,
 				BA6E05EA29AE1CB000549E60 /* AuthorizationService.swift in Sources */,
+				BA641B6B29F331FB003DA239 /* BottomSheetVMProtocol.swift in Sources */,
 				BA88241829D0299700E2EDBD /* OnboardingAdapterPageDelegate.swift in Sources */,
+				BA0E02ED29F5415E00E64764 /* BottomSheetSections.swift in Sources */,
 				BA9DE7F529C832BA001A266B /* OnboardingPageList.swift in Sources */,
 				BA9DE7E629C5F3D8001A266B /* OnboardingVM.swift in Sources */,
 				BA6E05E429ADF62C00549E60 /* LoginRootCoordinatorProtocol.swift in Sources */,
@@ -808,17 +917,22 @@
 				BAD99EEC29DC38A600959B1B /* AuthorizationService+SignOut.swift in Sources */,
 				BAADCD7A29D6F996003B8821 /* MapVM.swift in Sources */,
 				BA1BBBF629B8DC5C00E8936C /* AlertControllerFactoryProtocol.swift in Sources */,
+				BA641B6029F331A3003DA239 /* BottomSheetAssembler.swift in Sources */,
+				BA0E02E129F3F4F700E64764 /* BottomSheetAdapterProtocol.swift in Sources */,
 				BA1BBBEA29B3C05C00E8936C /* RegularTextField.swift in Sources */,
 				BAADCD7429D6F975003B8821 /* MapVC.swift in Sources */,
 				BA1BBBEF29B7D71E00E8936C /* RegularButton.swift in Sources */,
+				BA0E02DC29F3EF4E00E64764 /* MapAdapterActionDelegate.swift in Sources */,
 				BA32834229D9DBBF0051C994 /* SettingsAdapterProtocol.swift in Sources */,
 				BAADCD8E29D83F81003B8821 /* SettingsCoordinatorProtocol.swift in Sources */,
+				BA0E02DF29F3F4AC00E64764 /* BottomSheetAdapter.swift in Sources */,
 				BA54850529E457950052B9C9 /* RealtimeDatabaseService.swift in Sources */,
 				BA6E060529AFD92600549E60 /* RegisterAssembler.swift in Sources */,
 				BA6E061229AFE35F00549E60 /* RegisterCoordinatorProtocol.swift in Sources */,
 				BA6E05FF29AFD8AD00549E60 /* RegisterVC.swift in Sources */,
 				BA1BBBFA29BE4BA000E8936C /* RegisterVMDelegate.swift in Sources */,
 				BAADCD6A29D6E765003B8821 /* TabBarAssembler.swift in Sources */,
+				BA0E02E729F53D9C00E64764 /* DistanceTableCellPrototype.swift in Sources */,
 				BA6E061429AFE38200549E60 /* RegisterRootCoordinatorProtocol.swift in Sources */,
 				BAA795C029B29812007BCD03 /* ForgotPasswordAssembler.swift in Sources */,
 				BA8F4BDE29ABF66C00C68B78 /* SceneDelegate.swift in Sources */,
@@ -828,6 +942,7 @@
 				BAA795BC29B29802007BCD03 /* ForgotPasswordVM.swift in Sources */,
 				BA88241629D0291800E2EDBD /* OnboardingVMDelegate.swift in Sources */,
 				BA6E05E129ADF20C00549E60 /* LoginAssembler.swift in Sources */,
+				BA0E02EB29F53EBC00E64764 /* MapPinInfo.swift in Sources */,
 				BAADCD6229D4538E003B8821 /* LoginVMDelegate.swift in Sources */,
 				BA9DE7F829C872D8001A266B /* OnboardingAdapter.swift in Sources */,
 				BAA795BA29B297FC007BCD03 /* ForgotPasswordVC.swift in Sources */,
@@ -855,6 +970,7 @@
 				BA9DE80629CCE9A7001A266B /* ProfileAssembler.swift in Sources */,
 				BA32834729D9DF1F0051C994 /* SettingsTableViewCell.swift in Sources */,
 				BAADCD6429D630DE003B8821 /* Pages.swift in Sources */,
+				BA641B6429F331B7003DA239 /* BottomSheetVC.swift in Sources */,
 				BA6E05F329AF3BC000549E60 /* UIColor+Extension.swift in Sources */,
 				BA9DE7EA29C5F3F2001A266B /* OnboardingAssembler.swift in Sources */,
 			);

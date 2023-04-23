@@ -26,11 +26,11 @@ final class MapVM: MapVMProtocol {
         self.adapter = adapter
         self.alertFactory = alertFactory
         self.realtimeDatabaseService = realtimeDatabaseService
+        adapter.setupAdapterActionDelegate(self)
     }
     
     func loadUsers() {
         realtimeDatabaseService.loadUsers { user, error in
-            print("\n\n\n\n")
         }
     }
     
@@ -40,10 +40,6 @@ final class MapVM: MapVMProtocol {
     
     func setupMapView(_ mapView: MKMapView) {
         adapter.setupMapView(mapView)
-    }
-    
-    func fdsklfds() {
-        print("\(adapter.checkIfAvailable())")
     }
     
     func getCurrentPosition() {
@@ -68,5 +64,14 @@ final class MapVM: MapVMProtocol {
                                             })
                                            ])
         self.coordinator.presentAlert(alert)
+    }
+}
+
+extension MapVM: MapAdapterActionDelegate {
+    
+    func didSelect(coordinate: CLLocationCoordinate2D,
+                   myLocation: CLLocationCoordinate2D) {
+        coordinator.openBottomSheet(pinCoordinate: coordinate,
+                                    myCoordinate: myLocation)
     }
 }

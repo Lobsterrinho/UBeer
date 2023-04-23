@@ -71,7 +71,8 @@ final class MapVC: UIViewController {
     }
     
     @objc private func addUser() {
-        viewModel.addUser()
+//        viewModel.addUser()
+        
     }
     
     private func setupViewsAndConstraints() {

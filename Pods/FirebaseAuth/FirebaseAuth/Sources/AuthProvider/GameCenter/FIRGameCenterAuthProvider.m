@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
         }
       } else {
         FIRGameCenterAuthCredential *credential =
-            [[FIRGameCenterAuthCredential alloc] initWithPlayerID:localPlayer.playerID
+            [[FIRGameCenterAuthCredential alloc] initWithPlayerID:localPlayer.teamPlayerID
                                                      teamPlayerID:localPlayer.teamPlayerID
                                                      gamePlayerID:localPlayer.gamePlayerID
                                                      publicKeyURL:publicKeyURL
@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
       }
     }];
   } else {
-    [localPlayer generateIdentityVerificationSignatureWithCompletionHandler:^(
+    [localPlayer fetchItemsForIdentityVerificationSignature:^(
                      NSURL *publicKeyURL, NSData *signature, NSData *salt, uint64_t timestamp,
                      NSError *error) {
       if (error) {

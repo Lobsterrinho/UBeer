@@ -23,7 +23,6 @@ final class TabBarCoordinator: Coordinator {
     func start() {
         let tabBar = TabBarAssembler.makeTabBarController()
         rootNavigationController.navigationBar.isHidden = true
-        tabBar.hidesBottomBarWhenPushed = true
         
         generateMapItem(tabBar)
         generateProfileItem(tabBar)
@@ -44,6 +43,7 @@ extension TabBarCoordinator {
                                              rootCoordinator: self)
         
         coordinator.start()
+        
     }
     
     private func generateMapItem(_ tabBar: UITabBarController) {
@@ -53,6 +53,10 @@ extension TabBarCoordinator {
         coordinator.start()
     }
     
+}
+
+extension TabBarCoordinator: BottomSheetRootCoordinatorProtocol {
+    func bottomSheetSceneDidFinished(_ coordinator: Coordinator) { }
 }
 
 extension TabBarCoordinator: ProfileRootCoordinatorProtocol {

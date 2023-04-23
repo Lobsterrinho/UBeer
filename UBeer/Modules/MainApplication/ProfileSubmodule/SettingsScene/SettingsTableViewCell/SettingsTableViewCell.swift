@@ -38,14 +38,14 @@ final class SettingsTableViewCell: UITableViewCell {
         iconView.image = item.image
     }
     
-    func setupIconView() {
+    private func setupIconView() {
         let iconView = UIImageView()
         iconView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(iconView)
         self.iconView = iconView
     }
 
-    func setupTitleLabel() {
+    private func setupTitleLabel() {
         let label = UILabel()
         label.setupLabel(text: "Title",
                          color: .black100,

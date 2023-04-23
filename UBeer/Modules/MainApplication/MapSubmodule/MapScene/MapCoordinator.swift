@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 final class MapCoordinator: Coordinator {
     
@@ -38,5 +39,22 @@ extension MapCoordinator: MapCoordinatorProtocol {
     
     func presentAlert(_ alertController: UIAlertController) {
         navigationController.present(alertController, animated: true)
+    }
+    
+    func openBottomSheet(pinCoordinate: CLLocationCoordinate2D,
+                         myCoordinate: CLLocationCoordinate2D) {
+        let bottomSheetCoordinator = BottomSheetCoordinator(
+            navigationController: navigationController,
+            rootCoordinator: self
+        )
+        childCoordinators.append(bottomSheetCoordinator)
+        bottomSheetCoordinator.start(pinCoordinate: pinCoordinate,
+                                     myCoordinate: myCoordinate)
+    }
+}
+
+extension MapCoordinator: BottomSheetRootCoordinatorProtocol {
+    func bottomSheetSceneDidFinished(_ coordinator: Coordinator) {
+        childCoordinators.removeAll(where: { $0 === coordinator })
     }
 }

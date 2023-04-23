@@ -41,7 +41,8 @@ final class RealtimeDatabaseService {
         print("\n\n\n\n\n\n")
         let currentUser = firebaseAuthService.currentUser
         let uid = currentUser?.uid
-        print(uid)
+//        print(uid)
+        
 //        let dictt: [String: Any] = ["id": "\(firebaseAuthService.user)",
 //                                    "name": "Aboba"]
 //        self.firebaseReference.child("users").setValue(dictt)

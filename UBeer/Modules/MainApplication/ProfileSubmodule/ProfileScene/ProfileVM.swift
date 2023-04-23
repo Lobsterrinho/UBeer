@@ -9,7 +9,6 @@ import UIKit
 
 final class ProfileVM: ProfileVMProtocol {
     
-    #warning("Why cant make weak var profile protocol")
     private var coordinator: ProfileCoordinatorProtocol
     
     init(coordinator: ProfileCoordinatorProtocol) {

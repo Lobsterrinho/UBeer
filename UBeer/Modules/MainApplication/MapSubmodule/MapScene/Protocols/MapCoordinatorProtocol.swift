@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol MapCoordinatorProtocol: AnyObject {
     
     func presentAlert(_ alertController: UIAlertController)
     func finish()
+    func openBottomSheet(pinCoordinate: CLLocationCoordinate2D,
+                         myCoordinate: CLLocationCoordinate2D)
 }
