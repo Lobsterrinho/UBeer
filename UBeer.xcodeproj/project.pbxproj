@@ -66,6 +66,18 @@
 		BA6E061029AFE1F400549E60 /* RegisterAuthorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E060F29AFE1F400549E60 /* RegisterAuthorizationServiceProtocol.swift */; };
 		BA6E061229AFE35F00549E60 /* RegisterCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E061129AFE35F00549E60 /* RegisterCoordinatorProtocol.swift */; };
 		BA6E061429AFE38200549E60 /* RegisterRootCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E061329AFE38200549E60 /* RegisterRootCoordinatorProtocol.swift */; };
+		BA7D582929F57C370061DEB8 /* CreateCheckInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D582829F57C370061DEB8 /* CreateCheckInCoordinator.swift */; };
+		BA7D582B29F57C4D0061DEB8 /* CreateCheckInAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D582A29F57C4D0061DEB8 /* CreateCheckInAssembler.swift */; };
+		BA7D582D29F57C5B0061DEB8 /* CreateCheckInVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D582C29F57C5B0061DEB8 /* CreateCheckInVM.swift */; };
+		BA7D582F29F57C660061DEB8 /* CreateCheckInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D582E29F57C660061DEB8 /* CreateCheckInVC.swift */; };
+		BA7D583229F57C810061DEB8 /* CreateCheckInCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D583129F57C810061DEB8 /* CreateCheckInCoordinatorProtocol.swift */; };
+		BA7D583429F57C8E0061DEB8 /* CreateCheckInRootCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D583329F57C8E0061DEB8 /* CreateCheckInRootCoordinatorProtocol.swift */; };
+		BA7D583629F57C990061DEB8 /* CreateCheckInVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D583529F57C990061DEB8 /* CreateCheckInVMProtocol.swift */; };
+		BA7D583D29F5C9FE0061DEB8 /* CheckInAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D583C29F5C9FE0061DEB8 /* CheckInAdapter.swift */; };
+		BA7D583F29F5CA120061DEB8 /* CheckInAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D583E29F5CA120061DEB8 /* CheckInAdapterProtocol.swift */; };
+		BA7D584229F5CB800061DEB8 /* CheckInSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D584129F5CB800061DEB8 /* CheckInSections.swift */; };
+		BA7D584429F5CB900061DEB8 /* CheckInItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D584329F5CB900061DEB8 /* CheckInItems.swift */; };
+		BA7D584629F5CDB80061DEB8 /* CheckInTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D584529F5CDB80061DEB8 /* CheckInTableCell.swift */; };
 		BA88241029CDC36F00E2EDBD /* ProfileVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88240F29CDC36F00E2EDBD /* ProfileVMProtocol.swift */; };
 		BA88241229CDC3C700E2EDBD /* ProfileCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88241129CDC3C700E2EDBD /* ProfileCoordinatorProtocol.swift */; };
 		BA88241629D0291800E2EDBD /* OnboardingVMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88241529D0291800E2EDBD /* OnboardingVMDelegate.swift */; };
@@ -77,6 +89,7 @@
 		BA8F4BE829ABF67300C68B78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8F4BE629ABF67300C68B78 /* LaunchScreen.storyboard */; };
 		BA94BDF929C25BB40001A07B /* ForgotPasswordVMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */; };
 		BA94BDFF29C380690001A07B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94BDFE29C380690001A07B /* UIButton+Extension.swift */; };
+		BA9604172A02EE2800C44FAA /* ButtonTableCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9604162A02EE2800C44FAA /* ButtonTableCellDelegate.swift */; };
 		BA9DE7E429C5F3D0001A266B /* OnboardingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E329C5F3D0001A266B /* OnboardingPageVC.swift */; };
 		BA9DE7E629C5F3D8001A266B /* OnboardingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E529C5F3D8001A266B /* OnboardingVM.swift */; };
 		BA9DE7E829C5F3E2001A266B /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE7E729C5F3E2001A266B /* OnboardingCoordinator.swift */; };
@@ -91,6 +104,11 @@
 		BA9DE80229CCE982001A266B /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE80129CCE982001A266B /* ProfileCoordinator.swift */; };
 		BA9DE80429CCE994001A266B /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE80329CCE994001A266B /* ProfileVM.swift */; };
 		BA9DE80629CCE9A7001A266B /* ProfileAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE80529CCE9A7001A266B /* ProfileAssembler.swift */; };
+		BA9F882F29F6B1B600E8FE36 /* CreateTableCellPrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F882E29F6B1B600E8FE36 /* CreateTableCellPrototype.swift */; };
+		BA9F883229F6C26D00E8FE36 /* AddPhotoTableCellPrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F883129F6C26D00E8FE36 /* AddPhotoTableCellPrototype.swift */; };
+		BA9F884329F97C7200E8FE36 /* AddPhotoTableCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F884229F97C7200E8FE36 /* AddPhotoTableCellVM.swift */; };
+		BA9F884529F97CE000E8FE36 /* AddPhotoTableCellVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F884429F97CE000E8FE36 /* AddPhotoTableCellVMProtocol.swift */; };
+		BA9F884729F97CFD00E8FE36 /* AddPhotoTableCellVMAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F884629F97CFD00E8FE36 /* AddPhotoTableCellVMAssembler.swift */; };
 		BAA795BA29B297FC007BCD03 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */; };
 		BAA795BC29B29802007BCD03 /* ForgotPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795BB29B29802007BCD03 /* ForgotPasswordVM.swift */; };
 		BAA795BE29B2980B007BCD03 /* ForgotPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795BD29B2980B007BCD03 /* ForgotPasswordCoordinator.swift */; };
@@ -182,6 +200,18 @@
 		BA6E060F29AFE1F400549E60 /* RegisterAuthorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAuthorizationServiceProtocol.swift; sourceTree = "<group>"; };
 		BA6E061129AFE35F00549E60 /* RegisterCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		BA6E061329AFE38200549E60 /* RegisterRootCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRootCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		BA7D582829F57C370061DEB8 /* CreateCheckInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCheckInCoordinator.swift; sourceTree = "<group>"; };
+		BA7D582A29F57C4D0061DEB8 /* CreateCheckInAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCheckInAssembler.swift; sourceTree = "<group>"; };
+		BA7D582C29F57C5B0061DEB8 /* CreateCheckInVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCheckInVM.swift; sourceTree = "<group>"; };
+		BA7D582E29F57C660061DEB8 /* CreateCheckInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCheckInVC.swift; sourceTree = "<group>"; };
+		BA7D583129F57C810061DEB8 /* CreateCheckInCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCheckInCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		BA7D583329F57C8E0061DEB8 /* CreateCheckInRootCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCheckInRootCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		BA7D583529F57C990061DEB8 /* CreateCheckInVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCheckInVMProtocol.swift; sourceTree = "<group>"; };
+		BA7D583C29F5C9FE0061DEB8 /* CheckInAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInAdapter.swift; sourceTree = "<group>"; };
+		BA7D583E29F5CA120061DEB8 /* CheckInAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInAdapterProtocol.swift; sourceTree = "<group>"; };
+		BA7D584129F5CB800061DEB8 /* CheckInSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInSections.swift; sourceTree = "<group>"; };
+		BA7D584329F5CB900061DEB8 /* CheckInItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInItems.swift; sourceTree = "<group>"; };
+		BA7D584529F5CDB80061DEB8 /* CheckInTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInTableCell.swift; sourceTree = "<group>"; };
 		BA88240F29CDC36F00E2EDBD /* ProfileVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVMProtocol.swift; sourceTree = "<group>"; };
 		BA88241129CDC3C700E2EDBD /* ProfileCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		BA88241529D0291800E2EDBD /* OnboardingVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVMDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +225,7 @@
 		BA8F4BE929ABF67300C68B78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVMDelegate.swift; sourceTree = "<group>"; };
 		BA94BDFE29C380690001A07B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		BA9604162A02EE2800C44FAA /* ButtonTableCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCellDelegate.swift; sourceTree = "<group>"; };
 		BA9DE7E329C5F3D0001A266B /* OnboardingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageVC.swift; sourceTree = "<group>"; };
 		BA9DE7E529C5F3D8001A266B /* OnboardingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVM.swift; sourceTree = "<group>"; };
 		BA9DE7E729C5F3E2001A266B /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
@@ -209,6 +240,11 @@
 		BA9DE80129CCE982001A266B /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		BA9DE80329CCE994001A266B /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		BA9DE80529CCE9A7001A266B /* ProfileAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembler.swift; sourceTree = "<group>"; };
+		BA9F882E29F6B1B600E8FE36 /* CreateTableCellPrototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTableCellPrototype.swift; sourceTree = "<group>"; };
+		BA9F883129F6C26D00E8FE36 /* AddPhotoTableCellPrototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoTableCellPrototype.swift; sourceTree = "<group>"; };
+		BA9F884229F97C7200E8FE36 /* AddPhotoTableCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoTableCellVM.swift; sourceTree = "<group>"; };
+		BA9F884429F97CE000E8FE36 /* AddPhotoTableCellVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoTableCellVMProtocol.swift; sourceTree = "<group>"; };
+		BA9F884629F97CFD00E8FE36 /* AddPhotoTableCellVMAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoTableCellVMAssembler.swift; sourceTree = "<group>"; };
 		BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		BAA795BB29B29802007BCD03 /* ForgotPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVM.swift; sourceTree = "<group>"; };
 		BAA795BD29B2980B007BCD03 /* ForgotPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCoordinator.swift; sourceTree = "<group>"; };
@@ -295,14 +331,14 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
-		BA0E02E529F5373800E64764 /* Cell */ = {
+		BA0E02E529F5373800E64764 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				BA0E02E629F53D9C00E64764 /* DistanceTableCellPrototype.swift */,
 				BA0E02EA29F53EBC00E64764 /* MapPinInfo.swift */,
 				BA0E02EC29F5415E00E64764 /* BottomSheetSections.swift */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		BA0E02E829F53E4200E64764 /* Delegates */ = {
@@ -357,7 +393,7 @@
 		BA641B5C29F33169003DA239 /* BottomSheetScene */ = {
 			isa = PBXGroup;
 			children = (
-				BA0E02E529F5373800E64764 /* Cell */,
+				BA0E02E529F5373800E64764 /* Cells */,
 				BA0E02DD29F3F49A00E64764 /* BottomSheetAdapter */,
 				BA641B6529F331BA003DA239 /* Protocols */,
 				BA641B5D29F33191003DA239 /* BottomSheetCoordinator.swift */,
@@ -541,6 +577,51 @@
 			path = MapScene;
 			sourceTree = "<group>";
 		};
+		BA7D582729F57BE20061DEB8 /* NewCheckInScene */ = {
+			isa = PBXGroup;
+			children = (
+				BA7D584029F5CA210061DEB8 /* Cells */,
+				BA7D583B29F5C9E60061DEB8 /* Adapter */,
+				BA7D583029F57C690061DEB8 /* Protocols */,
+				BA7D582829F57C370061DEB8 /* CreateCheckInCoordinator.swift */,
+				BA7D582A29F57C4D0061DEB8 /* CreateCheckInAssembler.swift */,
+				BA7D582C29F57C5B0061DEB8 /* CreateCheckInVM.swift */,
+				BA7D582E29F57C660061DEB8 /* CreateCheckInVC.swift */,
+			);
+			path = NewCheckInScene;
+			sourceTree = "<group>";
+		};
+		BA7D583029F57C690061DEB8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BA7D583129F57C810061DEB8 /* CreateCheckInCoordinatorProtocol.swift */,
+				BA7D583329F57C8E0061DEB8 /* CreateCheckInRootCoordinatorProtocol.swift */,
+				BA7D583529F57C990061DEB8 /* CreateCheckInVMProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BA7D583B29F5C9E60061DEB8 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				BA7D583C29F5C9FE0061DEB8 /* CheckInAdapter.swift */,
+				BA7D583E29F5CA120061DEB8 /* CheckInAdapterProtocol.swift */,
+				BA7D584129F5CB800061DEB8 /* CheckInSections.swift */,
+				BA7D584329F5CB900061DEB8 /* CheckInItems.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		BA7D584029F5CA210061DEB8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BA9F883429F852E800E8FE36 /* CellWithButton */,
+				BA9F883329F8525000E8FE36 /* CellWithTextField */,
+				BA9F884129F97C5700E8FE36 /* AddPhoto */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		BA88241329D027A800E2EDBD /* OnboardingAdapter */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +719,34 @@
 			path = MainApplication;
 			sourceTree = "<group>";
 		};
+		BA9F883329F8525000E8FE36 /* CellWithTextField */ = {
+			isa = PBXGroup;
+			children = (
+				BA7D584529F5CDB80061DEB8 /* CheckInTableCell.swift */,
+			);
+			path = CellWithTextField;
+			sourceTree = "<group>";
+		};
+		BA9F883429F852E800E8FE36 /* CellWithButton */ = {
+			isa = PBXGroup;
+			children = (
+				BA9F882E29F6B1B600E8FE36 /* CreateTableCellPrototype.swift */,
+				BA9604162A02EE2800C44FAA /* ButtonTableCellDelegate.swift */,
+			);
+			path = CellWithButton;
+			sourceTree = "<group>";
+		};
+		BA9F884129F97C5700E8FE36 /* AddPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				BA9F884429F97CE000E8FE36 /* AddPhotoTableCellVMProtocol.swift */,
+				BA9F884629F97CFD00E8FE36 /* AddPhotoTableCellVMAssembler.swift */,
+				BA9F883129F6C26D00E8FE36 /* AddPhotoTableCellPrototype.swift */,
+				BA9F884229F97C7200E8FE36 /* AddPhotoTableCellVM.swift */,
+			);
+			path = AddPhoto;
+			sourceTree = "<group>";
+		};
 		BAA795B829B297DD007BCD03 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -692,6 +801,7 @@
 			children = (
 				BA7D582429F57B040061DEB8 /* MapScene */,
 				BA641B5C29F33169003DA239 /* BottomSheetScene */,
+				BA7D582729F57BE20061DEB8 /* NewCheckInScene */,
 			);
 			path = MapSubmodule;
 			sourceTree = "<group>";
@@ -885,9 +995,11 @@
 				BA1BBBE629B2A55500E8936C /* ForgotPasswordRootCoordinatorProtocol.swift in Sources */,
 				BA641B6229F331AC003DA239 /* BottomSheetVM.swift in Sources */,
 				BA6E05E829AE196400549E60 /* LoginVMProtocol.swift in Sources */,
+				BA9F883229F6C26D00E8FE36 /* AddPhotoTableCellPrototype.swift in Sources */,
 				BA641B6729F331DD003DA239 /* BottomSheetCoordinatorProtocol.swift in Sources */,
 				BA6E05DF29ADF20200549E60 /* LoginCoordinator.swift in Sources */,
 				BA6E05EA29AE1CB000549E60 /* AuthorizationService.swift in Sources */,
+				BA7D584429F5CB900061DEB8 /* CheckInItems.swift in Sources */,
 				BA641B6B29F331FB003DA239 /* BottomSheetVMProtocol.swift in Sources */,
 				BA88241829D0299700E2EDBD /* OnboardingAdapterPageDelegate.swift in Sources */,
 				BA0E02ED29F5415E00E64764 /* BottomSheetSections.swift in Sources */,
@@ -902,10 +1014,12 @@
 				BA00454F29DE04C700E1B1BB /* MapAdapterProtocol.swift in Sources */,
 				BA32834029D9DB610051C994 /* SettingsAdapter.swift in Sources */,
 				BA1BBBF129B88F8800E8936C /* UIFont+Extension.swift in Sources */,
+				BA7D583429F57C8E0061DEB8 /* CreateCheckInRootCoordinatorProtocol.swift in Sources */,
 				BA54850729E4593F0052B9C9 /* RealtimeDatabaseServiceProtocol.swift in Sources */,
 				BA6E05DD29ADF1F900549E60 /* LoginVM.swift in Sources */,
 				BAADCD7629D6F97F003B8821 /* MapCoordinator.swift in Sources */,
 				BAADCD6C29D6E818003B8821 /* TabBarCoordinatorProtocol.swift in Sources */,
+				BA7D582B29F57C4D0061DEB8 /* CreateCheckInAssembler.swift in Sources */,
 				BA6E05D929ADEE3300549E60 /* Coordinator.swift in Sources */,
 				BA9DE7E829C5F3E2001A266B /* OnboardingCoordinator.swift in Sources */,
 				BAD99EEE29DC38C800959B1B /* SettingsAuthorizationService.swift in Sources */,
@@ -916,22 +1030,31 @@
 				BA1BBBEC29B3C9B600E8936C /* UILabel+Extension.swift in Sources */,
 				BAD99EEC29DC38A600959B1B /* AuthorizationService+SignOut.swift in Sources */,
 				BAADCD7A29D6F996003B8821 /* MapVM.swift in Sources */,
+				BA7D584629F5CDB80061DEB8 /* CheckInTableCell.swift in Sources */,
+				BA7D583F29F5CA120061DEB8 /* CheckInAdapterProtocol.swift in Sources */,
 				BA1BBBF629B8DC5C00E8936C /* AlertControllerFactoryProtocol.swift in Sources */,
+				BA7D582F29F57C660061DEB8 /* CreateCheckInVC.swift in Sources */,
 				BA641B6029F331A3003DA239 /* BottomSheetAssembler.swift in Sources */,
 				BA0E02E129F3F4F700E64764 /* BottomSheetAdapterProtocol.swift in Sources */,
+				BA9604172A02EE2800C44FAA /* ButtonTableCellDelegate.swift in Sources */,
 				BA1BBBEA29B3C05C00E8936C /* RegularTextField.swift in Sources */,
+				BA9F884329F97C7200E8FE36 /* AddPhotoTableCellVM.swift in Sources */,
 				BAADCD7429D6F975003B8821 /* MapVC.swift in Sources */,
 				BA1BBBEF29B7D71E00E8936C /* RegularButton.swift in Sources */,
+				BA9F884529F97CE000E8FE36 /* AddPhotoTableCellVMProtocol.swift in Sources */,
+				BA7D582929F57C370061DEB8 /* CreateCheckInCoordinator.swift in Sources */,
 				BA0E02DC29F3EF4E00E64764 /* MapAdapterActionDelegate.swift in Sources */,
 				BA32834229D9DBBF0051C994 /* SettingsAdapterProtocol.swift in Sources */,
 				BAADCD8E29D83F81003B8821 /* SettingsCoordinatorProtocol.swift in Sources */,
 				BA0E02DF29F3F4AC00E64764 /* BottomSheetAdapter.swift in Sources */,
 				BA54850529E457950052B9C9 /* RealtimeDatabaseService.swift in Sources */,
+				BA7D583229F57C810061DEB8 /* CreateCheckInCoordinatorProtocol.swift in Sources */,
 				BA6E060529AFD92600549E60 /* RegisterAssembler.swift in Sources */,
 				BA6E061229AFE35F00549E60 /* RegisterCoordinatorProtocol.swift in Sources */,
 				BA6E05FF29AFD8AD00549E60 /* RegisterVC.swift in Sources */,
 				BA1BBBFA29BE4BA000E8936C /* RegisterVMDelegate.swift in Sources */,
 				BAADCD6A29D6E765003B8821 /* TabBarAssembler.swift in Sources */,
+				BA7D584229F5CB800061DEB8 /* CheckInSections.swift in Sources */,
 				BA0E02E729F53D9C00E64764 /* DistanceTableCellPrototype.swift in Sources */,
 				BA6E061429AFE38200549E60 /* RegisterRootCoordinatorProtocol.swift in Sources */,
 				BAA795C029B29812007BCD03 /* ForgotPasswordAssembler.swift in Sources */,
@@ -953,6 +1076,9 @@
 				BA6E05DB29ADF1EF00549E60 /* LoginVC.swift in Sources */,
 				BA00454D29DE048100E1B1BB /* MapAdapter.swift in Sources */,
 				BAADCD8729D83B3F003B8821 /* SettingsAssembler.swift in Sources */,
+				BA9F882F29F6B1B600E8FE36 /* CreateTableCellPrototype.swift in Sources */,
+				BA7D583629F57C990061DEB8 /* CreateCheckInVMProtocol.swift in Sources */,
+				BA9F884729F97CFD00E8FE36 /* AddPhotoTableCellVMAssembler.swift in Sources */,
 				BA1BBBF429B8DC4700E8936C /* AlertControllerFactory.swift in Sources */,
 				BA89B80129CDBF9700CD7C76 /* ProfileRootCoordinatorProtocol.swift in Sources */,
 				BA9DE7FB29C8731B001A266B /* OnboardingAdapterProtocol.swift in Sources */,
@@ -960,6 +1086,7 @@
 				BAADCD7029D6EAEB003B8821 /* TabBarRootCoordinatorProtocol.swift in Sources */,
 				BA9DE7E429C5F3D0001A266B /* OnboardingPageVC.swift in Sources */,
 				BA1BBBE429B2A23500E8936C /* ForgotPasswordCoordinatorProtocol.swift in Sources */,
+				BA7D583D29F5C9FE0061DEB8 /* CheckInAdapter.swift in Sources */,
 				BA9DE80229CCE982001A266B /* ProfileCoordinator.swift in Sources */,
 				BA6E05EE29AE1E2F00549E60 /* LoginCoordinatorProtocol.swift in Sources */,
 				BA1BBBDE29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift in Sources */,
@@ -969,6 +1096,7 @@
 				BA9DE80029CCE96C001A266B /* ProfileVC.swift in Sources */,
 				BA9DE80629CCE9A7001A266B /* ProfileAssembler.swift in Sources */,
 				BA32834729D9DF1F0051C994 /* SettingsTableViewCell.swift in Sources */,
+				BA7D582D29F57C5B0061DEB8 /* CreateCheckInVM.swift in Sources */,
 				BAADCD6429D630DE003B8821 /* Pages.swift in Sources */,
 				BA641B6429F331B7003DA239 /* BottomSheetVC.swift in Sources */,
 				BA6E05F329AF3BC000549E60 /* UIColor+Extension.swift in Sources */,

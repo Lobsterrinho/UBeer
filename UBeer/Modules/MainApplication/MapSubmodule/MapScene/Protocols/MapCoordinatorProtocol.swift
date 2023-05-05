@@ -14,4 +14,6 @@ protocol MapCoordinatorProtocol: AnyObject {
     func finish()
     func openBottomSheet(pinCoordinate: CLLocationCoordinate2D,
                          myCoordinate: CLLocationCoordinate2D)
+    
+    func openNewCheckInScene()
 }

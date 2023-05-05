@@ -34,8 +34,8 @@ final class MapVM: MapVMProtocol {
         }
     }
     
-    func addUser() {
-        realtimeDatabaseService.addUser()
+    func addNewCheckIn() {
+        coordinator.openNewCheckInScene()
     }
     
     func setupMapView(_ mapView: MKMapView) {

@@ -66,12 +66,12 @@ final class MapVC: UIViewController {
     
     private func setupSelectors() {
         beerButton.addTarget(self,
-                             action: #selector(addUser),
+                             action: #selector(createNewCheckInt),
                              for: .touchUpInside)
     }
     
-    @objc private func addUser() {
-//        viewModel.addUser()
+    @objc private func createNewCheckInt() {
+        viewModel.addNewCheckIn()
         
     }
     

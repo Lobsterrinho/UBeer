@@ -51,10 +51,25 @@ extension MapCoordinator: MapCoordinatorProtocol {
         bottomSheetCoordinator.start(pinCoordinate: pinCoordinate,
                                      myCoordinate: myCoordinate)
     }
+    
+    func openNewCheckInScene() {
+        let newCheckInCoordinator = CreateCheckInCoordinator(
+            rootNavigationController: navigationController,
+            rootCoordinator: self
+        )
+        childCoordinators.append(newCheckInCoordinator)
+        newCheckInCoordinator.start()
+    }
 }
 
 extension MapCoordinator: BottomSheetRootCoordinatorProtocol {
     func bottomSheetSceneDidFinished(_ coordinator: Coordinator) {
+        childCoordinators.removeAll(where: { $0 === coordinator })
+    }
+}
+
+extension MapCoordinator: CreateCheckInRootCoordinatorProtocol {
+    func CreateCheckInSceneDidFinished(_ coordinator: Coordinator) {
         childCoordinators.removeAll(where: { $0 === coordinator })
     }
 }

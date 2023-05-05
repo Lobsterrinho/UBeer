@@ -12,6 +12,6 @@ protocol MapVMProtocol {
     
     func setupMapView(_ mapView: MKMapView)
     func loadUsers()
-    func addUser()
+    func addNewCheckIn()
     func getCurrentPosition()
 }

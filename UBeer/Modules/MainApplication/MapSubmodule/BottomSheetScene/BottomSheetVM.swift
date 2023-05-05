@@ -17,9 +17,6 @@ final class BottomSheetVM: BottomSheetVMProtocol {
     private var pinCoordinate: CLLocationCoordinate2D
     private var myCoordinate: CLLocationCoordinate2D
     
-    #warning("Change from hard data to data from pin")
-    
-    
     init(coordinator: BottomSheetCoordinatorProtocol,
          adapter: BottomSheetAdapterProtocol,
          pinCoordinate: CLLocationCoordinate2D,
