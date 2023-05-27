@@ -13,26 +13,33 @@ final class CreateCheckInAssembler {
     private init() { }
     
     static func makeCheckInVC(
-        coordinator: CreateCheckInCoordinatorProtocol
+        coordinator: CreateCheckInCoordinatorProtocol,
+        container: Container
     ) -> UIViewController {
-        let viewModel = makeViewModel(coordinator: coordinator)
+        let viewModel = makeViewModel(coordinator: coordinator,
+                                      container: container)
         return CreateCheckInVC(viewModel: viewModel)
     }
     
     private static func makeViewModel(
-        coordinator: CreateCheckInCoordinatorProtocol
+        coordinator: CreateCheckInCoordinatorProtocol,
+        container: Container
     ) -> CreateCheckInVMProtocol {
-        return CreateCheckInVM(coordinator: coordinator,
+        return CreateCheckInVM(
+            coordinator: coordinator,
                             adapter: makeAdapter(),
-                            alertFactory: makeAlertFactory())
+            alertFactory: makeAlertFactory(container: container)
+        )
     }
     
     private static func makeAdapter() -> CheckInAdapterProtocol {
         return CheckInAdapter()
     }
     
-    private static func makeAlertFactory() -> AlertControllerFactoryProtocol {
-        return AlertControllerFactory()
+    private static func makeAlertFactory(
+        container: Container
+    ) -> AlertFactoryProtocol {
+        return container.resolve()
     }
     
 }

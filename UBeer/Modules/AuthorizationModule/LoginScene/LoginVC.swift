@@ -195,6 +195,9 @@ extension LoginVC {
     
     private func setupRegisterButton() {
         let button = RegularButton("Register")
+        button.backgroundColor = .white
+        button.layer.borderColor = UIColor.acc.cgColor
+        button.layer.borderWidth = 2.0
         view.addSubview(button)
         self.registerButton = button
     }

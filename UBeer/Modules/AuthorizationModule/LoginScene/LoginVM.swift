@@ -14,8 +14,8 @@ final class LoginVM: LoginVMProtocol {
     private var alertFactory: AlertControllerFactoryProtocol
     private weak var delegate: LoginVMDelegate?
     
-    init(authorizationService: LoginAuthorizationServiceProtocol,
-         coordinator: LoginCoordinatorProtocol,
+    init(coordinator: LoginCoordinatorProtocol,
+         authorizationService: LoginAuthorizationServiceProtocol,
          alertFactory: AlertControllerFactoryProtocol) {
         self.authorizationService = authorizationService
         self.coordinator = coordinator

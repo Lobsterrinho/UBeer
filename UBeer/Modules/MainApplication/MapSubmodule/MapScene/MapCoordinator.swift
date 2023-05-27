@@ -59,7 +59,8 @@ extension MapCoordinator: MapCoordinatorProtocol {
     func openNewCheckInScene() {
         let newCheckInCoordinator = CreateCheckInCoordinator(
             rootNavigationController: navigationController,
-            rootCoordinator: self
+            rootCoordinator: self,
+            container: container
         )
         childCoordinators.append(newCheckInCoordinator)
         newCheckInCoordinator.start()

@@ -16,11 +16,11 @@ final class ForgotPasswordVM: ForgotPasswordVMProtocol {
     
     var email: String?
     
-    init(delegate: ForgotPasswordVMDelegate?,
+    init(coordinator: ForgotPasswordCoordinatorProtocol,
+         delegate: ForgotPasswordVMDelegate?,
          alertFactory: AlertControllerFactoryProtocol,
          email: String?,
-         authorizationService: ForgotPasswordAuthorizationServiceProtocol,
-         coordinator: ForgotPasswordCoordinatorProtocol) {
+         authorizationService: ForgotPasswordAuthorizationServiceProtocol) {
         self.authorizationService = authorizationService
         self.coordinator = coordinator
         self.email = email

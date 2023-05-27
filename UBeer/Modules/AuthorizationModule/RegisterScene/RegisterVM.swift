@@ -16,10 +16,10 @@ final class RegisterVM: RegisterVMProtocol {
     
     var email: String?
     
-    init(alertFactory: AlertControllerFactoryProtocol,
+    init(coordinator: RegisterCoordinatorProtocol,
+         alertFactory: AlertControllerFactoryProtocol,
          email: String?,
          authorizationService: RegisterAuthorizationServiceProtocol,
-         coordinator: RegisterCoordinatorProtocol,
          delegate: RegisterVMDelegate?) {
         self.authorizationService = authorizationService
         self.coordinator = coordinator

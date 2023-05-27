@@ -13,19 +13,23 @@ final class CreateCheckInCoordinator: Coordinator {
     
     private var rootNavigationController: UINavigationController
     private var rootCoordinator: CreateCheckInRootCoordinatorProtocol
+    private var container: Container
     
     private var rootVC: UIViewController?
     
     var childCoordinators: [Coordinator] = []
     
     init(rootNavigationController: UINavigationController,
-         rootCoordinator: CreateCheckInRootCoordinatorProtocol) {
+         rootCoordinator: CreateCheckInRootCoordinatorProtocol,
+         container: Container) {
         self.rootNavigationController = rootNavigationController
         self.rootCoordinator = rootCoordinator
+        self.container = container
     }
     
     func start() {
-        let viewController = CreateCheckInAssembler.makeCheckInVC(coordinator: self)
+        let viewController = CreateCheckInAssembler.makeCheckInVC(coordinator: self,
+                                                                  container: container)
         rootVC = viewController
         viewController.modalPresentationStyle = .overFullScreen
         viewController.modalTransitionStyle = .crossDissolve

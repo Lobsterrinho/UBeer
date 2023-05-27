@@ -48,7 +48,8 @@ final class AppCoordinator: Coordinator {
         
         let coordinator = LoginCoordinator(
             rootNavigationController: navigationController,
-            rootCoordinator: self)
+            rootCoordinator: self,
+            container: container)
         childCoordinators.append(coordinator)
         coordinator.start()
         

@@ -11,35 +11,46 @@ final class ForgotPasswordAssembler {
     
     private init() { }
     
-    static func makeViewController(delegate: ForgotPasswordVMDelegate?,
-                                   coordinator: ForgotPasswordCoordinatorProtocol,
+    static func makeViewController(coordinator: ForgotPasswordCoordinatorProtocol,
+                                   container: Container,
+                                   delegate: ForgotPasswordVMDelegate?,
                                    email: String?) -> UIViewController {
         
         let viewModel = makeViewModel(coordinator: coordinator,
+                                      container: container,
                                       email: email,
                                       delegate: delegate)
         let viewController = ForgotPasswordVC(viewModel: viewModel)
         return viewController
     }
     
-    private static func makeViewModel(coordinator: ForgotPasswordCoordinatorProtocol,
-                                      email: String?,
-                                      delegate: ForgotPasswordVMDelegate?) -> ForgotPasswordVMProtocol {
+    private static func makeViewModel(
+        coordinator: ForgotPasswordCoordinatorProtocol,
+        container: Container,
+        email: String?,
+        delegate: ForgotPasswordVMDelegate?
+    ) -> ForgotPasswordVMProtocol {
         
-        let viewModel = ForgotPasswordVM(delegate: delegate,
-                                         alertFactory: makeAlertFactory(),
-                                         email: email,
-                                         authorizationService: makeAuthorizationService(),
-                                         coordinator: coordinator)
+        let viewModel = ForgotPasswordVM(
+            coordinator: coordinator,
+            delegate: delegate,
+            alertFactory: makeAlertFactory(container: container),
+            email: email,
+            authorizationService: makeAuthorizationService(container: container)
+        )
         return viewModel
     }
     
-    private static func makeAuthorizationService() -> ForgotPasswordAuthorizationServiceProtocol {
-        return AuthorizationService()
+    private static func makeAuthorizationService(
+        container: Container
+    ) -> AuthorizationServiceProtocol {
+        return container.resolve()
     }
     
-    private static func makeAlertFactory() -> AlertControllerFactoryProtocol {
-        return AlertControllerFactory()
+    private static func makeAlertFactory(
+        container: Container
+    ) -> AlertFactoryProtocol {
+        return container.resolve()
     }
     
 }
