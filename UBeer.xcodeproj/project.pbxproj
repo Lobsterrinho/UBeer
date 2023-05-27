@@ -34,9 +34,11 @@
 		BA32834729D9DF1F0051C994 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32834629D9DF1F0051C994 /* SettingsTableViewCell.swift */; };
 		BA32834929DA00940051C994 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32834829DA00940051C994 /* SettingsItem.swift */; };
 		BA54850529E457950052B9C9 /* RealtimeDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54850429E457950052B9C9 /* RealtimeDatabaseService.swift */; };
-		BA54850729E4593F0052B9C9 /* RealtimeDatabaseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54850629E4593F0052B9C9 /* RealtimeDatabaseServiceProtocol.swift */; };
+		BA54850729E4593F0052B9C9 /* CreateCheckInRealtimeDBServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54850629E4593F0052B9C9 /* CreateCheckInRealtimeDBServiceProtocol.swift */; };
 		BA54850929E459D50052B9C9 /* RealtimeDatabaseService+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54850829E459D50052B9C9 /* RealtimeDatabaseService+Map.swift */; };
 		BA54850B29E5F0EF0052B9C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA54850A29E5F0EF0052B9C9 /* GoogleService-Info.plist */; };
+		BA5D93852A1D3B4800FF5EB4 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D93842A1D3B4800FF5EB4 /* Container.swift */; };
+		BA5D93872A1D3B6C00FF5EB4 /* ServiceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D93862A1D3B6C00FF5EB4 /* ServiceConfiguration.swift */; };
 		BA641B5E29F33191003DA239 /* BottomSheetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA641B5D29F33191003DA239 /* BottomSheetCoordinator.swift */; };
 		BA641B6029F331A3003DA239 /* BottomSheetAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA641B5F29F331A3003DA239 /* BottomSheetAssembler.swift */; };
 		BA641B6229F331AC003DA239 /* BottomSheetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA641B6129F331AC003DA239 /* BottomSheetVM.swift */; };
@@ -168,9 +170,11 @@
 		BA32834629D9DF1F0051C994 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		BA32834829DA00940051C994 /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
 		BA54850429E457950052B9C9 /* RealtimeDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDatabaseService.swift; sourceTree = "<group>"; };
-		BA54850629E4593F0052B9C9 /* RealtimeDatabaseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDatabaseServiceProtocol.swift; sourceTree = "<group>"; };
+		BA54850629E4593F0052B9C9 /* CreateCheckInRealtimeDBServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCheckInRealtimeDBServiceProtocol.swift; sourceTree = "<group>"; };
 		BA54850829E459D50052B9C9 /* RealtimeDatabaseService+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealtimeDatabaseService+Map.swift"; sourceTree = "<group>"; };
 		BA54850A29E5F0EF0052B9C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BA5D93842A1D3B4800FF5EB4 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		BA5D93862A1D3B6C00FF5EB4 /* ServiceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConfiguration.swift; sourceTree = "<group>"; };
 		BA641B5D29F33191003DA239 /* BottomSheetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCoordinator.swift; sourceTree = "<group>"; };
 		BA641B5F29F331A3003DA239 /* BottomSheetAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetAssembler.swift; sourceTree = "<group>"; };
 		BA641B6129F331AC003DA239 /* BottomSheetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetVM.swift; sourceTree = "<group>"; };
@@ -390,6 +394,15 @@
 			path = SettingsTableViewCell;
 			sourceTree = "<group>";
 		};
+		BA5D93832A1D3B1B00FF5EB4 /* DependanciesInjection */ = {
+			isa = PBXGroup;
+			children = (
+				BA5D93842A1D3B4800FF5EB4 /* Container.swift */,
+				BA5D93862A1D3B6C00FF5EB4 /* ServiceConfiguration.swift */,
+			);
+			path = DependanciesInjection;
+			sourceTree = "<group>";
+		};
 		BA641B5C29F33169003DA239 /* BottomSheetScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +462,7 @@
 		BA6E05D029ADE11C00549E60 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BA5D93832A1D3B1B00FF5EB4 /* DependanciesInjection */,
 				BA6E05D329ADE4D900549E60 /* AuthorizationServices */,
 				BA54850429E457950052B9C9 /* RealtimeDatabaseService.swift */,
 			);
@@ -812,7 +826,7 @@
 				BAADCD7E29D718EE003B8821 /* MapCoordinatorProtocol.swift */,
 				BAADCD8029D718FA003B8821 /* MapVMProtocol.swift */,
 				BAADCD7C29D6F9FC003B8821 /* MapRootCoordinatorProtocol.swift */,
-				BA54850629E4593F0052B9C9 /* RealtimeDatabaseServiceProtocol.swift */,
+				BA54850629E4593F0052B9C9 /* CreateCheckInRealtimeDBServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1005,6 +1019,7 @@
 				BA0E02ED29F5415E00E64764 /* BottomSheetSections.swift in Sources */,
 				BA9DE7F529C832BA001A266B /* OnboardingPageList.swift in Sources */,
 				BA9DE7E629C5F3D8001A266B /* OnboardingVM.swift in Sources */,
+				BA5D93872A1D3B6C00FF5EB4 /* ServiceConfiguration.swift in Sources */,
 				BA6E05E429ADF62C00549E60 /* LoginRootCoordinatorProtocol.swift in Sources */,
 				BA6E060D29AFE1C900549E60 /* AuthorizationService+Register.swift in Sources */,
 				BA1BBBE029B2A0FD00E8936C /* AuthorizationService+ForgotPassword.swift in Sources */,
@@ -1015,7 +1030,7 @@
 				BA32834029D9DB610051C994 /* SettingsAdapter.swift in Sources */,
 				BA1BBBF129B88F8800E8936C /* UIFont+Extension.swift in Sources */,
 				BA7D583429F57C8E0061DEB8 /* CreateCheckInRootCoordinatorProtocol.swift in Sources */,
-				BA54850729E4593F0052B9C9 /* RealtimeDatabaseServiceProtocol.swift in Sources */,
+				BA54850729E4593F0052B9C9 /* CreateCheckInRealtimeDBServiceProtocol.swift in Sources */,
 				BA6E05DD29ADF1F900549E60 /* LoginVM.swift in Sources */,
 				BAADCD7629D6F97F003B8821 /* MapCoordinator.swift in Sources */,
 				BAADCD6C29D6E818003B8821 /* TabBarCoordinatorProtocol.swift in Sources */,
@@ -1076,6 +1091,7 @@
 				BA6E05DB29ADF1EF00549E60 /* LoginVC.swift in Sources */,
 				BA00454D29DE048100E1B1BB /* MapAdapter.swift in Sources */,
 				BAADCD8729D83B3F003B8821 /* SettingsAssembler.swift in Sources */,
+				BA5D93852A1D3B4800FF5EB4 /* Container.swift in Sources */,
 				BA9F882F29F6B1B600E8FE36 /* CreateTableCellPrototype.swift in Sources */,
 				BA7D583629F57C990061DEB8 /* CreateCheckInVMProtocol.swift in Sources */,
 				BA9F884729F97CFD00E8FE36 /* AddPhotoTableCellVMAssembler.swift in Sources */,

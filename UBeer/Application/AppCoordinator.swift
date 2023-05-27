@@ -14,6 +14,12 @@ final class AppCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     
+    private var container: Container = {
+        let container = Container()
+        ServiceConfiguration.configure(container: container)
+        return container
+    }()
+    
     init(windowScene: UIWindowScene) {
         self.windowScene = windowScene
     }
@@ -70,7 +76,8 @@ final class AppCoordinator: Coordinator {
         
         let tabBarCoordinator = TabBarCoordinator(
             rootNavigationController: navigationController,
-            rootCoordinator: self)
+            rootCoordinator: self,
+            container: container)
         
         childCoordinators.append(tabBarCoordinator)
         tabBarCoordinator.start()

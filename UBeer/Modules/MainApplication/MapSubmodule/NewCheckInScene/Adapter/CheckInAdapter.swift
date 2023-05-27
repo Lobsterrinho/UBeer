@@ -33,7 +33,7 @@ final class CheckInAdapter: NSObject, CheckInAdapterProtocol {
         registerCells()
         tableView?.delegate = self
         tableView?.dataSource = self
-        
+        #warning("delete magic number")
         tableView?.rowHeight = 48.0
     }
     

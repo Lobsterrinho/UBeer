@@ -12,19 +12,23 @@ final class MapCoordinator: Coordinator {
     
     private var tabBarController: UITabBarController
     private var rootCoordinator: MapRootCoordinatorProtocol
+    private var container: Container
     
     private var navigationController = UINavigationController()
     
     var childCoordinators: [Coordinator] = []
     
     init(tabBarController: UITabBarController,
-         rootCoordinator: MapRootCoordinatorProtocol) {
+         rootCoordinator: MapRootCoordinatorProtocol,
+         container: Container) {
         self.tabBarController = tabBarController
         self.rootCoordinator = rootCoordinator
+        self.container = container
     }
     
     func start() {
-        let mapVC = MapAssembler.makeMapVC(self)
+        let mapVC = MapAssembler.makeMapVC(coordinator: self,
+                                           container: container)
         navigationController.addChild(mapVC)
         tabBarController.addChild(navigationController)
     }

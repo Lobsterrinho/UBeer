@@ -11,29 +11,36 @@ final class MapAssembler {
     
     private init() { }
     
-    static func makeMapVC(_ coordinator: MapCoordinatorProtocol) -> UIViewController {
-        let viewModel = makeViewModel(coordinator)
+    static func makeMapVC(
+        coordinator: MapCoordinatorProtocol,
+        container: Container
+    ) -> UIViewController {
+        let viewModel = makeViewModel(coordinator: coordinator,
+                                      container: container)
         let viewController = MapVC(viewModel: viewModel)
 //        viewController.hidesBottomBarWhenPushed = true
         return viewController
     }
     
-    private static func makeViewModel(_ coordinator: MapCoordinatorProtocol) -> MapVMProtocol {
+    private static func makeViewModel(coordinator: MapCoordinatorProtocol,
+                                      container: Container) -> MapVMProtocol {
         return MapVM(coordinator: coordinator,
                      adapter: makeMapAdapter(),
-                     alertFactory: makeAlertFactory(),
-                     realtimeDatabaseService: makeRealtimeDatabaseService())
+                     alertFactory: makeAlertFactory(container: container),
+                     realtimeDatabaseService: makeRealtimeDatabaseService(container: container))
     }
     
     private static func makeMapAdapter() -> MapAdapterProtocol {
         return MapAdapter()
     }
     
-    private static func makeAlertFactory() -> AlertControllerFactoryProtocol {
-        return AlertControllerFactory()
+    private static func makeAlertFactory(container: Container) -> AlertFactoryProtocol {
+        return container.resolve()
     }
     
-    private static func makeRealtimeDatabaseService() -> RealtimeDatabaseServiceProtocol {
-        return RealtimeDatabaseService()
+    private static func makeRealtimeDatabaseService(
+        container: Container
+    ) -> RealtimeDatabaseServiceProtocol {
+        return container.resolve()
     }
 }

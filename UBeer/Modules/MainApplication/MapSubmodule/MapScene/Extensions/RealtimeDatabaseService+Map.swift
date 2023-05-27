@@ -7,4 +7,4 @@
 
 import Foundation
 
-extension RealtimeDatabaseService: RealtimeDatabaseServiceProtocol { }
+extension RealtimeDatabaseService: CreateCheckInRealtimeDBServiceProtocol { }

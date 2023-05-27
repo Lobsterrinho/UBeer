@@ -11,13 +11,16 @@ final class TabBarCoordinator: Coordinator {
     
     private var rootNavigationController: UINavigationController
     private var rootCoordinator: TabBarRootCoordinatorProtocol
+    private var container: Container
     
     var childCoordinators: [Coordinator] = []
     
     init(rootNavigationController: UINavigationController,
-         rootCoordinator: TabBarRootCoordinatorProtocol) {
+         rootCoordinator: TabBarRootCoordinatorProtocol,
+         container: Container) {
         self.rootNavigationController = rootNavigationController
         self.rootCoordinator = rootCoordinator
+        self.container = container
     }
     
     func start() {
@@ -38,19 +41,20 @@ final class TabBarCoordinator: Coordinator {
 
 extension TabBarCoordinator {
     
+    private func generateMapItem(_ tabBar: UITabBarController) {
+        let coordinator = MapCoordinator(tabBarController: tabBar,
+                                         rootCoordinator: self,
+                                         container: container)
+        
+        coordinator.start()
+    }
+    
     private func generateProfileItem(_ tabBar: UITabBarController) {
         let coordinator = ProfileCoordinator(tabBarController: tabBar,
                                              rootCoordinator: self)
         
         coordinator.start()
         
-    }
-    
-    private func generateMapItem(_ tabBar: UITabBarController) {
-        let coordinator = MapCoordinator(tabBarController: tabBar,
-                                         rootCoordinator: self)
-        
-        coordinator.start()
     }
     
 }

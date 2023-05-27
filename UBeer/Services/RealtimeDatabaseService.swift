@@ -14,7 +14,7 @@ struct User: Decodable {
     var name: String
 }
 
-final class RealtimeDatabaseService {
+final class RealtimeDatabaseService: RealtimeDatabaseServiceProtocol {
     
     private var firebaseReference: DatabaseReference!
     private var firebaseAuthService = Auth.auth()

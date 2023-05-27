@@ -14,14 +14,14 @@ final class MapVM: MapVMProtocol {
     private var coordinator: MapCoordinatorProtocol
     private var adapter: MapAdapterProtocol
     private var alertFactory: AlertControllerFactoryProtocol
-    private var realtimeDatabaseService: RealtimeDatabaseServiceProtocol
+    private var realtimeDatabaseService: CreateCheckInRealtimeDBServiceProtocol
     
     private var locationManager = CLLocationManager()
     
     init(coordinator: MapCoordinatorProtocol,
          adapter: MapAdapterProtocol,
          alertFactory: AlertControllerFactoryProtocol,
-         realtimeDatabaseService: RealtimeDatabaseServiceProtocol) {
+         realtimeDatabaseService: CreateCheckInRealtimeDBServiceProtocol) {
         self.coordinator = coordinator
         self.adapter = adapter
         self.alertFactory = alertFactory

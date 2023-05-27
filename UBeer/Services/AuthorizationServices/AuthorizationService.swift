@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseAuth
 
-final class AuthorizationService {
+final class AuthorizationService: AuthorizationServiceProtocol {
     
     private var firebaseAuthService = Auth.auth()
     
