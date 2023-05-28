@@ -43,8 +43,8 @@ final class CheckInAdapter: NSObject, CheckInAdapterProtocol {
     
     private func registerCells() {
         
-        tableView?.register(CheckInTableCell.self,
-                            forCellReuseIdentifier: "\(CheckInTableCell.self)")
+        tableView?.register(TextFieldCellPrototype.self,
+                            forCellReuseIdentifier: "\(TextFieldCellPrototype.self)")
         
         tableView?.register(ButtonTableCellPrototype.self,
                             forCellReuseIdentifier: "\(ButtonTableCellPrototype.self)")
@@ -65,8 +65,8 @@ extension CheckInAdapter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let textFieldCell = tableView.dequeueReusableCell(
-            withIdentifier: "\(CheckInTableCell.self)",
-            for: indexPath) as? CheckInTableCell
+            withIdentifier: "\(TextFieldCellPrototype.self)",
+            for: indexPath) as? TextFieldCellPrototype
         
         let buttonCell = tableView.dequeueReusableCell(
             withIdentifier: "\(ButtonTableCellPrototype.self)",
@@ -84,7 +84,6 @@ extension CheckInAdapter: UITableViewDataSource {
             textFieldCell?.setup(item: item.placeholder)
             return textFieldCell ?? UITableViewCell()
         case .button:
-            //            checkInCell?.setupCellDelegate(self)
             buttonCell?.setupButtonTitle(title: "Create check in", imageName: nil)
             return buttonCell ?? UITableViewCell()
         }

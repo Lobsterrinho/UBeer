@@ -1,5 +1,5 @@
 //
-//  CheckInTableCell.swift
+//  TextFieldCellPrototype.swift
 //  UBeer
 //
 //  Created by Lobster on 23.04.23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CheckInTableCell: UITableViewCell {
+final class TextFieldCellPrototype: UITableViewCell {
     
     private weak var textField: UITextField!
     
@@ -39,6 +39,7 @@ final class CheckInTableCell: UITableViewCell {
         let textField = RegularTextField("Title")
         textField.layer.cornerRadius = 10.0
         textField.layer.borderColor = UIColor.clear.cgColor
+        textField.delegate = self
         addSubview(textField)
         self.textField = textField
     }
@@ -52,6 +53,11 @@ final class CheckInTableCell: UITableViewCell {
         ])
     }
     
+}
+
+extension TextFieldCellPrototype: UITextFieldDelegate {
     
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
 }

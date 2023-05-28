@@ -75,7 +75,7 @@
 		BA7D583F29F5CA120061DEB8 /* CheckInAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D583E29F5CA120061DEB8 /* CheckInAdapterProtocol.swift */; };
 		BA7D584229F5CB800061DEB8 /* CheckInSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D584129F5CB800061DEB8 /* CheckInSections.swift */; };
 		BA7D584429F5CB900061DEB8 /* CheckInItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D584329F5CB900061DEB8 /* CheckInItems.swift */; };
-		BA7D584629F5CDB80061DEB8 /* CheckInTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D584529F5CDB80061DEB8 /* CheckInTableCell.swift */; };
+		BA7D584629F5CDB80061DEB8 /* TextFieldCellPrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D584529F5CDB80061DEB8 /* TextFieldCellPrototype.swift */; };
 		BA88241029CDC36F00E2EDBD /* ProfileVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88240F29CDC36F00E2EDBD /* ProfileVMProtocol.swift */; };
 		BA88241229CDC3C700E2EDBD /* ProfileCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88241129CDC3C700E2EDBD /* ProfileCoordinatorProtocol.swift */; };
 		BA88241629D0291800E2EDBD /* OnboardingVMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88241529D0291800E2EDBD /* OnboardingVMDelegate.swift */; };
@@ -204,7 +204,7 @@
 		BA7D583E29F5CA120061DEB8 /* CheckInAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInAdapterProtocol.swift; sourceTree = "<group>"; };
 		BA7D584129F5CB800061DEB8 /* CheckInSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInSections.swift; sourceTree = "<group>"; };
 		BA7D584329F5CB900061DEB8 /* CheckInItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInItems.swift; sourceTree = "<group>"; };
-		BA7D584529F5CDB80061DEB8 /* CheckInTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInTableCell.swift; sourceTree = "<group>"; };
+		BA7D584529F5CDB80061DEB8 /* TextFieldCellPrototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCellPrototype.swift; sourceTree = "<group>"; };
 		BA88240F29CDC36F00E2EDBD /* ProfileVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVMProtocol.swift; sourceTree = "<group>"; };
 		BA88241129CDC3C700E2EDBD /* ProfileCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		BA88241529D0291800E2EDBD /* OnboardingVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVMDelegate.swift; sourceTree = "<group>"; };
@@ -553,7 +553,6 @@
 		BA7D582729F57BE20061DEB8 /* NewCheckInScene */ = {
 			isa = PBXGroup;
 			children = (
-				BA7D584029F5CA210061DEB8 /* Cells */,
 				BA7D583B29F5C9E60061DEB8 /* Adapter */,
 				BA7D583029F57C690061DEB8 /* Protocols */,
 				BA7D582829F57C370061DEB8 /* CreateCheckInCoordinator.swift */,
@@ -583,14 +582,6 @@
 				BA7D584329F5CB900061DEB8 /* CheckInItems.swift */,
 			);
 			path = Adapter;
-			sourceTree = "<group>";
-		};
-		BA7D584029F5CA210061DEB8 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				BA9F883329F8525000E8FE36 /* CellWithTextField */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		BA88241329D027A800E2EDBD /* OnboardingAdapter */ = {
@@ -690,17 +681,10 @@
 			path = MainApplication;
 			sourceTree = "<group>";
 		};
-		BA9F883329F8525000E8FE36 /* CellWithTextField */ = {
-			isa = PBXGroup;
-			children = (
-				BA7D584529F5CDB80061DEB8 /* CheckInTableCell.swift */,
-			);
-			path = CellWithTextField;
-			sourceTree = "<group>";
-		};
 		BAA622952A23555D00094E0F /* CellPrototypes */ = {
 			isa = PBXGroup;
 			children = (
+				BAA622992A23E9BB00094E0F /* TextFieldCellPrototype */,
 				BAA622962A23561700094E0F /* ButtonTableCellPrototype */,
 			);
 			path = CellPrototypes;
@@ -714,6 +698,14 @@
 				BA9604162A02EE2800C44FAA /* ButtonTableCellDelegate.swift */,
 			);
 			path = ButtonTableCellPrototype;
+			sourceTree = "<group>";
+		};
+		BAA622992A23E9BB00094E0F /* TextFieldCellPrototype */ = {
+			isa = PBXGroup;
+			children = (
+				BA7D584529F5CDB80061DEB8 /* TextFieldCellPrototype.swift */,
+			);
+			path = TextFieldCellPrototype;
 			sourceTree = "<group>";
 		};
 		BAA795B829B297DD007BCD03 /* Protocols */ = {
@@ -988,7 +980,7 @@
 				BA1BBBEC29B3C9B600E8936C /* UILabel+Extension.swift in Sources */,
 				BAD99EEC29DC38A600959B1B /* AuthorizationService+SignOut.swift in Sources */,
 				BAADCD7A29D6F996003B8821 /* MapVM.swift in Sources */,
-				BA7D584629F5CDB80061DEB8 /* CheckInTableCell.swift in Sources */,
+				BA7D584629F5CDB80061DEB8 /* TextFieldCellPrototype.swift in Sources */,
 				BA7D583F29F5CA120061DEB8 /* CheckInAdapterProtocol.swift in Sources */,
 				BA1BBBF629B8DC5C00E8936C /* AlertControllerFactoryProtocol.swift in Sources */,
 				BA7D582F29F57C660061DEB8 /* CreateCheckInVC.swift in Sources */,
