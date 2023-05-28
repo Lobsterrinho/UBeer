@@ -37,12 +37,18 @@ final class CreateCheckInCoordinator: Coordinator {
     }
     
     func finish() {
-        rootNavigationController.dismiss(animated: true)
         rootCoordinator.CreateCheckInSceneDidFinished(self)
     }
 }
 
 extension CreateCheckInCoordinator: CreateCheckInCoordinatorProtocol {
+    
+    func finish(_ shouldDismiss: Bool) {
+        if shouldDismiss {
+            rootNavigationController.dismiss(animated: true)
+        }
+        finish()
+    }
     
     func presentAlert(_ alert: UIAlertController) {
         rootVC?.present(alert, animated: true)

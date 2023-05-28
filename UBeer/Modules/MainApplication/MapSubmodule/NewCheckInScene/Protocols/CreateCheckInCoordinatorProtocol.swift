@@ -10,8 +10,8 @@ import UIKit
 
 protocol CreateCheckInCoordinatorProtocol: AnyObject {
     
-    func finish()
     func presentAlert(_ alert: UIAlertController)
     func presentGalery()
     func presentCamera()
+    func finish(_ shouldDismiss: Bool)
 }

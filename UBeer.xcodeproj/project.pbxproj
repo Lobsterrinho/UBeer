@@ -102,11 +102,8 @@
 		BA9DE80229CCE982001A266B /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE80129CCE982001A266B /* ProfileCoordinator.swift */; };
 		BA9DE80429CCE994001A266B /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE80329CCE994001A266B /* ProfileVM.swift */; };
 		BA9DE80629CCE9A7001A266B /* ProfileAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE80529CCE9A7001A266B /* ProfileAssembler.swift */; };
-		BA9F882F29F6B1B600E8FE36 /* CreateTableCellPrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F882E29F6B1B600E8FE36 /* CreateTableCellPrototype.swift */; };
-		BA9F883229F6C26D00E8FE36 /* AddPhotoTableCellPrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F883129F6C26D00E8FE36 /* AddPhotoTableCellPrototype.swift */; };
-		BA9F884329F97C7200E8FE36 /* AddPhotoTableCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F884229F97C7200E8FE36 /* AddPhotoTableCellVM.swift */; };
-		BA9F884529F97CE000E8FE36 /* AddPhotoTableCellVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F884429F97CE000E8FE36 /* AddPhotoTableCellVMProtocol.swift */; };
-		BA9F884729F97CFD00E8FE36 /* AddPhotoTableCellVMAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F884629F97CFD00E8FE36 /* AddPhotoTableCellVMAssembler.swift */; };
+		BA9F882F29F6B1B600E8FE36 /* ButtonTableCellPrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F882E29F6B1B600E8FE36 /* ButtonTableCellPrototype.swift */; };
+		BAA622982A23578700094E0F /* ButtonTableCellBaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA622972A23578700094E0F /* ButtonTableCellBaseProtocol.swift */; };
 		BAA795BA29B297FC007BCD03 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */; };
 		BAA795BC29B29802007BCD03 /* ForgotPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795BB29B29802007BCD03 /* ForgotPasswordVM.swift */; };
 		BAA795BE29B2980B007BCD03 /* ForgotPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795BD29B2980B007BCD03 /* ForgotPasswordCoordinator.swift */; };
@@ -236,11 +233,8 @@
 		BA9DE80129CCE982001A266B /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		BA9DE80329CCE994001A266B /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		BA9DE80529CCE9A7001A266B /* ProfileAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembler.swift; sourceTree = "<group>"; };
-		BA9F882E29F6B1B600E8FE36 /* CreateTableCellPrototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTableCellPrototype.swift; sourceTree = "<group>"; };
-		BA9F883129F6C26D00E8FE36 /* AddPhotoTableCellPrototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoTableCellPrototype.swift; sourceTree = "<group>"; };
-		BA9F884229F97C7200E8FE36 /* AddPhotoTableCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoTableCellVM.swift; sourceTree = "<group>"; };
-		BA9F884429F97CE000E8FE36 /* AddPhotoTableCellVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoTableCellVMProtocol.swift; sourceTree = "<group>"; };
-		BA9F884629F97CFD00E8FE36 /* AddPhotoTableCellVMAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoTableCellVMAssembler.swift; sourceTree = "<group>"; };
+		BA9F882E29F6B1B600E8FE36 /* ButtonTableCellPrototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCellPrototype.swift; sourceTree = "<group>"; };
+		BAA622972A23578700094E0F /* ButtonTableCellBaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCellBaseProtocol.swift; sourceTree = "<group>"; };
 		BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		BAA795BB29B29802007BCD03 /* ForgotPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVM.swift; sourceTree = "<group>"; };
 		BAA795BD29B2980B007BCD03 /* ForgotPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCoordinator.swift; sourceTree = "<group>"; };
@@ -594,9 +588,7 @@
 		BA7D584029F5CA210061DEB8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				BA9F883429F852E800E8FE36 /* CellWithButton */,
 				BA9F883329F8525000E8FE36 /* CellWithTextField */,
-				BA9F884129F97C5700E8FE36 /* AddPhoto */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -651,6 +643,7 @@
 		BA8F4BDA29ABF66C00C68B78 /* UBeer */ = {
 			isa = PBXGroup;
 			children = (
+				BAA622952A23555D00094E0F /* CellPrototypes */,
 				BA6E05CA29ADE05200549E60 /* Application */,
 				BA6E05CC29ADE0DE00549E60 /* Modules */,
 				BA88241429D027D100E2EDBD /* AlertControllerFactory */,
@@ -705,24 +698,22 @@
 			path = CellWithTextField;
 			sourceTree = "<group>";
 		};
-		BA9F883429F852E800E8FE36 /* CellWithButton */ = {
+		BAA622952A23555D00094E0F /* CellPrototypes */ = {
 			isa = PBXGroup;
 			children = (
-				BA9F882E29F6B1B600E8FE36 /* CreateTableCellPrototype.swift */,
-				BA9604162A02EE2800C44FAA /* ButtonTableCellDelegate.swift */,
+				BAA622962A23561700094E0F /* ButtonTableCellPrototype */,
 			);
-			path = CellWithButton;
+			path = CellPrototypes;
 			sourceTree = "<group>";
 		};
-		BA9F884129F97C5700E8FE36 /* AddPhoto */ = {
+		BAA622962A23561700094E0F /* ButtonTableCellPrototype */ = {
 			isa = PBXGroup;
 			children = (
-				BA9F884429F97CE000E8FE36 /* AddPhotoTableCellVMProtocol.swift */,
-				BA9F884629F97CFD00E8FE36 /* AddPhotoTableCellVMAssembler.swift */,
-				BA9F883129F6C26D00E8FE36 /* AddPhotoTableCellPrototype.swift */,
-				BA9F884229F97C7200E8FE36 /* AddPhotoTableCellVM.swift */,
+				BA9F882E29F6B1B600E8FE36 /* ButtonTableCellPrototype.swift */,
+				BAA622972A23578700094E0F /* ButtonTableCellBaseProtocol.swift */,
+				BA9604162A02EE2800C44FAA /* ButtonTableCellDelegate.swift */,
 			);
-			path = AddPhoto;
+			path = ButtonTableCellPrototype;
 			sourceTree = "<group>";
 		};
 		BAA795B829B297DD007BCD03 /* Protocols */ = {
@@ -965,7 +956,6 @@
 				BA1BBBE629B2A55500E8936C /* ForgotPasswordRootCoordinatorProtocol.swift in Sources */,
 				BA641B6229F331AC003DA239 /* BottomSheetVM.swift in Sources */,
 				BA6E05E829AE196400549E60 /* LoginVMProtocol.swift in Sources */,
-				BA9F883229F6C26D00E8FE36 /* AddPhotoTableCellPrototype.swift in Sources */,
 				BA641B6729F331DD003DA239 /* BottomSheetCoordinatorProtocol.swift in Sources */,
 				BA6E05DF29ADF20200549E60 /* LoginCoordinator.swift in Sources */,
 				BA6E05EA29AE1CB000549E60 /* AuthorizationService.swift in Sources */,
@@ -1006,10 +996,9 @@
 				BA0E02E129F3F4F700E64764 /* BottomSheetAdapterProtocol.swift in Sources */,
 				BA9604172A02EE2800C44FAA /* ButtonTableCellDelegate.swift in Sources */,
 				BA1BBBEA29B3C05C00E8936C /* RegularTextField.swift in Sources */,
-				BA9F884329F97C7200E8FE36 /* AddPhotoTableCellVM.swift in Sources */,
+				BAA622982A23578700094E0F /* ButtonTableCellBaseProtocol.swift in Sources */,
 				BAADCD7429D6F975003B8821 /* MapVC.swift in Sources */,
 				BA1BBBEF29B7D71E00E8936C /* RegularButton.swift in Sources */,
-				BA9F884529F97CE000E8FE36 /* AddPhotoTableCellVMProtocol.swift in Sources */,
 				BA7D582929F57C370061DEB8 /* CreateCheckInCoordinator.swift in Sources */,
 				BA0E02DC29F3EF4E00E64764 /* MapAdapterActionDelegate.swift in Sources */,
 				BA32834229D9DBBF0051C994 /* SettingsAdapterProtocol.swift in Sources */,
@@ -1044,9 +1033,8 @@
 				BA00454D29DE048100E1B1BB /* MapAdapter.swift in Sources */,
 				BAADCD8729D83B3F003B8821 /* SettingsAssembler.swift in Sources */,
 				BA5D93852A1D3B4800FF5EB4 /* Container.swift in Sources */,
-				BA9F882F29F6B1B600E8FE36 /* CreateTableCellPrototype.swift in Sources */,
+				BA9F882F29F6B1B600E8FE36 /* ButtonTableCellPrototype.swift in Sources */,
 				BA7D583629F57C990061DEB8 /* CreateCheckInVMProtocol.swift in Sources */,
-				BA9F884729F97CFD00E8FE36 /* AddPhotoTableCellVMAssembler.swift in Sources */,
 				BA1BBBF429B8DC4700E8936C /* AlertControllerFactory.swift in Sources */,
 				BA89B80129CDBF9700CD7C76 /* ProfileRootCoordinatorProtocol.swift in Sources */,
 				BA9DE7FB29C8731B001A266B /* OnboardingAdapterProtocol.swift in Sources */,

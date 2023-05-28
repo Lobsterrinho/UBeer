@@ -63,7 +63,7 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
             actions: [
                 .cancel({ }),
                 .destructive("Discard changes",
-                             { self.coordinator?.finish() })
+                             { self.coordinator?.finish(true) })
             ]
         )
         coordinator?.presentAlert(alert)
@@ -73,8 +73,12 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
 
 extension CreateCheckInVM: ButtonTableCellDelegate {
     
-    func buttonDidTap() {
-        presentActionSheet()
+    func buttonDidTap(_ sender: UIButton) {
+        if sender.currentTitle != nil {
+            presentDiscardAlert()
+        } else {
+            presentActionSheet()
+        }
     }
 }
 

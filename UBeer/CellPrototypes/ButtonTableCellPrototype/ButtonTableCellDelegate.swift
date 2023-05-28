@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ButtonTableCellDelegate: AnyObject {
-    func buttonDidTap()
+    func buttonDidTap(_ sender: UIButton)
 }

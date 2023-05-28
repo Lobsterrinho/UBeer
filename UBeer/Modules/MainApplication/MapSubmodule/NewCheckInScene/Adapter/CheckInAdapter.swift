@@ -13,7 +13,7 @@ final class CheckInAdapter: NSObject, CheckInAdapterProtocol {
     private weak var tableView: UITableView?
     private var sections: [CheckInSections] = []
     
-    private weak var createCellDelegate: ButtonTableCellDelegate?
+    private weak var CheckInCellDelegate: ButtonTableCellDelegate?
     
     func setupTableView(_ tableView: UITableView) {
         self.tableView = tableView
@@ -33,23 +33,21 @@ final class CheckInAdapter: NSObject, CheckInAdapterProtocol {
         registerCells()
         tableView?.delegate = self
         tableView?.dataSource = self
-        #warning("delete magic number")
+#warning("delete magic number")
         tableView?.rowHeight = 48.0
     }
     
     func setupCreateCellVMDelegate(_ delegate: ButtonTableCellDelegate) {
-        self.createCellDelegate = delegate
+        self.CheckInCellDelegate = delegate
     }
     
     private func registerCells() {
-        tableView?.register(AddPhotoTableCellPrototype.self,
-                            forCellReuseIdentifier: "\(AddPhotoTableCellPrototype.self)")
         
         tableView?.register(CheckInTableCell.self,
                             forCellReuseIdentifier: "\(CheckInTableCell.self)")
         
-        tableView?.register(CreateTableCellPrototype.self,
-                            forCellReuseIdentifier: "\(CreateTableCellPrototype.self)")
+        tableView?.register(ButtonTableCellPrototype.self,
+                            forCellReuseIdentifier: "\(ButtonTableCellPrototype.self)")
     }
     
 }
@@ -66,31 +64,29 @@ extension CheckInAdapter: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let photoCell = tableView.dequeueReusableCell(
-            withIdentifier: "\(AddPhotoTableCellPrototype.self)",
-            for: indexPath) as? AddPhotoTableCellPrototype
-        
         let textFieldCell = tableView.dequeueReusableCell(
             withIdentifier: "\(CheckInTableCell.self)",
             for: indexPath) as? CheckInTableCell
         
-        let checkInCell = tableView.dequeueReusableCell(
-            withIdentifier: "\(CreateTableCellPrototype.self)",
-            for: indexPath) as? CreateTableCellPrototype
+        let buttonCell = tableView.dequeueReusableCell(
+            withIdentifier: "\(ButtonTableCellPrototype.self)",
+            for: indexPath) as? ButtonTableCellPrototype
+        buttonCell?.setupCellDelegate(self)
         
         let section = sections[indexPath.section]
         
         switch section {
         case .photo:
-            photoCell?.viewModel = AddPhotoTableCellVMAssembler.makeViewModel()
-            return photoCell ?? UITableViewCell()
+            buttonCell?.setupButtonTitle(title: nil, imageName: "camera")
+            return buttonCell ?? UITableViewCell()
         case .textField(let items):
             let item = items[indexPath.row]
             textFieldCell?.setup(item: item.placeholder)
             return textFieldCell ?? UITableViewCell()
         case .button:
-            checkInCell?.setupCellDelegate(self)
-            return checkInCell ?? UITableViewCell()
+            //            checkInCell?.setupCellDelegate(self)
+            buttonCell?.setupButtonTitle(title: "Create check in", imageName: nil)
+            return buttonCell ?? UITableViewCell()
         }
     }
 }
@@ -104,7 +100,7 @@ extension CheckInAdapter: UITableViewDelegate {
 
 extension CheckInAdapter: ButtonTableCellDelegate {
     
-    func buttonDidTap() {
-        createCellDelegate?.buttonDidTap()
+    func buttonDidTap(_ sender: UIButton) {
+        CheckInCellDelegate?.buttonDidTap(sender)
     }
 }
