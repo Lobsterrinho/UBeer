@@ -11,6 +11,13 @@ final class ButtonTableCellPrototype: UITableViewCell {
     
     private weak var cellButton: UIButton!
     
+    #warning("why button change state only if i write in didSet")
+    var acceptCheckIn: Bool = false {
+        didSet {
+            setupCellButton()
+            setupCellButtonConstraints()
+        }
+    }
     var viewModel: ButtonTableCellBaseProtocol!
     
     private weak var delegate: ButtonTableCellDelegate?
@@ -19,7 +26,7 @@ final class ButtonTableCellPrototype: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupViewsAndConstraints()
-        setupSelectors()
+//        setupSelectors()
     }
     
     required init?(coder: NSCoder) {
@@ -28,7 +35,6 @@ final class ButtonTableCellPrototype: UITableViewCell {
     
     func setupCellDelegate(_ delegate: ButtonTableCellDelegate) {
         self.delegate = delegate
-        
     }
     
     func setupButtonTitle(title: String?, imageName: String?) {
@@ -36,7 +42,7 @@ final class ButtonTableCellPrototype: UITableViewCell {
             cellButton.setTitle(title, for: .normal)
         } else if imageName != nil {
             guard let imageName = imageName else { return }
-           setupButtonWithImage(imageName: imageName)
+            setupButtonWithImage(imageName: imageName)
         }
     }
     
@@ -44,8 +50,8 @@ final class ButtonTableCellPrototype: UITableViewCell {
     
     private func setupSelectors() {
         cellButton.addTarget(self,
-                               action: #selector(buttonDidTap),
-                               for: .touchUpInside)
+                             action: #selector(buttonDidTap),
+                             for: .touchUpInside)
     }
     
     @objc private func buttonDidTap() {
@@ -58,8 +64,8 @@ final class ButtonTableCellPrototype: UITableViewCell {
         backgroundColor = .clear
         contentView.isUserInteractionEnabled = false
         
-        setupCreateButton()
-        setupCreateButtonConstraints()
+//        setupCellButton()
+//        setupCellButtonConstraints()
     }
     
     func setupButtonImage(imageName: String) {
@@ -67,33 +73,49 @@ final class ButtonTableCellPrototype: UITableViewCell {
         cellButton.backgroundColor = .acc
     }
     
-    private func setupCreateButton() {
+    //    private func setupEnabledCellButton() {
+    //        let button = UIButton(type: .system)
+    //        button.setTitle("Button", for: .normal)
+    //
+    //        button.layer.cornerRadius = 8.0
+    //        button.translatesAutoresizingMaskIntoConstraints = false
+    //        addSubview(button)
+    //        self.cellButton = button
+    //    }
+    
+    private func setupCellButton() {
         let button = UIButton(type: .system)
         button.setTitle("Button", for: .normal)
-        button.setTitleColor(.black100, for: .normal)
         button.titleLabel?.font = .buttonText
-        button.backgroundColor = .acc
         button.layer.cornerRadius = 8.0
         button.translatesAutoresizingMaskIntoConstraints = false
+        if acceptCheckIn {
+            button.setTitleColor(.black100, for: .normal)
+            button.backgroundColor = .acc
+            button.isEnabled = true
+        } else {
+            button.setTitleColor(.white, for: .normal)
+            button.backgroundColor = .black5
+            button.isEnabled = false
+        }
         addSubview(button)
         self.cellButton = button
+        self.cellButton.addTarget(self,
+                             action: #selector(buttonDidTap),
+                             for: .touchUpInside)
     }
     
     private func setupButtonWithImage(imageName: String) {
-        let image = UIImage(systemName: imageName) ?? UIImage(systemName: "photo")!
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: image.size.width * 1.5, height: image.size.height * 1.5))
-        let scaledImage = renderer.image { _ in
-            image.draw(in: CGRect(origin: .zero, size: CGSize(width: image.size.width * 1.5, height: image.size.height * 1.5)))
-        }
-        let tintedImage = scaledImage.withTintColor(.acc)
+        let image = UIImage.makeScaledImage(imageName: imageName)
         cellButton.backgroundColor = .white
         cellButton.tintColor = .acc
-        cellButton.setImage(tintedImage, for: .normal)
+        cellButton.setImage(image, for: .normal)
         cellButton.setTitle(nil, for: .normal)
     }
     
-    private func setupCreateButtonConstraints() {
+    private func setupCellButtonConstraints() {
         NSLayoutConstraint.activate([
+            cellButton.heightAnchor.constraint(equalToConstant: 48.0),
             cellButton.topAnchor.constraint(equalTo: self.topAnchor),
             cellButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             cellButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),

@@ -10,8 +10,26 @@ import UIKit
 
 final class CheckInAdapter: NSObject, CheckInAdapterProtocol {
     
+    private enum Const {
+        static var numberOfPeople: String = ""
+    }
+    
     private weak var tableView: UITableView?
+    private var selectedImage: UIImage?
     private var sections: [CheckInSections] = []
+    
+    private var shouldAccept: Bool = false
+    private var checkInModel = CheckInModel(numberOfPeople: "", wishes: "") {
+        didSet {
+            if !checkInModel.wishes.isEmpty && !checkInModel.numberOfPeople.isEmpty {
+                shouldAccept = true
+            } else {
+                shouldAccept = false
+            }
+            let indexPath = IndexPath(row: 0, section: 2)
+            reloadRows(at: indexPath, with: .none)
+        }
+    }
     
     private weak var CheckInCellDelegate: ButtonTableCellDelegate?
     
@@ -25,16 +43,25 @@ final class CheckInAdapter: NSObject, CheckInAdapterProtocol {
         reloadData()
     }
     
+    func setupSelectedImage(_ image: UIImage) {
+        self.selectedImage = image
+        let firstCellIndex = sections.startIndex
+        let indexPath = IndexPath(row: firstCellIndex, section: firstCellIndex)
+        reloadRows(at: indexPath, with: .fade)
+    }
+    
     private func reloadData() {
         tableView?.reloadData()
+    }
+    
+    private func reloadRows(at indexPath: IndexPath, with animation: UITableView.RowAnimation ) {
+        tableView?.reloadRows(at: [indexPath], with: animation)
     }
     
     private func setupTableView() {
         registerCells()
         tableView?.delegate = self
         tableView?.dataSource = self
-#warning("delete magic number")
-        tableView?.rowHeight = 48.0
     }
     
     func setupCreateCellVMDelegate(_ delegate: ButtonTableCellDelegate) {
@@ -48,8 +75,10 @@ final class CheckInAdapter: NSObject, CheckInAdapterProtocol {
         
         tableView?.register(ButtonTableCellPrototype.self,
                             forCellReuseIdentifier: "\(ButtonTableCellPrototype.self)")
+        
+        tableView?.register(PhotoTableCellPrototype.self,
+                            forCellReuseIdentifier: "\(PhotoTableCellPrototype.self)")
     }
-    
 }
 
 extension CheckInAdapter: UITableViewDataSource {
@@ -58,30 +87,45 @@ extension CheckInAdapter: UITableViewDataSource {
         return sections.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return sections[section].rowCount
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let textFieldCell = tableView.dequeueReusableCell(
             withIdentifier: "\(TextFieldCellPrototype.self)",
             for: indexPath) as? TextFieldCellPrototype
+        textFieldCell?.setupTextDelegate(self)
         
         let buttonCell = tableView.dequeueReusableCell(
             withIdentifier: "\(ButtonTableCellPrototype.self)",
             for: indexPath) as? ButtonTableCellPrototype
         buttonCell?.setupCellDelegate(self)
+        buttonCell?.acceptCheckIn = self.shouldAccept
+        
+        let photoButton = tableView.dequeueReusableCell(
+            withIdentifier: "\(PhotoTableCellPrototype.self)",
+            for: indexPath) as? PhotoTableCellPrototype
+        photoButton?.setupCellDelegate(self)
+        photoButton?.setupCellDeleteDelegate(self)
         
         let section = sections[indexPath.section]
         
         switch section {
         case .photo:
-            buttonCell?.setupButtonTitle(title: nil, imageName: "camera")
-            return buttonCell ?? UITableViewCell()
+            tableView.allowsSelection = false
+            photoButton?.setupButtonImage(imageName: "camera")
+            if selectedImage != nil {
+                photoButton?.setupSelectedImage(image: selectedImage)
+            }
+            return photoButton ?? UITableViewCell()
         case .textField(let items):
             let item = items[indexPath.row]
             textFieldCell?.setup(item: item.placeholder)
+            textFieldCell?.receiveIndexPath(indexPath)
             return textFieldCell ?? UITableViewCell()
         case .button:
             buttonCell?.setupButtonTitle(title: "Create check in", imageName: nil)
@@ -91,15 +135,36 @@ extension CheckInAdapter: UITableViewDataSource {
 }
 
 extension CheckInAdapter: UITableViewDelegate {
-    
-    //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    //        return 100.0
-    //    }
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
 extension CheckInAdapter: ButtonTableCellDelegate {
     
     func buttonDidTap(_ sender: UIButton) {
         CheckInCellDelegate?.buttonDidTap(sender)
+    }
+}
+
+extension CheckInAdapter: DeleteButtonTableCellDelegate {
+    
+    func deleteButtonDidTap() {
+        selectedImage = nil
+        let firstCellIndex = sections.startIndex
+        let indexPath = IndexPath(row: firstCellIndex, section: firstCellIndex)
+        tableView?.reloadRows(at: [indexPath], with: .fade)
+    }
+}
+
+extension CheckInAdapter: TextFieldTextDelegate {
+    
+    func textFromTextField(text: String, indexPath: IndexPath) {
+        switch indexPath {
+        case [1, 0]: checkInModel.numberOfPeople = text
+        case [1, 1]: checkInModel.wishes = text
+        default: break
+        }
     }
 }

@@ -7,12 +7,21 @@
 
 import Foundation
 import UIKit
+import PhotosUI
 
 final class CreateCheckInVM: CreateCheckInVMProtocol {
     
     private weak var coordinator: CreateCheckInCoordinatorProtocol?
     private var adapter: CheckInAdapterProtocol
     private var alertFactory: AlertControllerFactoryProtocol
+    
+    private var phPicker: PHPickerViewController = {
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = 1
+        let imagePicker = PHPickerViewController(configuration: configuration)
+        return imagePicker
+    }()
     
     private let sections: [CheckInSections] = [
         .photo,
@@ -28,6 +37,7 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
         self.adapter = adapter
         self.alertFactory = alertFactory
         adapter.setupCreateCellVMDelegate(self)
+        phPicker.delegate = self
     }
     
     func setupTableView(_ tableView: UITableView) {
@@ -45,7 +55,7 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
             message: nil,
             actions: [.default("Choose from galery",
                                {
-                                   self.coordinator?.presentGalery()
+                                   self.coordinator?.presentGalery(picker: self.phPicker)
                                }),
                       .default("Take a photo",
                                {
@@ -56,6 +66,7 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
         coordinator?.presentAlert(actionSheet)
     }
     
+    #warning("don't present alert if fields are empty")
     func presentDiscardAlert() {
         let alert = alertFactory.makeAlert(
             title: nil,
@@ -79,6 +90,26 @@ extension CreateCheckInVM: ButtonTableCellDelegate {
         } else {
             presentActionSheet()
         }
+    }
+}
+
+extension CreateCheckInVM: PHPickerViewControllerDelegate {
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        if results.isEmpty {
+            self.coordinator?.pickerDidCancel(picker)
+        }
+        guard let result = results.first else { return }
+        result.itemProvider
+            .loadObject(ofClass: UIImage.self) { image, error in
+                if let image = image as? UIImage {
+                    DispatchQueue.main.async {
+                        self.adapter.setupSelectedImage(image)
+                    }
+                }
+            }
+        self.coordinator?.pickerDidCancel(picker)
+        
     }
 }
 

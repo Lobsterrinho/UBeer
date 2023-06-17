@@ -22,5 +22,4 @@ extension UIButton {
             self.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         }
     }
-    
 }

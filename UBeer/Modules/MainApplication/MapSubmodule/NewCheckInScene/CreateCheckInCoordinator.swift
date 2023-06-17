@@ -54,19 +54,23 @@ extension CreateCheckInCoordinator: CreateCheckInCoordinatorProtocol {
         rootVC?.present(alert, animated: true)
     }
     
-    func presentGalery() {
-        if #available(iOS 15.0, *) {
-            var configuration = PHPickerConfiguration()
-            configuration.filter = .images
-            configuration.selectionLimit = 1
-            let imagePicker = PHPickerViewController(configuration: configuration)
-            self.rootVC?.present(imagePicker, animated: true)
-        } else {
-            let imagePickerController = UIImagePickerController()
-            imagePickerController.sourceType = .photoLibrary
-            self.rootVC?.present(imagePickerController, animated: true)
-        }
+    #warning("make using of ImagePicker for previous iOS versions")
+    func presentGalery(picker: PHPickerViewController) {
+//        if #available(iOS 15.0, *) {
+            
+            self.rootVC?.present(picker, animated: true)
+//        } else {
+//            let imagePickerController = UIImagePickerController()
+//            imagePickerController.sourceType = .photoLibrary
+//            self.rootVC?.present(imagePickerController, animated: true)
+//        }
     }
+    
+    
+    
+    func pickerDidCancel(_ picker: PHPickerViewController) {
+        picker.dismiss(animated: true)
+        }
     
     func presentCamera() {
         let imagePickerController = UIImagePickerController()
