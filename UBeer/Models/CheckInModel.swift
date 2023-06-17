@@ -8,6 +8,8 @@
 import Foundation
 
 struct CheckInModel {
+    var longitude: Double
+    var latitude: Double
     var numberOfPeople: String
     var wishes: String
 }

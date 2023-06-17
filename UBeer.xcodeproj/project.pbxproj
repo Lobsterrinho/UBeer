@@ -130,6 +130,7 @@
 		BAADCD8E29D83F81003B8821 /* SettingsCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAADCD8D29D83F81003B8821 /* SettingsCoordinatorProtocol.swift */; };
 		BAADCD9029D84209003B8821 /* SettingsRootCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAADCD8F29D84209003B8821 /* SettingsRootCoordinatorProtocol.swift */; };
 		BAADCD9229D84243003B8821 /* SettingsVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAADCD9129D84243003B8821 /* SettingsVMProtocol.swift */; };
+		BAD5E5CA2A3DDDF200EA34F8 /* DatabaseCurrentUserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD5E5C92A3DDDF200EA34F8 /* DatabaseCurrentUserProtocol.swift */; };
 		BAD99EEC29DC38A600959B1B /* AuthorizationService+SignOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD99EEB29DC38A600959B1B /* AuthorizationService+SignOut.swift */; };
 		BAD99EEE29DC38C800959B1B /* SettingsAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD99EED29DC38C800959B1B /* SettingsAuthorizationService.swift */; };
 		BAD99EF029DC467700959B1B /* SettingsAdapterActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD99EEF29DC467600959B1B /* SettingsAdapterActionDelegate.swift */; };
@@ -265,6 +266,7 @@
 		BAADCD8D29D83F81003B8821 /* SettingsCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		BAADCD8F29D84209003B8821 /* SettingsRootCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRootCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		BAADCD9129D84243003B8821 /* SettingsVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVMProtocol.swift; sourceTree = "<group>"; };
+		BAD5E5C92A3DDDF200EA34F8 /* DatabaseCurrentUserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCurrentUserProtocol.swift; sourceTree = "<group>"; };
 		BAD99EEB29DC38A600959B1B /* AuthorizationService+SignOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorizationService+SignOut.swift"; sourceTree = "<group>"; };
 		BAD99EED29DC38C800959B1B /* SettingsAuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAuthorizationService.swift; sourceTree = "<group>"; };
 		BAD99EEF29DC467600959B1B /* SettingsAdapterActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAdapterActionDelegate.swift; sourceTree = "<group>"; };
@@ -451,7 +453,7 @@
 			children = (
 				BA5D93832A1D3B1B00FF5EB4 /* DependanciesInjection */,
 				BA6E05D329ADE4D900549E60 /* AuthorizationServices */,
-				BA54850429E457950052B9C9 /* RealtimeDatabaseService.swift */,
+				BAD5E5C82A3DDDB600EA34F8 /* RealtimeDatabaseService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -579,6 +581,7 @@
 				BA7D583129F57C810061DEB8 /* CreateCheckInCoordinatorProtocol.swift */,
 				BA7D583329F57C8E0061DEB8 /* CreateCheckInRootCoordinatorProtocol.swift */,
 				BA7D583529F57C990061DEB8 /* CreateCheckInVMProtocol.swift */,
+				BA54850629E4593F0052B9C9 /* CreateCheckInRealtimeDBServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -587,7 +590,6 @@
 			isa = PBXGroup;
 			children = (
 				BA7D583C29F5C9FE0061DEB8 /* CheckInAdapter.swift */,
-				BADA9AC12A2F880800C3DC10 /* CheckInModel.swift */,
 				BA7D583E29F5CA120061DEB8 /* CheckInAdapterProtocol.swift */,
 				BA7D584129F5CB800061DEB8 /* CheckInSections.swift */,
 				BA7D584329F5CB900061DEB8 /* CheckInItems.swift */,
@@ -645,6 +647,7 @@
 		BA8F4BDA29ABF66C00C68B78 /* UBeer */ = {
 			isa = PBXGroup;
 			children = (
+				BAD5E5CD2A3DF12800EA34F8 /* Models */,
 				BAA622952A23555D00094E0F /* CellPrototypes */,
 				BA6E05CA29ADE05200549E60 /* Application */,
 				BA6E05CC29ADE0DE00549E60 /* Modules */,
@@ -785,7 +788,6 @@
 				BAADCD7E29D718EE003B8821 /* MapCoordinatorProtocol.swift */,
 				BAADCD8029D718FA003B8821 /* MapVMProtocol.swift */,
 				BAADCD7C29D6F9FC003B8821 /* MapRootCoordinatorProtocol.swift */,
-				BA54850629E4593F0052B9C9 /* CreateCheckInRealtimeDBServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -814,6 +816,23 @@
 				BAD99EED29DC38C800959B1B /* SettingsAuthorizationService.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BAD5E5C82A3DDDB600EA34F8 /* RealtimeDatabaseService */ = {
+			isa = PBXGroup;
+			children = (
+				BA54850429E457950052B9C9 /* RealtimeDatabaseService.swift */,
+				BAD5E5C92A3DDDF200EA34F8 /* DatabaseCurrentUserProtocol.swift */,
+			);
+			path = RealtimeDatabaseService;
+			sourceTree = "<group>";
+		};
+		BAD5E5CD2A3DF12800EA34F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BADA9AC12A2F880800C3DC10 /* CheckInModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		BAD99EEA29DC387C00959B1B /* Extensions */ = {
@@ -1060,6 +1079,7 @@
 				BA1BBBF429B8DC4700E8936C /* AlertControllerFactory.swift in Sources */,
 				BADA9AC22A2F880800C3DC10 /* CheckInModel.swift in Sources */,
 				BA89B80129CDBF9700CD7C76 /* ProfileRootCoordinatorProtocol.swift in Sources */,
+				BAD5E5CA2A3DDDF200EA34F8 /* DatabaseCurrentUserProtocol.swift in Sources */,
 				BA9DE7FB29C8731B001A266B /* OnboardingAdapterProtocol.swift in Sources */,
 				BADA9AC02A2E787F00C3DC10 /* DeleteButtonTableCellDelegate.swift in Sources */,
 				BA88241029CDC36F00E2EDBD /* ProfileVMProtocol.swift in Sources */,

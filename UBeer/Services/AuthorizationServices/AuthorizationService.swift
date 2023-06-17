@@ -44,4 +44,9 @@ final class AuthorizationService: AuthorizationServiceProtocol {
           print("Error signing out: %@", signOutError)
         }
     }
+    
+    func getCurrentUser(completion: @escaping (FirebaseAuth.User?) -> Void) {
+        let currentUser = firebaseAuthService.currentUser
+        completion(currentUser)
+    }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 final class CreateCheckInAssembler {
     
@@ -14,21 +15,26 @@ final class CreateCheckInAssembler {
     
     static func makeCheckInVC(
         coordinator: CreateCheckInCoordinatorProtocol,
-        container: Container
+        container: Container,
+        myCoordinate: CLLocationCoordinate2D
     ) -> UIViewController {
         let viewModel = makeViewModel(coordinator: coordinator,
-                                      container: container)
+                                      container: container,
+                                      myCoordinate: myCoordinate)
         return CreateCheckInVC(viewModel: viewModel)
     }
     
     private static func makeViewModel(
         coordinator: CreateCheckInCoordinatorProtocol,
-        container: Container
+        container: Container,
+        myCoordinate: CLLocationCoordinate2D
     ) -> CreateCheckInVMProtocol {
         return CreateCheckInVM(
             coordinator: coordinator,
-                            adapter: makeAdapter(),
-            alertFactory: makeAlertFactory(container: container)
+            adapter: makeAdapter(),
+            alertFactory: makeAlertFactory(container: container),
+            realtimeDB: makeRealtimeDB(container: container),
+            myCoordinate: myCoordinate
         )
     }
     
@@ -39,6 +45,12 @@ final class CreateCheckInAssembler {
     private static func makeAlertFactory(
         container: Container
     ) -> AlertFactoryProtocol {
+        return container.resolve()
+    }
+    
+    private static func makeRealtimeDB(
+        container: Container
+    ) -> RealtimeDatabaseServiceProtocol {
         return container.resolve()
     }
     

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import PhotosUI
+import CoreLocation
 
 final class CreateCheckInCoordinator: Coordinator {
     
@@ -28,8 +29,15 @@ final class CreateCheckInCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = CreateCheckInAssembler.makeCheckInVC(coordinator: self,
-                                                                  container: container)
+        assert(false, "Should be open with coordinates, please use start(myCoordinate: _)")
+    }
+    
+    func start(myCoordinate: CLLocationCoordinate2D) {
+        let viewController = CreateCheckInAssembler.makeCheckInVC(
+            coordinator: self,
+            container: container,
+            myCoordinate: myCoordinate
+        )
         rootVC = viewController
         viewController.modalPresentationStyle = .overFullScreen
         viewController.modalTransitionStyle = .crossDissolve
@@ -54,23 +62,23 @@ extension CreateCheckInCoordinator: CreateCheckInCoordinatorProtocol {
         rootVC?.present(alert, animated: true)
     }
     
-    #warning("make using of ImagePicker for previous iOS versions")
+#warning("make using of ImagePicker for previous iOS versions")
     func presentGalery(picker: PHPickerViewController) {
-//        if #available(iOS 15.0, *) {
-            
-            self.rootVC?.present(picker, animated: true)
-//        } else {
-//            let imagePickerController = UIImagePickerController()
-//            imagePickerController.sourceType = .photoLibrary
-//            self.rootVC?.present(imagePickerController, animated: true)
-//        }
+        //        if #available(iOS 15.0, *) {
+        
+        self.rootVC?.present(picker, animated: true)
+        //        } else {
+        //            let imagePickerController = UIImagePickerController()
+        //            imagePickerController.sourceType = .photoLibrary
+        //            self.rootVC?.present(imagePickerController, animated: true)
+        //        }
     }
     
     
     
     func pickerDidCancel(_ picker: PHPickerViewController) {
         picker.dismiss(animated: true)
-        }
+    }
     
     func presentCamera() {
         let imagePickerController = UIImagePickerController()

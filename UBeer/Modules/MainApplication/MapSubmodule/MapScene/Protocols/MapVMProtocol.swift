@@ -11,7 +11,7 @@ import MapKit
 protocol MapVMProtocol {
     
     func setupMapView(_ mapView: MKMapView)
-    func loadUsers()
-    func addNewCheckIn()
+    func loadCheckIns()
+    func openAddNewCheckInScene()
     func getCurrentPosition()
 }

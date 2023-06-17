@@ -10,6 +10,9 @@ import Foundation
 import CoreLocation
 import MapKit
 
+protocol MapAdapterDelegate {
+}
+
 final class MapAdapter: NSObject, MapAdapterProtocol {
     
     private weak var mapView: MKMapView?
@@ -17,7 +20,8 @@ final class MapAdapter: NSObject, MapAdapterProtocol {
     
     private weak var actionDelegate: MapAdapterActionDelegate?
     
-    private lazy var myLocation: MKPointAnnotation = {
+    
+    lazy var myLocation: MKPointAnnotation = {
         let pin = MKPointAnnotation()
         mapView?.addAnnotation(pin)
         return pin

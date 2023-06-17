@@ -47,7 +47,7 @@ final class MapVC: UIViewController {
         setupViewsAndConstraints()
         viewModel.setupMapView(mapView)
         setupSelectors()
-        viewModel.loadUsers()
+        viewModel.loadCheckIns()
     }
     
     override func viewDidLayoutSubviews() {
@@ -71,7 +71,7 @@ final class MapVC: UIViewController {
     }
     
     @objc private func createNewCheckInt() {
-        viewModel.addNewCheckIn()
+        viewModel.openAddNewCheckInScene()
         
     }
     
@@ -93,12 +93,8 @@ final class MapVC: UIViewController {
     private func setupBeerButton() {
         let button = UIButton()
         button.backgroundColor = .white.withAlphaComponent(0.7)
-        let image = UIImage(named: "beerMapIcon")
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: image!.size.width * 1.2, height: image!.size.height * 1.2))
-        let scaledImage = renderer.image { _ in
-            image?.draw(in: CGRect(origin: .zero, size: CGSize(width: image!.size.width * 1.2, height: image!.size.height * 1.2)))
-        }
-        button.setImage(scaledImage, for: .normal)
+        let image = UIImage.makeScaledImage(imageName: "beerMapIcon")
+        button.setImage(image, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
         self.beerButton = button

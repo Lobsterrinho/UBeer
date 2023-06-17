@@ -56,14 +56,14 @@ extension MapCoordinator: MapCoordinatorProtocol {
                                      myCoordinate: myCoordinate)
     }
     
-    func openNewCheckInScene() {
+    func openNewCheckInScene(myCoordinate: CLLocationCoordinate2D) {
         let newCheckInCoordinator = CreateCheckInCoordinator(
             rootNavigationController: navigationController,
             rootCoordinator: self,
             container: container
         )
         childCoordinators.append(newCheckInCoordinator)
-        newCheckInCoordinator.start()
+        newCheckInCoordinator.start(myCoordinate: myCoordinate)
     }
 }
 

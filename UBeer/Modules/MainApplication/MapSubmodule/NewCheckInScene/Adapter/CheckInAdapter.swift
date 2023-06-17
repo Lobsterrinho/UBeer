@@ -19,7 +19,10 @@ final class CheckInAdapter: NSObject, CheckInAdapterProtocol {
     private var sections: [CheckInSections] = []
     
     private var shouldAccept: Bool = false
-    private var checkInModel = CheckInModel(numberOfPeople: "", wishes: "") {
+    lazy var checkInModel = CheckInModel(longitude: 0.0,
+                                            latitude: 0.0,
+                                            numberOfPeople: "",
+                                            wishes: "") {
         didSet {
             if !checkInModel.wishes.isEmpty && !checkInModel.numberOfPeople.isEmpty {
                 shouldAccept = true

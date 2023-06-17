@@ -9,6 +9,5 @@ import Foundation
 
 protocol CreateCheckInRealtimeDBServiceProtocol {
     
-    func loadUsers(completion: @escaping (User?, Error?) -> Void)
-    func addUser()
+    func createCheckIn(model: CheckInModel)
 }

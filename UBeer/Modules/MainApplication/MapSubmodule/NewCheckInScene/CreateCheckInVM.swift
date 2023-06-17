@@ -14,6 +14,10 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
     private weak var coordinator: CreateCheckInCoordinatorProtocol?
     private var adapter: CheckInAdapterProtocol
     private var alertFactory: AlertControllerFactoryProtocol
+    private var realtimeDB: CreateCheckInRealtimeDBServiceProtocol
+    private var myCoordinate: CLLocationCoordinate2D
+    
+    
     
     private var phPicker: PHPickerViewController = {
         var configuration = PHPickerConfiguration()
@@ -32,10 +36,14 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
     
     init(coordinator: CreateCheckInCoordinatorProtocol,
          adapter: CheckInAdapterProtocol,
-         alertFactory: AlertControllerFactoryProtocol) {
+         alertFactory: AlertControllerFactoryProtocol,
+    realtimeDB: CreateCheckInRealtimeDBServiceProtocol,
+         myCoordinate: CLLocationCoordinate2D) {
         self.coordinator = coordinator
         self.adapter = adapter
         self.alertFactory = alertFactory
+        self.realtimeDB = realtimeDB
+        self.myCoordinate = myCoordinate
         adapter.setupCreateCellVMDelegate(self)
         phPicker.delegate = self
     }
@@ -79,6 +87,13 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
         )
         coordinator?.presentAlert(alert)
     }
+    #warning("???is it right to take model and not receive her???")
+    private func createCheckIn() {
+        var checkInModel = adapter.checkInModel
+        checkInModel.latitude = self.myCoordinate.latitude
+        checkInModel.longitude = self.myCoordinate.longitude
+        realtimeDB.createCheckIn(model: checkInModel)
+    }
     
 }
 
@@ -86,7 +101,8 @@ extension CreateCheckInVM: ButtonTableCellDelegate {
     
     func buttonDidTap(_ sender: UIButton) {
         if sender.currentTitle != nil {
-            presentDiscardAlert()
+            createCheckIn()
+            self.coordinator?.finish(true)
         } else {
             presentActionSheet()
         }

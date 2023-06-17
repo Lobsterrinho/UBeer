@@ -29,13 +29,12 @@ final class MapVM: MapVMProtocol {
         adapter.setupAdapterActionDelegate(self)
     }
     
-    func loadUsers() {
-        realtimeDatabaseService.loadUsers { user, error in
-        }
+    func loadCheckIns() {
+        
     }
     
-    func addNewCheckIn() {
-        coordinator.openNewCheckInScene()
+    func openAddNewCheckInScene() {
+        coordinator.openNewCheckInScene(myCoordinate: adapter.myLocation.coordinate)
     }
     
     func setupMapView(_ mapView: MKMapView) {

@@ -9,6 +9,7 @@ import UIKit
 
 protocol CheckInAdapterProtocol {
     
+    var checkInModel: CheckInModel { get }
     func setupTableView(_ tableView: UITableView)
     func setupSections(_ sections: [CheckInSections])
     func setupSelectedImage(_ image: UIImage)
