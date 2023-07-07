@@ -33,7 +33,8 @@ final class PhotoTableCellPrototype: UITableViewCell {
     
     //MARK: - Setting up cell from adapter
     func setupButtonImage(imageName: String) {
-        let scaledImage = UIImage.makeScaledImage(imageName: imageName)
+        let scaledImage = UIImage.makeScaledImage(imageName: imageName,
+                                                  scale: 1.5)
         cellButton.setImage(scaledImage, for: .normal)
         cellButton.backgroundColor = .white
         cellButton.tintColor = .acc

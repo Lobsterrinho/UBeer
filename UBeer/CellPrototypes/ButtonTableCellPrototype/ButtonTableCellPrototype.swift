@@ -106,7 +106,7 @@ final class ButtonTableCellPrototype: UITableViewCell {
     }
     
     private func setupButtonWithImage(imageName: String) {
-        let image = UIImage.makeScaledImage(imageName: imageName)
+        let image = UIImage.makeScaledImage(imageName: imageName, scale: 1.5)
         cellButton.backgroundColor = .white
         cellButton.tintColor = .acc
         cellButton.setImage(image, for: .normal)

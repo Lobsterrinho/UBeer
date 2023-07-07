@@ -11,6 +11,10 @@ import PhotosUI
 
 final class CreateCheckInVM: CreateCheckInVMProtocol {
     
+    private enum Consts {
+        static let lottieAnimationName: String = "success"
+    }
+    
     private weak var coordinator: CreateCheckInCoordinatorProtocol?
     private var adapter: CheckInAdapterProtocol
     private var alertFactory: AlertControllerFactoryProtocol
@@ -101,8 +105,8 @@ extension CreateCheckInVM: ButtonTableCellDelegate {
     
     func buttonDidTap(_ sender: UIButton) {
         if sender.currentTitle != nil {
-            createCheckIn()
-            self.coordinator?.finish(true)
+//            createCheckIn()
+            self.coordinator?.presentLottieAnimationAlert(with: Consts.lottieAnimationName)
         } else {
             presentActionSheet()
         }

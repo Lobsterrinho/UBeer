@@ -16,4 +16,5 @@ protocol CreateCheckInCoordinatorProtocol: AnyObject {
     func presentCamera()
     func pickerDidCancel(_ picker: PHPickerViewController)
     func finish(_ shouldDismiss: Bool)
+    func presentLottieAnimationAlert(with animationName: String)
 }

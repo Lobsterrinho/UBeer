@@ -16,7 +16,7 @@ final class CreateCheckInCoordinator: Coordinator {
     private var rootCoordinator: CreateCheckInRootCoordinatorProtocol
     private var container: Container
     
-    private var rootVC: UIViewController?
+    private weak var rootVC: UIViewController?
     
     var childCoordinators: [Coordinator] = []
     
@@ -50,7 +50,7 @@ final class CreateCheckInCoordinator: Coordinator {
 }
 
 extension CreateCheckInCoordinator: CreateCheckInCoordinatorProtocol {
-    
+    //MARK: finish
     func finish(_ shouldDismiss: Bool) {
         if shouldDismiss {
             rootNavigationController.dismiss(animated: true)
@@ -58,8 +58,19 @@ extension CreateCheckInCoordinator: CreateCheckInCoordinatorProtocol {
         finish()
     }
     
+    //MARK: present alert
     func presentAlert(_ alert: UIAlertController) {
         rootVC?.present(alert, animated: true)
+    }
+    
+    //MARK: present LottieAnimationVC
+    func presentLottieAnimationAlert(with animationName: String) {
+        let presentedAnimatedController = LottieAnimationAlertVC()
+        presentedAnimatedController.modalPresentationStyle = .overFullScreen
+        presentedAnimatedController.modalTransitionStyle = .crossDissolve
+        presentedAnimatedController.setupLottieDelegate(self)
+        presentedAnimatedController.setupLottieAnimationView(name: animationName)
+        rootVC?.present(presentedAnimatedController, animated: true)
     }
     
 #warning("make using of ImagePicker for previous iOS versions")
@@ -85,5 +96,12 @@ extension CreateCheckInCoordinator: CreateCheckInCoordinatorProtocol {
         imagePickerController.sourceType = .camera
         imagePickerController.allowsEditing = true
         rootVC?.present(imagePickerController, animated: true)
+    }
+}
+
+extension CreateCheckInCoordinator: LottieAnimationDelegate {
+    func animationDidEnded() {
+//        rootVC?.dismiss(animated: true)
+        finish(true)
     }
 }

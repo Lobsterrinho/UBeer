@@ -10,6 +10,10 @@ import MapKit
 
 final class MapVC: UIViewController {
     
+    private enum Consts {
+        static let createCheckIcon: String = "beerMapIcon"
+    }
+    
     private weak var mapView: MKMapView!
     
     //Button to open form with fields where user can indicate some info about his current rest and pin the place for whole users in real time
@@ -93,7 +97,7 @@ final class MapVC: UIViewController {
     private func setupBeerButton() {
         let button = UIButton()
         button.backgroundColor = .white.withAlphaComponent(0.7)
-        let image = UIImage.makeScaledImage(imageName: "beerMapIcon")
+        let image = UIImage.makeScaledImage(imageName: Consts.createCheckIcon, scale: 1.2)
         button.setImage(image, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)

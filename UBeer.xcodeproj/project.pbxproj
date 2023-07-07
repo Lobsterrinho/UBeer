@@ -81,6 +81,7 @@
 		BA88241629D0291800E2EDBD /* OnboardingVMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88241529D0291800E2EDBD /* OnboardingVMDelegate.swift */; };
 		BA88241829D0299700E2EDBD /* OnboardingAdapterPageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88241729D0299700E2EDBD /* OnboardingAdapterPageDelegate.swift */; };
 		BA89B80129CDBF9700CD7C76 /* ProfileRootCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89B80029CDBF9700CD7C76 /* ProfileRootCoordinatorProtocol.swift */; };
+		BA8D842A2A5859FB003ECB04 /* LottieAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D84292A5859FB003ECB04 /* LottieAnimationDelegate.swift */; };
 		BA8F4BDC29ABF66C00C68B78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F4BDB29ABF66C00C68B78 /* AppDelegate.swift */; };
 		BA8F4BDE29ABF66C00C68B78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F4BDD29ABF66C00C68B78 /* SceneDelegate.swift */; };
 		BA8F4BE529ABF67300C68B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8F4BE429ABF67300C68B78 /* Assets.xcassets */; };
@@ -131,6 +132,8 @@
 		BAADCD9029D84209003B8821 /* SettingsRootCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAADCD8F29D84209003B8821 /* SettingsRootCoordinatorProtocol.swift */; };
 		BAADCD9229D84243003B8821 /* SettingsVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAADCD9129D84243003B8821 /* SettingsVMProtocol.swift */; };
 		BAD5E5CA2A3DDDF200EA34F8 /* DatabaseCurrentUserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD5E5C92A3DDDF200EA34F8 /* DatabaseCurrentUserProtocol.swift */; };
+		BAD5E5D12A3E044E00EA34F8 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = BAD5E5D02A3E044E00EA34F8 /* success.json */; };
+		BAD5E5D42A3E12E900EA34F8 /* LottieAnimationAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD5E5D32A3E12E900EA34F8 /* LottieAnimationAlertVC.swift */; };
 		BAD99EEC29DC38A600959B1B /* AuthorizationService+SignOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD99EEB29DC38A600959B1B /* AuthorizationService+SignOut.swift */; };
 		BAD99EEE29DC38C800959B1B /* SettingsAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD99EED29DC38C800959B1B /* SettingsAuthorizationService.swift */; };
 		BAD99EF029DC467700959B1B /* SettingsAdapterActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD99EEF29DC467600959B1B /* SettingsAdapterActionDelegate.swift */; };
@@ -215,6 +218,7 @@
 		BA88241529D0291800E2EDBD /* OnboardingVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVMDelegate.swift; sourceTree = "<group>"; };
 		BA88241729D0299700E2EDBD /* OnboardingAdapterPageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAdapterPageDelegate.swift; sourceTree = "<group>"; };
 		BA89B80029CDBF9700CD7C76 /* ProfileRootCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRootCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		BA8D84292A5859FB003ECB04 /* LottieAnimationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationDelegate.swift; sourceTree = "<group>"; };
 		BA8F4BD829ABF66C00C68B78 /* UBeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UBeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8F4BDB29ABF66C00C68B78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8F4BDD29ABF66C00C68B78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -267,6 +271,8 @@
 		BAADCD8F29D84209003B8821 /* SettingsRootCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRootCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		BAADCD9129D84243003B8821 /* SettingsVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVMProtocol.swift; sourceTree = "<group>"; };
 		BAD5E5C92A3DDDF200EA34F8 /* DatabaseCurrentUserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCurrentUserProtocol.swift; sourceTree = "<group>"; };
+		BAD5E5D02A3E044E00EA34F8 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
+		BAD5E5D32A3E12E900EA34F8 /* LottieAnimationAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationAlertVC.swift; sourceTree = "<group>"; };
 		BAD99EEB29DC38A600959B1B /* AuthorizationService+SignOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorizationService+SignOut.swift"; sourceTree = "<group>"; };
 		BAD99EED29DC38C800959B1B /* SettingsAuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAuthorizationService.swift; sourceTree = "<group>"; };
 		BAD99EEF29DC467600959B1B /* SettingsAdapterActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAdapterActionDelegate.swift; sourceTree = "<group>"; };
@@ -647,10 +653,12 @@
 		BA8F4BDA29ABF66C00C68B78 /* UBeer */ = {
 			isa = PBXGroup;
 			children = (
+				BAD5E5CF2A3E042A00EA34F8 /* Animations */,
 				BAD5E5CD2A3DF12800EA34F8 /* Models */,
 				BAA622952A23555D00094E0F /* CellPrototypes */,
 				BA6E05CA29ADE05200549E60 /* Application */,
 				BA6E05CC29ADE0DE00549E60 /* Modules */,
+				BAD5E5D22A3E12AE00EA34F8 /* LottieAnimationAlert */,
 				BA88241429D027D100E2EDBD /* AlertControllerFactory */,
 				BA6E05D029ADE11C00549E60 /* Services */,
 				BA6E05F129AF3B9100549E60 /* Extensions */,
@@ -835,6 +843,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		BAD5E5CF2A3E042A00EA34F8 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				BAD5E5D02A3E044E00EA34F8 /* success.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		BAD5E5D22A3E12AE00EA34F8 /* LottieAnimationAlert */ = {
+			isa = PBXGroup;
+			children = (
+				BAD5E5D32A3E12E900EA34F8 /* LottieAnimationAlertVC.swift */,
+				BA8D84292A5859FB003ECB04 /* LottieAnimationDelegate.swift */,
+			);
+			path = LottieAnimationAlert;
+			sourceTree = "<group>";
+		};
 		BAD99EEA29DC387C00959B1B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -922,6 +947,7 @@
 			files = (
 				BA8F4BE829ABF67300C68B78 /* LaunchScreen.storyboard in Resources */,
 				BA8F4BE529ABF67300C68B78 /* Assets.xcassets in Resources */,
+				BAD5E5D12A3E044E00EA34F8 /* success.json in Resources */,
 				BA54850B29E5F0EF0052B9C9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -975,6 +1001,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAD5E5D42A3E12E900EA34F8 /* LottieAnimationAlertVC.swift in Sources */,
 				BA641B6929F331EB003DA239 /* BottomSheetRootCoordinatorProtocol.swift in Sources */,
 				BAADCD6E29D6E9D9003B8821 /* TabBarController.swift in Sources */,
 				BAADCD7F29D718EE003B8821 /* MapCoordinatorProtocol.swift in Sources */,
@@ -1010,6 +1037,7 @@
 				BA88241229CDC3C700E2EDBD /* ProfileCoordinatorProtocol.swift in Sources */,
 				BAADCD8129D718FA003B8821 /* MapVMProtocol.swift in Sources */,
 				BA00454F29DE04C700E1B1BB /* MapAdapterProtocol.swift in Sources */,
+				BA8D842A2A5859FB003ECB04 /* LottieAnimationDelegate.swift in Sources */,
 				BA32834029D9DB610051C994 /* SettingsAdapter.swift in Sources */,
 				BA1BBBF129B88F8800E8936C /* UIFont+Extension.swift in Sources */,
 				BA7D583429F57C8E0061DEB8 /* CreateCheckInRootCoordinatorProtocol.swift in Sources */,
