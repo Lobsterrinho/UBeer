@@ -14,14 +14,14 @@ final class MapVM: MapVMProtocol {
     private var coordinator: MapCoordinatorProtocol
     private var adapter: MapAdapterProtocol
     private var alertFactory: AlertControllerFactoryProtocol
-    private var realtimeDatabaseService: CreateCheckInRealtimeDBServiceProtocol
+    private var realtimeDatabaseService: LoadCheckInsRealtimeDBServiceProtocol
     
     private var locationManager = CLLocationManager()
     
     init(coordinator: MapCoordinatorProtocol,
          adapter: MapAdapterProtocol,
          alertFactory: AlertControllerFactoryProtocol,
-         realtimeDatabaseService: CreateCheckInRealtimeDBServiceProtocol) {
+         realtimeDatabaseService: LoadCheckInsRealtimeDBServiceProtocol) {
         self.coordinator = coordinator
         self.adapter = adapter
         self.alertFactory = alertFactory
@@ -30,7 +30,9 @@ final class MapVM: MapVMProtocol {
     }
     
     func loadCheckIns() {
-        
+        realtimeDatabaseService.loadCheckIns { usersCheckIns in
+            print(usersCheckIns)
+        }
     }
     
     func openAddNewCheckInScene() {

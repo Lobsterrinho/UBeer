@@ -74,34 +74,38 @@ extension CreateCheckInCoordinator: CreateCheckInCoordinatorProtocol {
     }
     
 #warning("make using of ImagePicker for previous iOS versions")
-    func presentGalery(picker: PHPickerViewController) {
-        //        if #available(iOS 15.0, *) {
-        
-        self.rootVC?.present(picker, animated: true)
-        //        } else {
-        //            let imagePickerController = UIImagePickerController()
-        //            imagePickerController.sourceType = .photoLibrary
-        //            self.rootVC?.present(imagePickerController, animated: true)
-        //        }
+    func presentGalery(phPicker: PHPickerViewController,
+                       imagePicker: UIImagePickerController) {
+        if #available(iOS 15.0, *) {
+            self.rootVC?.present(phPicker, animated: true)
+        } else {
+            self.rootVC?.present(imagePicker, animated: true)
+        }
     }
-    
-    
+//    private func presentPHPickerGalery(picker: PHPickerViewController) {
+//
+//    }
+//
+//    private func presentImagePickerGalery(picker: UIImagePickerController) {
+//        let imagePickerController = UIImagePickerController()
+//        imagePickerController.sourceType = .photoLibrary
+//        self.rootVC?.present(imagePickerController, animated: true)
+//    }
     
     func pickerDidCancel(_ picker: PHPickerViewController) {
         picker.dismiss(animated: true)
     }
     
-    func presentCamera() {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.sourceType = .camera
-        imagePickerController.allowsEditing = true
-        rootVC?.present(imagePickerController, animated: true)
+    func presentCamera(imagePicker: UIImagePickerController) {
+//        let imagePickerController = UIImagePickerController()
+//        imagePickerController.sourceType = .camera
+//        imagePickerController.allowsEditing = true
+        rootVC?.present(imagePicker, animated: true)
     }
 }
 
 extension CreateCheckInCoordinator: LottieAnimationDelegate {
     func animationDidEnded() {
-//        rootVC?.dismiss(animated: true)
         finish(true)
     }
 }

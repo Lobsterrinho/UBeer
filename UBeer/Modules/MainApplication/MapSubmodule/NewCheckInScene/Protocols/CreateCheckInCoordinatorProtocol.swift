@@ -12,8 +12,8 @@ import PhotosUI
 protocol CreateCheckInCoordinatorProtocol: AnyObject {
     
     func presentAlert(_ alert: UIAlertController)
-    func presentGalery(picker: PHPickerViewController)
-    func presentCamera()
+    func presentGalery(phPicker: PHPickerViewController, imagePicker: UIImagePickerController)
+    func presentCamera(imagePicker: UIImagePickerController)
     func pickerDidCancel(_ picker: PHPickerViewController)
     func finish(_ shouldDismiss: Bool)
     func presentLottieAnimationAlert(with animationName: String)

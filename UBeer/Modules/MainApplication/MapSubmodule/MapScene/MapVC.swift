@@ -76,7 +76,6 @@ final class MapVC: UIViewController {
     
     @objc private func createNewCheckInt() {
         viewModel.openAddNewCheckInScene()
-        
     }
     
     private func setupViewsAndConstraints() {

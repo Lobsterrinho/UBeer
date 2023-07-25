@@ -10,6 +10,7 @@
 		3A22660EE01118B700FC8766 /* Pods_UBeer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35649073D38F1248F137788F /* Pods_UBeer.framework */; };
 		BA00454D29DE048100E1B1BB /* MapAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00454C29DE048100E1B1BB /* MapAdapter.swift */; };
 		BA00454F29DE04C700E1B1BB /* MapAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00454E29DE04C700E1B1BB /* MapAdapterProtocol.swift */; };
+		BA00A7602A5DD00600B58F9D /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00A75F2A5DD00600B58F9D /* FirebaseStorage.swift */; };
 		BA0E02DC29F3EF4E00E64764 /* MapAdapterActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02DB29F3EF4E00E64764 /* MapAdapterActionDelegate.swift */; };
 		BA0E02DF29F3F4AC00E64764 /* BottomSheetAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02DE29F3F4AC00E64764 /* BottomSheetAdapter.swift */; };
 		BA0E02E129F3F4F700E64764 /* BottomSheetAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02E029F3F4F700E64764 /* BottomSheetAdapterProtocol.swift */; };
@@ -86,6 +87,7 @@
 		BA8F4BDE29ABF66C00C68B78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F4BDD29ABF66C00C68B78 /* SceneDelegate.swift */; };
 		BA8F4BE529ABF67300C68B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8F4BE429ABF67300C68B78 /* Assets.xcassets */; };
 		BA8F4BE829ABF67300C68B78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8F4BE629ABF67300C68B78 /* LaunchScreen.storyboard */; };
+		BA92D3052A702E3400013661 /* FirebaseStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA92D3042A702E3300013661 /* FirebaseStorageProtocol.swift */; };
 		BA94BDF929C25BB40001A07B /* ForgotPasswordVMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */; };
 		BA94BDFF29C380690001A07B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94BDFE29C380690001A07B /* UIButton+Extension.swift */; };
 		BA9604172A02EE2800C44FAA /* ButtonTableCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9604162A02EE2800C44FAA /* ButtonTableCellDelegate.swift */; };
@@ -104,6 +106,7 @@
 		BA9DE80429CCE994001A266B /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE80329CCE994001A266B /* ProfileVM.swift */; };
 		BA9DE80629CCE9A7001A266B /* ProfileAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE80529CCE9A7001A266B /* ProfileAssembler.swift */; };
 		BA9F882F29F6B1B600E8FE36 /* ButtonTableCellPrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F882E29F6B1B600E8FE36 /* ButtonTableCellPrototype.swift */; };
+		BAA454412A6BD24300AA6DA6 /* LoadCheckInsRealtimeDBServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA454402A6BD24300AA6DA6 /* LoadCheckInsRealtimeDBServiceProtocol.swift */; };
 		BAA622982A23578700094E0F /* ButtonTableCellBaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA622972A23578700094E0F /* ButtonTableCellBaseProtocol.swift */; };
 		BAA622A02A2A389A00094E0F /* PhotoTableCellPrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA6229F2A2A389A00094E0F /* PhotoTableCellPrototype.swift */; };
 		BAA795BA29B297FC007BCD03 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */; };
@@ -147,6 +150,7 @@
 		35649073D38F1248F137788F /* Pods_UBeer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UBeer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA00454C29DE048100E1B1BB /* MapAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAdapter.swift; sourceTree = "<group>"; };
 		BA00454E29DE04C700E1B1BB /* MapAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAdapterProtocol.swift; sourceTree = "<group>"; };
+		BA00A75F2A5DD00600B58F9D /* FirebaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorage.swift; sourceTree = "<group>"; };
 		BA0E02DB29F3EF4E00E64764 /* MapAdapterActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAdapterActionDelegate.swift; sourceTree = "<group>"; };
 		BA0E02DE29F3F4AC00E64764 /* BottomSheetAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetAdapter.swift; sourceTree = "<group>"; };
 		BA0E02E029F3F4F700E64764 /* BottomSheetAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetAdapterProtocol.swift; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 		BA8F4BE429ABF67300C68B78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA8F4BE729ABF67300C68B78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA8F4BE929ABF67300C68B78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA92D3042A702E3300013661 /* FirebaseStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageProtocol.swift; sourceTree = "<group>"; };
 		BA94BDF829C25BB40001A07B /* ForgotPasswordVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVMDelegate.swift; sourceTree = "<group>"; };
 		BA94BDFE29C380690001A07B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		BA9604162A02EE2800C44FAA /* ButtonTableCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCellDelegate.swift; sourceTree = "<group>"; };
@@ -243,6 +248,7 @@
 		BA9DE80329CCE994001A266B /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		BA9DE80529CCE9A7001A266B /* ProfileAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembler.swift; sourceTree = "<group>"; };
 		BA9F882E29F6B1B600E8FE36 /* ButtonTableCellPrototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCellPrototype.swift; sourceTree = "<group>"; };
+		BAA454402A6BD24300AA6DA6 /* LoadCheckInsRealtimeDBServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCheckInsRealtimeDBServiceProtocol.swift; sourceTree = "<group>"; };
 		BAA622972A23578700094E0F /* ButtonTableCellBaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCellBaseProtocol.swift; sourceTree = "<group>"; };
 		BAA6229F2A2A389A00094E0F /* PhotoTableCellPrototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableCellPrototype.swift; sourceTree = "<group>"; };
 		BAA795B929B297FC007BCD03 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
@@ -310,6 +316,15 @@
 				BA00454E29DE04C700E1B1BB /* MapAdapterProtocol.swift */,
 			);
 			path = MapAdapter;
+			sourceTree = "<group>";
+		};
+		BA00A75E2A5DCFE500B58F9D /* FirebaseStorage */ = {
+			isa = PBXGroup;
+			children = (
+				BA00A75F2A5DD00600B58F9D /* FirebaseStorage.swift */,
+				BA92D3042A702E3300013661 /* FirebaseStorageProtocol.swift */,
+			);
+			path = FirebaseStorage;
 			sourceTree = "<group>";
 		};
 		BA0E02DD29F3F49A00E64764 /* BottomSheetAdapter */ = {
@@ -460,6 +475,7 @@
 				BA5D93832A1D3B1B00FF5EB4 /* DependanciesInjection */,
 				BA6E05D329ADE4D900549E60 /* AuthorizationServices */,
 				BAD5E5C82A3DDDB600EA34F8 /* RealtimeDatabaseService */,
+				BA00A75E2A5DCFE500B58F9D /* FirebaseStorage */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -796,6 +812,7 @@
 				BAADCD7E29D718EE003B8821 /* MapCoordinatorProtocol.swift */,
 				BAADCD8029D718FA003B8821 /* MapVMProtocol.swift */,
 				BAADCD7C29D6F9FC003B8821 /* MapRootCoordinatorProtocol.swift */,
+				BAA454402A6BD24300AA6DA6 /* LoadCheckInsRealtimeDBServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1032,6 +1049,7 @@
 				BA9DE7F529C832BA001A266B /* OnboardingPageList.swift in Sources */,
 				BA9DE7E629C5F3D8001A266B /* OnboardingVM.swift in Sources */,
 				BA5D93872A1D3B6C00FF5EB4 /* ServiceConfiguration.swift in Sources */,
+				BA00A7602A5DD00600B58F9D /* FirebaseStorage.swift in Sources */,
 				BA6E05E429ADF62C00549E60 /* LoginRootCoordinatorProtocol.swift in Sources */,
 				BAADCD9029D84209003B8821 /* SettingsRootCoordinatorProtocol.swift in Sources */,
 				BA88241229CDC3C700E2EDBD /* ProfileCoordinatorProtocol.swift in Sources */,
@@ -1064,6 +1082,7 @@
 				BA9604172A02EE2800C44FAA /* ButtonTableCellDelegate.swift in Sources */,
 				BA1BBBEA29B3C05C00E8936C /* RegularTextField.swift in Sources */,
 				BAA622982A23578700094E0F /* ButtonTableCellBaseProtocol.swift in Sources */,
+				BA92D3052A702E3400013661 /* FirebaseStorageProtocol.swift in Sources */,
 				BAADCD7429D6F975003B8821 /* MapVC.swift in Sources */,
 				BA1BBBEF29B7D71E00E8936C /* RegularButton.swift in Sources */,
 				BA7D582929F57C370061DEB8 /* CreateCheckInCoordinator.swift in Sources */,
@@ -1118,6 +1137,7 @@
 				BA9DE80229CCE982001A266B /* ProfileCoordinator.swift in Sources */,
 				BA6E05EE29AE1E2F00549E60 /* LoginCoordinatorProtocol.swift in Sources */,
 				BA1BBBDE29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift in Sources */,
+				BAA454412A6BD24300AA6DA6 /* LoadCheckInsRealtimeDBServiceProtocol.swift in Sources */,
 				BAADCD8529D83B37003B8821 /* SettingsCoordinator.swift in Sources */,
 				BA9DE7F129C5F4CD001A266B /* OnboardingVMProtocol.swift in Sources */,
 				BA32834929DA00940051C994 /* SettingsItem.swift in Sources */,
@@ -1196,7 +1216,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1250,7 +1270,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

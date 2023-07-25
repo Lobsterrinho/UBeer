@@ -15,6 +15,8 @@ final class CreateCheckInVC: UIViewController {
     
     private var viewModel: CreateCheckInVMProtocol
     
+    let firebaseStorage = FirebaseStorage()
+    
     init(viewModel: CreateCheckInVMProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)

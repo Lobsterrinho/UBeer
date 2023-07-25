@@ -13,6 +13,8 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
     
     private enum Consts {
         static let lottieAnimationName: String = "success"
+        static let numberOfPeoplePlaceholder: String = "Number of people in company"
+        static let wishesPlaceholder: String = "Wish something to all users"
     }
     
     private weak var coordinator: CreateCheckInCoordinatorProtocol?
@@ -20,8 +22,6 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
     private var alertFactory: AlertControllerFactoryProtocol
     private var realtimeDB: CreateCheckInRealtimeDBServiceProtocol
     private var myCoordinate: CLLocationCoordinate2D
-    
-    
     
     private var phPicker: PHPickerViewController = {
         var configuration = PHPickerConfiguration()
@@ -31,17 +31,23 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
         return imagePicker
     }()
     
+    private var imagePicker: UIImagePickerController = {
+        var imagePicker = UIImagePickerController()
+        
+        return imagePicker
+    }()
+    
     private let sections: [CheckInSections] = [
         .photo,
-        .textField([CheckInItems(placeholder: "Number of people in company"),
-                    CheckInItems(placeholder: "Wish something to all users")]),
+        .textField([CheckInItems(placeholder: Consts.numberOfPeoplePlaceholder),
+                    CheckInItems(placeholder: Consts.wishesPlaceholder)]),
         .button
     ]
     
     init(coordinator: CreateCheckInCoordinatorProtocol,
          adapter: CheckInAdapterProtocol,
          alertFactory: AlertControllerFactoryProtocol,
-    realtimeDB: CreateCheckInRealtimeDBServiceProtocol,
+         realtimeDB: CreateCheckInRealtimeDBServiceProtocol,
          myCoordinate: CLLocationCoordinate2D) {
         self.coordinator = coordinator
         self.adapter = adapter
@@ -50,6 +56,7 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
         self.myCoordinate = myCoordinate
         adapter.setupCreateCellVMDelegate(self)
         phPicker.delegate = self
+        //        imagePicker.delegate = self
     }
     
     func setupTableView(_ tableView: UITableView) {
@@ -67,18 +74,25 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
             message: nil,
             actions: [.default("Choose from galery",
                                {
-                                   self.coordinator?.presentGalery(picker: self.phPicker)
+                                   let picker = self.imagePicker
+                                   picker.sourceType = .photoLibrary
+                                   self.coordinator?.presentGalery(
+                                    phPicker: self.phPicker,
+                                    imagePicker: picker
+                                   )
                                }),
                       .default("Take a photo",
                                {
-                                   self.coordinator?.presentCamera()
+                                   let picker = self.imagePicker
+                                   picker.sourceType = .camera
+                                   self.coordinator?.presentCamera(imagePicker: picker)
                                }),
                       .cancel({ })]
         )
         coordinator?.presentAlert(actionSheet)
     }
     
-    #warning("don't present alert if fields are empty")
+#warning("don't present alert if fields are empty")
     func presentDiscardAlert() {
         let alert = alertFactory.makeAlert(
             title: nil,
@@ -91,11 +105,12 @@ final class CreateCheckInVM: CreateCheckInVMProtocol {
         )
         coordinator?.presentAlert(alert)
     }
-    #warning("???is it right to take model and not receive her???")
+#warning("???is it right to take model and not receive her???")
     private func createCheckIn() {
         var checkInModel = adapter.checkInModel
         checkInModel.latitude = self.myCoordinate.latitude
         checkInModel.longitude = self.myCoordinate.longitude
+        checkInModel.imageData = checkInModel.image?.jpegData(compressionQuality: 0.4)
         realtimeDB.createCheckIn(model: checkInModel)
     }
     
@@ -105,7 +120,7 @@ extension CreateCheckInVM: ButtonTableCellDelegate {
     
     func buttonDidTap(_ sender: UIButton) {
         if sender.currentTitle != nil {
-//            createCheckIn()
+            createCheckIn()
             self.coordinator?.presentLottieAnimationAlert(with: Consts.lottieAnimationName)
         } else {
             presentActionSheet()

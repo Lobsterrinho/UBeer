@@ -12,6 +12,8 @@ final class CheckInAdapter: NSObject, CheckInAdapterProtocol {
     
     private enum Const {
         static var numberOfPeople: String = ""
+        static var buttonImage: String = "camera"
+        static var buttonTitle: String = "Create check in"
     }
     
     private weak var tableView: UITableView?
@@ -20,16 +22,17 @@ final class CheckInAdapter: NSObject, CheckInAdapterProtocol {
     
     private var shouldAccept: Bool = false
     lazy var checkInModel = CheckInModel(longitude: 0.0,
-                                            latitude: 0.0,
-                                            numberOfPeople: "",
-                                            wishes: "") {
+                                         latitude: 0.0,
+                                         numberOfPeople: "",
+                                         wishes: "") {
         didSet {
             if !checkInModel.wishes.isEmpty && !checkInModel.numberOfPeople.isEmpty {
                 shouldAccept = true
             } else {
                 shouldAccept = false
             }
-            let indexPath = IndexPath(row: 0, section: 2)
+            let indexPath = IndexPath(row: 0,
+                                      section: 2)
             reloadRows(at: indexPath, with: .none)
         }
     }
@@ -48,8 +51,10 @@ final class CheckInAdapter: NSObject, CheckInAdapterProtocol {
     
     func setupSelectedImage(_ image: UIImage) {
         self.selectedImage = image
+        checkInModel.image = image
         let firstCellIndex = sections.startIndex
-        let indexPath = IndexPath(row: firstCellIndex, section: firstCellIndex)
+        let indexPath = IndexPath(row: firstCellIndex,
+                                  section: firstCellIndex)
         reloadRows(at: indexPath, with: .fade)
     }
     
@@ -57,8 +62,10 @@ final class CheckInAdapter: NSObject, CheckInAdapterProtocol {
         tableView?.reloadData()
     }
     
-    private func reloadRows(at indexPath: IndexPath, with animation: UITableView.RowAnimation ) {
-        tableView?.reloadRows(at: [indexPath], with: animation)
+    private func reloadRows(at indexPath: IndexPath,
+                            with animation: UITableView.RowAnimation) {
+        tableView?.reloadRows(at: [indexPath],
+                              with: animation)
     }
     
     private func setupTableView() {
@@ -120,7 +127,7 @@ extension CheckInAdapter: UITableViewDataSource {
         switch section {
         case .photo:
             tableView.allowsSelection = false
-            photoButton?.setupButtonImage(imageName: "camera")
+            photoButton?.setupButtonImage(imageName: Const.buttonImage)
             if selectedImage != nil {
                 photoButton?.setupSelectedImage(image: selectedImage)
             }
@@ -131,7 +138,8 @@ extension CheckInAdapter: UITableViewDataSource {
             textFieldCell?.receiveIndexPath(indexPath)
             return textFieldCell ?? UITableViewCell()
         case .button:
-            buttonCell?.setupButtonTitle(title: "Create check in", imageName: nil)
+            buttonCell?.setupButtonTitle(title: Const.buttonTitle,
+                                         imageName: nil)
             return buttonCell ?? UITableViewCell()
         }
     }
@@ -156,14 +164,17 @@ extension CheckInAdapter: DeleteButtonTableCellDelegate {
     func deleteButtonDidTap() {
         selectedImage = nil
         let firstCellIndex = sections.startIndex
-        let indexPath = IndexPath(row: firstCellIndex, section: firstCellIndex)
-        tableView?.reloadRows(at: [indexPath], with: .fade)
+        let indexPath = IndexPath(row: firstCellIndex,
+                                  section: firstCellIndex)
+        tableView?.reloadRows(at: [indexPath],
+                              with: .fade)
     }
 }
 
 extension CheckInAdapter: TextFieldTextDelegate {
     
-    func textFromTextField(text: String, indexPath: IndexPath) {
+    func textFromTextField(text: String,
+                           indexPath: IndexPath) {
         switch indexPath {
         case [1, 0]: checkInModel.numberOfPeople = text
         case [1, 1]: checkInModel.wishes = text

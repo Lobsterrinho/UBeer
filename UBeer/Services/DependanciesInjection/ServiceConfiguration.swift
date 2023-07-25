@@ -20,7 +20,7 @@ final class ServiceConfiguration {
 
 protocol AuthorizationServiceProtocol: AnyObject, LoginAuthorizationServiceProtocol & RegisterAuthorizationServiceProtocol & ForgotPasswordAuthorizationServiceProtocol & SettingsAuthorizationServiceProtocol { }
 
-protocol RealtimeDatabaseServiceProtocol: AnyObject, CreateCheckInRealtimeDBServiceProtocol { }
+protocol RealtimeDatabaseServiceProtocol: AnyObject, CreateCheckInRealtimeDBServiceProtocol & LoadCheckInsRealtimeDBServiceProtocol { }
 
 protocol AlertFactoryProtocol: AnyObject, AlertControllerFactoryProtocol { }
 

@@ -8,6 +8,7 @@ target 'UBeer' do
 pod 'FirebaseAuth'
 pod 'FirebaseFirestore'
 pod 'FirebaseDatabase'
+pod 'FirebaseStorage'
 pod 'lottie-ios'
 
   # Pods for UBeer
