@@ -9,6 +9,9 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
+
+
 final class MapVM: MapVMProtocol {
     
     private var coordinator: MapCoordinatorProtocol
@@ -31,8 +34,27 @@ final class MapVM: MapVMProtocol {
     
     func loadCheckIns() {
         realtimeDatabaseService.loadCheckIns { usersCheckIns in
-            print(usersCheckIns)
+            let checkInsArray: [[String: Any]] = usersCheckIns
+                .flatMap { $0.values }
+                .flatMap { $0 }
+                .flatMap { $0.values }
+            
+            var checkInModelArray: [CheckInModel] = []
+            checkInsArray.forEach { dict in
+                guard let longitude = dict["longitude"] as? Double,
+                      let latitude = dict["latitude"] as? Double,
+                      let numberOfPeople = dict["numberOfPeople"] as? String,
+                      let wishes = dict["wishes"] as? String
+                else { return }
+                checkInModelArray.append(
+                    CheckInModel(longitude: longitude,
+                                 latitude: latitude,
+                                 numberOfPeople: numberOfPeople,
+                                 wishes: wishes))
+            }
+            self.adapter.setupUsersPins(checkInModelArray)
         }
+        
     }
     
     func openAddNewCheckInScene() {
