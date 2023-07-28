@@ -61,6 +61,10 @@ final class MapVM: MapVMProtocol {
         coordinator.openNewCheckInScene(myCoordinate: adapter.myLocation.coordinate)
     }
     
+    func centerMapOnUser() {
+        adapter.centerMapOnUser()
+    }
+    
     func setupMapView(_ mapView: MKMapView) {
         adapter.setupMapView(mapView)
     }

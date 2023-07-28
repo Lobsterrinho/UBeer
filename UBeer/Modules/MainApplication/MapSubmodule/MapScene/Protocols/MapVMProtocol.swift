@@ -14,4 +14,5 @@ protocol MapVMProtocol {
     func loadCheckIns()
     func openAddNewCheckInScene()
     func getCurrentPosition()
+    func centerMapOnUser()
 }

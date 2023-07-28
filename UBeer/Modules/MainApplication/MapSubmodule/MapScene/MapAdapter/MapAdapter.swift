@@ -54,7 +54,7 @@ final class MapAdapter: NSObject, MapAdapterProtocol {
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager?.requestWhenInUseAuthorization()
-        locationManager?.startUpdatingLocation()
+//        locationManager?.startUpdatingLocation()
     }
     
     func setupAdapterActionDelegate(_ delegate: MapAdapterActionDelegate) {
@@ -66,6 +66,10 @@ final class MapAdapter: NSObject, MapAdapterProtocol {
             return locationManager.authorizationStatus
         }
         return .notDetermined
+    }
+    
+    func centerMapOnUser() {
+        locationManager?.startUpdatingLocation()
     }
     
     private func setupUsersPins() {
@@ -103,7 +107,7 @@ extension MapAdapter: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-//            locationManager?.stopUpdatingLocation()
+            locationManager?.stopUpdatingLocation()
             render(location)
         }
     }

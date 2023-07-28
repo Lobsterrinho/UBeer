@@ -11,13 +11,12 @@ import MapKit
 final class MapVC: UIViewController {
     
     private enum Consts {
-        static let createCheckIcon: String = "beerMapIcon"
+        static let createCheckIcon: String = "location.fill"
     }
     
     private weak var mapView: MKMapView!
-    
-    //Button to open form with fields where user can indicate some info about his current rest and pin the place for whole users in real time
     private weak var beerButton: UIButton!
+    private weak var createCheckInButton: UIButton!
     
     private var viewModel: MapVMProtocol
     
@@ -70,12 +69,20 @@ final class MapVC: UIViewController {
     
     private func setupSelectors() {
         beerButton.addTarget(self,
-                             action: #selector(createNewCheckInt),
+                             action: #selector(centerMapOnUser),
                              for: .touchUpInside)
+        
+        createCheckInButton.addTarget(self,
+                                      action: #selector(createNewCheckInt),
+                                      for: .touchUpInside)
     }
     
     @objc private func createNewCheckInt() {
         viewModel.openAddNewCheckInScene()
+    }
+    
+    @objc private func centerMapOnUser() {
+        viewModel.centerMapOnUser()
     }
     
     private func setupViewsAndConstraints() {
@@ -84,6 +91,9 @@ final class MapVC: UIViewController {
         
         setupBeerButton()
         setupBeerButtonConstraints()
+        
+        setupCreateCheckInButton()
+        setupCreateCheckInButtonConstraints()
     }
     
     private func setupMapView() {
@@ -94,13 +104,22 @@ final class MapVC: UIViewController {
     }
     
     private func setupBeerButton() {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = .white.withAlphaComponent(0.7)
-        let image = UIImage.makeScaledImage(imageName: Consts.createCheckIcon, scale: 1.2)
+        let image = UIImage.makeScaledImage(imageName: Consts.createCheckIcon,
+                                            scale: 1.2)
         button.setImage(image, for: .normal)
+        button.tintColor = .black
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
         self.beerButton = button
+    }
+    
+    private func setupCreateCheckInButton() {
+        let button = RegularButton("Create check in")
+        button.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(button)
+        self.createCheckInButton = button
     }
     
     private func setupMapViewConstraints() {
@@ -118,8 +137,20 @@ final class MapVC: UIViewController {
                                                  constant: -20.0),
             beerButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
                                                constant: -30.0),
-            beerButton.widthAnchor.constraint(equalToConstant: 60.0),
-            beerButton.heightAnchor.constraint(equalToConstant: 60.0)
+            beerButton.widthAnchor.constraint(equalToConstant: 50.0),
+            beerButton.heightAnchor.constraint(equalToConstant: 50.0)
+        ])
+    }
+    
+    private func setupCreateCheckInButtonConstraints() {
+        NSLayoutConstraint.activate([
+            createCheckInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                 constant: 20.0),
+            createCheckInButton.trailingAnchor.constraint(equalTo: beerButton.leadingAnchor,
+                                                 constant: -20),
+            createCheckInButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                               constant: -30.0),
+            createCheckInButton.heightAnchor.constraint(equalToConstant: 50.0)
         ])
     }
     

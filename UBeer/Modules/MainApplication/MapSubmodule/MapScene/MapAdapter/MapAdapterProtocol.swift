@@ -17,4 +17,5 @@ protocol MapAdapterProtocol {
     func setupLocationManager(_ locationManager: CLLocationManager)
     func setupAdapterActionDelegate(_ delegate: MapAdapterActionDelegate)
     func checkIfAvailable() -> CLAuthorizationStatus
+    func centerMapOnUser()
 }
