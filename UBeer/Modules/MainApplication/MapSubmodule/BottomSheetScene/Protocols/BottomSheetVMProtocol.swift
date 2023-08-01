@@ -9,5 +9,5 @@ import UIKit
 
 protocol BottomSheetVMProtocol {
     func setupTableView(_ tableView: UITableView)
-    func shouldMoveToParent(_ shouldMove: Bool)
+    func shouldDismissVC(_ shouldDismiss: Bool)
 }

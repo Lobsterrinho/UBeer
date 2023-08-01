@@ -14,45 +14,54 @@ final class BottomSheetVM: BottomSheetVMProtocol {
     private weak var coordinator: BottomSheetCoordinatorProtocol?
     private var adapter: BottomSheetAdapterProtocol
     
-    private var pinCoordinate: CLLocationCoordinate2D
     private var myCoordinate: CLLocationCoordinate2D
+    private var checkIn: CheckInModel?
     
     init(coordinator: BottomSheetCoordinatorProtocol,
          adapter: BottomSheetAdapterProtocol,
-         pinCoordinate: CLLocationCoordinate2D,
+         checkIn: CheckInModel?,
          myCoordinate: CLLocationCoordinate2D) {
         self.coordinator = coordinator
         self.adapter = adapter
-        self.pinCoordinate = pinCoordinate
+        self.checkIn = checkIn
         self.myCoordinate = myCoordinate
+        adapter.setupDelegate(self)
     }
     
     private func calculateDistance() -> CLLocationDistance {
+        guard let checkIn = checkIn else { return 0.0 }
         let myLocation = CLLocation(latitude: myCoordinate.latitude,
                                     longitude: myCoordinate.longitude)
-        let selectedPinLocation = CLLocation(latitude: pinCoordinate.latitude,
-                                             longitude: pinCoordinate.longitude)
+        let selectedPinLocation = CLLocation(latitude: checkIn.latitude,
+                                             longitude: checkIn.longitude)
         return myLocation.distance(from: selectedPinLocation)
         
     }
     
     func setupTableView(_ tableView: UITableView) {
         adapter.setupTableView(tableView)
-        setupSections()
+        setupCheckInValues()
     }
     
-    private func setupSections() {
-        
-        let sections: [BottomSheetSections] = [
-            .distance(MapPinInfo(distance: Distance(distanceToPin: calculateDistance(),
-                                                   image: UIImage(named: "beerMapIcon")!)))
-                                 
+    private func setupCheckInValues() {
+        guard let checkIn = checkIn else { return }
+        let checkInValues: [String] = [
+            "checkIn.image",
+            checkIn.numberOfPeople,
+            checkIn.wishes
         ]
-        adapter.setupSections(sections)
+        adapter.setupCheckInValuesAndDistance(checkInValues,
+                                              distance: calculateDistance())
     }
-    
-    func shouldMoveToParent(_ shouldMove: Bool) {
-        coordinator?.shouldMoveToParent(shouldMove)
+
+    func shouldDismissVC(_ shouldDismiss: Bool) {
+        coordinator?.shouldDismissVC(shouldDismiss)
     }
+}
+
+extension BottomSheetVM: BottomSheetHeaderDelegate {
     
+    func dismissButtonDidTap() {
+        shouldDismissVC(true)
+    }
 }

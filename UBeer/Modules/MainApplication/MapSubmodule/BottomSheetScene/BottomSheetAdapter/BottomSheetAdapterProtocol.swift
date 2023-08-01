@@ -7,8 +7,12 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 protocol BottomSheetAdapterProtocol {
     func setupTableView(_ tableView: UITableView)
-    func setupSections(_ sections: [BottomSheetSections])
+    func setupCheckInValuesAndDistance(_ checkInValues: [String],
+                                       distance: CLLocationDistance)
+    func setupDelegate(_ delegate: BottomSheetHeaderDelegate)
+    
 }

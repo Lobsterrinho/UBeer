@@ -45,15 +45,15 @@ extension MapCoordinator: MapCoordinatorProtocol {
         navigationController.present(alertController, animated: true)
     }
     
-    func openBottomSheet(pinCoordinate: CLLocationCoordinate2D,
-                         myCoordinate: CLLocationCoordinate2D) {
+    func openBottomSheet(checkIn: CheckInModel?,
+                         myLocation: CLLocationCoordinate2D) {
         let bottomSheetCoordinator = BottomSheetCoordinator(
             navigationController: navigationController,
             rootCoordinator: self
         )
         childCoordinators.append(bottomSheetCoordinator)
-        bottomSheetCoordinator.start(pinCoordinate: pinCoordinate,
-                                     myCoordinate: myCoordinate)
+        bottomSheetCoordinator.start(checkIn: checkIn,
+                                     myCoordinate: myLocation)
     }
     
     func openNewCheckInScene(myCoordinate: CLLocationCoordinate2D) {

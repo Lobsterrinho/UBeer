@@ -26,14 +26,17 @@ final class BottomSheetCoordinator: Coordinator {
         assert(false, "Should be open with coordinates, please use start(pinCoordinate: _, myCoordinate: _)")
     }
     
-    func start(pinCoordinate: CLLocationCoordinate2D,
+    func start(checkIn: CheckInModel?,
                myCoordinate: CLLocationCoordinate2D) {
         let viewController = BottomSheetAssembler.makeBottomSheetVC(
             coordinator: self,
-            pinCoordinate: pinCoordinate,
+            checkIn: checkIn,
             myCoordinate: myCoordinate
         )
-        setupBottomSheet(for: viewController)
+        if let sheet = viewController.sheetPresentationController {
+            sheet.prefersGrabberVisible = true
+            sheet.detents = [.medium(), .large()]
+        }
         navigationController.present(viewController, animated: true)
     }
     
@@ -41,35 +44,12 @@ final class BottomSheetCoordinator: Coordinator {
         rootCoordinator.bottomSheetSceneDidFinished(self)
     }
     
-    private func setupBottomSheet(for viewController: UIViewController) {
-
-        if let sheet = viewController.sheetPresentationController {
-            sheet.prefersGrabberVisible = true
-            sheet.largestUndimmedDetentIdentifier = .some(UISheetPresentationController.Detent.Identifier(rawValue: "customMedium"))
-            if #available(iOS 16.0, *) {
-                sheet.detents = [
-                    .custom(identifier: UISheetPresentationController.Detent.Identifier.init("customMedium"),
-                            resolver: { context in
-                                0.3 * context.maximumDetentValue
-                            }),
-                    .custom(resolver: { context in
-                        49.0
-                    }),
-                    .large()
-                ]
-            } else {
-                sheet.detents = [.medium(), .large()]
-            }
-        }
-    }
-    
-    
 }
 
 extension BottomSheetCoordinator: BottomSheetCoordinatorProtocol {
     
-    func shouldMoveToParent(_ shouldMove: Bool) {
-        if shouldMove {
+    func shouldDismissVC(_ shoulDismiss: Bool) {
+        if shoulDismiss {
             navigationController.dismiss(animated: true)
         }
         finish()

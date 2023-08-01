@@ -9,5 +9,5 @@ import Foundation
 
 protocol BottomSheetCoordinatorProtocol: AnyObject {
     func finish()
-    func shouldMoveToParent(_ shouldMove: Bool)
+    func shouldDismissVC(_ shouldDismiss: Bool)
 }

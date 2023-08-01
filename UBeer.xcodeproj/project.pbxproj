@@ -14,9 +14,7 @@
 		BA0E02DC29F3EF4E00E64764 /* MapAdapterActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02DB29F3EF4E00E64764 /* MapAdapterActionDelegate.swift */; };
 		BA0E02DF29F3F4AC00E64764 /* BottomSheetAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02DE29F3F4AC00E64764 /* BottomSheetAdapter.swift */; };
 		BA0E02E129F3F4F700E64764 /* BottomSheetAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02E029F3F4F700E64764 /* BottomSheetAdapterProtocol.swift */; };
-		BA0E02E729F53D9C00E64764 /* DistanceTableCellPrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02E629F53D9C00E64764 /* DistanceTableCellPrototype.swift */; };
-		BA0E02EB29F53EBC00E64764 /* MapPinInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02EA29F53EBC00E64764 /* MapPinInfo.swift */; };
-		BA0E02ED29F5415E00E64764 /* BottomSheetSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02EC29F5415E00E64764 /* BottomSheetSections.swift */; };
+		BA0E02E729F53D9C00E64764 /* BottomSheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E02E629F53D9C00E64764 /* BottomSheetTableViewCell.swift */; };
 		BA1BBBDE29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBDD29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift */; };
 		BA1BBBE229B2A14B00E8936C /* ForgotPasswordVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBE129B2A14B00E8936C /* ForgotPasswordVMProtocol.swift */; };
 		BA1BBBE429B2A23500E8936C /* ForgotPasswordCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BBBE329B2A23500E8936C /* ForgotPasswordCoordinatorProtocol.swift */; };
@@ -36,6 +34,8 @@
 		BA54850529E457950052B9C9 /* RealtimeDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54850429E457950052B9C9 /* RealtimeDatabaseService.swift */; };
 		BA54850729E4593F0052B9C9 /* CreateCheckInRealtimeDBServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54850629E4593F0052B9C9 /* CreateCheckInRealtimeDBServiceProtocol.swift */; };
 		BA54850B29E5F0EF0052B9C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA54850A29E5F0EF0052B9C9 /* GoogleService-Info.plist */; };
+		BA578B072A74653E00FC42E3 /* BottomSheetHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA578B062A74653D00FC42E3 /* BottomSheetHeaderView.swift */; };
+		BA578B092A7924AB00FC42E3 /* BottomSheetHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA578B082A7924AB00FC42E3 /* BottomSheetHeaderDelegate.swift */; };
 		BA5D93852A1D3B4800FF5EB4 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D93842A1D3B4800FF5EB4 /* Container.swift */; };
 		BA5D93872A1D3B6C00FF5EB4 /* ServiceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D93862A1D3B6C00FF5EB4 /* ServiceConfiguration.swift */; };
 		BA641B5E29F33191003DA239 /* BottomSheetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA641B5D29F33191003DA239 /* BottomSheetCoordinator.swift */; };
@@ -154,9 +154,7 @@
 		BA0E02DB29F3EF4E00E64764 /* MapAdapterActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAdapterActionDelegate.swift; sourceTree = "<group>"; };
 		BA0E02DE29F3F4AC00E64764 /* BottomSheetAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetAdapter.swift; sourceTree = "<group>"; };
 		BA0E02E029F3F4F700E64764 /* BottomSheetAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetAdapterProtocol.swift; sourceTree = "<group>"; };
-		BA0E02E629F53D9C00E64764 /* DistanceTableCellPrototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceTableCellPrototype.swift; sourceTree = "<group>"; };
-		BA0E02EA29F53EBC00E64764 /* MapPinInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinInfo.swift; sourceTree = "<group>"; };
-		BA0E02EC29F5415E00E64764 /* BottomSheetSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetSections.swift; sourceTree = "<group>"; };
+		BA0E02E629F53D9C00E64764 /* BottomSheetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetTableViewCell.swift; sourceTree = "<group>"; };
 		BA1BBBDD29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordAuthorizationServiceProtocol.swift; sourceTree = "<group>"; };
 		BA1BBBE129B2A14B00E8936C /* ForgotPasswordVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVMProtocol.swift; sourceTree = "<group>"; };
 		BA1BBBE329B2A23500E8936C /* ForgotPasswordCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCoordinatorProtocol.swift; sourceTree = "<group>"; };
@@ -176,6 +174,8 @@
 		BA54850429E457950052B9C9 /* RealtimeDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDatabaseService.swift; sourceTree = "<group>"; };
 		BA54850629E4593F0052B9C9 /* CreateCheckInRealtimeDBServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCheckInRealtimeDBServiceProtocol.swift; sourceTree = "<group>"; };
 		BA54850A29E5F0EF0052B9C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BA578B062A74653D00FC42E3 /* BottomSheetHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetHeaderView.swift; sourceTree = "<group>"; };
+		BA578B082A7924AB00FC42E3 /* BottomSheetHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetHeaderDelegate.swift; sourceTree = "<group>"; };
 		BA5D93842A1D3B4800FF5EB4 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		BA5D93862A1D3B6C00FF5EB4 /* ServiceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConfiguration.swift; sourceTree = "<group>"; };
 		BA641B5D29F33191003DA239 /* BottomSheetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCoordinator.swift; sourceTree = "<group>"; };
@@ -347,9 +347,9 @@
 		BA0E02E529F5373800E64764 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				BA0E02E629F53D9C00E64764 /* DistanceTableCellPrototype.swift */,
-				BA0E02EA29F53EBC00E64764 /* MapPinInfo.swift */,
-				BA0E02EC29F5415E00E64764 /* BottomSheetSections.swift */,
+				BA0E02E629F53D9C00E64764 /* BottomSheetTableViewCell.swift */,
+				BA578B062A74653D00FC42E3 /* BottomSheetHeaderView.swift */,
+				BA578B082A7924AB00FC42E3 /* BottomSheetHeaderDelegate.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1045,7 +1045,7 @@
 				BA7D584429F5CB900061DEB8 /* CheckInItems.swift in Sources */,
 				BA641B6B29F331FB003DA239 /* BottomSheetVMProtocol.swift in Sources */,
 				BA88241829D0299700E2EDBD /* OnboardingAdapterPageDelegate.swift in Sources */,
-				BA0E02ED29F5415E00E64764 /* BottomSheetSections.swift in Sources */,
+				BA578B092A7924AB00FC42E3 /* BottomSheetHeaderDelegate.swift in Sources */,
 				BA9DE7F529C832BA001A266B /* OnboardingPageList.swift in Sources */,
 				BA9DE7E629C5F3D8001A266B /* OnboardingVM.swift in Sources */,
 				BA5D93872A1D3B6C00FF5EB4 /* ServiceConfiguration.swift in Sources */,
@@ -1099,7 +1099,7 @@
 				BA1BBBFA29BE4BA000E8936C /* RegisterVMDelegate.swift in Sources */,
 				BAADCD6A29D6E765003B8821 /* TabBarAssembler.swift in Sources */,
 				BA7D584229F5CB800061DEB8 /* CheckInSections.swift in Sources */,
-				BA0E02E729F53D9C00E64764 /* DistanceTableCellPrototype.swift in Sources */,
+				BA0E02E729F53D9C00E64764 /* BottomSheetTableViewCell.swift in Sources */,
 				BA6E061429AFE38200549E60 /* RegisterRootCoordinatorProtocol.swift in Sources */,
 				BAA795C029B29812007BCD03 /* ForgotPasswordAssembler.swift in Sources */,
 				BA8F4BDE29ABF66C00C68B78 /* SceneDelegate.swift in Sources */,
@@ -1109,7 +1109,6 @@
 				BAA795BC29B29802007BCD03 /* ForgotPasswordVM.swift in Sources */,
 				BA88241629D0291800E2EDBD /* OnboardingVMDelegate.swift in Sources */,
 				BA6E05E129ADF20C00549E60 /* LoginAssembler.swift in Sources */,
-				BA0E02EB29F53EBC00E64764 /* MapPinInfo.swift in Sources */,
 				BAADCD6229D4538E003B8821 /* LoginVMDelegate.swift in Sources */,
 				BA9DE7F829C872D8001A266B /* OnboardingAdapter.swift in Sources */,
 				BAA795BA29B297FC007BCD03 /* ForgotPasswordVC.swift in Sources */,
@@ -1134,6 +1133,7 @@
 				BA9DE7E429C5F3D0001A266B /* OnboardingPageVC.swift in Sources */,
 				BA1BBBE429B2A23500E8936C /* ForgotPasswordCoordinatorProtocol.swift in Sources */,
 				BA7D583D29F5C9FE0061DEB8 /* CheckInAdapter.swift in Sources */,
+				BA578B072A74653E00FC42E3 /* BottomSheetHeaderView.swift in Sources */,
 				BA9DE80229CCE982001A266B /* ProfileCoordinator.swift in Sources */,
 				BA6E05EE29AE1E2F00549E60 /* LoginCoordinatorProtocol.swift in Sources */,
 				BA1BBBDE29B2A0B800E8936C /* ForgotPasswordAuthorizationServiceProtocol.swift in Sources */,

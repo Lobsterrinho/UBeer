@@ -15,23 +15,23 @@ final class BottomSheetAssembler {
     
     static func makeBottomSheetVC(
         coordinator: BottomSheetCoordinatorProtocol,
-        pinCoordinate: CLLocationCoordinate2D,
+        checkIn: CheckInModel?,
         myCoordinate: CLLocationCoordinate2D
-    ) -> UITableViewController {
+    ) -> UIViewController {
         let viewModel = makeViewModel(coordinator: coordinator,
-                                      pinCoordinate: pinCoordinate,
+                                      checkIn: checkIn,
                                       myCoordinate: myCoordinate)
         return BottomSheetVC(viewModel: viewModel)
     }
     
     private static func makeViewModel(
         coordinator: BottomSheetCoordinatorProtocol,
-        pinCoordinate: CLLocationCoordinate2D,
+        checkIn: CheckInModel?,
         myCoordinate: CLLocationCoordinate2D
     ) -> BottomSheetVMProtocol {
         return BottomSheetVM(coordinator: coordinator,
                              adapter: makeAdapter(),
-                             pinCoordinate: pinCoordinate,
+                             checkIn: checkIn,
                              myCoordinate: myCoordinate)
     }
     

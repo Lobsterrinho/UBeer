@@ -12,8 +12,7 @@ protocol MapCoordinatorProtocol: AnyObject {
     
     func presentAlert(_ alertController: UIAlertController)
     func finish()
-    func openBottomSheet(pinCoordinate: CLLocationCoordinate2D,
-                         myCoordinate: CLLocationCoordinate2D)
-    
+    func openBottomSheet(checkIn: CheckInModel?,
+                         myLocation: CLLocationCoordinate2D)
     func openNewCheckInScene(myCoordinate: CLLocationCoordinate2D)
 }

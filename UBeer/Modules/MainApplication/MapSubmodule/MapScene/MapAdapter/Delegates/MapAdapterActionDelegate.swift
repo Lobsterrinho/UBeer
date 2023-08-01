@@ -9,6 +9,6 @@ import UIKit
 import CoreLocation
 
 protocol MapAdapterActionDelegate: AnyObject {
-    func didSelect(coordinate: CLLocationCoordinate2D,
+    func didSelect(checkIn: CheckInModel?,
                    myLocation: CLLocationCoordinate2D)
 }

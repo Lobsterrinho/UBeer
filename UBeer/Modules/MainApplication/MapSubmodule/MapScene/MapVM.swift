@@ -96,9 +96,9 @@ final class MapVM: MapVMProtocol {
 
 extension MapVM: MapAdapterActionDelegate {
     
-    func didSelect(coordinate: CLLocationCoordinate2D,
+    func didSelect(checkIn: CheckInModel?,
                    myLocation: CLLocationCoordinate2D) {
-        coordinator.openBottomSheet(pinCoordinate: coordinate,
-                                    myCoordinate: myLocation)
+        coordinator.openBottomSheet(checkIn: checkIn,
+                                    myLocation: myLocation)
     }
 }

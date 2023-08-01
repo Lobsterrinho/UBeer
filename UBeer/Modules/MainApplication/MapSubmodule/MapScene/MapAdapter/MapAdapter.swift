@@ -10,9 +10,6 @@ import Foundation
 import CoreLocation
 import MapKit
 
-protocol MapAdapterDelegate {
-}
-
 final class MapAdapter: NSObject, MapAdapterProtocol {
     
     private weak var mapView: MKMapView?
@@ -21,7 +18,6 @@ final class MapAdapter: NSObject, MapAdapterProtocol {
     private var checkInsArray: [CheckInModel]?
     
     private weak var actionDelegate: MapAdapterActionDelegate?
-    
     
     lazy var myLocation: MKPointAnnotation = {
         let pin = MKPointAnnotation()
@@ -54,7 +50,7 @@ final class MapAdapter: NSObject, MapAdapterProtocol {
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager?.requestWhenInUseAuthorization()
-//        locationManager?.startUpdatingLocation()
+        locationManager?.startUpdatingLocation()
     }
     
     func setupAdapterActionDelegate(_ delegate: MapAdapterActionDelegate) {
@@ -69,7 +65,7 @@ final class MapAdapter: NSObject, MapAdapterProtocol {
     }
     
     func centerMapOnUser() {
-        locationManager?.startUpdatingLocation()
+        render(coordinate: myLocation.coordinate, isMyLocation: true)
     }
     
     private func setupUsersPins() {
@@ -85,15 +81,21 @@ final class MapAdapter: NSObject, MapAdapterProtocol {
         mapView?.addAnnotations(annotationsArray)
     }
     
-    private func render(_ location: CLLocation) {
-        let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
-                                                longitude: location.coordinate.longitude)
+    private func render(coordinate: CLLocationCoordinate2D, isMyLocation: Bool) {
+        var coordinates = CLLocationCoordinate2D()
+        // If true, then the map will be centered by center of the display, if false, then the map pin will be sentered by given free space after presenting medium detent of bottom sheet
+        if isMyLocation {
+            coordinates = CLLocationCoordinate2D(latitude: coordinate.latitude,
+                                                longitude: coordinate.longitude)
+        } else {
+            coordinates = CLLocationCoordinate2D(latitude: coordinate.latitude - 0.0012,
+                                                    longitude: coordinate.longitude)
+        }
         let span = MKCoordinateSpan(latitudeDelta: 0.004,
                                     longitudeDelta: 0.004)
-        let region = MKCoordinateRegion(center: coordinate,
+        let region = MKCoordinateRegion(center: coordinates,
                                         span: span)
         mapView?.setRegion(region, animated: true)
-        setupMapPin(coordinate)
     }
     
     private func setupMapPin(_ coordinate: CLLocationCoordinate2D) {
@@ -107,8 +109,11 @@ extension MapAdapter: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
+            
+            let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
+                                                    longitude: location.coordinate.longitude)
+            setupMapPin(coordinate)
             locationManager?.stopUpdatingLocation()
-            render(location)
         }
     }
 }
@@ -132,12 +137,24 @@ extension MapAdapter: MKMapViewDelegate {
         }
     }
     
-    func mapView(_ mapView: MKMapView,
-                 didSelect annotation: MKAnnotation) {
-        let coordinate = annotation.coordinate
-        actionDelegate?.didSelect(coordinate: coordinate,
-                                  myLocation: myLocation.coordinate)
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let coordinate = view.annotation?.coordinate else { return }
+        if (coordinate.latitude != myLocation.coordinate.latitude) && (coordinate.longitude != myLocation.coordinate.longitude) {
+            render(coordinate: coordinate, isMyLocation: false)
+            actionDelegate?.didSelect(checkIn: smth(coordinate),
+                                      myLocation: myLocation.coordinate)
+        }
+        mapView.deselectAnnotation(view.annotation, animated: false)
     }
     
+    func smth(_ coordinate: CLLocationCoordinate2D) -> CheckInModel? {
+        for checkIn in checkInsArray ?? [] {
+            if checkIn.latitude == coordinate.latitude &&
+                checkIn.longitude == coordinate.longitude {
+                return checkIn
+            }
+        }
+        return nil
+    }
     
 }

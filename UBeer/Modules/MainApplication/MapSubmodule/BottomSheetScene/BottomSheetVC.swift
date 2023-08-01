@@ -23,15 +23,11 @@ final class BottomSheetVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
         viewModel.setupTableView(self.tableView)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        if isMovingFromParent {
-            viewModel.shouldMoveToParent(true)
-        }
+            viewModel.shouldDismissVC(true)
     }
-    
 }
