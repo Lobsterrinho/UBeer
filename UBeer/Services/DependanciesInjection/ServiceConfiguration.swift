@@ -15,14 +15,19 @@ final class ServiceConfiguration {
         container.register({ Self.authorizationService })
         container.register({ Self.alertFactory })
         container.register({ Self.realtimeDatabase })
+        container.register({ Self.imageDownloadService })
     }
 }
+
 
 protocol AuthorizationServiceProtocol: AnyObject, LoginAuthorizationServiceProtocol & RegisterAuthorizationServiceProtocol & ForgotPasswordAuthorizationServiceProtocol & SettingsAuthorizationServiceProtocol { }
 
 protocol RealtimeDatabaseServiceProtocol: AnyObject, CreateCheckInRealtimeDBServiceProtocol & LoadCheckInsRealtimeDBServiceProtocol { }
 
 protocol AlertFactoryProtocol: AnyObject, AlertControllerFactoryProtocol { }
+
+protocol DIImageDownloadServiceProtocol: AnyObject, ImageDownloadServiceProtocol { }
+
 
 private extension ServiceConfiguration {
     
@@ -36,5 +41,9 @@ private extension ServiceConfiguration {
     
     static var realtimeDatabase: RealtimeDatabaseServiceProtocol {
         return RealtimeDatabaseService()
+    }
+    
+    static var imageDownloadService: DIImageDownloadServiceProtocol {
+        return ImageDowloadService()
     }
 }

@@ -36,6 +36,10 @@
 		BA54850B29E5F0EF0052B9C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA54850A29E5F0EF0052B9C9 /* GoogleService-Info.plist */; };
 		BA578B072A74653E00FC42E3 /* BottomSheetHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA578B062A74653D00FC42E3 /* BottomSheetHeaderView.swift */; };
 		BA578B092A7924AB00FC42E3 /* BottomSheetHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA578B082A7924AB00FC42E3 /* BottomSheetHeaderDelegate.swift */; };
+		BA578B0C2A792E1C00FC42E3 /* ImageDowloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA578B0B2A792E1C00FC42E3 /* ImageDowloadService.swift */; };
+		BA578B0F2A792E3500FC42E3 /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA578B0E2A792E3500FC42E3 /* ImageCacheService.swift */; };
+		BA578B112A79B39C00FC42E3 /* ImageBottomSheetTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA578B102A79B39C00FC42E3 /* ImageBottomSheetTableCell.swift */; };
+		BA578B132A7A7CC900FC42E3 /* ImageDownloadServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA578B122A7A7CC900FC42E3 /* ImageDownloadServiceProtocol.swift */; };
 		BA5D93852A1D3B4800FF5EB4 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D93842A1D3B4800FF5EB4 /* Container.swift */; };
 		BA5D93872A1D3B6C00FF5EB4 /* ServiceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D93862A1D3B6C00FF5EB4 /* ServiceConfiguration.swift */; };
 		BA641B5E29F33191003DA239 /* BottomSheetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA641B5D29F33191003DA239 /* BottomSheetCoordinator.swift */; };
@@ -176,6 +180,10 @@
 		BA54850A29E5F0EF0052B9C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA578B062A74653D00FC42E3 /* BottomSheetHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetHeaderView.swift; sourceTree = "<group>"; };
 		BA578B082A7924AB00FC42E3 /* BottomSheetHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetHeaderDelegate.swift; sourceTree = "<group>"; };
+		BA578B0B2A792E1C00FC42E3 /* ImageDowloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDowloadService.swift; sourceTree = "<group>"; };
+		BA578B0E2A792E3500FC42E3 /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
+		BA578B102A79B39C00FC42E3 /* ImageBottomSheetTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBottomSheetTableCell.swift; sourceTree = "<group>"; };
+		BA578B122A7A7CC900FC42E3 /* ImageDownloadServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadServiceProtocol.swift; sourceTree = "<group>"; };
 		BA5D93842A1D3B4800FF5EB4 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		BA5D93862A1D3B6C00FF5EB4 /* ServiceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConfiguration.swift; sourceTree = "<group>"; };
 		BA641B5D29F33191003DA239 /* BottomSheetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCoordinator.swift; sourceTree = "<group>"; };
@@ -350,6 +358,7 @@
 				BA0E02E629F53D9C00E64764 /* BottomSheetTableViewCell.swift */,
 				BA578B062A74653D00FC42E3 /* BottomSheetHeaderView.swift */,
 				BA578B082A7924AB00FC42E3 /* BottomSheetHeaderDelegate.swift */,
+				BA578B102A79B39C00FC42E3 /* ImageBottomSheetTableCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -401,6 +410,23 @@
 				BA32834629D9DF1F0051C994 /* SettingsTableViewCell.swift */,
 			);
 			path = SettingsTableViewCell;
+			sourceTree = "<group>";
+		};
+		BA578B0A2A792DFE00FC42E3 /* ImageDowloadService */ = {
+			isa = PBXGroup;
+			children = (
+				BA578B0B2A792E1C00FC42E3 /* ImageDowloadService.swift */,
+				BA578B122A7A7CC900FC42E3 /* ImageDownloadServiceProtocol.swift */,
+			);
+			path = ImageDowloadService;
+			sourceTree = "<group>";
+		};
+		BA578B0D2A792E2000FC42E3 /* ImageCacheService */ = {
+			isa = PBXGroup;
+			children = (
+				BA578B0E2A792E3500FC42E3 /* ImageCacheService.swift */,
+			);
+			path = ImageCacheService;
 			sourceTree = "<group>";
 		};
 		BA5D93832A1D3B1B00FF5EB4 /* DependanciesInjection */ = {
@@ -473,6 +499,8 @@
 			isa = PBXGroup;
 			children = (
 				BA5D93832A1D3B1B00FF5EB4 /* DependanciesInjection */,
+				BA578B0D2A792E2000FC42E3 /* ImageCacheService */,
+				BA578B0A2A792DFE00FC42E3 /* ImageDowloadService */,
 				BA6E05D329ADE4D900549E60 /* AuthorizationServices */,
 				BAD5E5C82A3DDDB600EA34F8 /* RealtimeDatabaseService */,
 				BA00A75E2A5DCFE500B58F9D /* FirebaseStorage */,
@@ -1018,6 +1046,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA578B0F2A792E3500FC42E3 /* ImageCacheService.swift in Sources */,
 				BAD5E5D42A3E12E900EA34F8 /* LottieAnimationAlertVC.swift in Sources */,
 				BA641B6929F331EB003DA239 /* BottomSheetRootCoordinatorProtocol.swift in Sources */,
 				BAADCD6E29D6E9D9003B8821 /* TabBarController.swift in Sources */,
@@ -1110,6 +1139,7 @@
 				BA88241629D0291800E2EDBD /* OnboardingVMDelegate.swift in Sources */,
 				BA6E05E129ADF20C00549E60 /* LoginAssembler.swift in Sources */,
 				BAADCD6229D4538E003B8821 /* LoginVMDelegate.swift in Sources */,
+				BA578B132A7A7CC900FC42E3 /* ImageDownloadServiceProtocol.swift in Sources */,
 				BA9DE7F829C872D8001A266B /* OnboardingAdapter.swift in Sources */,
 				BAA795BA29B297FC007BCD03 /* ForgotPasswordVC.swift in Sources */,
 				BA6E05EC29AE1D5600549E60 /* LoginAuthorizationProtocol.swift in Sources */,
@@ -1128,9 +1158,11 @@
 				BAD5E5CA2A3DDDF200EA34F8 /* DatabaseCurrentUserProtocol.swift in Sources */,
 				BA9DE7FB29C8731B001A266B /* OnboardingAdapterProtocol.swift in Sources */,
 				BADA9AC02A2E787F00C3DC10 /* DeleteButtonTableCellDelegate.swift in Sources */,
+				BA578B0C2A792E1C00FC42E3 /* ImageDowloadService.swift in Sources */,
 				BA88241029CDC36F00E2EDBD /* ProfileVMProtocol.swift in Sources */,
 				BAADCD7029D6EAEB003B8821 /* TabBarRootCoordinatorProtocol.swift in Sources */,
 				BA9DE7E429C5F3D0001A266B /* OnboardingPageVC.swift in Sources */,
+				BA578B112A79B39C00FC42E3 /* ImageBottomSheetTableCell.swift in Sources */,
 				BA1BBBE429B2A23500E8936C /* ForgotPasswordCoordinatorProtocol.swift in Sources */,
 				BA7D583D29F5C9FE0061DEB8 /* CheckInAdapter.swift in Sources */,
 				BA578B072A74653E00FC42E3 /* BottomSheetHeaderView.swift in Sources */,

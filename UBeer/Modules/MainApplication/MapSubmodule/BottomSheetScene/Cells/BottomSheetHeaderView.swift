@@ -12,7 +12,8 @@ import CoreLocation
 final class BottomSheetHeaderView: UITableViewHeaderFooterView {
     
     private enum Consts {
-        static let defaultSpace: CGFloat = 10
+        static let topAndBotSpace: CGFloat = 10
+        static let defaultSpace: CGFloat = 20
         static let iconWidthAndHeight: CGFloat = 40
         static let buttonWidthAndHeight: CGFloat = 30
         static let buttonCornerRadius: CGFloat = buttonWidthAndHeight / 2
@@ -69,6 +70,7 @@ final class BottomSheetHeaderView: UITableViewHeaderFooterView {
     
     private func setupIconImage() {
         let imageView = UIImageView()
+        imageView.tintColor = .black100
         imageView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(imageView)
         self.iconImage = imageView
@@ -101,13 +103,13 @@ final class BottomSheetHeaderView: UITableViewHeaderFooterView {
     private func setupIconImageConstraints() {
         NSLayoutConstraint.activate([
             iconImage.topAnchor.constraint(equalTo: self.topAnchor,
-                                           constant: Consts.defaultSpace),
+                                           constant: Consts.topAndBotSpace),
             iconImage.leadingAnchor.constraint(equalTo: self.leadingAnchor,
                                                constant: Consts.defaultSpace),
             iconImage.heightAnchor.constraint(equalToConstant: Consts.iconWidthAndHeight),
             iconImage.widthAnchor.constraint(equalToConstant: Consts.iconWidthAndHeight),
             iconImage.bottomAnchor.constraint(equalTo: self.bottomAnchor,
-                                              constant: -Consts.defaultSpace),
+                                              constant: -Consts.topAndBotSpace),
         ])
     }
     

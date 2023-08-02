@@ -13,13 +13,16 @@ final class BottomSheetCoordinator: Coordinator {
     
     private var navigationController: UINavigationController
     private var rootCoordinator: BottomSheetRootCoordinatorProtocol
+    private var container: Container
     
     var childCoordinators: [Coordinator] = []
     
     init(navigationController: UINavigationController,
-         rootCoordinator: BottomSheetRootCoordinatorProtocol) {
+         rootCoordinator: BottomSheetRootCoordinatorProtocol,
+         container: Container) {
         self.navigationController = navigationController
         self.rootCoordinator = rootCoordinator
+        self.container = container
     }
     
     func start() {
@@ -30,6 +33,7 @@ final class BottomSheetCoordinator: Coordinator {
                myCoordinate: CLLocationCoordinate2D) {
         let viewController = BottomSheetAssembler.makeBottomSheetVC(
             coordinator: self,
+            container: container,
             checkIn: checkIn,
             myCoordinate: myCoordinate
         )

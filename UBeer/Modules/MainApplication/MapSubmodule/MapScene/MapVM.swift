@@ -44,13 +44,15 @@ final class MapVM: MapVMProtocol {
                 guard let longitude = dict["longitude"] as? Double,
                       let latitude = dict["latitude"] as? Double,
                       let numberOfPeople = dict["numberOfPeople"] as? String,
-                      let wishes = dict["wishes"] as? String
+                      let wishes = dict["wishes"] as? String,
+                      let imageURL = dict["imageURL"] as? String
                 else { return }
                 checkInModelArray.append(
                     CheckInModel(longitude: longitude,
                                  latitude: latitude,
                                  numberOfPeople: numberOfPeople,
-                                 wishes: wishes))
+                                 wishes: wishes,
+                                 imageURL: imageURL))
             }
             self.adapter.setupUsersPins(checkInModelArray)
         }

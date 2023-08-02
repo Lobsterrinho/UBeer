@@ -23,6 +23,10 @@ final class BottomSheetVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.tableView.separatorInset = UIEdgeInsets(top: 0,
+//                                                     left: 14,
+//                                                     bottom: 0,
+//                                                     right: 0)
         viewModel.setupTableView(self.tableView)
     }
     
@@ -30,4 +34,5 @@ final class BottomSheetVC: UITableViewController {
         super.viewDidDisappear(animated)
             viewModel.shouldDismissVC(true)
     }
+    
 }

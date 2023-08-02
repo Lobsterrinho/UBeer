@@ -9,7 +9,7 @@ import UIKit
 
 extension UILabel {
     
-    func setupLabel(text: String, color: UIColor, fontName: UIFont) {
+    func setupLabel(text: String?, color: UIColor, fontName: UIFont) {
         self.text = text
         self.textColor = color
         self.font = fontName

@@ -14,15 +14,19 @@ final class BottomSheetVM: BottomSheetVMProtocol {
     private weak var coordinator: BottomSheetCoordinatorProtocol?
     private var adapter: BottomSheetAdapterProtocol
     
-    private var myCoordinate: CLLocationCoordinate2D
+    private let imageDowloadService: ImageDownloadServiceProtocol
+    
     private var checkIn: CheckInModel?
+    private var myCoordinate: CLLocationCoordinate2D
     
     init(coordinator: BottomSheetCoordinatorProtocol,
          adapter: BottomSheetAdapterProtocol,
+         imageDowloadService: ImageDownloadServiceProtocol,
          checkIn: CheckInModel?,
          myCoordinate: CLLocationCoordinate2D) {
         self.coordinator = coordinator
         self.adapter = adapter
+        self.imageDowloadService = imageDowloadService
         self.checkIn = checkIn
         self.myCoordinate = myCoordinate
         adapter.setupDelegate(self)
@@ -40,18 +44,31 @@ final class BottomSheetVM: BottomSheetVMProtocol {
     
     func setupTableView(_ tableView: UITableView) {
         adapter.setupTableView(tableView)
-        setupCheckInValues()
+        setupCheckInValues(checkIn: checkIn)
+        downloadImage()
     }
     
-    private func setupCheckInValues() {
+    private func setupCheckInValues(checkIn: CheckInModel?) {
         guard let checkIn = checkIn else { return }
-        let checkInValues: [String] = [
-            "checkIn.image",
-            checkIn.numberOfPeople,
-            checkIn.wishes
-        ]
-        adapter.setupCheckInValuesAndDistance(checkInValues,
+        adapter.setupCheckInValuesAndDistance(model: checkIn,
                                               distance: calculateDistance())
+    }
+    
+    func downloadImage() {
+        let imageURL = checkIn?.imageURL ?? ""
+        if imageURL != "" {
+            imageDowloadService.downloadImage(imageURL: imageURL) { [weak self] result in
+                switch result {
+                case .success(let downloadedImage):
+                    DispatchQueue.main.async {
+                        self?.checkIn?.image = downloadedImage
+                        self?.setupCheckInValues(checkIn: self?.checkIn)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 
     func shouldDismissVC(_ shouldDismiss: Bool) {

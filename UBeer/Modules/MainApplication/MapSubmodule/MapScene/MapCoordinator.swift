@@ -49,7 +49,8 @@ extension MapCoordinator: MapCoordinatorProtocol {
                          myLocation: CLLocationCoordinate2D) {
         let bottomSheetCoordinator = BottomSheetCoordinator(
             navigationController: navigationController,
-            rootCoordinator: self
+            rootCoordinator: self,
+            container: container
         )
         childCoordinators.append(bottomSheetCoordinator)
         bottomSheetCoordinator.start(checkIn: checkIn,

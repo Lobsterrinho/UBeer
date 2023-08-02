@@ -15,4 +15,5 @@ struct CheckInModel {
     var wishes: String
     var image: UIImage?
     var imageData: Data?
+    var imageURL: String?
 }

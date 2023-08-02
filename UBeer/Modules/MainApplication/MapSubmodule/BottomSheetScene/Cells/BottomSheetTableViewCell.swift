@@ -9,11 +9,19 @@ import UIKit
 
 final class BottomSheetTableViewCell: UITableViewCell {
     
-    private weak var titleLabel: UILabel!
-//    private weak var iconImageView: UIImageView!
+    private enum Consts {
+        static let defaultSpace: CGFloat = 20
+        static let topAndBotSpace: CGFloat = 10
+    }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    
+    
+    private weak var titleLabel: UILabel!
+    
+    override init(style: UITableViewCell.CellStyle,
+                  reuseIdentifier: String?) {
+        super.init(style: style,
+                   reuseIdentifier: reuseIdentifier)
         
         setupViewsAndConstraints()
     }
@@ -26,9 +34,6 @@ final class BottomSheetTableViewCell: UITableViewCell {
         
         backgroundColor = .white
         
-//        setupIconView()
-//        setupIconViewConstraints()
-//
         setupTitleLabel()
         setupTitleLabelConstraints()
     }
@@ -36,42 +41,26 @@ final class BottomSheetTableViewCell: UITableViewCell {
     func setup(checkInValue: String) {
         titleLabel.text = checkInValue
     }
-    
-//    private func setupIconView() {
-//        let iconImageView = UIImageView()
-//        iconImageView.translatesAutoresizingMaskIntoConstraints = false
-//        addSubview(iconImageView)
-//        self.iconImageView = iconImageView
-//    }
 
     private func setupTitleLabel() {
         let label = UILabel()
-        label.setupLabel(text: "Title",
+        label.setupLabel(text: nil,
                          color: .black100,
-                         fontName: .text)
+                         fontName: .subhead)
         addSubview(label)
         self.titleLabel = label
     }
     
-//    private func setupIconViewConstraints() {
-//        NSLayoutConstraint.activate([
-//            iconImageView.topAnchor.constraint(equalTo: self.topAnchor,
-//                                          constant: 9.0),
-//            iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor,
-//                                              constant: 14.0),
-//            iconImageView.widthAnchor.constraint(equalToConstant: 30.0),
-//            iconImageView.heightAnchor.constraint(equalToConstant: 30.0)
-//
-//       ])
-//    }
-    
     private func setupTitleLabelConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor,
-                                            constant: 9.0),
+                                            constant: Consts.topAndBotSpace),
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor,
-                                                constant: 14.0),
-            titleLabel.heightAnchor.constraint(equalToConstant: 30.0)
+                                                constant: Consts.defaultSpace),
+            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor,
+                                                 constant: -Consts.defaultSpace),
+            titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor,
+                                            constant: -Consts.topAndBotSpace)
         ])
     }
     

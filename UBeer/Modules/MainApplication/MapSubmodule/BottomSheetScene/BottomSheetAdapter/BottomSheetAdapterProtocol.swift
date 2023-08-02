@@ -11,7 +11,7 @@ import CoreLocation
 
 protocol BottomSheetAdapterProtocol {
     func setupTableView(_ tableView: UITableView)
-    func setupCheckInValuesAndDistance(_ checkInValues: [String],
+    func setupCheckInValuesAndDistance(model: CheckInModel,
                                        distance: CLLocationDistance)
     func setupDelegate(_ delegate: BottomSheetHeaderDelegate)
     

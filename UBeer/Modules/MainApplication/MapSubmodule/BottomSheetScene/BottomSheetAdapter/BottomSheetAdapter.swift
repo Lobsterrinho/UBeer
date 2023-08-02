@@ -12,25 +12,31 @@ import CoreLocation
 final class BottomSheetAdapter: NSObject, BottomSheetAdapterProtocol {
     
     private enum Consts {
-        static let headerIconName: String = "beerMapIcon"
+        static let headerIconName: String = "mappin.and.ellipse"
     }
     
     private weak var tableView: UITableView?
     
     private var distance: CLLocationDistance?
-    private var checkInValues: [String] = []
+    private var checkInValues: [String?] = []
+    
+    private var checkIn: CheckInModel?
     
     private weak var delegate: BottomSheetHeaderDelegate?
+    
+    
+    let array: [Rows] = [.image, .wishes, .numberOfPeople]
+    
     
     func setupTableView(_ tableView: UITableView) {
         self.tableView = tableView
         setupTableView()
     }
     
-    func setupCheckInValuesAndDistance(_ checkInValues: [String],
-                    distance: CLLocationDistance) {
-        self.checkInValues = checkInValues
+    func setupCheckInValuesAndDistance(model: CheckInModel,
+                                       distance: CLLocationDistance) {
         self.distance = distance
+        self.checkIn = model
         reloadData()
     }
     
@@ -44,15 +50,16 @@ final class BottomSheetAdapter: NSObject, BottomSheetAdapterProtocol {
     
     private func setupTableView() {
         registerCells()
-        tableView?.delegate = self
+        tableView?.allowsSelection = false
         tableView?.dataSource = self
-        
-        tableView?.rowHeight = 48.0
+        tableView?.delegate = self
     }
     
     private func registerCells() {
         tableView?.register(BottomSheetTableViewCell.self,
                             forCellReuseIdentifier: "\(BottomSheetTableViewCell.self)")
+        tableView?.register(ImageBottomSheetTableCell.self,
+                            forCellReuseIdentifier: "\(ImageBottomSheetTableCell.self)")
     }
 }
 
@@ -60,7 +67,10 @@ extension BottomSheetAdapter: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return checkInValues.count
+        if checkIn?.imageURL != "" {
+            return array.count
+        }
+        return array.count - 1
     }
     
     func tableView(_ tableView: UITableView,
@@ -70,7 +80,7 @@ extension BottomSheetAdapter: UITableViewDataSource {
         header.setupDelegate(delegate!)
         
         header.setup(distanceToPoint: distance,
-                      imageName: Consts.headerIconName)
+                     imageName: Consts.headerIconName)
         return header
     }
     
@@ -81,25 +91,37 @@ extension BottomSheetAdapter: UITableViewDataSource {
             for: indexPath
         ) as? BottomSheetTableViewCell
         
-        let value = checkInValues[indexPath.row]
+        let imageCell = tableView.dequeueReusableCell(
+            withIdentifier: "\(ImageBottomSheetTableCell.self)",
+            for: indexPath
+        ) as? ImageBottomSheetTableCell
         
-        cell?.setup(checkInValue: value)
+        let arr = array[indexPath.row]
+        guard let checkIn = checkIn else { return UITableViewCell() }
         
+        switch arr {
+        case .image:
+            if checkIn.imageURL != "" {
+                imageCell?.setup(checkIn.image ?? UIImage())
+                return imageCell ?? UITableViewCell()
+            }
+        case .numberOfPeople:
+            cell?.setup(checkInValue: checkIn.numberOfPeople)
+        case .wishes:
+            cell?.setup(checkInValue: checkIn.wishes)
+        }
         return cell ?? UITableViewCell()
     }
     
     
 }
 
-extension BottomSheetAdapter: UITableViewDelegate {
+extension BottomSheetAdapter: UITableViewDelegate { }
+
+enum Rows {
     
-
+    case image
+    case numberOfPeople
+    case wishes
+    
 }
-
-//extension BottomSheetAdapter: Delegate {
-//    func some() {
-//        print("Button did tapped")
-//    }
-//
-//
-//}
